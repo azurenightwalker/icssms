@@ -19,9 +19,11 @@ import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.QuickContactBadge;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
+import com.androidproductions.ics.sms.data.ContactHelper;
 import com.androidproductions.ics.sms.messaging.IMessage;
 import com.androidproductions.ics.sms.messaging.MessageUtilities;
 import com.androidproductions.ics.sms.utils.AddressUtilities;
@@ -163,9 +165,11 @@ public class SmsDialog extends ThemeableDialog  {
 		{
 			updateReplyTo();
 		}
-		((TextView)findViewById(R.id.sender)).setText(message.getContactName());
+        ContactHelper ch = new ContactHelper(this);
+		((TextView)findViewById(R.id.sender)).setText(ch.getContactName(message.getAddress()));
 		((TextView)findViewById(R.id.sender_number)).setText(AddressUtilities.StandardiseNumber(message.getAddress(),SmsDialog.this));
-		((ImageView)findViewById(R.id.sender_photo)).setImageBitmap(message.getContactPhoto());
+        ((QuickContactBadge)findViewById(R.id.sender_photo)).assignContactUri(ch.getContactUri());
+        ((ImageView)findViewById(R.id.sender_photo)).setImageBitmap(message.getContactPhoto());
         ((TextView)findViewById(R.id.messageContent)).setText(parser.addSmileySpans(message.getText()));
         ((TextView)findViewById(R.id.messageTime)).setText(message.GetShortDateString());
         findViewById(R.id.openConvo).setTag(message.getAddress());

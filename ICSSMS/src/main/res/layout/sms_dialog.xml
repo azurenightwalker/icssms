@@ -9,7 +9,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         >
-	    <ImageView
+	    <QuickContactBadge
 	        android:id="@+id/sender_photo"
 	        android:layout_width="65dip"
 	        android:layout_height="65dip"
