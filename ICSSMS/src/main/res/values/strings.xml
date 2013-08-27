@@ -54,7 +54,10 @@
     <string name="icon">Icon</string>
     <string name="shareString">Share using..</string>
     <string name="share">Share</string>
-    
+    <string name="notAllSent">Not all messages were successfully sent</string>
+    <string name="sendingFailed">Message sending failed</string>
+    <string name="quickReply">Quick Reply</string>
+    <string name="showMore">Show More</string>
     <!-- Preferences -->
     <string name="preferencesTitle">Preferences</string>
     

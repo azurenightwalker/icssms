@@ -5,12 +5,10 @@ import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
-import android.preference.PreferenceManager;
 import android.support.v4.app.NotificationCompat;
 import android.support.v4.app.NotificationCompat.BigTextStyle;
 import android.support.v4.app.NotificationCompat.Builder;
@@ -33,7 +31,6 @@ public class NotificationHelper {
 	
 	private final Context mContext;
 	private final NotificationManager mNotificationManager;
-	private final SharedPreferences mPrefs;
 	private PendingIntent contentIntent;
 	private List<IMessage> messages;
     private final ConfigurationHelper configurationHelper;
@@ -52,7 +49,6 @@ public class NotificationHelper {
 		mContext = context;
 		mNotificationManager = (NotificationManager) mContext.getSystemService(
 				Context.NOTIFICATION_SERVICE);
-		mPrefs = PreferenceManager.getDefaultSharedPreferences(mContext);
 		messages = new ArrayList<IMessage>();
         configurationHelper = ConfigurationHelper.getInstance(mContext);
 	}
@@ -63,18 +59,18 @@ public class NotificationHelper {
 
     private void notifyUnreadMessages(List<IMessage> smss) {
 		messages = smss;
-		if (mPrefs.getBoolean("Notification", true))
+		if (configurationHelper.getBooleanValue(ConfigurationHelper.NOTIFICATIONS_ENABLED))
 		{
 			if (smss.size() > 0)
 			{
 				mNotificationManager.notify(Constants.NOTIFICATION_ID, buildNotification(smss,
                         shouldAlertOnce(smss)));
-				mPrefs.edit().putBoolean(Constants.NOTIFICATION_SHOWING_KEY, true).apply();
+                configurationHelper.setBooleanValue(ConfigurationHelper.NOTIFICATION_SHOWING,true);
 			}
 			else
 			{
 				mNotificationManager.cancel(Constants.NOTIFICATION_ID);
-				mPrefs.edit().putBoolean(Constants.NOTIFICATION_SHOWING_KEY, false).apply();
+                configurationHelper.setBooleanValue(ConfigurationHelper.NOTIFICATION_SHOWING,false);
 			}
 		}
 	}
@@ -127,16 +123,18 @@ public class NotificationHelper {
 			                     + (numbers.size() > 2 ? "s" : "" );
 		
 		String tickerTitle = last.getContactName() + ": " + last.getText();
-		if (PreferenceManager.getDefaultSharedPreferences(mContext).getBoolean("PrivateNotifications", false))
+		if (configurationHelper.getBooleanValue(ConfigurationHelper.PRIVATE_NOTIFICATIONS))
 			tickerTitle = "New message from " + last.getContactName();
 		
 		final Intent multiIntent = new Intent(mContext, ICSSMSActivity_.class);
 		multiIntent.putExtra(Constants.NOTIFICATION_STATE_UPDATE, true);
 		multiIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
 		contentIntent = PendingIntent.getActivity(mContext, 0, multiIntent, PendingIntent.FLAG_CANCEL_CURRENT);
-		
-		int icon = mPrefs.getBoolean("AlternateIcon", false) ? R.drawable.stat_notify_sms : R.drawable.ic_launcher_sms;
-		Builder builder = buildBaseNotification(
+
+		int icon = configurationHelper.getBooleanValue(ConfigurationHelper.ALTERNATIVE_ICON) ?
+                R.drawable.stat_notify_sms : R.drawable.ic_launcher_sms;
+
+        Builder builder = buildBaseNotification(
 				contentText,
 				first.getContactName(),
 				tickerTitle,
@@ -147,7 +145,7 @@ public class NotificationHelper {
 				contentIntent,
 				alertOnce);
 		Intent dialogIntent;
-		if (PreferenceManager.getDefaultSharedPreferences(mContext).getString("DialogType","0").equals("2"))
+		if (configurationHelper.getStringValue(ConfigurationHelper.DIALOG_TYPE).equals("2"))
 			dialogIntent = new Intent(mContext, SmsNotify.class);
 		else
 			dialogIntent = new Intent(mContext, SmsDialog.class);
@@ -156,11 +154,13 @@ public class NotificationHelper {
 		dialogIntent.putExtra(Constants.SMS_TIME, last.getDate());
 		dialogIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);// |Intent.FLAG_ACTIVITY_SINGLE_TOP);
 		PendingIntent dialogpending = PendingIntent.getActivity(mContext, 0, dialogIntent, PendingIntent.FLAG_CANCEL_CURRENT);
-		
-		builder.addAction(R.drawable.ic_go, "Quick Reply", dialogpending);
+
+        String quickReply = mContext.getResources().getString(R.string.quickReply);
+        String showMore = mContext.getResources().getString(R.string.showMore);
+        builder.addAction(R.drawable.ic_go, quickReply, dialogpending);
 		Intent convoIntent = new Intent(mContext,ICSSMSActivity_.class);
 		PendingIntent convoOpen = PendingIntent.getActivity(mContext, 0, convoIntent, PendingIntent.FLAG_CANCEL_CURRENT);
-		builder.addAction(R.drawable.ic_go, "Show More", convoOpen);
+		builder.addAction(R.drawable.ic_go, showMore, convoOpen);
 		// Messages from more than 1 person
 		// Inbox style
 		int i = 0;
@@ -196,7 +196,7 @@ public class NotificationHelper {
 		String name = sms.getContactName();
 		String tickerTitle = name + ": " + sms.getText();
 		String contentText = sms.getText();
-		if (PreferenceManager.getDefaultSharedPreferences(mContext).getBoolean("PrivateNotifications", false)) {
+		if (configurationHelper.getBooleanValue(ConfigurationHelper.PRIVATE_NOTIFICATIONS)) {
 			tickerTitle = "New message from " + name;
 			contentText = "You have 1 new message";
 		}
@@ -204,8 +204,9 @@ public class NotificationHelper {
 		singleIntent.putExtra(Constants.SMS_RECEIVE_LOCATION, sms.getAddress());
 		singleIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
 		contentIntent = PendingIntent.getActivity(mContext, 0, singleIntent, PendingIntent.FLAG_CANCEL_CURRENT);
-		int icon = mPrefs.getBoolean("AlternateIcon", false) ? R.drawable.stat_notify_sms : R.drawable.ic_launcher_sms;
-		Builder builder = buildBaseNotification(
+        int icon = configurationHelper.getBooleanValue(ConfigurationHelper.ALTERNATIVE_ICON) ?
+                R.drawable.stat_notify_sms : R.drawable.ic_launcher_sms;
+        Builder builder = buildBaseNotification(
 				contentText,
                 name,
 				tickerTitle,
@@ -216,7 +217,7 @@ public class NotificationHelper {
 				contentIntent,
 				alertOnce);
 		Intent dialogIntent;
-		if (PreferenceManager.getDefaultSharedPreferences(mContext).getString("DialogType","0").equals("2"))
+		if (configurationHelper.getStringValue(ConfigurationHelper.DIALOG_TYPE).equals("2"))
 			dialogIntent = new Intent(mContext, SmsNotify.class);
 		else
 			dialogIntent = new Intent(mContext, SmsDialog.class);
@@ -225,9 +226,10 @@ public class NotificationHelper {
 		dialogIntent.putExtra(Constants.SMS_TIME, System.currentTimeMillis());
 		dialogIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);// |Intent.FLAG_ACTIVITY_SINGLE_TOP);
 		PendingIntent dialogpending = PendingIntent.getActivity(mContext, 0, dialogIntent, PendingIntent.FLAG_CANCEL_CURRENT);
-		
-		builder.addAction(R.drawable.ic_go, "Quick Reply", dialogpending);
-		builder.addAction(R.drawable.ic_go, "Open", contentIntent);
+        String open = mContext.getResources().getString(R.string.openConvo);
+        String quickReply = mContext.getResources().getString(R.string.quickReply);
+        builder.addAction(R.drawable.ic_go, quickReply, dialogpending);
+		builder.addAction(R.drawable.ic_go, open, contentIntent);
 		BigTextStyle big = new NotificationCompat.BigTextStyle(builder);
 		big.bigText(contentText);
 		return big.build();
@@ -248,13 +250,15 @@ public class NotificationHelper {
 			multiIntent.putExtra(Constants.NOTIFICATION_STATE_UPDATE, true);
 			multiIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
 			PendingIntent contentIntent = PendingIntent.getActivity(mContext, 0, multiIntent, PendingIntent.FLAG_CANCEL_CURRENT);
-	        @SuppressWarnings("deprecation")
+            String notAllSent = mContext.getResources().getString(R.string.notAllSent);
+            String sendingFailed = mContext.getResources().getString(R.string.sendingFailed);
+            @SuppressWarnings("deprecation")
 			Notification notify = builder.setAutoCancel(true)
-	        							 .setContentText("Not all messages were successfully sent.")
-							        	 .setContentTitle("Message sending failed")
+	        							 .setContentText(notAllSent)
+							        	 .setContentTitle(sendingFailed)
 							        	 .setDefaults(Notification.DEFAULT_ALL)
 								         .setSmallIcon(R.drawable.ic_launcher_sms)
-								         .setTicker("Not all messages were successfully sent")
+								         .setTicker(notAllSent)
 								         .setWhen(System.currentTimeMillis())
 								         .setContentIntent(contentIntent)
 								         .setLargeIcon(BitmapFactory.decodeResource(mContext.getResources(),android.R.drawable.ic_dialog_alert))
@@ -289,8 +293,8 @@ public class NotificationHelper {
         int defaults = Notification.DEFAULT_LIGHTS;
         if (configurationHelper.getBooleanValue(ConfigurationHelper.VIBRATION))
             defaults |= Notification.DEFAULT_VIBRATE;
-		String sound = mPrefs.getString("NotificationSound", "");
-		if (mPrefs.getBoolean("CustomSound", true) && !sound.equals(""))
+		String sound = configurationHelper.getStringValue(ConfigurationHelper.NOTIFICATION_SOUND);
+		if (configurationHelper.getBooleanValue(ConfigurationHelper.CUSTOM_SOUND) && !sound.equals(""))
 			builder.setSound(Uri.parse(sound));
 		else
             defaults |= Notification.DEFAULT_SOUND;

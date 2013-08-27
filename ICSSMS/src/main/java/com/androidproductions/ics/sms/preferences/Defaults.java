@@ -29,6 +29,10 @@ class Defaults {
         boolean_constants.put(ConfigurationHelper.DISABLE_OTHER_NOTIFICATIONS, true);
         boolean_constants.put(ConfigurationHelper.SHOW_ADS, true);
         boolean_constants.put(ConfigurationHelper.VIBRATION, true);
+        boolean_constants.put(ConfigurationHelper.NOTIFICATION_SHOWING, false);
+        boolean_constants.put(ConfigurationHelper.ALTERNATIVE_ICON, false);
+        boolean_constants.put(ConfigurationHelper.CUSTOM_SOUND,true);
+        boolean_constants.put(ConfigurationHelper.PRIVATE_NOTIFICATIONS,false);
 		BOOLEAN_CONSTANTS = Collections.unmodifiableMap(boolean_constants);
 		
 	}
