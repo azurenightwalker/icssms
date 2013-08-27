@@ -293,6 +293,8 @@ public class NotificationHelper {
         int defaults = Notification.DEFAULT_LIGHTS;
         if (configurationHelper.getBooleanValue(ConfigurationHelper.VIBRATION))
             defaults |= Notification.DEFAULT_VIBRATE;
+        else
+            builder.setVibrate(new long[] {0L});
 		String sound = configurationHelper.getStringValue(ConfigurationHelper.NOTIFICATION_SOUND);
 		if (configurationHelper.getBooleanValue(ConfigurationHelper.CUSTOM_SOUND) && !sound.equals(""))
 			builder.setSound(Uri.parse(sound));

@@ -4,7 +4,7 @@
   <CheckBoxPreference android:summary="Dont display message text in notifications" android:defaultValue="false" android:key="PrivateNotifications" android:title="Privacy Mode"/>
   <CheckBoxPreference android:key="DisableOtherNotifications" android:title="Disable other notifications" android:summary="Disable all incoming sms notifications for other messaging apps" android:defaultValue="true"/>
   <CheckBoxPreference android:key="AlternateIcon" android:title="Use light icon for notifications" />
-  <CheckBoxPreference android:key="Vibration" android:title="Enable Vibration" />
+  <CheckBoxPreference android:key="Vibration" android:title="Enable Vibration" android:defaultValue="true"/>
   <CheckBoxPreference android:key="CustomSound" android:title="Use Custom Notification Sound" />
   <Preference android:key="NotificationSound" android:title="Notification Sound" android:dependency="CustomSound" />
     
