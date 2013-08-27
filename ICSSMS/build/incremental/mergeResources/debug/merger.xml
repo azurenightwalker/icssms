@@ -1,0 +1,1469 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merger>
+
+    <dataSet config="main" >
+        <source path="C:\Users\scott.jones\Dropbox\Android\ICSSMSProject\ICSSMS\src\main\res" >
+            <file
+                name="outleft"
+                path="C:\Users\scott.jones\Dropbox\Android\ICSSMSProject\ICSSMS\src\main\res\animator\outleft.xml"
+                qualifiers=""
+                type="animator" />
+            <file
+                name="outright"
+                path="C:\Users\scott.jones\Dropbox\Android\ICSSMSProject\ICSSMS\src\main\res\animator\outright.xml"
+                qualifiers=""
+                type="animator" />
+            <file
+                name="background"
+                path="C:\Users\scott.jones\Dropbox\Android\ICSSMSProject\ICSSMS\src\main\res\drawable\background.xml"
+                qualifiers=""
+                type="drawable" />
+            <file
+                name="button_selector"
+                path="C:\Users\scott.jones\Dropbox\Android\ICSSMSProject\ICSSMS\src\main\res\drawable\button_selector.xml"
+                qualifiers=""
+                type="drawable" />
+            <file
+                name="read_light_menu_selector"
+                path="C:\Users\scott.jones\Dropbox\Android\ICSSMSProject\ICSSMS\src\main\res\drawable\read_light_menu_selector.xml"
+                qualifiers=""
+                type="drawable" />
+            <file
+                name="read_menu_selector"
+                path="C:\Users\scott.jones\Dropbox\Android\ICSSMSProject\ICSSMS\src\main\res\drawable\read_menu_selector.xml"
+                qualifiers=""
+                type="drawable" />
+            <file
+                name="sms_light_menu_selector"
+                path="C:\Users\scott.jones\Dropbox\Android\ICSSMSProject\ICSSMS\src\main\res\drawable\sms_light_menu_selector.xml"
+                qualifiers=""
+                type="drawable" />
+            <file
+                name="sms_menu_selector"
+                path="C:\Users\scott.jones\Dropbox\Android\ICSSMSProject\ICSSMS\src\main\res\drawable\sms_menu_selector.xml"
+                qualifiers=""
+                type="drawable" />
+            <file
+                name="bkgd_tile_black"
+                path="C:\Users\scott.jones\Dropbox\Android\ICSSMSProject\ICSSMS\src\main\res\drawable-hdpi\bkgd_tile_black.png"
+                qualifiers="hdpi"
+                type="drawable" />
+            <file
+                name="divider_horizontal_dark_opaque"
+                path="C:\Users\scott.jones\Dropbox\Android\ICSSMSProject\ICSSMS\src\main\res\drawable-hdpi\divider_horizontal_dark_opaque.9.png"
+                qualifiers="hdpi"
+                type="drawable" />
+            <file
+                name="divider_horizontal_holo_light"
+                path="C:\Users\scott.jones\Dropbox\Android\ICSSMSProject\ICSSMS\src\main\res\drawable-hdpi\divider_horizontal_holo_light.9.png"
+                qualifiers="hdpi"
+                type="drawable" />
+            <file
+                name="emo_im_angel"
+                path="C:\Users\scott.jones\Dropbox\Android\ICSSMSProject\ICSSMS\src\main\res\drawable-hdpi\emo_im_angel.png"
+                qualifiers="hdpi"
+                type="drawable" />
+            <file
+                name="emo_im_cool"
+                path="C:\Users\scott.jones\Dropbox\Android\ICSSMSProject\ICSSMS\src\main\res\drawable-hdpi\emo_im_cool.png"
+                qualifiers="hdpi"
+                type="drawable" />
+            <file
+                name="emo_im_crying"
+                path="C:\Users\scott.jones\Dropbox\Android\ICSSMSProject\ICSSMS\src\main\res\drawable-hdpi\emo_im_crying.png"
+                qualifiers="hdpi"
+                type="drawable" />
+            <file
+                name="emo_im_embarrassed"
+                path="C:\Users\scott.jones\Dropbox\Android\ICSSMSProject\ICSSMS\src\main\res\drawable-hdpi\emo_im_embarrassed.png"
+                qualifiers="hdpi"
+                type="drawable" />
+            <file
+                name="emo_im_foot_in_mouth"
+                path="C:\Users\scott.jones\Dropbox\Android\ICSSMSProject\ICSSMS\src\main\res\drawable-hdpi\emo_im_foot_in_mouth.png"
+                qualifiers="hdpi"
+                type="drawable" />
+            <file
+                name="emo_im_happy"
+                path="C:\Users\scott.jones\Dropbox\Android\ICSSMSProject\ICSSMS\src\main\res\drawable-hdpi\emo_im_happy.png"
+                qualifiers="hdpi"
+                type="drawable" />
+            <file
+                name="emo_im_kissing"
+                path="C:\Users\scott.jones\Dropbox\Android\ICSSMSProject\ICSSMS\src\main\res\drawable-hdpi\emo_im_kissing.png"
+                qualifiers="hdpi"
+                type="drawable" />
+            <file
+                name="emo_im_laughing"
+                path="C:\Users\scott.jones\Dropbox\Android\ICSSMSProject\ICSSMS\src\main\res\drawable-hdpi\emo_im_laughing.png"
+                qualifiers="hdpi"
+                type="drawable" />
+            <file
+                name="emo_im_lips_are_sealed"
+                path="C:\Users\scott.jones\Dropbox\Android\ICSSMSProject\ICSSMS\src\main\res\drawable-hdpi\emo_im_lips_are_sealed.png"
+                qualifiers="hdpi"
+                type="drawable" />
+            <file
+                name="emo_im_money_mouth"
+                path="C:\Users\scott.jones\Dropbox\Android\ICSSMSProject\ICSSMS\src\main\res\drawable-hdpi\emo_im_money_mouth.png"
+                qualifiers="hdpi"
+                type="drawable" />
+            <file
+                name="emo_im_sad"
+                path="C:\Users\scott.jones\Dropbox\Android\ICSSMSProject\ICSSMS\src\main\res\drawable-hdpi\emo_im_sad.png"
+                qualifiers="hdpi"
+                type="drawable" />
+            <file
+                name="emo_im_surprised"
+                path="C:\Users\scott.jones\Dropbox\Android\ICSSMSProject\ICSSMS\src\main\res\drawable-hdpi\emo_im_surprised.png"
+                qualifiers="hdpi"
+                type="drawable" />
+            <file
+                name="emo_im_tongue_sticking_out"
+                path="C:\Users\scott.jones\Dropbox\Android\ICSSMSProject\ICSSMS\src\main\res\drawable-hdpi\emo_im_tongue_sticking_out.png"
+                qualifiers="hdpi"
+                type="drawable" />
+            <file
+                name="emo_im_undecided"
+                path="C:\Users\scott.jones\Dropbox\Android\ICSSMSProject\ICSSMS\src\main\res\drawable-hdpi\emo_im_undecided.png"
+                qualifiers="hdpi"
+                type="drawable" />
+            <file
+                name="emo_im_winking"
+                path="C:\Users\scott.jones\Dropbox\Android\ICSSMSProject\ICSSMS\src\main\res\drawable-hdpi\emo_im_winking.png"
+                qualifiers="hdpi"
+                type="drawable" />
+            <file
+                name="emo_im_wtf"
+                path="C:\Users\scott.jones\Dropbox\Android\ICSSMSProject\ICSSMS\src\main\res\drawable-hdpi\emo_im_wtf.png"
+                qualifiers="hdpi"
+                type="drawable" />
+            <file
+                name="emo_im_yelling"
+                path="C:\Users\scott.jones\Dropbox\Android\ICSSMSProject\ICSSMS\src\main\res\drawable-hdpi\emo_im_yelling.png"
+                qualifiers="hdpi"
+                type="drawable" />
+            <file
+                name="ic_contact_picture"
+                path="C:\Users\scott.jones\Dropbox\Android\ICSSMSProject\ICSSMS\src\main\res\drawable-hdpi\ic_contact_picture.png"
+                qualifiers="hdpi"
+                type="drawable" />
+            <file
+                name="ic_go"
+                path="C:\Users\scott.jones\Dropbox\Android\ICSSMSProject\ICSSMS\src\main\res\drawable-hdpi\ic_go.png"
+                qualifiers="hdpi"
+                type="drawable" />
+            <file
+                name="ic_launcher"
+                path="C:\Users\scott.jones\Dropbox\Android\ICSSMSProject\ICSSMS\src\main\res\drawable-hdpi\ic_launcher.png"
+                qualifiers="hdpi"
+                type="drawable" />
+            <file
+                name="ic_launcher_sms"
+                path="C:\Users\scott.jones\Dropbox\Android\ICSSMSProject\ICSSMS\src\main\res\drawable-hdpi\ic_launcher_sms.png"
+                qualifiers="hdpi"
+                type="drawable" />
+            <file
+                name="ic_menu_back"
+                path="C:\Users\scott.jones\Dropbox\Android\ICSSMSProject\ICSSMS\src\main\res\drawable-hdpi\ic_menu_back.png"
+                qualifiers="hdpi"
+                type="drawable" />
+            <file
+                name="ic_menu_compose"
+                path="C:\Users\scott.jones\Dropbox\Android\ICSSMSProject\ICSSMS\src\main\res\drawable-hdpi\ic_menu_compose.png"
+                qualifiers="hdpi"
+                type="drawable" />
+            <file
+                name="ic_menu_forward"
+                path="C:\Users\scott.jones\Dropbox\Android\ICSSMSProject\ICSSMS\src\main\res\drawable-hdpi\ic_menu_forward.png"
+                qualifiers="hdpi"
+                type="drawable" />
+            <file
+                name="ic_menu_invite"
+                path="C:\Users\scott.jones\Dropbox\Android\ICSSMSProject\ICSSMS\src\main\res\drawable-hdpi\ic_menu_invite.png"
+                qualifiers="hdpi"
+                type="drawable" />
+            <file
+                name="stat_notify_sms"
+                path="C:\Users\scott.jones\Dropbox\Android\ICSSMSProject\ICSSMS\src\main\res\drawable-hdpi\stat_notify_sms.png"
+                qualifiers="hdpi"
+                type="drawable" />
+            <file
+                name="emo_im_angel"
+                path="C:\Users\scott.jones\Dropbox\Android\ICSSMSProject\ICSSMS\src\main\res\drawable-ldpi\emo_im_angel.png"
+                qualifiers="ldpi"
+                type="drawable" />
+            <file
+                name="emo_im_cool"
+                path="C:\Users\scott.jones\Dropbox\Android\ICSSMSProject\ICSSMS\src\main\res\drawable-ldpi\emo_im_cool.png"
+                qualifiers="ldpi"
+                type="drawable" />
+            <file
+                name="emo_im_crying"
+                path="C:\Users\scott.jones\Dropbox\Android\ICSSMSProject\ICSSMS\src\main\res\drawable-ldpi\emo_im_crying.png"
+                qualifiers="ldpi"
+                type="drawable" />
+            <file
+                name="emo_im_foot_in_mouth"
+                path="C:\Users\scott.jones\Dropbox\Android\ICSSMSProject\ICSSMS\src\main\res\drawable-ldpi\emo_im_foot_in_mouth.png"
+                qualifiers="ldpi"
+                type="drawable" />
+            <file
+                name="emo_im_happy"
+                path="C:\Users\scott.jones\Dropbox\Android\ICSSMSProject\ICSSMS\src\main\res\drawable-ldpi\emo_im_happy.png"
+                qualifiers="ldpi"
+                type="drawable" />
+            <file
+                name="emo_im_kissing"
+                path="C:\Users\scott.jones\Dropbox\Android\ICSSMSProject\ICSSMS\src\main\res\drawable-ldpi\emo_im_kissing.png"
+                qualifiers="ldpi"
+                type="drawable" />
+            <file
+                name="emo_im_laughing"
+                path="C:\Users\scott.jones\Dropbox\Android\ICSSMSProject\ICSSMS\src\main\res\drawable-ldpi\emo_im_laughing.png"
+                qualifiers="ldpi"
+                type="drawable" />
+            <file
+                name="emo_im_lips_are_sealed"
+                path="C:\Users\scott.jones\Dropbox\Android\ICSSMSProject\ICSSMS\src\main\res\drawable-ldpi\emo_im_lips_are_sealed.png"
+                qualifiers="ldpi"
+                type="drawable" />
+            <file
+                name="emo_im_money_mouth"
+                path="C:\Users\scott.jones\Dropbox\Android\ICSSMSProject\ICSSMS\src\main\res\drawable-ldpi\emo_im_money_mouth.png"
+                qualifiers="ldpi"
+                type="drawable" />
+            <file
+                name="emo_im_sad"
+                path="C:\Users\scott.jones\Dropbox\Android\ICSSMSProject\ICSSMS\src\main\res\drawable-ldpi\emo_im_sad.png"
+                qualifiers="ldpi"
+                type="drawable" />
+            <file
+                name="emo_im_surprised"
+                path="C:\Users\scott.jones\Dropbox\Android\ICSSMSProject\ICSSMS\src\main\res\drawable-ldpi\emo_im_surprised.png"
+                qualifiers="ldpi"
+                type="drawable" />
+            <file
+                name="emo_im_tongue_sticking_out"
+                path="C:\Users\scott.jones\Dropbox\Android\ICSSMSProject\ICSSMS\src\main\res\drawable-ldpi\emo_im_tongue_sticking_out.png"
+                qualifiers="ldpi"
+                type="drawable" />
+            <file
+                name="emo_im_undecided"
+                path="C:\Users\scott.jones\Dropbox\Android\ICSSMSProject\ICSSMS\src\main\res\drawable-ldpi\emo_im_undecided.png"
+                qualifiers="ldpi"
+                type="drawable" />
+            <file
+                name="emo_im_winking"
+                path="C:\Users\scott.jones\Dropbox\Android\ICSSMSProject\ICSSMS\src\main\res\drawable-ldpi\emo_im_winking.png"
+                qualifiers="ldpi"
+                type="drawable" />
+            <file
+                name="emo_im_wtf"
+                path="C:\Users\scott.jones\Dropbox\Android\ICSSMSProject\ICSSMS\src\main\res\drawable-ldpi\emo_im_wtf.png"
+                qualifiers="ldpi"
+                type="drawable" />
+            <file
+                name="emo_im_yelling"
+                path="C:\Users\scott.jones\Dropbox\Android\ICSSMSProject\ICSSMS\src\main\res\drawable-ldpi\emo_im_yelling.png"
+                qualifiers="ldpi"
+                type="drawable" />
+            <file
+                name="ic_launcher"
+                path="C:\Users\scott.jones\Dropbox\Android\ICSSMSProject\ICSSMS\src\main\res\drawable-ldpi\ic_launcher.png"
+                qualifiers="ldpi"
+                type="drawable" />
+            <file
+                name="emo_im_angel"
+                path="C:\Users\scott.jones\Dropbox\Android\ICSSMSProject\ICSSMS\src\main\res\drawable-mdpi\emo_im_angel.png"
+                qualifiers="mdpi"
+                type="drawable" />
+            <file
+                name="emo_im_cool"
+                path="C:\Users\scott.jones\Dropbox\Android\ICSSMSProject\ICSSMS\src\main\res\drawable-mdpi\emo_im_cool.png"
+                qualifiers="mdpi"
+                type="drawable" />
+            <file
+                name="emo_im_crying"
+                path="C:\Users\scott.jones\Dropbox\Android\ICSSMSProject\ICSSMS\src\main\res\drawable-mdpi\emo_im_crying.png"
+                qualifiers="mdpi"
+                type="drawable" />
+            <file
+                name="emo_im_embarrassed"
+                path="C:\Users\scott.jones\Dropbox\Android\ICSSMSProject\ICSSMS\src\main\res\drawable-mdpi\emo_im_embarrassed.png"
+                qualifiers="mdpi"
+                type="drawable" />
+            <file
+                name="emo_im_foot_in_mouth"
+                path="C:\Users\scott.jones\Dropbox\Android\ICSSMSProject\ICSSMS\src\main\res\drawable-mdpi\emo_im_foot_in_mouth.png"
+                qualifiers="mdpi"
+                type="drawable" />
+            <file
+                name="emo_im_happy"
+                path="C:\Users\scott.jones\Dropbox\Android\ICSSMSProject\ICSSMS\src\main\res\drawable-mdpi\emo_im_happy.png"
+                qualifiers="mdpi"
+                type="drawable" />
+            <file
+                name="emo_im_kissing"
+                path="C:\Users\scott.jones\Dropbox\Android\ICSSMSProject\ICSSMS\src\main\res\drawable-mdpi\emo_im_kissing.png"
+                qualifiers="mdpi"
+                type="drawable" />
+            <file
+                name="emo_im_laughing"
+                path="C:\Users\scott.jones\Dropbox\Android\ICSSMSProject\ICSSMS\src\main\res\drawable-mdpi\emo_im_laughing.png"
+                qualifiers="mdpi"
+                type="drawable" />
+            <file
+                name="emo_im_lips_are_sealed"
+                path="C:\Users\scott.jones\Dropbox\Android\ICSSMSProject\ICSSMS\src\main\res\drawable-mdpi\emo_im_lips_are_sealed.png"
+                qualifiers="mdpi"
+                type="drawable" />
+            <file
+                name="emo_im_money_mouth"
+                path="C:\Users\scott.jones\Dropbox\Android\ICSSMSProject\ICSSMS\src\main\res\drawable-mdpi\emo_im_money_mouth.png"
+                qualifiers="mdpi"
+                type="drawable" />
+            <file
+                name="emo_im_sad"
+                path="C:\Users\scott.jones\Dropbox\Android\ICSSMSProject\ICSSMS\src\main\res\drawable-mdpi\emo_im_sad.png"
+                qualifiers="mdpi"
+                type="drawable" />
+            <file
+                name="emo_im_surprised"
+                path="C:\Users\scott.jones\Dropbox\Android\ICSSMSProject\ICSSMS\src\main\res\drawable-mdpi\emo_im_surprised.png"
+                qualifiers="mdpi"
+                type="drawable" />
+            <file
+                name="emo_im_tongue_sticking_out"
+                path="C:\Users\scott.jones\Dropbox\Android\ICSSMSProject\ICSSMS\src\main\res\drawable-mdpi\emo_im_tongue_sticking_out.png"
+                qualifiers="mdpi"
+                type="drawable" />
+            <file
+                name="emo_im_undecided"
+                path="C:\Users\scott.jones\Dropbox\Android\ICSSMSProject\ICSSMS\src\main\res\drawable-mdpi\emo_im_undecided.png"
+                qualifiers="mdpi"
+                type="drawable" />
+            <file
+                name="emo_im_winking"
+                path="C:\Users\scott.jones\Dropbox\Android\ICSSMSProject\ICSSMS\src\main\res\drawable-mdpi\emo_im_winking.png"
+                qualifiers="mdpi"
+                type="drawable" />
+            <file
+                name="emo_im_wtf"
+                path="C:\Users\scott.jones\Dropbox\Android\ICSSMSProject\ICSSMS\src\main\res\drawable-mdpi\emo_im_wtf.png"
+                qualifiers="mdpi"
+                type="drawable" />
+            <file
+                name="emo_im_yelling"
+                path="C:\Users\scott.jones\Dropbox\Android\ICSSMSProject\ICSSMS\src\main\res\drawable-mdpi\emo_im_yelling.png"
+                qualifiers="mdpi"
+                type="drawable" />
+            <file
+                name="ic_action_search"
+                path="C:\Users\scott.jones\Dropbox\Android\ICSSMSProject\ICSSMS\src\main\res\drawable-mdpi\ic_action_search.png"
+                qualifiers="mdpi"
+                type="drawable" />
+            <file
+                name="ic_launcher"
+                path="C:\Users\scott.jones\Dropbox\Android\ICSSMSProject\ICSSMS\src\main\res\drawable-mdpi\ic_launcher.png"
+                qualifiers="mdpi"
+                type="drawable" />
+            <file
+                name="ic_action_search"
+                path="C:\Users\scott.jones\Dropbox\Android\ICSSMSProject\ICSSMS\src\main\res\drawable-xhdpi\ic_action_search.png"
+                qualifiers="xhdpi"
+                type="drawable" />
+            <file
+                name="ic_launcher"
+                path="C:\Users\scott.jones\Dropbox\Android\ICSSMSProject\ICSSMS\src\main\res\drawable-xhdpi\ic_launcher.png"
+                qualifiers="xhdpi"
+                type="drawable" />
+            <file
+                name="ic_launcher"
+                path="C:\Users\scott.jones\Dropbox\Android\ICSSMSProject\ICSSMS\src\main\res\drawable-xxhdpi\ic_launcher.png"
+                qualifiers="xxhdpi"
+                type="drawable" />
+            <file
+                name="action_bar"
+                path="C:\Users\scott.jones\Dropbox\Android\ICSSMSProject\ICSSMS\src\main\res\layout\action_bar.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="activity_conversation"
+                path="C:\Users\scott.jones\Dropbox\Android\ICSSMSProject\ICSSMS\src\main\res\layout\activity_conversation.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="autocomplete_contact"
+                path="C:\Users\scott.jones\Dropbox\Android\ICSSMSProject\ICSSMS\src\main\res\layout\autocomplete_contact.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="base_preference"
+                path="C:\Users\scott.jones\Dropbox\Android\ICSSMSProject\ICSSMS\src\main\res\layout\base_preference.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="checkbox_preference_item"
+                path="C:\Users\scott.jones\Dropbox\Android\ICSSMSProject\ICSSMS\src\main\res\layout\checkbox_preference_item.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="image_viewer"
+                path="C:\Users\scott.jones\Dropbox\Android\ICSSMSProject\ICSSMS\src\main\res\layout\image_viewer.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="main"
+                path="C:\Users\scott.jones\Dropbox\Android\ICSSMSProject\ICSSMS\src\main\res\layout\main.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="preferences"
+                path="C:\Users\scott.jones\Dropbox\Android\ICSSMSProject\ICSSMS\src\main\res\layout\preferences.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="preference_header"
+                path="C:\Users\scott.jones\Dropbox\Android\ICSSMSProject\ICSSMS\src\main\res\layout\preference_header.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="regular_preference_item"
+                path="C:\Users\scott.jones\Dropbox\Android\ICSSMSProject\ICSSMS\src\main\res\layout\regular_preference_item.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="sms_compose"
+                path="C:\Users\scott.jones\Dropbox\Android\ICSSMSProject\ICSSMS\src\main\res\layout\sms_compose.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="sms_details"
+                path="C:\Users\scott.jones\Dropbox\Android\ICSSMSProject\ICSSMS\src\main\res\layout\sms_details.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="sms_dialog"
+                path="C:\Users\scott.jones\Dropbox\Android\ICSSMSProject\ICSSMS\src\main\res\layout\sms_dialog.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="sms_in"
+                path="C:\Users\scott.jones\Dropbox\Android\ICSSMSProject\ICSSMS\src\main\res\layout\sms_in.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="sms_notify"
+                path="C:\Users\scott.jones\Dropbox\Android\ICSSMSProject\ICSSMS\src\main\res\layout\sms_notify.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="sms_out"
+                path="C:\Users\scott.jones\Dropbox\Android\ICSSMSProject\ICSSMS\src\main\res\layout\sms_out.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="sms_reply_to"
+                path="C:\Users\scott.jones\Dropbox\Android\ICSSMSProject\ICSSMS\src\main\res\layout\sms_reply_to.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="sms_summary"
+                path="C:\Users\scott.jones\Dropbox\Android\ICSSMSProject\ICSSMS\src\main\res\layout\sms_summary.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="sms_viewer"
+                path="C:\Users\scott.jones\Dropbox\Android\ICSSMSProject\ICSSMS\src\main\res\layout\sms_viewer.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="switch_preference_item"
+                path="C:\Users\scott.jones\Dropbox\Android\ICSSMSProject\ICSSMS\src\main\res\layout\switch_preference_item.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="video_viewer"
+                path="C:\Users\scott.jones\Dropbox\Android\ICSSMSProject\ICSSMS\src\main\res\layout\video_viewer.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="widget"
+                path="C:\Users\scott.jones\Dropbox\Android\ICSSMSProject\ICSSMS\src\main\res\layout\widget.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                name="main"
+                path="C:\Users\scott.jones\Dropbox\Android\ICSSMSProject\ICSSMS\src\main\res\layout-land\main.xml"
+                qualifiers="land"
+                type="layout" />
+            <file
+                name="main"
+                path="C:\Users\scott.jones\Dropbox\Android\ICSSMSProject\ICSSMS\src\main\res\layout-large\main.xml"
+                qualifiers="large"
+                type="layout" />
+            <file
+                name="main"
+                path="C:\Users\scott.jones\Dropbox\Android\ICSSMSProject\ICSSMS\src\main\res\layout-large-land\main.xml"
+                qualifiers="large-land"
+                type="layout" />
+            <file
+                name="base_menu"
+                path="C:\Users\scott.jones\Dropbox\Android\ICSSMSProject\ICSSMS\src\main\res\menu\base_menu.xml"
+                qualifiers=""
+                type="menu" />
+            <file
+                name="compose_menu"
+                path="C:\Users\scott.jones\Dropbox\Android\ICSSMSProject\ICSSMS\src\main\res\menu\compose_menu.xml"
+                qualifiers=""
+                type="menu" />
+            <file
+                name="conversation_menu"
+                path="C:\Users\scott.jones\Dropbox\Android\ICSSMSProject\ICSSMS\src\main\res\menu\conversation_menu.xml"
+                qualifiers=""
+                type="menu" />
+            <file
+                path="C:\Users\scott.jones\Dropbox\Android\ICSSMSProject\ICSSMS\src\main\res\values\array.xml"
+                qualifiers="" >
+                <string-array name="ThemeValues" >
+                    <item>
+0
+                    </item>
+                    <item>
+1
+                    </item>
+                    <item>
+2
+                    </item>
+                    <item>
+3
+                    </item>
+                    <item>
+4
+                    </item>
+                    <item>
+5
+                    </item>
+                    <item>
+6
+                    </item>
+                </string-array>
+                <string-array name="default_smiley_names" >
+                    <item>
+Happy
+                    </item>
+                    <!-- 0: :-) -->
+                    <item>
+Sad
+                    </item>
+                    <!-- 1: :-( -->
+                    <item>
+Winking
+                    </item>
+                    <!-- 2: ;-) -->
+                    <item>
+Tongue sticking out
+                    </item>
+                    <!-- 3: :-P -->
+                    <item>
+Surprised
+                    </item>
+                    <!-- 4: =-O -->
+                    <item>
+Kissing
+                    </item>
+                    <!-- 5: :-* -->
+                    <item>
+Yelling
+                    </item>
+                    <!-- 6: :O -->
+                    <item>
+Cool
+                    </item>
+                    <!-- 7: B-) -->
+                    <item>
+Money mouth
+                    </item>
+                    <!-- 8: :-$ -->
+                    <item>
+Foot in mouth
+                    </item>
+                    <!-- 9: :-! -->
+                    <item>
+Embarrassed
+                    </item>
+                    <!-- 10: :-[ -->
+                    <item>
+Angel
+                    </item>
+                    <!-- 11: O:-) -->
+                    <item>
+Undecided
+                    </item>
+                    <!-- 12: :-\\ -->
+                    <item>
+Crying
+                    </item>
+                    <!-- 13: :\'( -->
+                    <item>
+Lips are sealed
+                    </item>
+                    <!-- 14: :-X -->
+                    <item>
+Laughing
+                    </item>
+                    <!-- 15: :-D -->
+                    <item>
+Confused
+                    </item>
+                    <!-- 16: o_O -->
+                    <!--
+        item>Heart</item>                   <! 17: <3 >
+        <item>Mad</item>                     <! 18: x-( >
+        <item>Smirk</item>                   <! 19: :-/ >
+        <item>Poker face</item>              <! 20: :-I
+                    -->
+                </string-array>
+                <string-array name="DialogType" >
+                    <item>
+Center Pop-up
+                    </item>
+                    <item>
+Top Pop-up
+                    </item>
+                    <item>
+Slide Down
+                    </item>
+                </string-array>
+                <string-array name="DialogSizes" >
+                    <item>
+Regular
+                    </item>
+                    <item>
+Large
+                    </item>
+                    <!-- item>Full Screen</item -->
+                </string-array>
+                <string-array name="ThemeDefinitions" >
+                    <item>
+Holo
+                    </item>
+                    <item>
+Holo Blue
+                    </item>
+                    <item>
+Holo Green
+                    </item>
+                    <item>
+Holo Red
+                    </item>
+                    <item>
+Holo Purple
+                    </item>
+                    <item>
+Holo Orange
+                    </item>
+                    <item>
+Holo Light
+                    </item>
+                </string-array>
+                <string-array name="default_smiley_texts" >
+                    <item>
+:-)
+                    </item>
+                    <!-- 0: Happy -->
+                    <item>
+:-(
+                    </item>
+                    <!-- 1: Sad -->
+                    <item>
+;-)
+                    </item>
+                    <!-- 2: Winking -->
+                    <item>
+:-P
+                    </item>
+                    <!-- 3: Tongue sticking out -->
+                    <item>
+=-O
+                    </item>
+                    <!-- 4: Surprised -->
+                    <item>
+:-*
+                    </item>
+                    <!-- 5: Kissing -->
+                    <item>
+:O
+                    </item>
+                    <!-- 6: Yelling -->
+                    <item>
+B-)
+                    </item>
+                    <!-- 7: Cool -->
+                    <item>
+:-$
+                    </item>
+                    <!-- 8: Money mouth -->
+                    <item>
+:-!
+                    </item>
+                    <!-- 9: Foot in mouth -->
+                    <item>
+:-[
+                    </item>
+                    <!-- 10: Embarrassed -->
+                    <item>
+O:-)
+                    </item>
+                    <!-- 11: Angel -->
+                    <item>
+:-\\
+                    </item>
+                    <!-- 12: Undecided -->
+                    <item>
+:\'(
+                    </item>
+                    <!-- 13: Crying -->
+                    <item>
+:-X
+                    </item>
+                    <!-- 14: Lips are sealed -->
+                    <item>
+:-D
+                    </item>
+                    <!-- 15: Laughing -->
+                    <item>
+o_O
+                    </item>
+                    <!-- 16: Confused -->
+                    <!--
+      item>&lt;3</item> <! 17: Heart >
+      <item>x-(</item>   <! 18: Mad >
+      <item>:-/</item>   <! 19: Smirk >
+      <item>:-I</item>   <! 20: Poker face
+                    -->
+                </string-array>
+                <string-array name="DialogTypeVal" >
+                    <item>
+0
+                    </item>
+                    <item>
+1
+                    </item>
+                    <item>
+2
+                    </item>
+                </string-array>
+            </file>
+            <file
+                path="C:\Users\scott.jones\Dropbox\Android\ICSSMSProject\ICSSMS\src\main\res\values\colors.xml"
+                qualifiers="" >
+                <color name="holo_red_light" >#ffff4444
+                </color>
+                <color name="holo_blue_darker" >#ff006699
+                </color>
+                <color name="dim_foreground_dark" >#bebebe
+                </color>
+                <color name="dkgray" >#ff444444
+                </color>
+                <color name="translucent" >#aa000000
+                </color>
+                <color name="holo_blue_bright" >#ff00ddff
+                </color>
+                <color name="holo_green_light" >#ff99cc00
+                </color>
+                <color name="divider" >#ff333333
+                </color>
+                <color name="holo_purple_dark" >#ffaa66cc
+                </color>
+                <color name="holo_blue_light" >#ff33b5e5
+                </color>
+                <color name="holo_orange_light" >#ffffbb33
+                </color>
+                <color name="white" >#ffffffff
+                </color>
+                <color name="black" >#ff000000
+                </color>
+                <color name="holo_green_dark" >#ff669900
+                </color>
+                <color name="transparent" >#00000000
+                </color>
+                <color name="holo_orange_dark" >#ffff8800
+                </color>
+                <color name="holo_blue_dark" >#ff0099cc
+                </color>
+                <color name="holo_red_dark" >#ffcc0000
+                </color>
+                <color name="ltgray" >#ffCCCCCC
+                </color>
+            </file>
+            <file
+                path="C:\Users\scott.jones\Dropbox\Android\ICSSMSProject\ICSSMS\src\main\res\values\dimens.xml"
+                qualifiers="" >
+                <dimen name="action_bar_icon_vertical_padding" >8dip
+                </dimen>
+                <dimen name="padding_medium" >8dp
+                </dimen>
+                <dimen name="action_bar_subtitle_top_margin" >-3dp
+                </dimen>
+                <dimen name="padding_small" >8dp
+                </dimen>
+                <dimen name="action_bar_subtitle_bottom_margin" >5dip
+                </dimen>
+                <dimen name="padding_large" >16dp
+                </dimen>
+            </file>
+            <file
+                path="C:\Users\scott.jones\Dropbox\Android\ICSSMSProject\ICSSMS\src\main\res\values\strings.xml"
+                qualifiers="" >
+                <string name="unlock" >Unlock
+                </string>
+                <string name="smileyTitle" >Show Smiley Key
+                </string>
+                <string name="resend" >Resend
+                </string>
+                <string name="message_queued" >Could not send message. Message has been queued for retry.
+                </string>
+                <string name="homeAsUp" >HomeAsUp
+                </string>
+                <string name="contactPhoto" >Contact Photo
+                </string>
+                <string name="timeLabel" >Time:
+                </string>
+                <string name="replyTo" >In reply to…
+                </string>
+                <string name="apexTitle" >Show unread count in Apex
+                </string>
+                <string name="discard" >Discard
+                </string>
+                <string name="menu_settings" >Settings
+                </string>
+                <string name="launcher_name" >ICS SMS
+                </string>
+                <string name="messageLabel" >Message:
+                </string>
+                <string name="smsType" >Text Message
+                </string>
+                <string name="call" >Call
+                </string>
+                <string name="typeLabel" >Type:
+                </string>
+                <string name="miscHeader" >Miscellaneous
+                </string>
+                <string name="enable" >Enable!
+                </string>
+                <string name="gcm" >GCM
+                </string>
+                <string name="shareString" >Share using..
+                </string>
+                <string name="title_activity_conversation" >Conversation
+                </string>
+                <string name="smileySummary" >Replace return key with Smiley key
+                </string>
+                <string name="notificationsHeader" >Notifications
+                </string>
+                <string name="dialogTitle" >Dialog
+                </string>
+                <string name="settings" >Settings
+                </string>
+                <string name="sendSmsHint" >Type message…
+                </string>
+                <string name="gcmoffphone" >Your phone number:
+                </string>
+                <string name="offline" >Go offline
+                </string>
+                <string name="markedUnread" >Message marked as unread
+                </string>
+                <string name="alreadyAdded" >You have already added this contact
+                </string>
+                <string name="messageStatus" >Message Status
+                </string>
+                <string name="keyboardTitle" >Hide keyboard on send
+                </string>
+                <string name="privacyBox" >Move to Privacy Box
+                </string>
+                <string name="details" >Show Details
+                </string>
+                <string name="holoLight" >Use light theme
+                </string>
+                <string name="lock" >Lock
+                </string>
+                <string name="gcmType" >Data Message
+                </string>
+                <string name="messageCounter" >%1$d of %2$d
+                </string>
+                <string name="receivedLabel" >Received:
+                </string>
+                <string name="openConvo" >Open
+                </string>
+                <string name="showAds" >Show Adverts
+                </string>
+                <string name="disable" >Disable
+                </string>
+                <string name="selectTone" >Select Tone
+                </string>
+                <string name="markUnread" >Mark as Unread
+                </string>
+                <string name="forward" >Forward
+                </string>
+                <string name="copy" >Copy
+                </string>
+                <string name="hello_world" >Hello world!
+                </string>
+                <string name="themeTitle" >Theme
+                </string>
+                <string name="newSms" >Compose
+                </string>
+                <string name="preferencesTitle" >Preferences
+                </string>
+                <string name="sendSmsButton" >Send
+                </string>
+                <string name="composeNewHint" >Phone number…
+                </string>
+                <string name="icon" >Icon
+                </string>
+                <string name="gcmonphone" >Your phone number:
+                </string>
+                <string name="online" >Go online
+                </string>
+                <string name="deleteLocked" >Can\'t delete a locked message
+                </string>
+                <string name="mmsType" >Multimedia Message
+                </string>
+                <string name="fromLabel" >From:
+                </string>
+                <string name="characterCount" >%1$d/%2$d
+                </string>
+                <string name="addContact" >Add To Contacts
+                </string>
+                <string name="app_name" >ICS SMS
+                </string>
+                <string name="share" >Share
+                </string>
+                <string name="delete" >Delete
+                </string>
+                <string name="notificationTitle" >Status Bar Notifications
+                </string>
+                <string name="sendSms" >Send
+                </string>
+            </file>
+            <file
+                path="C:\Users\scott.jones\Dropbox\Android\ICSSMSProject\ICSSMS\src\main\res\values\styles.xml"
+                qualifiers="" >
+
+                <style
+                    name="HoloBlueDialogNoPaddingTransparent"
+                    parent="HoloBlueDialogNoPadding" >
+                    <item name="android:windowBackground">
+@android:color/transparent
+                    </item>
+                </style>
+
+                <attr
+                    name="background_sms_drawable"
+                    format="reference" />
+
+                <style
+                    name="HoloPurpleDialogNoPaddingTransparent"
+                    parent="HoloPurpleDialogNoPadding" >
+                    <item name="android:windowBackground">
+@android:color/transparent
+                    </item>
+                </style>
+
+                <style
+                    name="HoloOrangeDialogNoPadding"
+                    parent="HoloOrangeDialog" >
+                    <item name="android:windowIsFloating">
+false
+                    </item>
+                    <item name="android:windowIsTranslucent">
+true
+                    </item>
+                </style>
+
+                <attr
+                    name="primary_sms_color"
+                    format="reference" />
+
+                <style
+                    name="HoloLightDialogNoPaddingTransparent"
+                    parent="HoloLightDialogNoPadding" >
+                    <item name="android:windowBackground">
+@android:color/transparent
+                    </item>
+                </style>
+
+                <style
+                    name="HoloGreenDialogNoPaddingTransparent"
+                    parent="HoloGreenDialogNoPadding" >
+                    <item name="android:windowBackground">
+@android:color/transparent
+                    </item>
+                </style>
+
+                <style
+                    name="HoloRedDialogNoPaddingTransparent"
+                    parent="HoloRedDialogNoPadding" >
+                    <item name="android:windowBackground">
+@android:color/transparent
+                    </item>
+                </style>
+
+                <style
+                    name="HoloPurpleDialogNoPadding"
+                    parent="HoloPurpleDialog" >
+                    <item name="android:windowIsFloating">
+false
+                    </item>
+                    <item name="android:windowIsTranslucent">
+true
+                    </item>
+                </style>
+
+                <style
+                    name="HoloLightDialog"
+                    parent="android:Theme.Holo.Light.Dialog" >
+                    <item name="android:windowCloseOnTouchOutside">
+false
+                    </item>
+                    <item name="android:windowNoTitle">
+true
+                    </item>
+                    <item name="primary_sms_color">
+@color/black
+                    </item>
+                    <item name="secondary_sms_color">
+@color/dkgray
+                    </item>
+                    <item name="background_sms_drawable">
+@drawable/sms_light_menu_selector
+                    </item>
+                    <item name="read_sms_drawable">
+@drawable/read_light_menu_selector
+                    </item>
+                </style>
+
+                <style
+                    name="HoloLight"
+                    parent="android:Theme.Holo.Light" >
+                    <item name="primary_sms_color">
+@color/black
+                    </item>
+                    <item name="secondary_sms_color">
+@color/dkgray
+                    </item>
+                    <item name="background_sms_drawable">
+@drawable/sms_light_menu_selector
+                    </item>
+                    <item name="read_sms_drawable">
+@drawable/read_light_menu_selector
+                    </item>
+                </style>
+
+                <style
+                    name="HoloRed"
+                    parent="android:Theme.Holo" >
+                    <item name="primary_sms_color">
+@color/holo_red_dark
+                    </item>
+                    <item name="secondary_sms_color">
+@color/white
+                    </item>
+                    <item name="background_sms_drawable">
+@drawable/sms_menu_selector
+                    </item>
+                    <item name="read_sms_drawable">
+@drawable/read_menu_selector
+                    </item>
+                </style>
+
+                <style
+                    name="HoloGreenDialogNoPadding"
+                    parent="HoloGreenDialog" >
+                    <item name="android:windowIsFloating">
+false
+                    </item>
+                    <item name="android:windowIsTranslucent">
+true
+                    </item>
+                </style>
+
+                <attr
+                    name="read_sms_drawable"
+                    format="reference" />
+
+                <style
+                    name="HoloDialog"
+                    parent="android:Theme.Holo.Dialog" >
+                    <item name="android:windowCloseOnTouchOutside">
+false
+                    </item>
+                    <item name="android:windowNoTitle">
+true
+                    </item>
+                    <item name="primary_sms_color">
+@color/white
+                    </item>
+                    <item name="secondary_sms_color">
+@color/white
+                    </item>
+                    <item name="background_sms_drawable">
+@drawable/sms_menu_selector
+                    </item>
+                    <item name="read_sms_drawable">
+@drawable/read_menu_selector
+                    </item>
+                </style>
+
+                <style
+                    name="HoloRedDialogNoPadding"
+                    parent="HoloRedDialog" >
+                    <item name="android:windowIsFloating">
+false
+                    </item>
+                    <item name="android:windowIsTranslucent">
+true
+                    </item>
+                </style>
+
+                <style
+                    name="HoloLightDialogNoPadding"
+                    parent="HoloLightDialog" >
+                    <item name="android:windowIsFloating">
+false
+                    </item>
+                    <item name="android:windowIsTranslucent">
+true
+                    </item>
+                </style>
+
+                <style
+                    name="HoloOrangeDialog"
+                    parent="android:Theme.Holo.Dialog" >
+                    <item name="android:windowCloseOnTouchOutside">
+false
+                    </item>
+                    <item name="android:windowNoTitle">
+true
+                    </item>
+                    <item name="primary_sms_color">
+@color/holo_orange_dark
+                    </item>
+                    <item name="secondary_sms_color">
+@color/white
+                    </item>
+                    <item name="background_sms_drawable">
+@drawable/sms_menu_selector
+                    </item>
+                    <item name="read_sms_drawable">
+@drawable/read_menu_selector
+                    </item>
+                </style>
+
+                <style
+                    name="HoloOrange"
+                    parent="android:Theme.Holo" >
+                    <item name="primary_sms_color">
+@color/holo_orange_dark
+                    </item>
+                    <item name="secondary_sms_color">
+@color/white
+                    </item>
+                    <item name="background_sms_drawable">
+@drawable/sms_menu_selector
+                    </item>
+                    <item name="read_sms_drawable">
+@drawable/read_menu_selector
+                    </item>
+                </style>
+
+                <style
+                    name="HoloBlueDialog"
+                    parent="android:Theme.Holo.Dialog" >
+                    <item name="android:windowCloseOnTouchOutside">
+false
+                    </item>
+                    <item name="android:windowNoTitle">
+true
+                    </item>
+                    <item name="primary_sms_color">
+@color/holo_blue_dark
+                    </item>
+                    <item name="secondary_sms_color">
+@color/white
+                    </item>
+                    <item name="background_sms_drawable">
+@drawable/sms_menu_selector
+                    </item>
+                    <item name="read_sms_drawable">
+@drawable/read_menu_selector
+                    </item>
+                </style>
+
+                <style
+                    name="HoloDialogNoPadding"
+                    parent="HoloDialog" >
+                    <item name="android:windowIsFloating">
+false
+                    </item>
+                    <item name="android:windowIsTranslucent">
+true
+                    </item>
+                </style>
+
+                <style
+                    name="HoloBlueDialogNoPadding"
+                    parent="HoloBlueDialog" >
+                    <item name="android:windowIsFloating">
+false
+                    </item>
+                    <item name="android:windowIsTranslucent">
+true
+                    </item>
+                </style>
+
+                <style
+                    name="HoloDialogNoPaddingTransparent"
+                    parent="HoloDialogNoPadding" >
+                    <item name="android:windowBackground">
+@android:color/transparent
+                    </item>
+                </style>
+
+                <style
+                    name="HoloGreenDialog"
+                    parent="android:Theme.Holo.Dialog" >
+                    <item name="android:windowCloseOnTouchOutside">
+false
+                    </item>
+                    <item name="android:windowNoTitle">
+true
+                    </item>
+                    <item name="primary_sms_color">
+@color/holo_green_dark
+                    </item>
+                    <item name="secondary_sms_color">
+@color/white
+                    </item>
+                    <item name="background_sms_drawable">
+@drawable/sms_menu_selector
+                    </item>
+                    <item name="read_sms_drawable">
+@drawable/read_menu_selector
+                    </item>
+                </style>
+
+                <style
+                    name="HoloPurpleDialog"
+                    parent="android:Theme.Holo.Dialog" >
+                    <item name="android:windowCloseOnTouchOutside">
+false
+                    </item>
+                    <item name="android:windowNoTitle">
+true
+                    </item>
+                    <item name="primary_sms_color">
+@color/holo_purple_dark
+                    </item>
+                    <item name="secondary_sms_color">
+@color/white
+                    </item>
+                    <item name="background_sms_drawable">
+@drawable/sms_menu_selector
+                    </item>
+                    <item name="read_sms_drawable">
+@drawable/read_menu_selector
+                    </item>
+                </style>
+
+                <style
+                    name="HoloOrangeDialogNoPaddingTransparent"
+                    parent="HoloOrangeDialogNoPadding" >
+                    <item name="android:windowBackground">
+@android:color/transparent
+                    </item>
+                </style>
+
+                <style
+                    name="HoloPurple"
+                    parent="android:Theme.Holo" >
+                    <item name="primary_sms_color">
+@color/holo_purple_dark
+                    </item>
+                    <item name="secondary_sms_color">
+@color/white
+                    </item>
+                    <item name="background_sms_drawable">
+@drawable/sms_menu_selector
+                    </item>
+                    <item name="read_sms_drawable">
+@drawable/read_menu_selector
+                    </item>
+                </style>
+
+                <style
+                    name="Holo"
+                    parent="android:Theme.Holo" >
+                    <item name="primary_sms_color">
+@color/white
+                    </item>
+                    <item name="secondary_sms_color">
+@color/white
+                    </item>
+                    <item name="background_sms_drawable">
+@drawable/sms_menu_selector
+                    </item>
+                    <item name="read_sms_drawable">
+@drawable/read_menu_selector
+                    </item>
+                </style>
+
+                <style
+                    name="HoloGreen"
+                    parent="android:Theme.Holo" >
+                    <item name="primary_sms_color">
+@color/holo_green_dark
+                    </item>
+                    <item name="secondary_sms_color">
+@color/white
+                    </item>
+                    <item name="background_sms_drawable">
+@drawable/sms_menu_selector
+                    </item>
+                    <item name="read_sms_drawable">
+@drawable/read_menu_selector
+                    </item>
+                </style>
+
+                <style
+                    name="HoloRedDialog"
+                    parent="android:Theme.Holo.Dialog" >
+                    <item name="android:windowCloseOnTouchOutside">
+false
+                    </item>
+                    <item name="android:windowNoTitle">
+true
+                    </item>
+                    <item name="primary_sms_color">
+@color/holo_red_dark
+                    </item>
+                    <item name="secondary_sms_color">
+@color/white
+                    </item>
+                    <item name="background_sms_drawable">
+@drawable/sms_menu_selector
+                    </item>
+                    <item name="read_sms_drawable">
+@drawable/read_menu_selector
+                    </item>
+                </style>
+
+                <style
+                    name="HoloBlue"
+                    parent="android:Theme.Holo" >
+                    <item name="primary_sms_color">
+@color/holo_blue_dark
+                    </item>
+                    <item name="secondary_sms_color">
+@color/white
+                    </item>
+                    <item name="background_sms_drawable">
+@drawable/sms_menu_selector
+                    </item>
+                    <item name="read_sms_drawable">
+@drawable/read_menu_selector
+                    </item>
+                </style>
+
+                <attr
+                    name="secondary_sms_color"
+                    format="reference" />
+            </file>
+            <file
+                path="C:\Users\scott.jones\Dropbox\Android\ICSSMSProject\ICSSMS\src\main\res\values-large\dimens.xml"
+                qualifiers="large" >
+                <dimen name="padding_small" >8dp
+                </dimen>
+                <dimen name="padding_medium" >16dp
+                </dimen>
+                <dimen name="padding_large" >16dp
+                </dimen>
+            </file>
+            <file
+                path="C:\Users\scott.jones\Dropbox\Android\ICSSMSProject\ICSSMS\src\main\res\values-sw720dp-land\dimens.xml"
+                qualifiers="sw720dp-land" >
+                <dimen name="activity_horizontal_margin" >128dp
+                </dimen>
+            </file>
+            <file
+                path="C:\Users\scott.jones\Dropbox\Android\ICSSMSProject\ICSSMS\src\main\res\values-v11\styles.xml"
+                qualifiers="v11" >
+
+                <style
+                    name="AppBaseTheme"
+                    parent="android:Theme.Holo.Light" >
+
+                    <!-- API 11 theme customizations can go here. -->
+                </style>
+            </file>
+            <file
+                path="C:\Users\scott.jones\Dropbox\Android\ICSSMSProject\ICSSMS\src\main\res\values-v14\styles.xml"
+                qualifiers="v14" >
+
+                <style
+                    name="AppBaseTheme"
+                    parent="android:Theme.Holo.Light.DarkActionBar" >
+
+                    <!-- API 14 theme customizations can go here. -->
+                </style>
+            </file>
+            <file
+                name="action_menu"
+                path="C:\Users\scott.jones\Dropbox\Android\ICSSMSProject\ICSSMS\src\main\res\xml\action_menu.xml"
+                qualifiers=""
+                type="xml" />
+            <file
+                name="dialog_preferences"
+                path="C:\Users\scott.jones\Dropbox\Android\ICSSMSProject\ICSSMS\src\main\res\xml\dialog_preferences.xml"
+                qualifiers=""
+                type="xml" />
+            <file
+                name="notification_preferences"
+                path="C:\Users\scott.jones\Dropbox\Android\ICSSMSProject\ICSSMS\src\main\res\xml\notification_preferences.xml"
+                qualifiers=""
+                type="xml" />
+            <file
+                name="sms_long_menu_in"
+                path="C:\Users\scott.jones\Dropbox\Android\ICSSMSProject\ICSSMS\src\main\res\xml\sms_long_menu_in.xml"
+                qualifiers=""
+                type="xml" />
+            <file
+                name="sms_long_menu_in_locked"
+                path="C:\Users\scott.jones\Dropbox\Android\ICSSMSProject\ICSSMS\src\main\res\xml\sms_long_menu_in_locked.xml"
+                qualifiers=""
+                type="xml" />
+            <file
+                name="sms_long_menu_out"
+                path="C:\Users\scott.jones\Dropbox\Android\ICSSMSProject\ICSSMS\src\main\res\xml\sms_long_menu_out.xml"
+                qualifiers=""
+                type="xml" />
+            <file
+                name="sms_long_menu_out_locked"
+                path="C:\Users\scott.jones\Dropbox\Android\ICSSMSProject\ICSSMS\src\main\res\xml\sms_long_menu_out_locked.xml"
+                qualifiers=""
+                type="xml" />
+            <file
+                name="contact_picker_fragment"
+                path="C:\Users\scott.jones\Dropbox\Android\ICSSMSProject\ICSSMS\src\main\res\layout\contact_picker_fragment.xml"
+                qualifiers=""
+                type="layout" />
+        </source>
+        <source path="C:\Users\scott.jones\Dropbox\Android\ICSSMSProject\ICSSMS\build\res\rs\debug" />
+    </dataSet>
+    <dataSet config="debug" >
+        <source path="C:\Users\scott.jones\Dropbox\Android\ICSSMSProject\ICSSMS\src\debug\res" />
+    </dataSet>
+
+</merger>

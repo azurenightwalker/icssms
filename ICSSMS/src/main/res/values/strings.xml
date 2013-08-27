@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">ICS SMS</string>
+    <string name="launcher_name">ICS SMS</string>
+    <string name="newSms">Compose</string>
+    <string name="settings">Settings</string>
+    <string name="contactPhoto">Contact Photo</string>
+    <string name="sendSmsButton">Send</string>
+    <string name="sendSmsHint">Type message…</string>
+    <string name="sendSms">Send</string>
+    <string name="openConvo">Open</string>
+    <string name="call">Call</string>
+    <string name="addContact">Add To Contacts</string>
+    <string name="composeNewHint">Phone number…</string>
+    <string name="delete">Delete</string>
+    <string name="discard">Discard</string>
+    <string name="copy">Copy</string>
+    <string name="forward">Forward</string>
+    <string name="resend">Resend</string>
+    <string name="lock">Lock</string>
+    <string name="unlock">Unlock</string>
+    <string name="messageStatus">Message Status</string>
+    <string name="markUnread">Mark as Unread</string>
+    <string name="markedUnread">Message marked as unread</string>
+    <string name="details">Show Details</string>
+    <string name="privacyBox">Move to Privacy Box</string>
+    <string name="message_queued">Could not send message. Message has been queued for retry.</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="menu_settings">Settings</string>
+    <string name="title_activity_conversation">Conversation</string>
+    <string name="gcm">GCM</string>
+    <string name="gcmonphone">Your phone number:</string>
+    <string name="gcmoffphone">Your phone number:</string>
+    <string name="enable">Enable!</string>
+    <string name="disable">Disable</string>
+    <string name="online">Go online</string>
+    <string name="offline">Go offline</string>
+    <string name="alreadyAdded">You have already added this contact</string>
+    <string name="deleteLocked">Can\'t delete a locked message</string>
+    <string name="replyTo">In reply to…</string>
+    <string name="messageCounter">%1$d of %2$d</string>
+    <string name="smsType">Text Message</string>
+    <string name="mmsType">Multimedia Message</string>
+    <string name="gcmType">Data Message</string>
+    <string name="typeLabel">Type:</string>
+    <string name="fromLabel">From:</string>
+    <string name="receivedLabel">Received:</string>
+    <string name="timeLabel">Time:</string>
+    <string name="messageLabel">Message:</string>
+    <string name="characterCount">%1$d/%2$d</string>
+    <string name="selectTone">Select Tone</string>
+    <string name="homeAsUp">HomeAsUp</string>
+    <string name="icon">Icon</string>
+    <string name="shareString">Share using..</string>
+    <string name="share">Share</string>
+    
+    <!-- Preferences -->
+    <string name="preferencesTitle">Preferences</string>
+    
+    <string name="notificationsHeader">Notifications</string>
+    <string name="miscHeader">Miscellaneous</string>
+    
+    <string name="notificationTitle">Status Bar Notifications</string>
+    <string name="dialogTitle">Dialog</string>
+    <string name="themeTitle">Theme</string>
+    <string name="smileyTitle">Show Smiley Key</string>
+    <string name="smileySummary">Replace return key with Smiley key</string>
+    <string name="keyboardTitle">Hide keyboard on send</string>
+    <string name="apexTitle">Show unread count in Apex</string>
+    <string name="holoLight">Use light theme</string>
+    <string name="showAds">Show Adverts</string>
+</resources>

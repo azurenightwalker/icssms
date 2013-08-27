@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:id="@+id/wrapper"
+    android:background="?attr/background_sms_drawable"
+    android:orientation="vertical">
+<LinearLayout android:layout_width="fill_parent"
+    android:baselineAligned="false"
+    android:layout_height="wrap_content">
+    <RelativeLayout
+        android:layout_width="0dip"
+        android:layout_height="fill_parent"
+        android:layout_weight=".75">
+        <QuickContactBadge
+            android:id="@+id/photo"
+            android:layout_width="50dip"
+            android:layout_height="50dip"
+            android:src="@drawable/ic_contact_picture"
+            android:layout_marginLeft="5dip"
+            android:contentDescription="@string/contactPhoto"/>
+        <TextView
+            android:id="@+id/messageTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dip"
+            android:layout_toRightOf="@id/photo"
+            android:textColor="?attr/primary_sms_color"
+            android:textSize="14dip" />
+
+        <TextView
+            android:id="@+id/messageContent"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginLeft="5dip"
+            android:layout_toRightOf="@id/photo"
+            android:layout_below="@id/messageTime"
+            android:paddingBottom="5dip"
+            android:textColor="?attr/primary_sms_color"
+            android:autoLink="web"
+            android:textSize="14dip" />
+        <ImageView 
+            android:id="@+id/messageStatus"
+            android:layout_width="20dip"
+            android:layout_height="20dip"
+            android:src="@android:drawable/ic_lock_idle_lock"
+            android:layout_marginLeft="5dip"
+            android:contentDescription="@string/messageStatus"
+            android:layout_toRightOf="@id/messageTime"
+            android:visibility="gone"/>
+        <ImageView 
+            android:id="@+id/messageNotSent"
+            android:layout_width="20dip"
+            android:layout_height="20dip"
+            android:src="@android:drawable/ic_dialog_alert"
+            android:layout_marginLeft="5dip"
+            android:contentDescription="@string/messageStatus"
+            android:layout_toRightOf="@id/messageTime"
+            android:visibility="gone"/>
+    </RelativeLayout>
+       </LinearLayout> <View android:layout_width="fill_parent"
+        android:layout_height="1dip"
+        android:background="@color/divider"/>
+</LinearLayout>

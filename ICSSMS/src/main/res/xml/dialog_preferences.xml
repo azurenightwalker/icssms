@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+  xmlns:android="http://schemas.android.com/apk/res/android">
+  <CheckBoxPreference android:summary="Closing dialog marks message read" android:enabled="true" android:key="DialogMarkRead" android:defaultValue="false" android:title="Mark as Read"/>
+  <CheckBoxPreference android:summary="Get reminded of what message you sent when you receive a text" android:key="MessageReminder" android:title="Sent Message Reminder" android:defaultValue="true"/>
+  <ListPreference android:entryValues="@array/DialogTypeVal" android:entries="@array/DialogType" android:title="Dialog Type" android:key="DialogType" android:defaultValue="0"/>
+    
+
+</PreferenceScreen>

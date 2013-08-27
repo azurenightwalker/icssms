@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <attr name="background_sms_drawable" format="reference"/>
+    <attr name="read_sms_drawable" format="reference"/>
+    <attr name="primary_sms_color" format="reference"/>
+    <attr name="secondary_sms_color" format="reference"/>
+    
+    <style name="Holo" parent="android:Theme.Holo">
+         <item name="primary_sms_color">@color/white</item>
+         <item name="secondary_sms_color">@color/white</item>
+         <item name="background_sms_drawable">@drawable/sms_menu_selector</item>
+         <item name="read_sms_drawable">@drawable/read_menu_selector</item>
+    </style>
+    <!-- Default Dialog -->
+    <style name="HoloDialog" parent="android:Theme.Holo.Dialog">
+    	<item name="android:windowCloseOnTouchOutside">false</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="primary_sms_color">@color/white</item>
+        <item name="secondary_sms_color">@color/white</item>
+        <item name="background_sms_drawable">@drawable/sms_menu_selector</item>
+        <item name="read_sms_drawable">@drawable/read_menu_selector</item>
+	</style>
+	
+    <!-- Dialog on top -->
+	<style name="HoloDialogNoPadding" parent="HoloDialog">
+        <item name="android:windowIsFloating">false</item>
+        <item name="android:windowIsTranslucent">true</item>
+	</style>
+    
+	<!-- Default Notify -->
+    <style name="HoloDialogNoPaddingTransparent" parent="HoloDialogNoPadding">
+    	<item name="android:windowBackground">@android:color/transparent</item>
+	</style>
+    
+    <style name="HoloBlue" parent="android:Theme.Holo">
+        <item name="primary_sms_color">@color/holo_blue_dark</item>
+        <item name="secondary_sms_color">@color/white</item>
+         <item name="background_sms_drawable">@drawable/sms_menu_selector</item>
+         <item name="read_sms_drawable">@drawable/read_menu_selector</item>
+    </style>
+    <!-- Default Dialog -->
+    <style name="HoloBlueDialog" parent="android:Theme.Holo.Dialog">
+    	<item name="android:windowCloseOnTouchOutside">false</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="primary_sms_color">@color/holo_blue_dark</item>
+        <item name="secondary_sms_color">@color/white</item>
+        <item name="background_sms_drawable">@drawable/sms_menu_selector</item>
+        <item name="read_sms_drawable">@drawable/read_menu_selector</item>
+	</style>
+	
+    <!-- Dialog on top -->
+	<style name="HoloBlueDialogNoPadding" parent="HoloBlueDialog">
+        <item name="android:windowIsFloating">false</item>
+        <item name="android:windowIsTranslucent">true</item>
+	</style>
+    
+	<!-- Default Notify -->
+    <style name="HoloBlueDialogNoPaddingTransparent" parent="HoloBlueDialogNoPadding">
+    	<item name="android:windowBackground">@android:color/transparent</item>
+	</style>
+	
+    <style name="HoloGreen" parent="android:Theme.Holo">
+        <item name="primary_sms_color">@color/holo_green_dark</item>
+        <item name="secondary_sms_color">@color/white</item>
+         <item name="background_sms_drawable">@drawable/sms_menu_selector</item>
+         <item name="read_sms_drawable">@drawable/read_menu_selector</item>
+    </style>
+    <!-- Default Dialog -->
+    <style name="HoloGreenDialog" parent="android:Theme.Holo.Dialog">
+    	<item name="android:windowCloseOnTouchOutside">false</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="primary_sms_color">@color/holo_green_dark</item>
+        <item name="secondary_sms_color">@color/white</item>
+        <item name="background_sms_drawable">@drawable/sms_menu_selector</item>
+        <item name="read_sms_drawable">@drawable/read_menu_selector</item>
+	</style>
+	
+    <!-- Dialog on top -->
+	<style name="HoloGreenDialogNoPadding" parent="HoloGreenDialog">
+        <item name="android:windowIsFloating">false</item>
+        <item name="android:windowIsTranslucent">true</item>
+	</style>
+    
+	<!-- Default Notify -->
+    <style name="HoloGreenDialogNoPaddingTransparent" parent="HoloGreenDialogNoPadding">
+    	<item name="android:windowBackground">@android:color/transparent</item>
+	</style>
+	
+    <style name="HoloRed" parent="android:Theme.Holo">
+        <item name="primary_sms_color">@color/holo_red_dark</item>
+        <item name="secondary_sms_color">@color/white</item>
+        <item name="background_sms_drawable">@drawable/sms_menu_selector</item>
+        <item name="read_sms_drawable">@drawable/read_menu_selector</item>
+    </style>
+    <!-- Default Dialog -->
+    <style name="HoloRedDialog" parent="android:Theme.Holo.Dialog">
+    	<item name="android:windowCloseOnTouchOutside">false</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="primary_sms_color">@color/holo_red_dark</item>
+        <item name="secondary_sms_color">@color/white</item>
+        <item name="background_sms_drawable">@drawable/sms_menu_selector</item>
+        <item name="read_sms_drawable">@drawable/read_menu_selector</item>
+	</style>
+	
+    <!-- Dialog on top -->
+	<style name="HoloRedDialogNoPadding" parent="HoloRedDialog">
+        <item name="android:windowIsFloating">false</item>
+        <item name="android:windowIsTranslucent">true</item>
+	</style>
+    
+	<!-- Default Notify -->
+    <style name="HoloRedDialogNoPaddingTransparent" parent="HoloRedDialogNoPadding">
+    	<item name="android:windowBackground">@android:color/transparent</item>
+	</style>
+	
+    <style name="HoloPurple" parent="android:Theme.Holo">
+        <item name="primary_sms_color">@color/holo_purple_dark</item>
+        <item name="secondary_sms_color">@color/white</item>
+        <item name="background_sms_drawable">@drawable/sms_menu_selector</item>
+        <item name="read_sms_drawable">@drawable/read_menu_selector</item>
+    </style>
+    <!-- Default Dialog -->
+    <style name="HoloPurpleDialog" parent="android:Theme.Holo.Dialog">
+    	<item name="android:windowCloseOnTouchOutside">false</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="primary_sms_color">@color/holo_purple_dark</item>
+        <item name="secondary_sms_color">@color/white</item>
+        <item name="background_sms_drawable">@drawable/sms_menu_selector</item>
+        <item name="read_sms_drawable">@drawable/read_menu_selector</item>
+	</style>
+	
+    <!-- Dialog on top -->
+	<style name="HoloPurpleDialogNoPadding" parent="HoloPurpleDialog">
+        <item name="android:windowIsFloating">false</item>
+        <item name="android:windowIsTranslucent">true</item>
+	</style>
+    
+	<!-- Default Notify -->
+    <style name="HoloPurpleDialogNoPaddingTransparent" parent="HoloPurpleDialogNoPadding">
+    	<item name="android:windowBackground">@android:color/transparent</item>
+	</style>
+	
+    <style name="HoloOrange" parent="android:Theme.Holo">
+        <item name="primary_sms_color">@color/holo_orange_dark</item>
+        <item name="secondary_sms_color">@color/white</item>
+        <item name="background_sms_drawable">@drawable/sms_menu_selector</item>
+        <item name="read_sms_drawable">@drawable/read_menu_selector</item>
+    </style>
+    <!-- Default Dialog -->
+    <style name="HoloOrangeDialog" parent="android:Theme.Holo.Dialog">
+    	<item name="android:windowCloseOnTouchOutside">false</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="primary_sms_color">@color/holo_orange_dark</item>
+        <item name="secondary_sms_color">@color/white</item>
+        <item name="background_sms_drawable">@drawable/sms_menu_selector</item>
+        <item name="read_sms_drawable">@drawable/read_menu_selector</item>
+	</style>
+	
+    <!-- Dialog on top -->
+	<style name="HoloOrangeDialogNoPadding" parent="HoloOrangeDialog">
+        <item name="android:windowIsFloating">false</item>
+        <item name="android:windowIsTranslucent">true</item>
+	</style>
+    
+	<!-- Default Notify -->
+    <style name="HoloOrangeDialogNoPaddingTransparent" parent="HoloOrangeDialogNoPadding">
+    	<item name="android:windowBackground">@android:color/transparent</item>
+	</style>
+	
+    <style name="HoloLight" parent="android:Theme.Holo.Light">
+        <item name="primary_sms_color">@color/black</item>
+        <item name="secondary_sms_color">@color/dkgray</item>
+        <item name="background_sms_drawable">@drawable/sms_light_menu_selector</item>
+        <item name="read_sms_drawable">@drawable/read_light_menu_selector</item>
+    </style>
+    <!-- Default Dialog -->
+    <style name="HoloLightDialog" parent="android:Theme.Holo.Light.Dialog">
+    	<item name="android:windowCloseOnTouchOutside">false</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="primary_sms_color">@color/black</item>
+        <item name="secondary_sms_color">@color/dkgray</item>
+        <item name="background_sms_drawable">@drawable/sms_light_menu_selector</item>
+        <item name="read_sms_drawable">@drawable/read_light_menu_selector</item>
+	</style>
+	
+    <!-- Dialog on top -->
+	<style name="HoloLightDialogNoPadding" parent="HoloLightDialog">
+        <item name="android:windowIsFloating">false</item>
+        <item name="android:windowIsTranslucent">true</item>
+	</style>
+    
+	<!-- Default Notify -->
+    <style name="HoloLightDialogNoPaddingTransparent" parent="HoloLightDialogNoPadding">
+    	<item name="android:windowBackground">@android:color/transparent</item>
+	</style>
+    
+    
+    
+    
+    
+	
+	
+	
+	
+	
+</resources>

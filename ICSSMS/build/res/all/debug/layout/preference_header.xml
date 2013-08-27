@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="?android:attr/activatedBackgroundIndicator"
+    android:gravity="center_vertical"
+    android:paddingTop="?android:attr/scrollbarSize"
+    android:paddingLeft="?android:attr/scrollbarSize"
+    android:paddingRight="?android:attr/scrollbarSize"
+    android:paddingBottom="2dip"
+    android:orientation="vertical">
+
+    <TextView android:id="@+id/title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:singleLine="true"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:ellipsize="marquee"
+            android:fadingEdge="horizontal" />
+    <View android:layout_width="match_parent"
+	    android:layout_height="2dip"
+	    android:gravity="center_vertical" 
+	    android:background="@drawable/divider_horizontal_holo_light"
+	    />
+</LinearLayout><!-- From: file:/C:/Users/scott.jones/Dropbox/Android/ICSSMSProject/ICSSMS/src/main/res/layout/preference_header.xml -->

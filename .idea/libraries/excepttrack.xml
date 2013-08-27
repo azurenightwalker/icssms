@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="excepttrack">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/ICSSMS/libs/excepttrack.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

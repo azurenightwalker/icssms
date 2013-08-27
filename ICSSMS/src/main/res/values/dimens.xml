@@ -1,0 +1,10 @@
+<resources>
+
+    <dimen name="padding_small">8dp</dimen>
+    <dimen name="padding_medium">8dp</dimen>
+    <dimen name="padding_large">16dp</dimen>
+    <dimen name="action_bar_subtitle_top_margin">-3dp</dimen>
+    <dimen name="action_bar_subtitle_bottom_margin">5dip</dimen>
+    <dimen name="action_bar_icon_vertical_padding">8dip</dimen>
+
+</resources>

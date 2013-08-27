@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/discard"
+          android:icon="@android:drawable/ic_menu_delete"
+          android:title="@string/discard"
+          android:showAsAction="never"/>
+    <item android:id="@+id/settings"
+          android:icon="@android:drawable/ic_menu_preferences"
+          android:title="@string/settings"
+          android:showAsAction="never"/>
+</menu><!-- From: file:/C:/Users/scott.jones/Dropbox/Android/ICSSMSProject/ICSSMS/src/main/res/menu/compose_menu.xml -->

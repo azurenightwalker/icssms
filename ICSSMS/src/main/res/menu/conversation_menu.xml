@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/call"
+          android:icon="@android:drawable/ic_menu_call"
+          android:title="@string/call"
+          android:showAsAction="ifRoom"/>
+    <item android:id="@+id/add"
+          android:icon="@drawable/ic_menu_invite"
+          android:title="@string/addContact"
+          android:showAsAction="ifRoom"/>
+    <!-- item android:id="@+conv/online"
+          android:icon="@android:drawable/ic_menu_call"
+          android:title="@string/online"
+          android:showAsAction="never"/-->
+    
+    <item android:id="@+id/delete"
+          android:icon="@android:drawable/ic_menu_delete"
+          android:title="@string/delete"
+          android:showAsAction="never"/>
+    <item android:id="@+id/settings"
+          android:icon="@android:drawable/ic_menu_preferences"
+          android:title="@string/settings"
+          android:showAsAction="never"/>
+</menu>
