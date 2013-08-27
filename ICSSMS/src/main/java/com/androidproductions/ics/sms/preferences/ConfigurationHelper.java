@@ -19,7 +19,7 @@ public class ConfigurationHelper {
     public static final String NOTIFICATION_SOUND = "NotificationSound";
     public static final String CUSTOM_SOUND = "CustomSound";
     public static final String PRIVATE_NOTIFICATIONS = "PrivateNotifications";
-    public static final String NOTIFICATION_SHOWING = "Notification";
+    public static final String NOTIFICATION_SHOWING = "NotificationShowing";
     public static final String ALTERNATIVE_ICON = "AlternateIcon";
     public static final String LIGHT_THEME = "LightTheme";
     public static final String DIALOG_TYPE = "DialogType";

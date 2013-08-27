@@ -53,7 +53,7 @@ public class ContactHelper {
 
     public Bitmap getProfileContactImage(LruCache<Long,Bitmap> cache)
     {
-        Bitmap image = cache.get(mId);
+        Bitmap image = cache.get(999999L);
         if (image != null)
             return image;
         image = _getProfileContactImage();
@@ -62,7 +62,7 @@ public class ContactHelper {
             image = cache.get(0L);
             return image == null ? getDefaultBitmap() : image;
         }
-        cache.put(mId,image);
+        cache.put(999999L,image);
         return image;
     }
 

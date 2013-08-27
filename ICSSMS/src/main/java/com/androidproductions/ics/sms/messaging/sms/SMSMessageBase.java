@@ -202,7 +202,7 @@ public abstract class SMSMessageBase implements IMessage{
         }
         else
         {
-            contactHelper.getProfileContactImage(cache);
+            return contactHelper.getProfileContactImage(cache);
         }
         return contactHelper.getContactImage(cache);
 	}
