@@ -11,6 +11,7 @@ import android.support.v4.content.CursorLoader;
 import android.util.LruCache;
 
 import com.androidproductions.ics.sms.R;
+import com.androidproductions.ics.sms.utils.LogHelper;
 
 import java.io.InputStream;
 import java.util.ArrayList;
@@ -70,18 +71,6 @@ public class ContactHelper {
         return BitmapFactory.decodeResource(mContext.getResources(), R.drawable.ic_contact_picture);
     }
 
-    public Bitmap getContactImage()
-    {
-        Bitmap img = _getContactImage();
-        return img == null ? getDefaultBitmap() : img;
-    }
-
-    public Bitmap getProfileContactImage()
-    {
-        Bitmap img = _getContactImage();
-        return img == null ? getDefaultBitmap() : img;
-    }
-
     private Bitmap _getContactImage()
     {
         try
@@ -100,6 +89,7 @@ public class ContactHelper {
         }
         catch(Exception ex)
         {
+            LogHelper.i(ex.getMessage());
         }
         return null;
     }
@@ -122,26 +112,7 @@ public class ContactHelper {
         }
         catch(Exception ex)
         {
-        }
-        return null;
-    }
-
-    public String getName()
-    {
-        final Cursor contact = mContext.getContentResolver().query(
-            ContactsContract.Contacts.CONTENT_URI,
-            null,
-            ContactsContract.Contacts._ID + "=?",    // filter entries on the basis of the contact id
-            new String[]{String.valueOf(mId)},    // the parameter to which the contact id column is compared to
-            null);
-        if (contact != null)
-        {
-            String name = null;
-            if(contact.moveToFirst()) {
-                name = contact.getString(contact.getColumnIndex(ContactsContract.Contacts.DISPLAY_NAME));
-            }
-            contact.close();
-            return name;
+            LogHelper.i(ex.getMessage());
         }
         return null;
     }
@@ -170,23 +141,6 @@ public class ContactHelper {
     {
         if (mId == null) return null;
         return ContentUris.withAppendedId(ContactsContract.Contacts.CONTENT_URI,mId);
-    }
-
-    public List<Contact> getAllPhoneNumbers()
-    {
-        List<Contact> res = new ArrayList<Contact>();
-        Cursor phones = getPhoneCursor().loadInBackground();
-        if (phones != null)
-        {
-            int nameField = phones.getColumnIndex(ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME);
-            int numberField = phones.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER);
-            while (phones.moveToNext())
-            {
-                res.add(new Contact(phones.getString(nameField),phones.getString(numberField)));
-            }
-            phones.close();
-        }
-        return res;
     }
 
     public CursorLoader getPhoneCursor()

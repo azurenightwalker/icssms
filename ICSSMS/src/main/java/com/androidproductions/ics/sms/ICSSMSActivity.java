@@ -49,10 +49,6 @@ public class ICSSMSActivity extends ThemeableActivity {
     private List<View> selected;
 	private LruCache<Long,Bitmap> ImageCache;
 
-    private MMAdView adView;
-
-    private boolean showAds;
-
     /** Called when the activity is first created. */
 	@Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,9 +65,9 @@ public class ICSSMSActivity extends ThemeableActivity {
 
     private void InitializeAds()
     {
-        showAds = ConfigurationHelper.getInstance(getApplicationContext())
+        boolean showAds = ConfigurationHelper.getInstance(getApplicationContext())
                 .getBooleanValue(ConfigurationHelper.SHOW_ADS);
-        adView = (MMAdView) findViewById(R.id.adView);
+        MMAdView adView = (MMAdView) findViewById(R.id.adView);
         if (showAds)
         {
             adView.setVisibility(View.VISIBLE);

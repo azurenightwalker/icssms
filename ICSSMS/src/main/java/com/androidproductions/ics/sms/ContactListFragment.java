@@ -20,13 +20,12 @@ import com.androidproductions.ics.sms.utils.LogHelper;
 public class ContactListFragment extends ListFragment implements LoaderManager.LoaderCallbacks<Cursor>{
     ContactHelper mContactHelper;
     private ContactsCursorAdapter mAdapter;
-    private LoaderManager loadermanager;
 
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        loadermanager=getLoaderManager();
+        LoaderManager loadermanager = getLoaderManager();
         /*Empty adapter that is used to display the loaded data*/
         mAdapter = new ContactsCursorAdapter(this.getActivity(),null);
         setListAdapter(mAdapter);

@@ -10,29 +10,6 @@ import com.androidproductions.ics.sms.receivers.SmsUpdateReceiver;
 import com.androidproductions.ics.sms.utils.AddressUtilities;
 
 public class SMSUtilities {
-	public static long findSMSThreadId(Context context, String source) {
-		String number = AddressUtilities.StandardiseNumber(source,context);
-		long threadId = -1;
-		Cursor c = context.getContentResolver().query(Constants.SMS_URI, null, null,
-				null, "date DESC");
-        if (c != null)
-        {
-            if (c.moveToFirst())
-            {
-                int addressCol = c.getColumnIndex("address");
-                int tidCol = c.getColumnIndex("thread_id");
-
-                do
-                {
-                    if (AddressUtilities.StandardiseNumber(c.getString(addressCol),context).equals(number))
-                        threadId  = c.getLong(tidCol);
-                } while (c.moveToNext() && threadId < 0);
-            }
-            c.close();
-        }
-		return threadId;
-	}
-	
 	public static SMSMessage generateMessageFromSummary(Context context, Cursor c) {
 		String address = "";
         String recs = c.getString(c.getColumnIndex("recipient_ids"));

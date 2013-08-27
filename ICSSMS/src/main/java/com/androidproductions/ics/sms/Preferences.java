@@ -80,7 +80,6 @@ public class Preferences extends Activity {
 	        findViewById(R.id.apex).setVisibility(View.GONE);
         }
 	}
-	
 
 	private void setHeader(Integer id, Integer title) {
 		((TextView)findViewById(id).findViewById(R.id.title)).setText(title);
@@ -98,7 +97,7 @@ public class Preferences extends Activity {
 		} while (i < keys.length);
 	}
 	
-	private LinearLayout setMasterSwitch(Integer id, final String key, Integer title, Integer icon, final Intent intent) {
+	private void setMasterSwitch(Integer id, final String key, Integer title, Integer icon, final Intent intent) {
 		LinearLayout switchLayout = setBasePreference(id,key, title, null,
 				icon, intent);     
 		Switch switchWidget = (Switch)switchLayout.findViewById(R.id.switchWidget);
@@ -111,10 +110,9 @@ public class Preferences extends Activity {
 		types[current] = "boolean";
 		widgets[current] = switchWidget;
 		current++;
-		return switchLayout;
 	}
 	
-	private LinearLayout setCheckboxPreference(Integer id, final String key, Integer title, Integer summary, final Intent intent) {
+	private void setCheckboxPreference(Integer id, final String key, Integer title, Integer summary, final Intent intent) {
 		LinearLayout checkboxLayout = setBasePreference(id,key, title, summary,
 				null, intent);
         
@@ -137,10 +135,9 @@ public class Preferences extends Activity {
 		types[current] = "boolean";
 		widgets[current] = checkWidget;
 		current++;
-		return checkboxLayout;
 	}
 	
-	private LinearLayout setListPreference(Integer id, final String key, final int keyArray, final int valArray, final Integer title, Integer summary, Integer icon) {
+	private void setListPreference(Integer id, final String key, final int keyArray, final int valArray, final Integer title, Integer summary, Integer icon) {
 		LinearLayout listLayout = setBasePreference(id,key, title, summary,
 				icon, null);
 		
@@ -167,7 +164,6 @@ public class Preferences extends Activity {
 				alert.show();
 			}
 		});
-        return listLayout;
 	}
 
 	private LinearLayout setBasePreference(int id, final String key, Integer title,
