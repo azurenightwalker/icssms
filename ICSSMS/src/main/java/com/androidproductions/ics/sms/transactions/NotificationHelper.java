@@ -58,13 +58,14 @@ public class NotificationHelper {
 	}
 
     private void notifyUnreadMessages(List<IMessage> smss) {
+        boolean alertOnce = shouldAlertOnce(smss);
 		messages = smss;
 		if (configurationHelper.getBooleanValue(ConfigurationHelper.NOTIFICATIONS_ENABLED))
 		{
 			if (smss.size() > 0)
 			{
 				mNotificationManager.notify(Constants.NOTIFICATION_ID, buildNotification(smss,
-                        shouldAlertOnce(smss)));
+                        alertOnce));
                 configurationHelper.setBooleanValue(ConfigurationHelper.NOTIFICATION_SHOWING,true);
 			}
 			else
@@ -76,8 +77,8 @@ public class NotificationHelper {
 	}
 	
 	private boolean shouldAlertOnce(List<IMessage> smss) {
-		if (messages.size() < smss.size())
-			return false;
+        if (messages.size() < smss.size())
+            return false;
 		for(IMessage mess : smss)
 		{
 			boolean found = false;
