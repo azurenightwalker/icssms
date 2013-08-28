@@ -151,11 +151,27 @@ public class MessageUtilities {
 		}
 	}
 
-	public static List<IMessage> GetMessages(Context context, long threadId, int max)
+    public static List<IMessage> GetMessages(Context context, long threadId, int max)
+    {
+        return GetMessages(context, threadId, max,null);
+    }
+
+	public static List<IMessage> GetMessages(Context context, long threadId, int max, Long date)
 	{
 		ArrayList<IMessage> messages = new ArrayList<IMessage>();
-		String where = "thread_id = ?";
-        String[] vals = new String[] { String.valueOf(threadId) };
+        String where;
+        String[] vals;
+        if (date == null)
+        {
+            where = "thread_id = ?";
+            vals = new String[] { String.valueOf(threadId) };
+        }
+        else
+        {
+            where = "thread_id = ? and date < ?";
+            vals = new String[] { String.valueOf(threadId), String.valueOf(date) };
+        }
+
         Cursor c = context.getContentResolver().query(Constants.SMS_URI,
                 null, where, vals, "date DESC LIMIT "+max);
         if (c != null)

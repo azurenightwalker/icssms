@@ -52,6 +52,8 @@ import com.googlecode.androidannotations.annotations.OptionsMenu;
 import com.googlecode.androidannotations.annotations.ViewById;
 import com.googlecode.androidannotations.annotations.res.StringRes;
 
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 @EActivity(R.layout.sms_viewer)
@@ -348,8 +350,13 @@ public class SmsViewer extends ThemeableActivity {
 	public void showPrevious()
     {    
     	firstDate = Math.min(firstDate,Math.min(messages.get(messages.size()-1).getDate(),messages.get(0).getDate()));
-    	//messages = MessageUtilities.GetOlderMessages(SmsViewer.this, threadId,25, firstDate);
-    	redraw(true);
+    	messages = MessageUtilities.GetMessages(SmsViewer.this, threadId, 25, firstDate);
+        Collections.sort(messages, new Comparator<IMessage>() {
+            public int compare(IMessage m1, IMessage m2) {
+                return m2.getDate().compareTo(m1.getDate());
+            }
+        });
+        redraw(true);
     }
 
 	private View generateMessageView(final IMessage msg) {
