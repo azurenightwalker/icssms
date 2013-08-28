@@ -4,7 +4,7 @@
     android:layout_height="fill_parent"
     android:id="@+id/wrapper"
     android:background="?attr/background_sms_drawable">
-	    <ImageView
+	    <QuickContactBadge
         android:id="@+id/contact_photo"
         android:layout_width="56dip"
         android:layout_height="56dip"

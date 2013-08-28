@@ -20,6 +20,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.QuickContactBadge;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -126,6 +127,7 @@ public class ICSSMSActivity extends ThemeableActivity {
         	((TextView)child.findViewById(R.id.contact_name)).setText(name);
         	((TextView)child.findViewById(R.id.messageContent)).setText(body);
         	((TextView)child.findViewById(R.id.messageTime)).setText(time);
+            ((QuickContactBadge)child.findViewById(R.id.contact_photo)).assignContactFromPhone(sms.getAddress(),true);
         	new Thread(new Runnable() {
 				public void run() {
 					((ImageView)child.findViewById(R.id.contact_photo)).setImageBitmap(sms.getConversationContactImage(ImageCache));
