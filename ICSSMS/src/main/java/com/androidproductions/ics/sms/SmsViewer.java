@@ -293,7 +293,7 @@ public class SmsViewer extends ThemeableActivity {
 		});
     }
 	
-	public void redraw(boolean topDown)
+	public void redraw(boolean topDown,boolean scrollToBottom)
 	{
 		for(int i = 0; i<=messages.size()-1;i++)
         {
@@ -315,7 +315,7 @@ public class SmsViewer extends ThemeableActivity {
                     badge.setMode(ContactsContract.QuickContact.MODE_LARGE);
                 }
 	        	if (topDown) // Ensure opposite order
-	        		smsList.addView(child,0);
+                    smsList.addView(child,1);
 	        	else
 	        		smsList.addView(child);
 	        	new Thread(new Runnable() {
@@ -328,8 +328,10 @@ public class SmsViewer extends ThemeableActivity {
 	            }, "gettingPhoto").start();
         	}
         }
-        adjustScroll(true);
-	}
+        adjustScroll(scrollToBottom);
+        if (messages.size() < 25)
+            smsList.findViewById(R.id.showPrevious).setVisibility(View.GONE);
+    }
 	
 	public void redrawView()
     {    
@@ -344,10 +346,10 @@ public class SmsViewer extends ThemeableActivity {
     		setupContact();
         }
     	
-    	redraw(false);
+    	redraw(false,true);
     }
 	
-	public void showPrevious()
+	public void showPrevious(View v)
     {    
     	firstDate = Math.min(firstDate,Math.min(messages.get(messages.size()-1).getDate(),messages.get(0).getDate()));
     	messages = MessageUtilities.GetMessages(SmsViewer.this, threadId, 25, firstDate);
@@ -356,7 +358,7 @@ public class SmsViewer extends ThemeableActivity {
                 return m2.getDate().compareTo(m1.getDate());
             }
         });
-        redraw(true);
+        redraw(true, false);
     }
 
 	private View generateMessageView(final IMessage msg) {
@@ -460,10 +462,13 @@ public class SmsViewer extends ThemeableActivity {
     
     private void adjustScroll(final boolean toBottom)
     {
-    	scrollView.post(new Runnable() {            
+    	scrollView.post(new Runnable() {
 			public void run() {
-				if (toBottom || !toBottom)
-					scrollView.fullScroll(View.FOCUS_DOWN);              
+                // TODO: Sort out scrolling
+				if (toBottom)
+					scrollView.fullScroll(View.FOCUS_DOWN);
+                else
+                    scrollView.fullScroll(View.FOCUS_DOWN);
 			}
 		});
     }

@@ -55,6 +55,12 @@
 	        android:layout_width="fill_parent"
 	        android:layout_height="wrap_content"
 	        android:orientation="vertical"
-	        android:id="@+id/smsList"/>
+	        android:id="@+id/smsList">
+        <Button android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/showPrevious"
+                android:text="@string/showMore"
+                android:onClick="showPrevious"/>
+        </LinearLayout>
 	</com.androidproductions.ics.sms.views.KeyboardDetectorScrollView>
 </RelativeLayout>
