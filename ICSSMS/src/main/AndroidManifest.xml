@@ -47,7 +47,12 @@
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
         </receiver>
-        
+
+        <receiver android:name=".receivers.UpdateCountReceiver">
+            <intent-filter>
+                <action android:name="com.anddoes.launcher.UPDATE_COUNTER" />
+            </intent-filter>
+        </receiver>
         
         <receiver
             android:name=".service.ServiceStarter"
