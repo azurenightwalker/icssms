@@ -31,9 +31,10 @@ public class ApexHelper {
 
     private int getCount() {
     	ConfigurationHelper config = ConfigurationHelper.getInstance(mContext);
-        if (config.getBooleanValue(ConfigurationHelper.ALLOW_APEX) && isInstalled())
+        /*if (config.getBooleanValue(ConfigurationHelper.ALLOW_APEX) && isInstalled())
         	return config.getIntValue(ConfigurationHelper.APEX_KEY_COUNT);
-        else return 0;
+        else return 0;*/
+        return 10;
     }
 
     public void setCount() {
