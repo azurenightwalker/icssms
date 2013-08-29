@@ -24,7 +24,6 @@
       <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\apk\ICSSMS-debug-unaligned.apk" afterPath="" />
       <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\classes\debug\com\androidproductions\ics\sms\AdditionalPreferences$1.class" afterPath="" />
       <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\classes\debug\com\androidproductions\ics\sms\AdditionalPreferences$2.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\classes\debug\com\androidproductions\ics\sms\AdditionalPreferences.class" afterPath="" />
       <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\classes\debug\com\androidproductions\ics\sms\BuildConfig.class" afterPath="" />
       <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\classes\debug\com\androidproductions\ics\sms\ComposeSms.class" afterPath="" />
       <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\classes\debug\com\androidproductions\ics\sms\ComposeSms_$1.class" afterPath="" />
@@ -32,221 +31,112 @@
       <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\classes\debug\com\androidproductions\ics\sms\ComposeSms_.class" afterPath="" />
       <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\classes\debug\com\androidproductions\ics\sms\ComposeSms_.java" afterPath="" />
       <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\classes\debug\com\androidproductions\ics\sms\Constants.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\classes\debug\com\androidproductions\ics\sms\ContactListFragment.class" afterPath="" />
       <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\classes\debug\com\androidproductions\ics\sms\ICSSMSActivity$1.class" afterPath="" />
       <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\classes\debug\com\androidproductions\ics\sms\ICSSMSActivity$2.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\classes\debug\com\androidproductions\ics\sms\ICSSMSActivity$3.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\classes\debug\com\androidproductions\ics\sms\ICSSMSActivity$4.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\classes\debug\com\androidproductions\ics\sms\ICSSMSActivity.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\classes\debug\com\androidproductions\ics\sms\ICSSMSActivity_$IntentBuilder_.class" afterPath="" />
       <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\classes\debug\com\androidproductions\ics\sms\ICSSMSActivity_.class" afterPath="" />
       <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\classes\debug\com\androidproductions\ics\sms\ICSSMSActivity_.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\classes\debug\com\androidproductions\ics\sms\Preferences$1.class" afterPath="" />
       <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\classes\debug\com\androidproductions\ics\sms\Preferences$2.class" afterPath="" />
       <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\classes\debug\com\androidproductions\ics\sms\Preferences$3.class" afterPath="" />
       <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\classes\debug\com\androidproductions\ics\sms\Preferences$4$1.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\classes\debug\com\androidproductions\ics\sms\Preferences$4.class" afterPath="" />
       <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\classes\debug\com\androidproductions\ics\sms\Preferences$5.class" afterPath="" />
       <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\classes\debug\com\androidproductions\ics\sms\Preferences.class" afterPath="" />
       <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\classes\debug\com\androidproductions\ics\sms\Preferences_$IntentBuilder_.class" afterPath="" />
       <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\classes\debug\com\androidproductions\ics\sms\Preferences_.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\classes\debug\com\androidproductions\ics\sms\Preferences_.java" afterPath="" />
       <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\classes\debug\com\androidproductions\ics\sms\R$action.class" afterPath="" />
       <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\classes\debug\com\androidproductions\ics\sms\R$animator.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\classes\debug\com\androidproductions\ics\sms\R$array.class" afterPath="" />
       <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\classes\debug\com\androidproductions\ics\sms\R$attr.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\classes\debug\com\androidproductions\ics\sms\R$color.class" afterPath="" />
       <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\classes\debug\com\androidproductions\ics\sms\R$dimen.class" afterPath="" />
       <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\classes\debug\com\androidproductions\ics\sms\R$drawable.class" afterPath="" />
       <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\classes\debug\com\androidproductions\ics\sms\R$id.class" afterPath="" />
       <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\classes\debug\com\androidproductions\ics\sms\R$layout.class" afterPath="" />
       <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\classes\debug\com\androidproductions\ics\sms\R$menu.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\classes\debug\com\androidproductions\ics\sms\R$smslong.class" afterPath="" />
       <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\classes\debug\com\androidproductions\ics\sms\R$string.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\classes\debug\com\androidproductions\ics\sms\R$style.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\classes\debug\com\androidproductions\ics\sms\R$xml.class" afterPath="" />
       <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\classes\debug\com\androidproductions\ics\sms\R.class" afterPath="" />
       <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\classes\debug\com\androidproductions\ics\sms\SmsDialog$1.class" afterPath="" />
       <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\classes\debug\com\androidproductions\ics\sms\SmsDialog$2.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\classes\debug\com\androidproductions\ics\sms\SmsDialog$3.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\classes\debug\com\androidproductions\ics\sms\SmsDialog$4.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\classes\debug\com\androidproductions\ics\sms\SmsDialog.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\classes\debug\com\androidproductions\ics\sms\SmsNotify$1.class" afterPath="" />
       <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\classes\debug\com\androidproductions\ics\sms\SmsNotify$2.class" afterPath="" />
       <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\classes\debug\com\androidproductions\ics\sms\SmsNotify$3.class" afterPath="" />
       <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\classes\debug\com\androidproductions\ics\sms\SmsNotify.class" afterPath="" />
       <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\classes\debug\com\androidproductions\ics\sms\SmsViewer$1.class" afterPath="" />
       <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\classes\debug\com\androidproductions\ics\sms\SmsViewer$2.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\classes\debug\com\androidproductions\ics\sms\SmsViewer$3.class" afterPath="" />
       <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\classes\debug\com\androidproductions\ics\sms\SmsViewer$4.class" afterPath="" />
       <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\classes\debug\com\androidproductions\ics\sms\SmsViewer$5.class" afterPath="" />
       <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\classes\debug\com\androidproductions\ics\sms\SmsViewer$6.class" afterPath="" />
       <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\classes\debug\com\androidproductions\ics\sms\SmsViewer.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\classes\debug\com\androidproductions\ics\sms\SmsViewer_$1.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\classes\debug\com\androidproductions\ics\sms\SmsViewer_$IntentBuilder_.class" afterPath="" />
       <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\classes\debug\com\androidproductions\ics\sms\SmsViewer_.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\classes\debug\com\androidproductions\ics\sms\SmsViewer_.java" afterPath="" />
       <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\classes\debug\com\androidproductions\ics\sms\ThemeableActivity.class" afterPath="" />
       <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\classes\debug\com\androidproductions\ics\sms\ThemeableDialog.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\classes\debug\com\androidproductions\ics\sms\data\Contact.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\classes\debug\com\androidproductions\ics\sms\data\ContactHelper.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\classes\debug\com\androidproductions\ics\sms\data\PhoneNumber.class" afterPath="" />
       <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\classes\debug\com\androidproductions\ics\sms\data\adapters\ContactsAutoCompleteCursorAdapter.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\classes\debug\com\androidproductions\ics\sms\data\adapters\ContactsCursorAdapter.class" afterPath="" />
       <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\classes\debug\com\androidproductions\ics\sms\messaging\IMessage.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\classes\debug\com\androidproductions\ics\sms\messaging\MessageUtilities$1.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\classes\debug\com\androidproductions\ics\sms\messaging\MessageUtilities$2.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\classes\debug\com\androidproductions\ics\sms\messaging\MessageUtilities.class" afterPath="" />
       <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\classes\debug\com\androidproductions\ics\sms\messaging\sms\SMSMessage.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\classes\debug\com\androidproductions\ics\sms\messaging\sms\SMSMessageBase$1.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\classes\debug\com\androidproductions\ics\sms\messaging\sms\SMSMessageBase$2.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\classes\debug\com\androidproductions\ics\sms\messaging\sms\SMSMessageBase$3.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\classes\debug\com\androidproductions\ics\sms\messaging\sms\SMSMessageBase$4.class" afterPath="" />
       <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\classes\debug\com\androidproductions\ics\sms\messaging\sms\SMSMessageBase.class" afterPath="" />
       <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\classes\debug\com\androidproductions\ics\sms\messaging\sms\SMSUtilities.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\classes\debug\com\androidproductions\ics\sms\preferences\ConfigurationHelper.class" afterPath="" />
       <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\classes\debug\com\androidproductions\ics\sms\preferences\Defaults.class" afterPath="" />
       <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\classes\debug\com\androidproductions\ics\sms\receivers\MyPhoneStateListener.class" afterPath="" />
       <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\classes\debug\com\androidproductions\ics\sms\receivers\SmsUpdateReceiver.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\classes\debug\com\androidproductions\ics\sms\receivers\UpdateCountReceiver.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\classes\debug\com\androidproductions\ics\sms\service\MessagingService$ServiceHandler$1.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\classes\debug\com\androidproductions\ics\sms\service\MessagingService$ServiceHandler.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\classes\debug\com\androidproductions\ics\sms\service\MessagingService.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\classes\debug\com\androidproductions\ics\sms\service\NotificationService$NotificationHandler.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\classes\debug\com\androidproductions\ics\sms\service\NotificationService.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\classes\debug\com\androidproductions\ics\sms\service\ServiceStarter.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\classes\debug\com\androidproductions\ics\sms\transactions\NotificationHelper.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\classes\debug\com\androidproductions\ics\sms\utils\AddressUtilities.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\classes\debug\com\androidproductions\ics\sms\utils\ApexHelper.class" afterPath="" />
       <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\classes\debug\com\androidproductions\ics\sms\utils\LogHelper.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\classes\debug\com\androidproductions\ics\sms\utils\SmileyParser$Smileys.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\classes\debug\com\androidproductions\ics\sms\utils\SmileyParser.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\classes\debug\com\androidproductions\ics\sms\utils\TextUtilities.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\classes\debug\com\androidproductions\ics\sms\views\KeyboardDetectorScrollView$IKeyboardChanged.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\classes\debug\com\androidproductions\ics\sms\views\KeyboardDetectorScrollView.class" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\classes\debug\com\androidproductions\ics\sms\views\SmsEditText.class" afterPath="" />
       <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\incremental\aidl\debug\dependency.store" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\incremental\aidl\debug\inputs.data" afterPath="" />
       <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\incremental\aidl\debug\outputs.data" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\incremental\dex\debug\inputs.data" afterPath="" />
       <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\incremental\dex\debug\outputs.data" afterPath="" />
       <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\incremental\mergeAssets\debug\inputs.data" afterPath="" />
       <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\incremental\mergeAssets\debug\merger.xml" afterPath="" />
       <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\incremental\mergeAssets\debug\outputs.data" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\incremental\mergeResources\debug\inputs.data" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\incremental\mergeResources\debug\merger.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\incremental\mergeResources\debug\outputs.data" afterPath="" />
       <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\libs\ICSSMS-debug.ap_" afterPath="" />
       <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\libs\ICSSMS-debug.dex" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\manifests\debug\AndroidManifest.xml" afterPath="" />
       <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\animator\outleft.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\animator\outright.xml" afterPath="" />
       <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\drawable-hdpi\bkgd_tile_black.png" afterPath="" />
       <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\drawable-hdpi\divider_horizontal_dark_opaque.9.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\drawable-hdpi\divider_horizontal_holo_light.9.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\drawable-hdpi\emo_im_angel.png" afterPath="" />
       <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\drawable-hdpi\emo_im_cool.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\drawable-hdpi\emo_im_crying.png" afterPath="" />
       <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\drawable-hdpi\emo_im_embarrassed.png" afterPath="" />
       <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\drawable-hdpi\emo_im_foot_in_mouth.png" afterPath="" />
       <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\drawable-hdpi\emo_im_happy.png" afterPath="" />
       <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\drawable-hdpi\emo_im_kissing.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\drawable-hdpi\emo_im_laughing.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\drawable-hdpi\emo_im_lips_are_sealed.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\drawable-hdpi\emo_im_money_mouth.png" afterPath="" />
       <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\drawable-hdpi\emo_im_sad.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\drawable-hdpi\emo_im_surprised.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\drawable-hdpi\emo_im_tongue_sticking_out.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\drawable-hdpi\emo_im_undecided.png" afterPath="" />
       <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\drawable-hdpi\emo_im_winking.png" afterPath="" />
       <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\drawable-hdpi\emo_im_wtf.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\drawable-hdpi\emo_im_yelling.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\drawable-hdpi\ic_contact_picture.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\drawable-hdpi\ic_go.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\drawable-hdpi\ic_launcher.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\drawable-hdpi\ic_launcher_sms.png" afterPath="" />
       <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\drawable-hdpi\ic_menu_back.png" afterPath="" />
       <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\drawable-hdpi\ic_menu_compose.png" afterPath="" />
       <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\drawable-hdpi\ic_menu_forward.png" afterPath="" />
       <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\drawable-hdpi\ic_menu_invite.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\drawable-hdpi\stat_notify_sms.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\drawable-ldpi\emo_im_angel.png" afterPath="" />
       <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\drawable-ldpi\emo_im_cool.png" afterPath="" />
       <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\drawable-ldpi\emo_im_crying.png" afterPath="" />
       <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\drawable-ldpi\emo_im_foot_in_mouth.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\drawable-ldpi\emo_im_happy.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\drawable-ldpi\emo_im_kissing.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\drawable-ldpi\emo_im_laughing.png" afterPath="" />
       <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\drawable-ldpi\emo_im_lips_are_sealed.png" afterPath="" />
       <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\drawable-ldpi\emo_im_money_mouth.png" afterPath="" />
       <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\drawable-ldpi\emo_im_sad.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\drawable-ldpi\emo_im_surprised.png" afterPath="" />
       <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\drawable-ldpi\emo_im_tongue_sticking_out.png" afterPath="" />
       <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\drawable-ldpi\emo_im_undecided.png" afterPath="" />
       <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\drawable-ldpi\emo_im_winking.png" afterPath="" />
       <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\drawable-ldpi\emo_im_wtf.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\drawable-ldpi\emo_im_yelling.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\drawable-ldpi\ic_launcher.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\drawable-mdpi\emo_im_angel.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\drawable-mdpi\emo_im_cool.png" afterPath="" />
       <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\drawable-mdpi\emo_im_crying.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\drawable-mdpi\emo_im_embarrassed.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\drawable-mdpi\emo_im_foot_in_mouth.png" afterPath="" />
       <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\drawable-mdpi\emo_im_happy.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\drawable-mdpi\emo_im_kissing.png" afterPath="" />
       <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\drawable-mdpi\emo_im_laughing.png" afterPath="" />
       <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\drawable-mdpi\emo_im_lips_are_sealed.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\drawable-mdpi\emo_im_money_mouth.png" afterPath="" />
       <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\drawable-mdpi\emo_im_sad.png" afterPath="" />
       <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\drawable-mdpi\emo_im_surprised.png" afterPath="" />
       <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\drawable-mdpi\emo_im_tongue_sticking_out.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\drawable-mdpi\emo_im_undecided.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\drawable-mdpi\emo_im_winking.png" afterPath="" />
       <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\drawable-mdpi\emo_im_wtf.png" afterPath="" />
       <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\drawable-mdpi\emo_im_yelling.png" afterPath="" />
       <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\drawable-mdpi\ic_action_search.png" afterPath="" />
       <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\drawable-mdpi\ic_launcher.png" afterPath="" />
       <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\drawable-xhdpi\ic_action_search.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\drawable-xhdpi\ic_launcher.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\drawable-xxhdpi\ic_launcher.png" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\drawable\background.xml" afterPath="" />
       <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\drawable\button_selector.xml" afterPath="" />
       <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\drawable\read_light_menu_selector.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\drawable\read_menu_selector.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\drawable\sms_light_menu_selector.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\drawable\sms_menu_selector.xml" afterPath="" />
       <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\layout-land\main.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\layout-large-land\main.xml" afterPath="" />
       <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\layout-large\main.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\layout\action_bar.xml" afterPath="" />
       <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\layout\activity_conversation.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\layout\autocomplete_contact.xml" afterPath="" />
       <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\layout\base_preference.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\layout\checkbox_preference_item.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\layout\contact_picker_fragment.xml" afterPath="" />
       <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\layout\image_viewer.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\layout\main.xml" afterPath="" />
       <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\layout\preference_header.xml" afterPath="" />
       <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\layout\preferences.xml" afterPath="" />
       <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\layout\regular_preference_item.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\layout\sms_compose.xml" afterPath="" />
       <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\layout\sms_details.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\layout\sms_dialog.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\layout\sms_in.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\layout\sms_notify.xml" afterPath="" />
       <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\layout\sms_out.xml" afterPath="" />
       <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\layout\sms_reply_to.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\layout\sms_summary.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\layout\sms_viewer.xml" afterPath="" />
       <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\layout\switch_preference_item.xml" afterPath="" />
       <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\layout\video_viewer.xml" afterPath="" />
       <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\layout\widget.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\menu\base_menu.xml" afterPath="" />
       <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\menu\compose_menu.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\menu\conversation_menu.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\values-large\values.xml" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\values-s" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="ICSSMS.iws" />
@@ -963,7 +853,7 @@
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32977462" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32542372" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32426035" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3289941" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -991,7 +881,8 @@
     <MESSAGE value="QuickContactBadge on summary view&#10;Update manifest" />
     <MESSAGE value="Added 'Smooth' theme" />
     <MESSAGE value="Fixed some linting issues" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed some linting issues" />
+    <MESSAGE value="Remove build artifacts from git" />
+    <option name="LAST_COMMIT_MESSAGE" value="Remove build artifacts from git" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
