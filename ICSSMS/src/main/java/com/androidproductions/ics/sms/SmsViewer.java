@@ -285,15 +285,15 @@ public class SmsViewer extends ThemeableActivity {
 		textBox.getEditableText().append(draftMessage == null ? "" : draftMessage);
         scrollView.addKeyboardStateChangedListener(new IKeyboardChanged() {
 			public void onKeyboardShown() {
-				adjustScroll(false);          
+                scrollToBottom();
 			}
 			public void onKeyboardHidden() {
-				adjustScroll(false);            
+                scrollToBottom();
 			}
 		});
     }
 	
-	public void redraw(boolean topDown,boolean scrollToBottom)
+	public void redraw(boolean topDown)
 	{
 		for(int i = 0; i<=messages.size()-1;i++)
         {
@@ -328,7 +328,6 @@ public class SmsViewer extends ThemeableActivity {
 	            }, "gettingPhoto").start();
         	}
         }
-        adjustScroll(scrollToBottom);
         if (messages.size() < 25)
             smsList.findViewById(R.id.showPrevious).setVisibility(View.GONE);
     }
@@ -346,19 +345,24 @@ public class SmsViewer extends ThemeableActivity {
     		setupContact();
         }
     	
-    	redraw(false,true);
+    	redraw(false);
+        scrollToBottom();
     }
 	
 	public void showPrevious(View v)
-    {    
-    	firstDate = Math.min(firstDate,Math.min(messages.get(messages.size()-1).getDate(),messages.get(0).getDate()));
+    {
+        int height = smsList.getMeasuredHeight();
+        firstDate = Math.min(firstDate,Math.min(messages.get(messages.size()-1).getDate(),messages.get(0).getDate()));
     	messages = MessageUtilities.GetMessages(SmsViewer.this, threadId, 25, firstDate);
         Collections.sort(messages, new Comparator<IMessage>() {
             public int compare(IMessage m1, IMessage m2) {
                 return m2.getDate().compareTo(m1.getDate());
             }
         });
-        redraw(true, false);
+        View topSeen = smsList.getChildAt(1);
+        redraw(true);
+        smsList.invalidate();
+        scrollTo(topSeen);
     }
 
 	private View generateMessageView(final IMessage msg) {
@@ -459,16 +463,20 @@ public class SmsViewer extends ThemeableActivity {
 	        	return false;
 	    }
     }
-    
-    private void adjustScroll(final boolean toBottom)
+
+    private void scrollTo(final View scrollTo)
+    {
+        scrollView.post(new Runnable() {
+            public void run() {
+                scrollView.scrollTo(0, scrollTo.getTop()-scrollView.getHeight());
+            }
+        });
+    }
+    private void scrollToBottom()
     {
     	scrollView.post(new Runnable() {
 			public void run() {
-                // TODO: Sort out scrolling
-				if (toBottom)
-					scrollView.fullScroll(View.FOCUS_DOWN);
-                else
-                    scrollView.fullScroll(View.FOCUS_DOWN);
+				scrollView.fullScroll(View.FOCUS_DOWN);
 			}
 		});
     }
