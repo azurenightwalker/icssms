@@ -14,8 +14,6 @@ import com.androidproductions.ics.sms.R;
 import com.androidproductions.ics.sms.utils.LogHelper;
 
 import java.io.InputStream;
-import java.util.ArrayList;
-import java.util.List;
 
 public class ContactHelper {
 	private final Context mContext;

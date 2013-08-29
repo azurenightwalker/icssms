@@ -9,7 +9,6 @@ import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.provider.ContactsContract;
 import android.provider.ContactsContract.PhoneLookup;
-import android.provider.ContactsContract.Profile;
 import android.telephony.SmsMessage;
 import android.util.Log;
 import android.util.LruCache;

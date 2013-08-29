@@ -22,7 +22,6 @@ import com.androidproductions.ics.sms.SmsNotify;
 import com.androidproductions.ics.sms.messaging.IMessage;
 import com.androidproductions.ics.sms.messaging.MessageUtilities;
 import com.androidproductions.ics.sms.preferences.ConfigurationHelper;
-import com.androidproductions.ics.sms.utils.ApexHelper;
 
 import java.util.ArrayList;
 import java.util.HashMap;

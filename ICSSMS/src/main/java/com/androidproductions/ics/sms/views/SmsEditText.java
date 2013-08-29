@@ -1,13 +1,11 @@
 package com.androidproductions.ics.sms.views;
 
 import android.content.Context;
-import android.preference.PreferenceManager;
 import android.text.InputType;
 import android.util.AttributeSet;
 import android.view.Gravity;
 import android.widget.EditText;
 
-import com.androidproductions.ics.sms.Constants;
 import com.androidproductions.ics.sms.preferences.ConfigurationHelper;
 
 public class SmsEditText extends EditText {

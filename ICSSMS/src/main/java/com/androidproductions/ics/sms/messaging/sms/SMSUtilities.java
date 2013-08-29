@@ -7,7 +7,6 @@ import android.net.Uri;
 
 import com.androidproductions.ics.sms.Constants;
 import com.androidproductions.ics.sms.receivers.SmsUpdateReceiver;
-import com.androidproductions.ics.sms.utils.AddressUtilities;
 
 public class SMSUtilities {
 	public static SMSMessage generateMessageFromSummary(Context context, Cursor c) {

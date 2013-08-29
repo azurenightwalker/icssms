@@ -21,7 +21,6 @@ import android.view.View.OnClickListener;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.QuickContactBadge;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.androidproductions.ics.sms.messaging.IMessage;
