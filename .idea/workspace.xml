@@ -20,9 +20,238 @@
     <option name="TOOL_WINDOW_LOG_LEVEL" value="DEBUG" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cae794ee-0844-47f7-8010-cb9302c158e4" name="Default" comment="" />
+    <list default="true" id="cae794ee-0844-47f7-8010-cb9302c158e4" name="Default" comment="">
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\apk\ICSSMS-debug-unaligned.apk" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\classes\debug\com\androidproductions\ics\sms\AdditionalPreferences$1.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\classes\debug\com\androidproductions\ics\sms\AdditionalPreferences$2.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\classes\debug\com\androidproductions\ics\sms\AdditionalPreferences.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\classes\debug\com\androidproductions\ics\sms\BuildConfig.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\classes\debug\com\androidproductions\ics\sms\ComposeSms.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\classes\debug\com\androidproductions\ics\sms\ComposeSms_$1.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\classes\debug\com\androidproductions\ics\sms\ComposeSms_$IntentBuilder_.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\classes\debug\com\androidproductions\ics\sms\ComposeSms_.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\classes\debug\com\androidproductions\ics\sms\ComposeSms_.java" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\classes\debug\com\androidproductions\ics\sms\Constants.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\classes\debug\com\androidproductions\ics\sms\ContactListFragment.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\classes\debug\com\androidproductions\ics\sms\ICSSMSActivity$1.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\classes\debug\com\androidproductions\ics\sms\ICSSMSActivity$2.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\classes\debug\com\androidproductions\ics\sms\ICSSMSActivity$3.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\classes\debug\com\androidproductions\ics\sms\ICSSMSActivity$4.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\classes\debug\com\androidproductions\ics\sms\ICSSMSActivity.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\classes\debug\com\androidproductions\ics\sms\ICSSMSActivity_$IntentBuilder_.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\classes\debug\com\androidproductions\ics\sms\ICSSMSActivity_.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\classes\debug\com\androidproductions\ics\sms\ICSSMSActivity_.java" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\classes\debug\com\androidproductions\ics\sms\Preferences$1.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\classes\debug\com\androidproductions\ics\sms\Preferences$2.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\classes\debug\com\androidproductions\ics\sms\Preferences$3.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\classes\debug\com\androidproductions\ics\sms\Preferences$4$1.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\classes\debug\com\androidproductions\ics\sms\Preferences$4.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\classes\debug\com\androidproductions\ics\sms\Preferences$5.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\classes\debug\com\androidproductions\ics\sms\Preferences.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\classes\debug\com\androidproductions\ics\sms\Preferences_$IntentBuilder_.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\classes\debug\com\androidproductions\ics\sms\Preferences_.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\classes\debug\com\androidproductions\ics\sms\Preferences_.java" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\classes\debug\com\androidproductions\ics\sms\R$action.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\classes\debug\com\androidproductions\ics\sms\R$animator.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\classes\debug\com\androidproductions\ics\sms\R$array.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\classes\debug\com\androidproductions\ics\sms\R$attr.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\classes\debug\com\androidproductions\ics\sms\R$color.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\classes\debug\com\androidproductions\ics\sms\R$dimen.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\classes\debug\com\androidproductions\ics\sms\R$drawable.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\classes\debug\com\androidproductions\ics\sms\R$id.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\classes\debug\com\androidproductions\ics\sms\R$layout.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\classes\debug\com\androidproductions\ics\sms\R$menu.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\classes\debug\com\androidproductions\ics\sms\R$smslong.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\classes\debug\com\androidproductions\ics\sms\R$string.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\classes\debug\com\androidproductions\ics\sms\R$style.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\classes\debug\com\androidproductions\ics\sms\R$xml.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\classes\debug\com\androidproductions\ics\sms\R.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\classes\debug\com\androidproductions\ics\sms\SmsDialog$1.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\classes\debug\com\androidproductions\ics\sms\SmsDialog$2.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\classes\debug\com\androidproductions\ics\sms\SmsDialog$3.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\classes\debug\com\androidproductions\ics\sms\SmsDialog$4.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\classes\debug\com\androidproductions\ics\sms\SmsDialog.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\classes\debug\com\androidproductions\ics\sms\SmsNotify$1.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\classes\debug\com\androidproductions\ics\sms\SmsNotify$2.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\classes\debug\com\androidproductions\ics\sms\SmsNotify$3.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\classes\debug\com\androidproductions\ics\sms\SmsNotify.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\classes\debug\com\androidproductions\ics\sms\SmsViewer$1.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\classes\debug\com\androidproductions\ics\sms\SmsViewer$2.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\classes\debug\com\androidproductions\ics\sms\SmsViewer$3.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\classes\debug\com\androidproductions\ics\sms\SmsViewer$4.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\classes\debug\com\androidproductions\ics\sms\SmsViewer$5.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\classes\debug\com\androidproductions\ics\sms\SmsViewer$6.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\classes\debug\com\androidproductions\ics\sms\SmsViewer.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\classes\debug\com\androidproductions\ics\sms\SmsViewer_$1.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\classes\debug\com\androidproductions\ics\sms\SmsViewer_$IntentBuilder_.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\classes\debug\com\androidproductions\ics\sms\SmsViewer_.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\classes\debug\com\androidproductions\ics\sms\SmsViewer_.java" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\classes\debug\com\androidproductions\ics\sms\ThemeableActivity.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\classes\debug\com\androidproductions\ics\sms\ThemeableDialog.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\classes\debug\com\androidproductions\ics\sms\data\Contact.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\classes\debug\com\androidproductions\ics\sms\data\ContactHelper.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\classes\debug\com\androidproductions\ics\sms\data\PhoneNumber.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\classes\debug\com\androidproductions\ics\sms\data\adapters\ContactsAutoCompleteCursorAdapter.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\classes\debug\com\androidproductions\ics\sms\data\adapters\ContactsCursorAdapter.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\classes\debug\com\androidproductions\ics\sms\messaging\IMessage.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\classes\debug\com\androidproductions\ics\sms\messaging\MessageUtilities$1.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\classes\debug\com\androidproductions\ics\sms\messaging\MessageUtilities$2.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\classes\debug\com\androidproductions\ics\sms\messaging\MessageUtilities.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\classes\debug\com\androidproductions\ics\sms\messaging\sms\SMSMessage.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\classes\debug\com\androidproductions\ics\sms\messaging\sms\SMSMessageBase$1.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\classes\debug\com\androidproductions\ics\sms\messaging\sms\SMSMessageBase$2.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\classes\debug\com\androidproductions\ics\sms\messaging\sms\SMSMessageBase$3.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\classes\debug\com\androidproductions\ics\sms\messaging\sms\SMSMessageBase$4.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\classes\debug\com\androidproductions\ics\sms\messaging\sms\SMSMessageBase.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\classes\debug\com\androidproductions\ics\sms\messaging\sms\SMSUtilities.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\classes\debug\com\androidproductions\ics\sms\preferences\ConfigurationHelper.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\classes\debug\com\androidproductions\ics\sms\preferences\Defaults.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\classes\debug\com\androidproductions\ics\sms\receivers\MyPhoneStateListener.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\classes\debug\com\androidproductions\ics\sms\receivers\SmsUpdateReceiver.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\classes\debug\com\androidproductions\ics\sms\receivers\UpdateCountReceiver.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\classes\debug\com\androidproductions\ics\sms\service\MessagingService$ServiceHandler$1.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\classes\debug\com\androidproductions\ics\sms\service\MessagingService$ServiceHandler.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\classes\debug\com\androidproductions\ics\sms\service\MessagingService.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\classes\debug\com\androidproductions\ics\sms\service\NotificationService$NotificationHandler.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\classes\debug\com\androidproductions\ics\sms\service\NotificationService.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\classes\debug\com\androidproductions\ics\sms\service\ServiceStarter.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\classes\debug\com\androidproductions\ics\sms\transactions\NotificationHelper.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\classes\debug\com\androidproductions\ics\sms\utils\AddressUtilities.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\classes\debug\com\androidproductions\ics\sms\utils\ApexHelper.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\classes\debug\com\androidproductions\ics\sms\utils\LogHelper.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\classes\debug\com\androidproductions\ics\sms\utils\SmileyParser$Smileys.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\classes\debug\com\androidproductions\ics\sms\utils\SmileyParser.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\classes\debug\com\androidproductions\ics\sms\utils\TextUtilities.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\classes\debug\com\androidproductions\ics\sms\views\KeyboardDetectorScrollView$IKeyboardChanged.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\classes\debug\com\androidproductions\ics\sms\views\KeyboardDetectorScrollView.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\classes\debug\com\androidproductions\ics\sms\views\SmsEditText.class" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\incremental\aidl\debug\dependency.store" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\incremental\aidl\debug\inputs.data" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\incremental\aidl\debug\outputs.data" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\incremental\dex\debug\inputs.data" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\incremental\dex\debug\outputs.data" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\incremental\mergeAssets\debug\inputs.data" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\incremental\mergeAssets\debug\merger.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\incremental\mergeAssets\debug\outputs.data" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\incremental\mergeResources\debug\inputs.data" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\incremental\mergeResources\debug\merger.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\incremental\mergeResources\debug\outputs.data" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\libs\ICSSMS-debug.ap_" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\libs\ICSSMS-debug.dex" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\manifests\debug\AndroidManifest.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\animator\outleft.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\animator\outright.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\drawable-hdpi\bkgd_tile_black.png" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\drawable-hdpi\divider_horizontal_dark_opaque.9.png" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\drawable-hdpi\divider_horizontal_holo_light.9.png" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\drawable-hdpi\emo_im_angel.png" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\drawable-hdpi\emo_im_cool.png" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\drawable-hdpi\emo_im_crying.png" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\drawable-hdpi\emo_im_embarrassed.png" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\drawable-hdpi\emo_im_foot_in_mouth.png" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\drawable-hdpi\emo_im_happy.png" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\drawable-hdpi\emo_im_kissing.png" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\drawable-hdpi\emo_im_laughing.png" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\drawable-hdpi\emo_im_lips_are_sealed.png" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\drawable-hdpi\emo_im_money_mouth.png" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\drawable-hdpi\emo_im_sad.png" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\drawable-hdpi\emo_im_surprised.png" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\drawable-hdpi\emo_im_tongue_sticking_out.png" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\drawable-hdpi\emo_im_undecided.png" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\drawable-hdpi\emo_im_winking.png" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\drawable-hdpi\emo_im_wtf.png" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\drawable-hdpi\emo_im_yelling.png" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\drawable-hdpi\ic_contact_picture.png" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\drawable-hdpi\ic_go.png" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\drawable-hdpi\ic_launcher.png" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\drawable-hdpi\ic_launcher_sms.png" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\drawable-hdpi\ic_menu_back.png" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\drawable-hdpi\ic_menu_compose.png" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\drawable-hdpi\ic_menu_forward.png" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\drawable-hdpi\ic_menu_invite.png" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\drawable-hdpi\stat_notify_sms.png" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\drawable-ldpi\emo_im_angel.png" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\drawable-ldpi\emo_im_cool.png" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\drawable-ldpi\emo_im_crying.png" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\drawable-ldpi\emo_im_foot_in_mouth.png" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\drawable-ldpi\emo_im_happy.png" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\drawable-ldpi\emo_im_kissing.png" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\drawable-ldpi\emo_im_laughing.png" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\drawable-ldpi\emo_im_lips_are_sealed.png" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\drawable-ldpi\emo_im_money_mouth.png" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\drawable-ldpi\emo_im_sad.png" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\drawable-ldpi\emo_im_surprised.png" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\drawable-ldpi\emo_im_tongue_sticking_out.png" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\drawable-ldpi\emo_im_undecided.png" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\drawable-ldpi\emo_im_winking.png" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\drawable-ldpi\emo_im_wtf.png" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\drawable-ldpi\emo_im_yelling.png" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\drawable-ldpi\ic_launcher.png" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\drawable-mdpi\emo_im_angel.png" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\drawable-mdpi\emo_im_cool.png" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\drawable-mdpi\emo_im_crying.png" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\drawable-mdpi\emo_im_embarrassed.png" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\drawable-mdpi\emo_im_foot_in_mouth.png" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\drawable-mdpi\emo_im_happy.png" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\drawable-mdpi\emo_im_kissing.png" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\drawable-mdpi\emo_im_laughing.png" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\drawable-mdpi\emo_im_lips_are_sealed.png" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\drawable-mdpi\emo_im_money_mouth.png" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\drawable-mdpi\emo_im_sad.png" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\drawable-mdpi\emo_im_surprised.png" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\drawable-mdpi\emo_im_tongue_sticking_out.png" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\drawable-mdpi\emo_im_undecided.png" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\drawable-mdpi\emo_im_winking.png" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\drawable-mdpi\emo_im_wtf.png" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\drawable-mdpi\emo_im_yelling.png" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\drawable-mdpi\ic_action_search.png" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\drawable-mdpi\ic_launcher.png" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\drawable-xhdpi\ic_action_search.png" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\drawable-xhdpi\ic_launcher.png" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\drawable-xxhdpi\ic_launcher.png" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\drawable\background.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\drawable\button_selector.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\drawable\read_light_menu_selector.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\drawable\read_menu_selector.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\drawable\sms_light_menu_selector.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\drawable\sms_menu_selector.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\layout-land\main.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\layout-large-land\main.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\layout-large\main.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\layout\action_bar.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\layout\activity_conversation.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\layout\autocomplete_contact.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\layout\base_preference.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\layout\checkbox_preference_item.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\layout\contact_picker_fragment.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\layout\image_viewer.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\layout\main.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\layout\preference_header.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\layout\preferences.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\layout\regular_preference_item.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\layout\sms_compose.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\layout\sms_details.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\layout\sms_dialog.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\layout\sms_in.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\layout\sms_notify.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\layout\sms_out.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\layout\sms_reply_to.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\layout\sms_summary.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\layout\sms_viewer.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\layout\switch_preference_item.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\layout\video_viewer.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\layout\widget.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\menu\base_menu.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\menu\compose_menu.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\menu\conversation_menu.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\values-large\values.xml" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Documents\ICSSMS Project\ICSSMS\build\res\all\debug\values-s" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+    </list>
     <ignored path="ICSSMS.iws" />
     <ignored path=".idea/workspace.xml" />
+    <ignored path="ICSSMS/build/" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,7 +271,6 @@
     <disable_hints />
   </component>
   <component name="DebuggerManager">
-    <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
     <breakpoint_any default_suspend_policy="SuspendAll" default_condition_enabled="true">
       <breakpoint>
         <option name="NOTIFY_CAUGHT" value="true" />
@@ -79,6 +307,7 @@
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
     </breakpoint_any>
+    <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
     <breakpoint_rules />
     <ui_properties />
   </component>
@@ -88,98 +317,76 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="ContactHelper.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ICSSMS/src/main/java/com/androidproductions/ics/sms/data/ContactHelper.java">
+      <file leaf-file-name="styles.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ICSSMS/src/main/res/values/styles.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="78" column="40" selection-start="1948" selection-end="1970" vertical-scroll-proportion="0.0" vertical-offset="1367" max-vertical-offset="3621">
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#5194#5203#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ICSSMSActivity.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ICSSMS/src/main/java/com/androidproductions/ics/sms/ICSSMSActivity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="134" column="96" selection-start="5152" selection-end="5152" vertical-scroll-proportion="0.0" vertical-offset="1632" max-vertical-offset="3553">
+            <state line="199" column="61" selection-start="9546" selection-end="9546" vertical-scroll-proportion="0.0" vertical-offset="3091" max-vertical-offset="4012">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="IMessage.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ICSSMS/src/main/java/com/androidproductions/ics/sms/messaging/IMessage.java">
+      <file leaf-file-name="colors.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ICSSMS/src/main/res/values/colors.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="17" column="26" selection-start="515" selection-end="515" vertical-scroll-proportion="0.0" vertical-offset="28" max-vertical-offset="595">
+            <state line="27" column="0" selection-start="1170" selection-end="1170" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="714">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SMSMessageBase.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ICSSMS/src/main/java/com/androidproductions/ics/sms/messaging/sms/SMSMessageBase.java">
+      <file leaf-file-name="Preferences.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ICSSMS/src/main/java/com/androidproductions/ics/sms/Preferences.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="212" column="30" selection-start="6471" selection-end="6471" vertical-scroll-proportion="0.0" vertical-offset="2880" max-vertical-offset="5610">
-              <folding>
-                <element signature="e#5937#5951#0" expanded="true" />
-                <element signature="e#7419#7643#0" expanded="true" />
-                <element signature="e#7632#7633#0" expanded="true" />
-                <element signature="e#7920#8144#0" expanded="true" />
-                <element signature="e#8133#8134#0" expanded="true" />
-                <element signature="e#8702#8882#0" expanded="true" />
-                <element signature="e#8870#8871#0" expanded="true" />
-                <element signature="e#9076#9379#0" expanded="true" />
-                <element signature="e#9367#9368#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="notification_preferences.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ICSSMS/src/main/res/xml/notification_preferences.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="6" column="36" selection-start="653" selection-end="653" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="289">
+            <state line="64" column="30" selection-start="2259" selection-end="2259" vertical-scroll-proportion="0.0" vertical-offset="561" max-vertical-offset="3043">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ConfigurationHelper.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ICSSMS/src/main/java/com/androidproductions/ics/sms/preferences/ConfigurationHelper.java">
+      <file leaf-file-name="array.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ICSSMS/src/main/res/values/array.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="74" column="35" selection-start="2431" selection-end="2431" vertical-scroll-proportion="0.0" vertical-offset="816" max-vertical-offset="1513">
+            <state line="76" column="20" selection-start="3327" selection-end="3327" vertical-scroll-proportion="0.0" vertical-offset="969" max-vertical-offset="1615">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Defaults.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ICSSMS/src/main/java/com/androidproductions/ics/sms/preferences/Defaults.java">
+      <file leaf-file-name="sms_summary.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ICSSMS/src/main/res/layout/sms_summary.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="30" column="67" selection-start="1580" selection-end="1580" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="663">
+            <state line="6" column="26" selection-start="302" selection-end="302" vertical-scroll-proportion="-0.68" vertical-offset="85" max-vertical-offset="1088">
+              <folding />
+            </state>
+          </provider>
+          <provider editor-type-id="android-designer">
+            <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ThemeableActivity.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/ICSSMS/src/main/java/com/androidproductions/ics/sms/ThemeableActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="41" column="38" selection-start="1356" selection-end="1356" vertical-scroll-proportion="1.189394" vertical-offset="1" max-vertical-offset="833">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="NotificationHelper.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/ICSSMS/src/main/java/com/androidproductions/ics/sms/transactions/NotificationHelper.java">
+      <file leaf-file-name="ThemeableDialog.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ICSSMS/src/main/java/com/androidproductions/ics/sms/ThemeableDialog.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="82" column="42" selection-start="2877" selection-end="2877" vertical-scroll-proportion="0.2215909" vertical-offset="818" max-vertical-offset="4743">
-              <folding>
-                <element signature="e#3515#3543#0" expanded="true" />
-                <element signature="e#9295#9327#1" expanded="true" />
-              </folding>
+            <state line="108" column="72" selection-start="3960" selection-end="3960" vertical-scroll-proportion="0.0" vertical-offset="507" max-vertical-offset="1955">
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ContactsCursorAdapter.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ICSSMS/src/main/java/com/androidproductions/ics/sms/data/adapters/ContactsCursorAdapter.java">
+      <file leaf-file-name="Constants.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ICSSMS/src/main/java/com/androidproductions/ics/sms/Constants.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="34" column="110" selection-start="1153" selection-end="1236" vertical-scroll-proportion="0.0" vertical-offset="51" max-vertical-offset="1309">
+            <state line="58" column="44" selection-start="2999" selection-end="2999" vertical-scroll-proportion="0.0" vertical-offset="660" max-vertical-offset="1207">
               <folding />
             </state>
           </provider>
@@ -217,14 +424,14 @@
         <entry>
           <key>
             <ExternalProjectPojo>
-              <option name="name" value="ICSSMSProject" />
+              <option name="name" value="ICSSMS Project" />
               <option name="path" value="$PROJECT_DIR$" />
             </ExternalProjectPojo>
           </key>
           <value>
             <list>
               <ExternalProjectPojo>
-                <option name="name" value="ICSSMSProject" />
+                <option name="name" value="ICSSMS Project" />
                 <option name="path" value="$PROJECT_DIR$" />
               </ExternalProjectPojo>
               <ExternalProjectPojo>
@@ -238,7 +445,7 @@
     </option>
     <option name="modificationStamps">
       <map>
-        <entry key="$PROJECT_DIR$" value="1375794804131" />
+        <entry key="C:\Users\scott.jones\Documents\ICSSMS Project" value="1377690700661" />
         <entry key="C:\Users\scott.jones\Dropbox\Android\ICSSMS" value="1371453494037" />
       </map>
     </option>
@@ -246,22 +453,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/ICSSMS/src/main/java/ContactListFragment.java" />
-        <option value="$PROJECT_DIR$/ICSSMS/src/main/java/com/androidproductions/ics/sms/ThemeableActivity.java" />
-        <option value="$PROJECT_DIR$/ICSSMS/src/main/java/com/androidproductions/ics/sms/ContactPickerFragment.java" />
-        <option value="$PROJECT_DIR$/ICSSMS/src/main/res/layout/contact_picker_fragment.xml" />
-        <option value="$PROJECT_DIR$/ICSSMS/src/main/java/com/androidproductions/ics/sms/data/adapters/ContactsCursorAdapter.java" />
-        <option value="$PROJECT_DIR$/ICSSMS/src/main/java/com/androidproductions/ics/sms/ContactListFragment.java" />
-        <option value="$PROJECT_DIR$/ICSSMS/src/main/java/com/androidproductions/ics/sms/data/adapters/ContactsAutoCompleteCursorAdapter.java" />
-        <option value="$PROJECT_DIR$/ICSSMS/src/main/res/layout/sms_compose.xml" />
-        <option value="$PROJECT_DIR$/ICSSMS/src/main/AndroidManifest.xml" />
-        <option value="$PROJECT_DIR$/ICSSMS/src/main/java/com/androidproductions/ics/sms/ComposeSms.java" />
-        <option value="$PROJECT_DIR$/ICSSMS/src/main/java/com/androidproductions/ics/sms/data/ContactHelper.java" />
-        <option value="$PROJECT_DIR$/ICSSMS/src/main/java/com/androidproductions/ics/sms/messaging/sms/SMSMessageBase.java" />
-        <option value="$PROJECT_DIR$/ICSSMS/src/main/res/xml/notification_preferences.xml" />
         <option value="$PROJECT_DIR$/ICSSMS/src/main/java/com/androidproductions/ics/sms/preferences/ConfigurationHelper.java" />
         <option value="$PROJECT_DIR$/ICSSMS/src/main/java/com/androidproductions/ics/sms/preferences/Defaults.java" />
         <option value="$PROJECT_DIR$/ICSSMS/src/main/java/com/androidproductions/ics/sms/transactions/NotificationHelper.java" />
+        <option value="$PROJECT_DIR$/ICSSMS/src/main/java/com/androidproductions/ics/sms/messaging/MessageUtilities.java" />
+        <option value="$PROJECT_DIR$/ICSSMS/src/main/java/com/androidproductions/ics/sms/SmsViewer.java" />
+        <option value="$PROJECT_DIR$/ICSSMS/src/main/res/layout/sms_viewer.xml" />
+        <option value="$PROJECT_DIR$/ICSSMS/src/main/res/layout/sms_summary.xml" />
+        <option value="$PROJECT_DIR$/ICSSMS/src/main/java/com/androidproductions/ics/sms/ICSSMSActivity.java" />
+        <option value="$PROJECT_DIR$/ICSSMS/src/main/AndroidManifest.xml" />
+        <option value="$PROJECT_DIR$/ICSSMS/src/main/java/com/androidproductions/ics/sms/Constants.java" />
+        <option value="$PROJECT_DIR$/ICSSMS/src/main/java/com/androidproductions/ics/sms/ThemeableActivity.java" />
+        <option value="$PROJECT_DIR$/ICSSMS/src/main/java/com/androidproductions/ics/sms/ThemeableDialog.java" />
+        <option value="$PROJECT_DIR$/ICSSMS/src/main/res/values/array.xml" />
+        <option value="$PROJECT_DIR$/ICSSMS/src/main/res/values/styles.xml" />
+        <option value="$PROJECT_DIR$/ICSSMS/src/main/res/values/colors.xml" />
+        <option value="$PROJECT_DIR$/ICSSMS/src/main/java/com/androidproductions/ics/sms/utils/ApexHelper.java" />
       </list>
     </option>
   </component>
@@ -347,7 +554,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="ICSSMSProject" />
+              <option name="myItemId" value="ICSSMS Project" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -357,7 +564,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="ICSSMSProject" />
+              <option name="myItemId" value="ICSSMS Project" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -371,29 +578,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="ICSSMSProject" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ICSSMS" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="build.gradle" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ICSSMSProject" />
+              <option name="myItemId" value="ICSSMS Project" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -408,14 +593,6 @@
               <option name="myItemId" value="main" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="res" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="xml" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -423,7 +600,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="ICSSMSProject" />
+              <option name="myItemId" value="ICSSMS Project" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -449,7 +626,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="ICSSMSProject" />
+              <option name="myItemId" value="ICSSMS Project" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -465,11 +642,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
+              <option name="myItemId" value="res" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="sms" />
+              <option name="myItemId" value="values" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -479,7 +656,37 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="ICSSMSProject" />
+              <option name="myItemId" value="ICSSMS Project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ICSSMS" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="res" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="layout" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="build.gradle" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ICSSMS Project" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -500,10 +707,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="sms" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="transactions" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -521,7 +724,7 @@
     <property name="options.lastSelected" value="settings.github" />
     <property name="recentsLimit" value="5" />
     <property name="ExportedModule" value="ICSSMS" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/build.gradle" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/ICSSMS/build" />
     <property name="MemberChooser.copyJavadoc" value="false" />
     <property name="GoToClass.toSaveIncludeLibraries" value="false" />
     <property name="AndroidRunProguardForReleaseBuild" value="false" />
@@ -701,6 +904,27 @@
       <created>1375794805478</created>
       <updated>1375794805478</updated>
     </task>
+    <task id="LOCAL-00001" summary="Implement show previous functionality&#10;TODO: UI">
+      <created>1377692581429</created>
+      <updated>1377692581429</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Implement show previous functionality&#10;TODO: Nice UI">
+      <created>1377707738035</created>
+      <updated>1377707738035</updated>
+    </task>
+    <task id="LOCAL-00003" summary="QuickContactBadge on summary view&#10;Update manifest">
+      <created>1377708024457</created>
+      <updated>1377708024457</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Added 'Smooth' theme">
+      <created>1377764841786</created>
+      <updated>1377764841786</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Fixed some linting issues">
+      <created>1377765063563</created>
+      <updated>1377765063563</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -724,35 +948,35 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1296" height="1000" extended-state="7" />
+    <frame x="-8" y="-8" width="1296" height="1000" extended-state="6" />
     <editor active="false" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3289941" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32977462" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3299435" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39976275" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32858837" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3299435" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32542372" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3299435" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32977462" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32542372" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3289941" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24959481" sideWeight="0.6710059" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32655367" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32544377" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -762,153 +986,135 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
+    <MESSAGE value="Implement show previous functionality&#10;TODO: UI" />
+    <MESSAGE value="Implement show previous functionality&#10;TODO: Nice UI" />
+    <MESSAGE value="QuickContactBadge on summary view&#10;Update manifest" />
+    <MESSAGE value="Added 'Smooth' theme" />
+    <MESSAGE value="Fixed some linting issues" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed some linting issues" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/ICSSMS/src/main/res/layout/autocomplete_contact.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
+    <entry file="file://$PROJECT_DIR$/ICSSMS/src/main/java/com/androidproductions/ics/sms/messaging/MessageUtilities.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="42" column="39" selection-start="1575" selection-end="1589" vertical-scroll-proportion="-14.28" vertical-offset="357" max-vertical-offset="1054">
+        <state line="187" column="24" selection-start="6050" selection-end="6050" vertical-scroll-proportion="0.5188679" vertical-offset="2904" max-vertical-offset="3434">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ICSSMS/src/main/java/com/androidproductions/ics/sms/data/adapters/ContactsAutoCompleteCursorAdapter.java">
+    <entry file="file://$PROJECT_DIR$/ICSSMS/src/main/res/values/strings.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="34" column="29" selection-start="1225" selection-end="1225" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2754">
+        <state line="59" column="38" selection-start="2964" selection-end="2964" vertical-scroll-proportion="0.31123388" vertical-offset="834" max-vertical-offset="1377">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ICSSMS/src/main/res/layout/sms_compose.xml">
+    <entry file="file://$PROJECT_DIR$/ICSSMS/src/main/res/layout/sms_viewer.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="62" column="45" selection-start="2552" selection-end="2552" vertical-scroll-proportion="0.7046332" vertical-offset="689" max-vertical-offset="1207">
+          <folding />
+        </state>
+      </provider>
       <provider editor-type-id="android-designer">
         <state />
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ICSSMS/src/main/java/com/androidproductions/ics/sms/SmsViewer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="63" column="19" selection-start="2804" selection-end="2804" vertical-scroll-proportion="1.9723756" vertical-offset="0" max-vertical-offset="1190">
-          <folding>
-            <element signature="e#704#728#0" expanded="true" />
-            <element signature="e#1019#1039#0" expanded="true" />
-            <element signature="e#2739#2756#0" expanded="true" />
-          </folding>
+        <state line="395" column="80" selection-start="14373" selection-end="14373" vertical-scroll-proportion="0.0" vertical-offset="5236" max-vertical-offset="6987">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ICSSMS/src/main/res/layout/main.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="18" column="17" selection-start="726" selection-end="726" vertical-scroll-proportion="0.44208494" vertical-offset="77" max-vertical-offset="595">
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ICSSMS/src/main/java/com/androidproductions/ics/sms/ICSSMSActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="125" column="13" selection-start="4784" selection-end="4784" vertical-scroll-proportion="0.0" vertical-offset="1088" max-vertical-offset="3536">
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ICSSMS/src/main/AndroidManifest.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="142" column="48" selection-start="5992" selection-end="5992" vertical-scroll-proportion="0.0" vertical-offset="2142" max-vertical-offset="2771">
-          <folding>
-            <element signature="e#1678#1696#0" expanded="true" />
-            <element signature="e#3068#3086#0" expanded="true" />
-            <element signature="e#3405#3428#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ICSSMS/src/main/java/com/androidproductions/ics/sms/ComposeSms.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="78" column="28" selection-start="2671" selection-end="2671" vertical-scroll-proportion="0.0" vertical-offset="1683" max-vertical-offset="2533">
-          <folding>
-            <element signature="e#4492#4529#0" expanded="true" />
-            <element signature="e#5317#5354#0" expanded="true" />
-          </folding>
+        <state line="57" column="50" selection-start="2504" selection-end="2504" vertical-scroll-proportion="0.46961325" vertical-offset="714" max-vertical-offset="2856">
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ICSSMS/src/main/java/com/androidproductions/ics/sms/Constants.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="37" column="33" selection-start="1876" selection-end="1876" vertical-scroll-proportion="0.8828829" vertical-offset="139" max-vertical-offset="1190">
+        <state line="58" column="44" selection-start="2999" selection-end="2999" vertical-scroll-proportion="0.0" vertical-offset="660" max-vertical-offset="1207">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ICSSMS/src/main/java/com/androidproductions/ics/sms/data/adapters/ContactsCursorAdapter.java">
+    <entry file="file://$PROJECT_DIR$/ICSSMS/src/main/java/com/androidproductions/ics/sms/ThemeableDialog.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="34" column="110" selection-start="1153" selection-end="1236" vertical-scroll-proportion="0.0" vertical-offset="51" max-vertical-offset="1309">
+        <state line="108" column="72" selection-start="3960" selection-end="3960" vertical-scroll-proportion="0.0" vertical-offset="507" max-vertical-offset="1955">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ICSSMS/src/main/java/com/androidproductions/ics/sms/messaging/IMessage.java">
+    <entry file="file://$PROJECT_DIR$/ICSSMS/src/main/res/layout/sms_summary.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="26" selection-start="515" selection-end="515" vertical-scroll-proportion="0.0" vertical-offset="28" max-vertical-offset="595">
+        <state line="6" column="26" selection-start="302" selection-end="302" vertical-scroll-proportion="-0.68" vertical-offset="85" max-vertical-offset="1088">
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ICSSMS/src/main/res/values/array.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="76" column="20" selection-start="3327" selection-end="3327" vertical-scroll-proportion="0.0" vertical-offset="969" max-vertical-offset="1615">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ICSSMS/src/main/java/com/androidproductions/ics/sms/data/ContactHelper.java">
+    <entry file="file://$PROJECT_DIR$/ICSSMS/src/main/res/values/styles.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="78" column="40" selection-start="1948" selection-end="1970" vertical-scroll-proportion="0.0" vertical-offset="1367" max-vertical-offset="3621">
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#5194#5203#0" expanded="true" />
-          </folding>
+        <state line="199" column="61" selection-start="9546" selection-end="9546" vertical-scroll-proportion="0.0" vertical-offset="3091" max-vertical-offset="4012">
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ICSSMS/src/main/java/com/androidproductions/ics/sms/ICSSMSActivity.java">
+    <entry file="file://$PROJECT_DIR$/ICSSMS/src/main/res/values/colors.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="134" column="96" selection-start="5152" selection-end="5152" vertical-scroll-proportion="0.0" vertical-offset="1326" max-vertical-offset="3553">
+        <state line="27" column="0" selection-start="1170" selection-end="1170" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="714">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ICSSMS/src/main/java/com/androidproductions/ics/sms/utils/ApexHelper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="57" column="5" selection-start="2045" selection-end="2045" vertical-scroll-proportion="0.8180708" vertical-offset="197" max-vertical-offset="1343">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ICSSMS/src/main/java/com/androidproductions/ics/sms/Preferences.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="52" column="57" selection-start="1712" selection-end="1712" vertical-scroll-proportion="0.42728904" vertical-offset="306" max-vertical-offset="3111">
+        <state line="64" column="30" selection-start="2259" selection-end="2259" vertical-scroll-proportion="0.0" vertical-offset="561" max-vertical-offset="3043">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ICSSMS/src/main/java/com/androidproductions/ics/sms/messaging/sms/SMSMessageBase.java">
+    <entry file="file://$PROJECT_DIR$/ICSSMS/src/main/java/com/androidproductions/ics/sms/ThemeableActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="212" column="30" selection-start="6471" selection-end="6471" vertical-scroll-proportion="0.0" vertical-offset="2880" max-vertical-offset="5610">
-          <folding>
-            <element signature="e#5937#5951#0" expanded="true" />
-            <element signature="e#7419#7643#0" expanded="true" />
-            <element signature="e#7632#7633#0" expanded="true" />
-            <element signature="e#7920#8144#0" expanded="true" />
-            <element signature="e#8133#8134#0" expanded="true" />
-            <element signature="e#8702#8882#0" expanded="true" />
-            <element signature="e#8870#8871#0" expanded="true" />
-            <element signature="e#9076#9379#0" expanded="true" />
-            <element signature="e#9367#9368#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ICSSMS/src/main/res/xml/notification_preferences.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="36" selection-start="653" selection-end="653" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="289">
+        <state line="41" column="38" selection-start="1356" selection-end="1356" vertical-scroll-proportion="1.189394" vertical-offset="1" max-vertical-offset="833">
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ICSSMS/src/main/java/com/androidproductions/ics/sms/preferences/Defaults.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="30" column="67" selection-start="1580" selection-end="1580" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="663">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ICSSMS/src/main/java/com/androidproductions/ics/sms/preferences/ConfigurationHelper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="74" column="35" selection-start="2431" selection-end="2431" vertical-scroll-proportion="0.0" vertical-offset="816" max-vertical-offset="1513">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ICSSMS/src/main/java/com/androidproductions/ics/sms/transactions/NotificationHelper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="82" column="42" selection-start="2877" selection-end="2877" vertical-scroll-proportion="0.2215909" vertical-offset="818" max-vertical-offset="4743">
-          <folding>
-            <element signature="e#3515#3543#0" expanded="true" />
-            <element signature="e#9295#9327#1" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>

@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/ICSSMS/ICSSMS.iml" filepath="$PROJECT_DIR$/ICSSMS/ICSSMS.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ICSSMS Project.iml" filepath="$PROJECT_DIR$/ICSSMS Project.iml" />
       <module fileurl="file://$PROJECT_DIR$/ICSSMSProject.iml" filepath="$PROJECT_DIR$/ICSSMSProject.iml" />
     </modules>
   </component>
