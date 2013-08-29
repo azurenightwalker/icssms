@@ -8,4 +8,4 @@
           android:icon="@android:drawable/ic_menu_delete"
           android:title="@string/privacyBox"
           android:showAsAction="withText"/-->
-</menu><!-- From: file:/C:/Users/scott.jones/Dropbox/Android/ICSSMSProject/ICSSMS/src/main/res/xml/action_menu.xml -->
+</menu><!-- From: file:/C:/Users/scott.jones/Documents/ICSSMS%20Project/ICSSMS/src/main/res/xml/action_menu.xml -->

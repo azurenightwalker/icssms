@@ -16,7 +16,7 @@ public final class R {
         public static final int outright=0x7f040001;
     }
     public static final class array {
-        /**  From: file:/C:/Users/scott.jones/Dropbox/Android/ICSSMSProject/ICSSMS/src/main/res/values/array.xml 
+        /**  From: file:/C:/Users/scott.jones/Documents/ICSSMS%20Project/ICSSMS/src/main/res/values/array.xml 
  item>Full Screen</item 
          */
         public static final int DialogSizes=0x7f060000;
@@ -44,7 +44,7 @@ public final class R {
         public static final int default_smiley_texts=0x7f060006;
     }
     public static final class attr {
-        /**  From: file:/C:/Users/scott.jones/Dropbox/Android/ICSSMSProject/ICSSMS/src/main/res/values/styles.xml 
+        /**  From: file:/C:/Users/scott.jones/Documents/ICSSMS%20Project/ICSSMS/src/main/res/values/styles.xml 
          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
@@ -63,7 +63,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int secondary_sms_color=0x7f010003;
     }
     public static final class color {
-        /**  From: file:/C:/Users/scott.jones/Dropbox/Android/ICSSMSProject/ICSSMS/src/main/res/values/colors.xml 
+        /**  From: file:/C:/Users/scott.jones/Documents/ICSSMS%20Project/ICSSMS/src/main/res/values/colors.xml 
          */
         public static final int black=0x7f070000;
         public static final int dim_foreground_dark=0x7f070001;
@@ -81,20 +81,22 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int holo_red_dark=0x7f07000d;
         public static final int holo_red_light=0x7f07000e;
         public static final int ltgray=0x7f07000f;
-        public static final int translucent=0x7f070010;
-        public static final int transparent=0x7f070011;
-        public static final int white=0x7f070012;
+        public static final int smooth_blue=0x7f070010;
+        public static final int smooth_orange=0x7f070011;
+        public static final int translucent=0x7f070012;
+        public static final int transparent=0x7f070013;
+        public static final int white=0x7f070014;
     }
     public static final class dimen {
-        /**  From: file:/C:/Users/scott.jones/Dropbox/Android/ICSSMSProject/ICSSMS/src/main/res/values/dimens.xml 
+        /**  From: file:/C:/Users/scott.jones/Documents/ICSSMS%20Project/ICSSMS/src/main/res/values/dimens.xml 
          */
         public static final int action_bar_icon_vertical_padding=0x7f080000;
         public static final int action_bar_subtitle_bottom_margin=0x7f080001;
         public static final int action_bar_subtitle_top_margin=0x7f080002;
-        /**  From: file:/C:/Users/scott.jones/Dropbox/Android/ICSSMSProject/ICSSMS/src/main/res/values-sw720dp-land/dimens.xml 
+        /**  From: file:/C:/Users/scott.jones/Documents/ICSSMS%20Project/ICSSMS/src/main/res/values-sw720dp-land/dimens.xml 
          */
         public static final int activity_horizontal_margin=0x7f080006;
-        /**  From: file:/C:/Users/scott.jones/Dropbox/Android/ICSSMSProject/ICSSMS/src/main/res/values-large/dimens.xml 
+        /**  From: file:/C:/Users/scott.jones/Documents/ICSSMS%20Project/ICSSMS/src/main/res/values-large/dimens.xml 
          */
         public static final int padding_large=0x7f080003;
         public static final int padding_medium=0x7f080004;
@@ -142,20 +144,20 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int action_bar_subtitle=0x7f0c0003;
         public static final int action_bar_title=0x7f0c0002;
         public static final int adView=0x7f0c0013;
-        public static final int add=0x7f0c0049;
+        public static final int add=0x7f0c004a;
         public static final int addContactList=0x7f0c001f;
         public static final int apex=0x7f0c001d;
         public static final int body=0x7f0c0032;
-        public static final int call=0x7f0c0048;
+        public static final int call=0x7f0c0049;
         public static final int checkboxWidget=0x7f0c000f;
         public static final int closeDialog=0x7f0c0031;
         public static final int contact_name=0x7f0c0009;
         public static final int contact_number=0x7f0c000b;
         public static final int contact_photo=0x7f0c0007;
         public static final int count=0x7f0c0038;
-        public static final int delete=0x7f0c004a;
+        public static final int delete=0x7f0c004b;
         public static final int dialog=0x7f0c0017;
-        public static final int discard=0x7f0c0047;
+        public static final int discard=0x7f0c0048;
         public static final int flContent=0x7f0c0010;
         public static final int footer=0x7f0c0020;
         public static final int head=0x7f0c002b;
@@ -176,7 +178,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int messageStatus=0x7f0c003c;
         public static final int messageTime=0x7f0c0030;
         public static final int miscHeader=0x7f0c0018;
-        public static final int newSms=0x7f0c0045;
+        public static final int newSms=0x7f0c0046;
         public static final int next=0x7f0c0039;
         public static final int notifications=0x7f0c0016;
         public static final int notificationsHeader=0x7f0c0015;
@@ -196,12 +198,13 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int sender_number=0x7f0c002f;
         public static final int sender_photo=0x7f0c002c;
         public static final int sendingBox=0x7f0c0022;
-        public static final int settings=0x7f0c0046;
+        public static final int settings=0x7f0c0047;
         public static final int showAds=0x7f0c001c;
+        public static final int showPrevious=0x7f0c0043;
         public static final int smiley=0x7f0c001a;
         public static final int smsList=0x7f0c0005;
         public static final int summary=0x7f0c000e;
-        public static final int switchWidget=0x7f0c0043;
+        public static final int switchWidget=0x7f0c0044;
         public static final int text=0x7f0c0021;
         public static final int textCount=0x7f0c0023;
         public static final int theme=0x7f0c0019;
@@ -212,7 +215,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int valueLocation=0x7f0c0028;
         public static final int valueRecieved=0x7f0c002a;
         public static final int valueType=0x7f0c0026;
-        public static final int video=0x7f0c0044;
+        public static final int video=0x7f0c0045;
         public static final int wrapper=0x7f0c0006;
     }
     public static final class layout {
@@ -257,7 +260,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int unread=0x7f0e0004;
     }
     public static final class string {
-        /**  From: file:/C:/Users/scott.jones/Dropbox/Android/ICSSMSProject/ICSSMS/src/main/res/values/strings.xml 
+        /**  From: file:/C:/Users/scott.jones/Documents/ICSSMS%20Project/ICSSMS/src/main/res/values/strings.xml 
          */
         public static final int addContact=0x7f090000;
         public static final int alreadyAdded=0x7f090001;
@@ -298,41 +301,45 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int miscHeader=0x7f090024;
         public static final int mmsType=0x7f090025;
         public static final int newSms=0x7f090026;
-        public static final int notificationTitle=0x7f090027;
-        public static final int notificationsHeader=0x7f090028;
-        public static final int offline=0x7f090029;
-        public static final int online=0x7f09002a;
-        public static final int openConvo=0x7f09002b;
-        public static final int preferencesTitle=0x7f09002c;
-        public static final int privacyBox=0x7f09002d;
-        public static final int receivedLabel=0x7f09002e;
-        public static final int replyTo=0x7f09002f;
-        public static final int resend=0x7f090030;
-        public static final int selectTone=0x7f090031;
-        public static final int sendSms=0x7f090032;
-        public static final int sendSmsButton=0x7f090033;
-        public static final int sendSmsHint=0x7f090034;
-        public static final int settings=0x7f090035;
-        public static final int share=0x7f090036;
-        public static final int shareString=0x7f090037;
-        public static final int showAds=0x7f090038;
-        public static final int smileySummary=0x7f090039;
-        public static final int smileyTitle=0x7f09003a;
-        public static final int smsType=0x7f09003b;
-        public static final int themeTitle=0x7f09003c;
-        public static final int timeLabel=0x7f09003d;
-        public static final int title_activity_conversation=0x7f09003e;
-        public static final int typeLabel=0x7f09003f;
-        public static final int unlock=0x7f090040;
+        public static final int notAllSent=0x7f090027;
+        public static final int notificationTitle=0x7f090028;
+        public static final int notificationsHeader=0x7f090029;
+        public static final int offline=0x7f09002a;
+        public static final int online=0x7f09002b;
+        public static final int openConvo=0x7f09002c;
+        public static final int preferencesTitle=0x7f09002d;
+        public static final int privacyBox=0x7f09002e;
+        public static final int quickReply=0x7f09002f;
+        public static final int receivedLabel=0x7f090030;
+        public static final int replyTo=0x7f090031;
+        public static final int resend=0x7f090032;
+        public static final int selectTone=0x7f090033;
+        public static final int sendSms=0x7f090034;
+        public static final int sendSmsButton=0x7f090035;
+        public static final int sendSmsHint=0x7f090036;
+        public static final int sendingFailed=0x7f090037;
+        public static final int settings=0x7f090038;
+        public static final int share=0x7f090039;
+        public static final int shareString=0x7f09003a;
+        public static final int showAds=0x7f09003b;
+        public static final int showMore=0x7f09003c;
+        public static final int smileySummary=0x7f09003d;
+        public static final int smileyTitle=0x7f09003e;
+        public static final int smsType=0x7f09003f;
+        public static final int themeTitle=0x7f090040;
+        public static final int timeLabel=0x7f090041;
+        public static final int title_activity_conversation=0x7f090042;
+        public static final int typeLabel=0x7f090043;
+        public static final int unlock=0x7f090044;
     }
     public static final class style {
-        /**  From: file:/C:/Users/scott.jones/Dropbox/Android/ICSSMSProject/ICSSMS/src/main/res/values-v11/styles.xml 
+        /**  From: file:/C:/Users/scott.jones/Documents/ICSSMS%20Project/ICSSMS/src/main/res/values-v11/styles.xml 
  API 11 theme customizations can go here. 
- From: file:/C:/Users/scott.jones/Dropbox/Android/ICSSMSProject/ICSSMS/src/main/res/values-v14/styles.xml 
+ From: file:/C:/Users/scott.jones/Documents/ICSSMS%20Project/ICSSMS/src/main/res/values-v14/styles.xml 
  API 14 theme customizations can go here. 
          */
-        public static final int AppBaseTheme=0x7f0a001c;
-        /**  From: file:/C:/Users/scott.jones/Dropbox/Android/ICSSMSProject/ICSSMS/src/main/res/values/styles.xml 
+        public static final int AppBaseTheme=0x7f0a0020;
+        /**  From: file:/C:/Users/scott.jones/Documents/ICSSMS%20Project/ICSSMS/src/main/res/values/styles.xml 
          */
         public static final int Holo=0x7f0a0000;
         public static final int HoloBlue=0x7f0a0001;
@@ -362,6 +369,10 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int HoloRedDialog=0x7f0a0019;
         public static final int HoloRedDialogNoPadding=0x7f0a001a;
         public static final int HoloRedDialogNoPaddingTransparent=0x7f0a001b;
+        public static final int Smooth=0x7f0a001c;
+        public static final int SmoothDialog=0x7f0a001d;
+        public static final int SmoothDialogNoPadding=0x7f0a001e;
+        public static final int SmoothDialogNoPaddingTransparent=0x7f0a001f;
     }
     public static final class xml {
         public static final int action_menu=0x7f050000;

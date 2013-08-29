@@ -14,4 +14,4 @@
           android:title="@string/details"/>
     <item android:id="@+smslong/delete"
           android:title="@string/delete"/>
-</menu><!-- From: file:/C:/Users/scott.jones/Dropbox/Android/ICSSMSProject/ICSSMS/src/main/res/xml/sms_long_menu_in_locked.xml -->
+</menu><!-- From: file:/C:/Users/scott.jones/Documents/ICSSMS%20Project/ICSSMS/src/main/res/xml/sms_long_menu_in_locked.xml -->

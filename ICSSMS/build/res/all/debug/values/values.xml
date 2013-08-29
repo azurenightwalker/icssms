@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <!-- From: file:/C:/Users/scott.jones/Dropbox/Android/ICSSMSProject/ICSSMS/src/main/res/values/array.xml -->
+    <!-- From: file:/C:/Users/scott.jones/Documents/ICSSMS%20Project/ICSSMS/src/main/res/values/array.xml -->
     <string-array name="DialogSizes">
         <item>Regular</item>
         <item>Large</item>
@@ -25,6 +25,7 @@
         <item>Holo Purple</item>
         <item>Holo Orange</item>
         <item>Holo Light</item>
+        <item>Smooth</item>
     </string-array>
     <string-array name="ThemeValues">
         <item>0</item>
@@ -34,6 +35,7 @@
         <item>4</item>
         <item>5</item>
         <item>6</item>
+        <item>7</item>
     </string-array>
     <string-array name="default_smiley_names">
         <item>Happy</item>
@@ -119,12 +121,12 @@
       <item>:-I</item>   <! 20: Poker face
         -->
     </string-array>
-    <!-- From: file:/C:/Users/scott.jones/Dropbox/Android/ICSSMSProject/ICSSMS/src/main/res/values/styles.xml -->
+    <!-- From: file:/C:/Users/scott.jones/Documents/ICSSMS%20Project/ICSSMS/src/main/res/values/styles.xml -->
     <attr name="background_sms_drawable" format="reference" />
     <attr name="primary_sms_color" format="reference" />
     <attr name="read_sms_drawable" format="reference" />
     <attr name="secondary_sms_color" format="reference" />
-    <!-- From: file:/C:/Users/scott.jones/Dropbox/Android/ICSSMSProject/ICSSMS/src/main/res/values/colors.xml -->
+    <!-- From: file:/C:/Users/scott.jones/Documents/ICSSMS%20Project/ICSSMS/src/main/res/values/colors.xml -->
     <color name="black">#ff000000</color>
     <color name="dim_foreground_dark">#bebebe</color>
     <color name="divider">#ff333333</color>
@@ -141,17 +143,19 @@
     <color name="holo_red_dark">#ffcc0000</color>
     <color name="holo_red_light">#ffff4444</color>
     <color name="ltgray">#ffCCCCCC</color>
+    <color name="smooth_blue">#ff3d80a0</color>
+    <color name="smooth_orange">#ff977f60</color>
     <color name="translucent">#aa000000</color>
     <color name="transparent">#00000000</color>
     <color name="white">#ffffffff</color>
-    <!-- From: file:/C:/Users/scott.jones/Dropbox/Android/ICSSMSProject/ICSSMS/src/main/res/values/dimens.xml -->
+    <!-- From: file:/C:/Users/scott.jones/Documents/ICSSMS%20Project/ICSSMS/src/main/res/values/dimens.xml -->
     <dimen name="action_bar_icon_vertical_padding">8dip</dimen>
     <dimen name="action_bar_subtitle_bottom_margin">5dip</dimen>
     <dimen name="action_bar_subtitle_top_margin">-3dp</dimen>
     <dimen name="padding_large">16dp</dimen>
     <dimen name="padding_medium">8dp</dimen>
     <dimen name="padding_small">8dp</dimen>
-    <!-- From: file:/C:/Users/scott.jones/Dropbox/Android/ICSSMSProject/ICSSMS/src/main/res/values/strings.xml -->
+    <!-- From: file:/C:/Users/scott.jones/Documents/ICSSMS%20Project/ICSSMS/src/main/res/values/strings.xml -->
     <string name="addContact">Add To Contacts</string>
     <string name="alreadyAdded">You have already added this contact</string>
     <string name="apexTitle">Show unread count in Apex</string>
@@ -191,6 +195,7 @@
     <string name="miscHeader">Miscellaneous</string>
     <string name="mmsType">Multimedia Message</string>
     <string name="newSms">Compose</string>
+    <string name="notAllSent">Not all messages were successfully sent</string>
     <string name="notificationTitle">Status Bar Notifications</string>
     <string name="notificationsHeader">Notifications</string>
     <string name="offline">Go offline</string>
@@ -198,6 +203,7 @@
     <string name="openConvo">Open</string>
     <string name="preferencesTitle">Preferences</string>
     <string name="privacyBox">Move to Privacy Box</string>
+    <string name="quickReply">Quick Reply</string>
     <string name="receivedLabel">Received:</string>
     <string name="replyTo">In reply to…</string>
     <string name="resend">Resend</string>
@@ -205,10 +211,12 @@
     <string name="sendSms">Send</string>
     <string name="sendSmsButton">Send</string>
     <string name="sendSmsHint">Type message…</string>
+    <string name="sendingFailed">Message sending failed</string>
     <string name="settings">Settings</string>
     <string name="share">Share</string>
     <string name="shareString">Share using..</string>
     <string name="showAds">Show Adverts</string>
+    <string name="showMore">Show More</string>
     <string name="smileySummary">Replace return key with Smiley key</string>
     <string name="smileyTitle">Show Smiley Key</string>
     <string name="smsType">Text Message</string>
@@ -217,7 +225,7 @@
     <string name="title_activity_conversation">Conversation</string>
     <string name="typeLabel">Type:</string>
     <string name="unlock">Unlock</string>
-    <!-- From: file:/C:/Users/scott.jones/Dropbox/Android/ICSSMSProject/ICSSMS/src/main/res/values/styles.xml -->
+    <!-- From: file:/C:/Users/scott.jones/Documents/ICSSMS%20Project/ICSSMS/src/main/res/values/styles.xml -->
     <style name="Holo" parent="android:Theme.Holo">
         <item name="primary_sms_color">@color/white</item>
         <item name="secondary_sms_color">@color/white</item>
@@ -390,6 +398,31 @@
     </style>
 
     <style name="HoloRedDialogNoPaddingTransparent" parent="HoloRedDialogNoPadding">
+        <item name="android:windowBackground">@android:color/transparent</item>
+    </style>
+
+    <style name="Smooth" parent="android:Theme.Holo">
+        <item name="primary_sms_color">@color/smooth_blue</item>
+        <item name="secondary_sms_color">@color/smooth_orange</item>
+        <item name="background_sms_drawable">@drawable/sms_menu_selector</item>
+        <item name="read_sms_drawable">@drawable/read_menu_selector</item>
+    </style>
+
+    <style name="SmoothDialog" parent="android:Theme.Holo.Dialog">
+        <item name="android:windowCloseOnTouchOutside">false</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="primary_sms_color">@color/smooth_blue</item>
+        <item name="secondary_sms_color">@color/smooth_orange</item>
+        <item name="background_sms_drawable">@drawable/sms_menu_selector</item>
+        <item name="read_sms_drawable">@drawable/read_menu_selector</item>
+    </style>
+
+    <style name="SmoothDialogNoPadding" parent="SmoothDialog">
+        <item name="android:windowIsFloating">false</item>
+        <item name="android:windowIsTranslucent">true</item>
+    </style>
+
+    <style name="SmoothDialogNoPaddingTransparent" parent="SmoothDialogNoPadding">
         <item name="android:windowBackground">@android:color/transparent</item>
     </style>
 
