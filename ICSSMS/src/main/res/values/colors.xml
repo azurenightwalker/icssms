@@ -25,7 +25,7 @@
 
     <color name="smooth_blue">#ff3d80a0</color>
     <color name="smooth_orange">#ff977f60</color>
-
+    <color name="smooth_gray">#ff1c1c1c</color>
     <color name="white">#ffffffff</color>
     <color name="black">#ff000000</color>
     <color name="translucent">#aa000000</color>

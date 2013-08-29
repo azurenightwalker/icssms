@@ -1,12 +1,13 @@
 package com.androidproductions.ics.sms;
 
 import android.os.Bundle;
+import android.preference.PreferenceActivity;
 import android.support.v4.app.FragmentActivity;
 
 import com.androidproductions.ics.sms.preferences.ConfigurationHelper;
 import com.twww.excepttrack.ExceptTrackHandler;
 
-public abstract class ThemeableActivity extends FragmentActivity {
+public abstract class ThemeablePreferenceActivity extends PreferenceActivity {
 	
 	protected void onCreate(Bundle savedInstanceState)
 	{

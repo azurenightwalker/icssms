@@ -27,7 +27,7 @@
 	        android:layout_toLeftOf="@id/photo"
 	        android:textSize="14dip"
 	        android:layout_marginRight="5dip"
-	        android:textColor="?attr/secondary_sms_color"
+	        android:textColor="?attr/android:textColorSecondary"
 	        android:gravity="right"/>
 	    <TextView
 	        android:id="@+id/messageContent"
@@ -36,7 +36,7 @@
 	        android:layout_alignParentLeft="true"
 	        android:paddingBottom="5dip"
 	        android:textSize="14dip"
-	        android:textColor="?attr/secondary_sms_color"
+	        android:textColor="?attr/android:textColorSecondary"
 	        android:layout_marginRight="5dip"
 	        android:layout_below="@id/messageTime"
 	        android:layout_toLeftOf="@id/photo"

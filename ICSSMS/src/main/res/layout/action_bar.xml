@@ -41,7 +41,7 @@
 			            android:id="@+id/action_bar_title"
 			            android:layout_width="wrap_content"
 			            android:layout_height="wrap_content"
-			            android:textColor="?attr/primary_sms_color"
+			            android:textColor="?attr/android:textColorPrimary"
 			            android:singleLine="true"
 	                    android:ellipsize="end"/>
 			<TextView
@@ -52,7 +52,7 @@
 	        android:layout_marginBottom="@dimen/action_bar_subtitle_bottom_margin"
 	        android:singleLine="true"
 	                  android:ellipsize="end"
-	                  android:textColor="?attr/secondary_sms_color"/>
+	                  android:textColor="?attr/android:textColorSecondary"/>
 
         </LinearLayout>
         <ImageView 

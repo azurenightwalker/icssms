@@ -2,12 +2,11 @@
 <resources>
     <attr name="background_sms_drawable" format="reference"/>
     <attr name="read_sms_drawable" format="reference"/>
-    <attr name="primary_sms_color" format="reference"/>
-    <attr name="secondary_sms_color" format="reference"/>
     
     <style name="Holo" parent="android:Theme.Holo">
-         <item name="primary_sms_color">@color/white</item>
-         <item name="secondary_sms_color">@color/white</item>
+        <item name="android:windowBackground">@drawable/background</item>
+         <item name="android:textColorPrimary">@color/white</item>
+         <item name="android:textColorSecondary">@color/white</item>
          <item name="background_sms_drawable">@drawable/sms_menu_selector</item>
          <item name="read_sms_drawable">@drawable/read_menu_selector</item>
     </style>
@@ -15,8 +14,8 @@
     <style name="HoloDialog" parent="android:Theme.Holo.Dialog">
     	<item name="android:windowCloseOnTouchOutside">false</item>
         <item name="android:windowNoTitle">true</item>
-        <item name="primary_sms_color">@color/white</item>
-        <item name="secondary_sms_color">@color/white</item>
+        <item name="android:textColorPrimary">@color/white</item>
+        <item name="android:textColorSecondary">@color/white</item>
         <item name="background_sms_drawable">@drawable/sms_menu_selector</item>
         <item name="read_sms_drawable">@drawable/read_menu_selector</item>
 	</style>
@@ -33,8 +32,9 @@
 	</style>
     
     <style name="HoloBlue" parent="android:Theme.Holo">
-        <item name="primary_sms_color">@color/holo_blue_dark</item>
-        <item name="secondary_sms_color">@color/white</item>
+        <item name="android:windowBackground">@drawable/background</item>
+        <item name="android:textColorPrimary">@color/holo_blue_dark</item>
+        <item name="android:textColorSecondary">@color/white</item>
          <item name="background_sms_drawable">@drawable/sms_menu_selector</item>
          <item name="read_sms_drawable">@drawable/read_menu_selector</item>
     </style>
@@ -42,8 +42,8 @@
     <style name="HoloBlueDialog" parent="android:Theme.Holo.Dialog">
     	<item name="android:windowCloseOnTouchOutside">false</item>
         <item name="android:windowNoTitle">true</item>
-        <item name="primary_sms_color">@color/holo_blue_dark</item>
-        <item name="secondary_sms_color">@color/white</item>
+        <item name="android:textColorPrimary">@color/holo_blue_dark</item>
+        <item name="android:textColorSecondary">@color/white</item>
         <item name="background_sms_drawable">@drawable/sms_menu_selector</item>
         <item name="read_sms_drawable">@drawable/read_menu_selector</item>
 	</style>
@@ -60,8 +60,9 @@
 	</style>
 	
     <style name="HoloGreen" parent="android:Theme.Holo">
-        <item name="primary_sms_color">@color/holo_green_dark</item>
-        <item name="secondary_sms_color">@color/white</item>
+        <item name="android:windowBackground">@drawable/background</item>
+        <item name="android:textColorPrimary">@color/holo_green_dark</item>
+        <item name="android:textColorSecondary">@color/white</item>
          <item name="background_sms_drawable">@drawable/sms_menu_selector</item>
          <item name="read_sms_drawable">@drawable/read_menu_selector</item>
     </style>
@@ -69,8 +70,8 @@
     <style name="HoloGreenDialog" parent="android:Theme.Holo.Dialog">
     	<item name="android:windowCloseOnTouchOutside">false</item>
         <item name="android:windowNoTitle">true</item>
-        <item name="primary_sms_color">@color/holo_green_dark</item>
-        <item name="secondary_sms_color">@color/white</item>
+        <item name="android:textColorPrimary">@color/holo_green_dark</item>
+        <item name="android:textColorSecondary">@color/white</item>
         <item name="background_sms_drawable">@drawable/sms_menu_selector</item>
         <item name="read_sms_drawable">@drawable/read_menu_selector</item>
 	</style>
@@ -87,8 +88,9 @@
 	</style>
 	
     <style name="HoloRed" parent="android:Theme.Holo">
-        <item name="primary_sms_color">@color/holo_red_dark</item>
-        <item name="secondary_sms_color">@color/white</item>
+        <item name="android:windowBackground">@drawable/background</item>
+        <item name="android:textColorPrimary">@color/holo_red_dark</item>
+        <item name="android:textColorSecondary">@color/white</item>
         <item name="background_sms_drawable">@drawable/sms_menu_selector</item>
         <item name="read_sms_drawable">@drawable/read_menu_selector</item>
     </style>
@@ -96,8 +98,8 @@
     <style name="HoloRedDialog" parent="android:Theme.Holo.Dialog">
     	<item name="android:windowCloseOnTouchOutside">false</item>
         <item name="android:windowNoTitle">true</item>
-        <item name="primary_sms_color">@color/holo_red_dark</item>
-        <item name="secondary_sms_color">@color/white</item>
+        <item name="android:textColorPrimary">@color/holo_red_dark</item>
+        <item name="android:textColorSecondary">@color/white</item>
         <item name="background_sms_drawable">@drawable/sms_menu_selector</item>
         <item name="read_sms_drawable">@drawable/read_menu_selector</item>
 	</style>
@@ -114,8 +116,9 @@
 	</style>
 	
     <style name="HoloPurple" parent="android:Theme.Holo">
-        <item name="primary_sms_color">@color/holo_purple_dark</item>
-        <item name="secondary_sms_color">@color/white</item>
+        <item name="android:windowBackground">@drawable/background</item>
+        <item name="android:textColorPrimary">@color/holo_purple_dark</item>
+        <item name="android:textColorSecondary">@color/white</item>
         <item name="background_sms_drawable">@drawable/sms_menu_selector</item>
         <item name="read_sms_drawable">@drawable/read_menu_selector</item>
     </style>
@@ -123,8 +126,8 @@
     <style name="HoloPurpleDialog" parent="android:Theme.Holo.Dialog">
     	<item name="android:windowCloseOnTouchOutside">false</item>
         <item name="android:windowNoTitle">true</item>
-        <item name="primary_sms_color">@color/holo_purple_dark</item>
-        <item name="secondary_sms_color">@color/white</item>
+        <item name="android:textColorPrimary">@color/holo_purple_dark</item>
+        <item name="android:textColorSecondary">@color/white</item>
         <item name="background_sms_drawable">@drawable/sms_menu_selector</item>
         <item name="read_sms_drawable">@drawable/read_menu_selector</item>
 	</style>
@@ -141,8 +144,9 @@
 	</style>
 	
     <style name="HoloOrange" parent="android:Theme.Holo">
-        <item name="primary_sms_color">@color/holo_orange_dark</item>
-        <item name="secondary_sms_color">@color/white</item>
+        <item name="android:windowBackground">@drawable/background</item>
+        <item name="android:textColorPrimary">@color/holo_orange_dark</item>
+        <item name="android:textColorSecondary">@color/white</item>
         <item name="background_sms_drawable">@drawable/sms_menu_selector</item>
         <item name="read_sms_drawable">@drawable/read_menu_selector</item>
     </style>
@@ -150,8 +154,8 @@
     <style name="HoloOrangeDialog" parent="android:Theme.Holo.Dialog">
     	<item name="android:windowCloseOnTouchOutside">false</item>
         <item name="android:windowNoTitle">true</item>
-        <item name="primary_sms_color">@color/holo_orange_dark</item>
-        <item name="secondary_sms_color">@color/white</item>
+        <item name="android:textColorPrimary">@color/holo_orange_dark</item>
+        <item name="android:textColorSecondary">@color/white</item>
         <item name="background_sms_drawable">@drawable/sms_menu_selector</item>
         <item name="read_sms_drawable">@drawable/read_menu_selector</item>
 	</style>
@@ -168,8 +172,8 @@
 	</style>
 	
     <style name="HoloLight" parent="android:Theme.Holo.Light">
-        <item name="primary_sms_color">@color/black</item>
-        <item name="secondary_sms_color">@color/dkgray</item>
+        <item name="android:textColorPrimary">@color/black</item>
+        <item name="android:textColorSecondary">@color/dkgray</item>
         <item name="background_sms_drawable">@drawable/sms_light_menu_selector</item>
         <item name="read_sms_drawable">@drawable/read_light_menu_selector</item>
     </style>
@@ -177,8 +181,8 @@
     <style name="HoloLightDialog" parent="android:Theme.Holo.Light.Dialog">
     	<item name="android:windowCloseOnTouchOutside">false</item>
         <item name="android:windowNoTitle">true</item>
-        <item name="primary_sms_color">@color/black</item>
-        <item name="secondary_sms_color">@color/dkgray</item>
+        <item name="android:textColorPrimary">@color/black</item>
+        <item name="android:textColorSecondary">@color/dkgray</item>
         <item name="background_sms_drawable">@drawable/sms_light_menu_selector</item>
         <item name="read_sms_drawable">@drawable/read_light_menu_selector</item>
 	</style>
@@ -196,8 +200,9 @@
 
 
     <style name="Smooth" parent="android:Theme.Holo">
-        <item name="primary_sms_color">@color/smooth_blue</item>
-        <item name="secondary_sms_color">@color/smooth_orange</item>
+        <item name="android:windowBackground">@drawable/smooth_background</item>
+        <item name="android:textColorPrimary">@color/smooth_blue</item>
+        <item name="android:textColorSecondary">@color/smooth_orange</item>
         <item name="background_sms_drawable">@drawable/sms_menu_selector</item>
         <item name="read_sms_drawable">@drawable/read_menu_selector</item>
     </style>
@@ -205,8 +210,8 @@
     <style name="SmoothDialog" parent="android:Theme.Holo.Dialog">
         <item name="android:windowCloseOnTouchOutside">false</item>
         <item name="android:windowNoTitle">true</item>
-        <item name="primary_sms_color">@color/smooth_blue</item>
-        <item name="secondary_sms_color">@color/smooth_orange</item>
+        <item name="android:textColorPrimary">@color/smooth_blue</item>
+        <item name="android:textColorSecondary">@color/smooth_orange</item>
         <item name="background_sms_drawable">@drawable/sms_menu_selector</item>
         <item name="read_sms_drawable">@drawable/read_menu_selector</item>
     </style>

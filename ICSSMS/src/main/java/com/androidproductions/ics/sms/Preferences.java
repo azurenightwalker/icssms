@@ -24,7 +24,7 @@ import com.googlecode.androidannotations.annotations.EActivity;
 
 
 @EActivity(R.layout.preferences)
-public class Preferences extends Activity {
+public class Preferences extends ThemeableActivity {
 
 	private ConfigurationHelper config;
 	private String[] keys;
@@ -38,9 +38,11 @@ public class Preferences extends Activity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		ActionBar ab = getActionBar();
-        ab.setHomeButtonEnabled(true);
-        ab.setTitle(R.string.preferencesTitle);
-        ab.setDisplayHomeAsUpEnabled(true);
+        if (ab != null) {
+            ab.setHomeButtonEnabled(true);
+            ab.setTitle(R.string.preferencesTitle);
+            ab.setDisplayHomeAsUpEnabled(true);
+        }
         keys = new String[permCount];
     	types = new String[permCount];
     	widgets = new Object[permCount];

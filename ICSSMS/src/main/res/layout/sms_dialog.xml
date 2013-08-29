@@ -30,7 +30,7 @@
 		        android:layout_width="fill_parent"
 		        android:layout_height="wrap_content"
 		        android:layout_alignParentLeft="true"
-		        android:textColor="?attr/primary_sms_color"
+		        android:textColor="?attr/android:textColorPrimary"
 		        android:textSize="18sp"
 		        android:ellipsize="end"
 		        android:singleLine="true"/>
@@ -39,7 +39,7 @@
 		        android:layout_width="fill_parent"
 		        android:layout_height="wrap_content"
 		        android:layout_alignParentLeft="true"
-		        android:textColor="?attr/secondary_sms_color"
+		        android:textColor="?attr/android:textColorSecondary"
 		        android:textSize="14sp"
 		        android:layout_below="@id/sender"/>
 	        <TextView
@@ -47,7 +47,7 @@
 		        android:layout_width="wrap_content"
 		        android:layout_height="wrap_content"
 		        android:textSize="12sp"
-		        android:textColor="?attr/secondary_sms_color"
+		        android:textColor="?attr/android:textColorSecondary"
 		        android:layout_below="@id/sender_number"/>
 	        <ImageView
 		       android:id="@+id/closeDialog"
@@ -85,7 +85,7 @@
 		        android:autoLink="web"
 		        android:paddingBottom="5dip"
 		        android:textSize="16sp"
-		        android:textColor="?attr/primary_sms_color"
+		        android:textColor="?attr/android:textColorPrimary"
 		        android:layout_margin="5dip"/>
 	    </ScrollView>
 	    <ImageView
@@ -201,7 +201,7 @@
                     android:textSize="8sp"
                     android:layout_centerHorizontal="true"
                     android:layout_alignParentBottom="true"
-                    android:textColor="?attr/primary_sms_color"/>
+                    android:textColor="?attr/android:textColorPrimary"/>
             <ImageView
                     android:id="@+id/sendText"
                     android:layout_width="fill_parent"

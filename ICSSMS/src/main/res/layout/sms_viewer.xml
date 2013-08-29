@@ -30,7 +30,7 @@
 	            android:textSize="8sp"
 	            android:layout_centerHorizontal="true"
 	            android:layout_alignParentBottom="true"
-	            android:textColor="?attr/primary_sms_color"/> 
+	            android:textColor="?attr/android:textColorPrimary"/>
         <ImageView
 	            android:id="@+id/sendText"
 	            android:layout_width="fill_parent"

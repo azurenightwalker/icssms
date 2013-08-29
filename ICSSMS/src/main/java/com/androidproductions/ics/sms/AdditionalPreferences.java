@@ -17,7 +17,7 @@ import android.widget.Switch;
 
 import com.androidproductions.ics.sms.preferences.ConfigurationHelper;
 
-public class AdditionalPreferences extends PreferenceActivity  {
+public class AdditionalPreferences extends ThemeablePreferenceActivity  {
 	
 	private static final int Set_Ringtone = 0;
 	private ConfigurationHelper config;
