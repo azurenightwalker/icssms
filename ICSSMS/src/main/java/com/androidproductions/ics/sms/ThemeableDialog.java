@@ -42,9 +42,12 @@ public abstract class ThemeableDialog extends Activity{
 	    			case Constants.THEME_HOLO_ORANGE:
 	    				theme = R.style.HoloOrangeDialog;
 	    				break;
-	    			case Constants.THEME_HOLO_LIGHT:
-	    				theme = R.style.HoloLightDialog;
-	    				break;
+                    case Constants.THEME_HOLO_LIGHT:
+                        theme = R.style.HoloLightDialog;
+                        break;
+                    case Constants.THEME_SMOOTH:
+                        theme = R.style.SmoothDialog;
+                        break;
 	    		}
 	        	break;
 	        case 1:
@@ -71,6 +74,9 @@ public abstract class ThemeableDialog extends Activity{
 	    			case Constants.THEME_HOLO_LIGHT:
 	    				theme = R.style.HoloLightDialogNoPadding;
 	    				break;
+                    case Constants.THEME_SMOOTH:
+                        theme = R.style.SmoothDialogNoPadding;
+                        break;
 	    		}
 	        	getWindow().setGravity(Gravity.TOP);
 		        getWindow().setLayout(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
@@ -99,6 +105,9 @@ public abstract class ThemeableDialog extends Activity{
 	    			case Constants.THEME_HOLO_LIGHT:
 	    				theme = R.style.HoloLightDialogNoPaddingTransparent;
 	    				break;
+                    case Constants.THEME_SMOOTH:
+                        theme = R.style.SmoothDialogNoPaddingTransparent;
+                        break;
 	    		}
 	        	break;
         }

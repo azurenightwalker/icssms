@@ -55,7 +55,8 @@ public class Constants {
 	public static final int THEME_HOLO_RED = 3;
 	public static final int THEME_HOLO_PURPLE = 4;
 	public static final int THEME_HOLO_ORANGE = 5;
-	public static final int THEME_HOLO_LIGHT = 6;
+    public static final int THEME_HOLO_LIGHT = 6;
+    public static final int THEME_SMOOTH = 7;
 	
 	public static final String PROJECT_ID = "1079086356494";
 	public static final String API_KEY = "AIzaSyD4UuXBPFW8NyvmDYO5VJq5Aofv2nhQgZ0";

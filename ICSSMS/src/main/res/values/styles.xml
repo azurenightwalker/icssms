@@ -193,9 +193,34 @@
     <style name="HoloLightDialogNoPaddingTransparent" parent="HoloLightDialogNoPadding">
     	<item name="android:windowBackground">@android:color/transparent</item>
 	</style>
-    
-    
-    
+
+
+    <style name="Smooth" parent="android:Theme.Holo">
+        <item name="primary_sms_color">@color/smooth_blue</item>
+        <item name="secondary_sms_color">@color/smooth_orange</item>
+        <item name="background_sms_drawable">@drawable/sms_menu_selector</item>
+        <item name="read_sms_drawable">@drawable/read_menu_selector</item>
+    </style>
+    <!-- Default Dialog -->
+    <style name="SmoothDialog" parent="android:Theme.Holo.Dialog">
+        <item name="android:windowCloseOnTouchOutside">false</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="primary_sms_color">@color/smooth_blue</item>
+        <item name="secondary_sms_color">@color/smooth_orange</item>
+        <item name="background_sms_drawable">@drawable/sms_menu_selector</item>
+        <item name="read_sms_drawable">@drawable/read_menu_selector</item>
+    </style>
+
+    <!-- Dialog on top -->
+    <style name="SmoothDialogNoPadding" parent="SmoothDialog">
+        <item name="android:windowIsFloating">false</item>
+        <item name="android:windowIsTranslucent">true</item>
+    </style>
+
+    <!-- Default Notify -->
+    <style name="SmoothDialogNoPaddingTransparent" parent="SmoothDialogNoPadding">
+        <item name="android:windowBackground">@android:color/transparent</item>
+    </style>
     
     
 	

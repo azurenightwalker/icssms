@@ -64,6 +64,7 @@
         <item>4</item>
         <item>5</item>
         <item>6</item>
+        <item>7</item>
     </string-array>
     <string-array name="ThemeDefinitions">
         <item>Holo</item>
@@ -73,6 +74,7 @@
         <item>Holo Purple</item>
         <item>Holo Orange</item>
         <item>Holo Light</item>
+        <item>Smooth</item>
     </string-array>
     <string-array name="DialogTypeVal">
         <item>0</item>

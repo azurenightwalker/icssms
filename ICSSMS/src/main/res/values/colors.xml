@@ -22,6 +22,10 @@
     <color name="holo_orange_dark">#ffff8800</color>
     <!-- A really bright Holo shade of blue -->
     <color name="holo_blue_bright">#ff00ddff</color>
+
+    <color name="smooth_blue">#ff3d80a0</color>
+    <color name="smooth_orange">#ff977f60</color>
+
     <color name="white">#ffffffff</color>
     <color name="black">#ff000000</color>
     <color name="translucent">#aa000000</color>

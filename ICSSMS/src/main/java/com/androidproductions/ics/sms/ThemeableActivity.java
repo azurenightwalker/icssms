@@ -36,9 +36,12 @@ public abstract class ThemeableActivity extends FragmentActivity {
 			case Constants.THEME_HOLO_ORANGE:
 				theme = R.style.HoloOrange;
 				break;
-			case Constants.THEME_HOLO_LIGHT:
-				theme = R.style.HoloLight;
-				break;
+            case Constants.THEME_HOLO_LIGHT:
+                theme = R.style.HoloLight;
+                break;
+            case Constants.THEME_SMOOTH:
+                theme = R.style.Smooth;
+                break;
 		}
         setTheme(theme);
 	}
