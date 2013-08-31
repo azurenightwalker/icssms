@@ -16,10 +16,10 @@ import java.util.List;
 
 public class MessageUtilities {
 
-	public static List<IMessage> GetUnreadMessages(Context context)
-	{
-		ArrayList<IMessage> messages = new ArrayList<IMessage>();
-		Cursor c = context.getContentResolver().query(Constants.SMS_INBOX_URI, null, "read = '0'",
+    public static List<IMessage> GetUnreadMessages(Context context)
+    {
+        ArrayList<IMessage> messages = new ArrayList<IMessage>();
+        Cursor c = context.getContentResolver().query(Constants.SMS_INBOX_URI, null, "read = '0'",
                 null, "date ASC");
         if (c != null)
         {
@@ -33,8 +33,28 @@ public class MessageUtilities {
             c.close();
         }
 
-		return messages;
-	}
+        return messages;
+    }
+
+    public static List<IMessage> GetUnsentMessages(Context context)
+    {
+        ArrayList<IMessage> messages = new ArrayList<IMessage>();
+        Cursor c = context.getContentResolver().query(Constants.SMS_URI, null, "type = ?",
+                new String[] { String.valueOf(Constants.MESSAGE_TYPE_FAILED) }, "date ASC");
+        if (c != null)
+        {
+            if (c.moveToFirst())
+            {
+                do
+                {
+                    messages.add(new SMSMessage(context,c));
+                } while (c.moveToNext());
+            }
+            c.close();
+        }
+
+        return messages;
+    }
 	
 	public static void SaveDraftMessage(Context context, String address, String message)
 	{

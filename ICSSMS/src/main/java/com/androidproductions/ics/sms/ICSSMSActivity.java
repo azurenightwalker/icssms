@@ -26,6 +26,7 @@ import android.widget.TextView;
 import com.androidproductions.ics.sms.messaging.IMessage;
 import com.androidproductions.ics.sms.messaging.MessageUtilities;
 import com.androidproductions.ics.sms.preferences.ConfigurationHelper;
+import com.androidproductions.ics.sms.utils.AddressUtilities;
 import com.googlecode.androidannotations.annotations.EActivity;
 import com.googlecode.androidannotations.annotations.OptionsMenu;
 import com.googlecode.androidannotations.annotations.ViewById;
@@ -61,6 +62,15 @@ public class ICSSMSActivity extends ThemeableActivity {
         ImageCache.put(0L,BitmapFactory.decodeResource(getResources(), R.drawable.ic_contact_picture));
 
         MMSDK.initialize(this);
+    }
+
+    @Override
+    public boolean onPrepareOptionsMenu(Menu menu) {
+        if (MessageUtilities.GetUnsentMessages(ICSSMSActivity.this).size() > 0)
+            menu.findItem(R.id.unsentSms).setVisible(true);
+        else
+            menu.findItem(R.id.unsentSms).setVisible(false);
+        return true;
     }
 
     private void InitializeAds()
@@ -184,10 +194,15 @@ public class ICSSMSActivity extends ThemeableActivity {
             case android.R.id.home:
                 return true;
             case R.id.newSms:
-            	Intent intent = new Intent(this, ComposeSms_.class);
+                Intent intent = new Intent(this, ComposeSms_.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
-            	return true;
+                return true;
+            case R.id.unsentSms:
+                Intent unintent = new Intent(this, UnsentMessages_.class);
+                unintent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(unintent);
+                return true;
             case R.id.settings:
             	Intent prefintent = new Intent(this, Preferences_.class);
             	prefintent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);

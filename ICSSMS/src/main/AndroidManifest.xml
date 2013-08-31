@@ -130,6 +130,9 @@
             android:theme="@style/HoloDialog" >
         </activity>
         <activity
+            android:name=".UnsentMessages_" >
+        </activity>
+        <activity
             android:name="SmsNotify"
             android:excludeFromRecents="true"
             android:launchMode="singleInstance"

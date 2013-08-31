@@ -58,6 +58,8 @@
     <string name="sendingFailed">Message sending failed</string>
     <string name="quickReply">Quick Reply</string>
     <string name="showMore">Show More</string>
+    <string name="unsentMenu">View unsent messages</string>
+    <string name="unsentTitle">Unsent Messages</string>
     <!-- Preferences -->
     <string name="preferencesTitle">Preferences</string>
     
