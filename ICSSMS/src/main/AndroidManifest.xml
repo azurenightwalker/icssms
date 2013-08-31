@@ -27,8 +27,6 @@
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
-	<uses-permission android:name="com.anddoes.launcher.permission.UPDATE_COUNT" />
-
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
     <uses-feature android:name="android.hardware.microphone" android:required="false" />
 
@@ -48,12 +46,6 @@
             </intent-filter>
         </receiver>
 
-        <receiver android:name=".receivers.UpdateCountReceiver">
-            <intent-filter>
-                <action android:name="com.anddoes.launcher.UPDATE_COUNTER" />
-            </intent-filter>
-        </receiver>
-        
         <receiver
             android:name=".service.ServiceStarter"
             android:enabled="true" >

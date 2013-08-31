@@ -34,7 +34,6 @@ public class ContactsAutoCompleteCursorAdapter extends CursorAdapter implements 
 
     public ContactsAutoCompleteCursorAdapter(Context context, Cursor c) {
     	super(context,c,0);
-        //super(context, c);
         mContext = context;
     }
 

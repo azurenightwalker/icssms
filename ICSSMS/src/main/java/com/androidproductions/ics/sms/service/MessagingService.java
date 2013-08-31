@@ -28,7 +28,6 @@ import com.androidproductions.ics.sms.preferences.ConfigurationHelper;
 import com.androidproductions.ics.sms.receivers.MyPhoneStateListener;
 import com.androidproductions.ics.sms.receivers.SmsUpdateReceiver;
 import com.androidproductions.ics.sms.transactions.NotificationHelper;
-import com.androidproductions.ics.sms.utils.ApexHelper;
 import com.androidproductions.ics.sms.utils.LogHelper;
 
 import java.util.ArrayList;
@@ -276,7 +275,6 @@ public class MessagingService extends Service{
             // Display Dialog
             if (mConfig.getBooleanValue(ConfigurationHelper.DIALOG_ENABLED))
                 displayDialog(context, sms);
-            updateApexBadge(context);
             context.sendBroadcast(new Intent("com.androidproductions.ics.sms.UPDATE_DIALOG"));
         }
         
@@ -293,13 +291,6 @@ public class MessagingService extends Service{
     		dialogIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);// |Intent.FLAG_ACTIVITY_SINGLE_TOP);
     		context.startActivity(dialogIntent);
     	}
-        
-        private void updateApexBadge(Context mContext)
-        {
-        	ApexHelper apex = ApexHelper.getInstance(mContext);
-        	apex.setCount();
-        	apex.update();
-        }
         
         private void registerForServiceStateChanges() {
         	phoneListener = new MyPhoneStateListener(context);

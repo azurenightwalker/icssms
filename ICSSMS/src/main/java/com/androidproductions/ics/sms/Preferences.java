@@ -16,7 +16,6 @@ import android.widget.Switch;
 import android.widget.TextView;
 
 import com.androidproductions.ics.sms.preferences.ConfigurationHelper;
-import com.androidproductions.ics.sms.utils.ApexHelper;
 import com.googlecode.androidannotations.annotations.AfterViews;
 import com.googlecode.androidannotations.annotations.EActivity;
 
@@ -29,7 +28,7 @@ public class Preferences extends ThemeableActivity {
 	private String[] types;
 	private Object[] widgets;
 	private int current = 0;
-	private static final int permCount = 6;
+	private static final int permCount = 5;
 	
 	/** Called when the activity is first created. */
 	@Override
@@ -70,15 +69,8 @@ public class Preferences extends ThemeableActivity {
 		setCheckboxPreference(R.id.hideKeyboard,ConfigurationHelper.HIDE_KEYBOARD_ON_SEND,
 				R.string.keyboardTitle,null,null);
 
-        setCheckboxPreference(R.id.apex,ConfigurationHelper.ALLOW_APEX,
-                R.string.apexTitle,null,null);
-
         setCheckboxPreference(R.id.showAds,ConfigurationHelper.SHOW_ADS,
                 R.string.showAds,null,null);
-		
-		if (!ApexHelper.getInstance(this).isInstalled()){
-	        findViewById(R.id.apex).setVisibility(View.GONE);
-        }
 	}
 
 	private void setHeader(Integer id, Integer title) {

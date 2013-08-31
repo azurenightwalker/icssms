@@ -17,7 +17,6 @@ import com.androidproductions.ics.sms.R;
 import com.androidproductions.ics.sms.data.ContactHelper;
 import com.androidproductions.ics.sms.data.ImageCache;
 import com.androidproductions.ics.sms.messaging.IMessage;
-import com.androidproductions.ics.sms.utils.ApexHelper;
 import com.androidproductions.ics.sms.utils.TextUtilities;
 
 import java.io.InputStream;
@@ -294,9 +293,6 @@ public abstract class SMSMessageBase implements IMessage{
 	            public void run() {
 	                mContext.getContentResolver().update(uri,
 	                        values, null, null);
-	                ApexHelper apex = ApexHelper.getInstance(mContext);
-	        		apex.setCount();
-	        		apex.update();
 	            }
 	        }, "unreadMessage").start();
 		}

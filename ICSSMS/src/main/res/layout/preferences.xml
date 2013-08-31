@@ -17,7 +17,5 @@
 	        <include android:id="@+id/smiley" layout="@layout/checkbox_preference_item" />
 	        <include android:id="@+id/hideKeyboard" layout="@layout/checkbox_preference_item" />
             <include android:id="@+id/showAds" layout="@layout/checkbox_preference_item" />
-	        <include android:id="@+id/apex" layout="@layout/checkbox_preference_item" />
-	        <!-- include android:id="@+id/gcm" layout="@layout/regular_preference_item" /-->
 	        </LinearLayout>
 	</ScrollView>
