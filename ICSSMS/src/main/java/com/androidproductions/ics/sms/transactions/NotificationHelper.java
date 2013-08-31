@@ -50,7 +50,7 @@ public class NotificationHelper {
 		mNotificationManager = (NotificationManager) mContext.getSystemService(
 				Context.NOTIFICATION_SERVICE);
 		messages = new ArrayList<IMessage>();
-        configurationHelper = ConfigurationHelper.getInstance(mContext);
+        configurationHelper = ConfigurationHelper.getInstance();
 	}
 	
 	public void updateUnreadSms() {

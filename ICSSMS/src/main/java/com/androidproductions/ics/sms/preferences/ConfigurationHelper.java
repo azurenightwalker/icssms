@@ -36,12 +36,18 @@ public class ConfigurationHelper {
 		mPreferences = PreferenceManager.getDefaultSharedPreferences(applicationContext);
 	}
 	
-	public static ConfigurationHelper getInstance(Context applicationContext)
+	public static ConfigurationHelper getInstance()
 	{
-		if (mConfigurationHelper == null)
-			mConfigurationHelper = new ConfigurationHelper(applicationContext);
 		return mConfigurationHelper;
 	}
+
+    public static void initInstance(Context applicationContext)
+    {
+        if (mConfigurationHelper == null)
+            mConfigurationHelper = new ConfigurationHelper(applicationContext);
+        else
+            throw new IllegalStateException("Instance has already been initialized");
+    }
 	
 	public String getStringValue(String key)
 	{

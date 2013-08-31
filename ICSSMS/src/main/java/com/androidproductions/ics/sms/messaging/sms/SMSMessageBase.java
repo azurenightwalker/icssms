@@ -16,6 +16,7 @@ import android.util.LruCache;
 import com.androidproductions.ics.sms.Constants;
 import com.androidproductions.ics.sms.R;
 import com.androidproductions.ics.sms.data.ContactHelper;
+import com.androidproductions.ics.sms.data.ImageCache;
 import com.androidproductions.ics.sms.messaging.IMessage;
 import com.androidproductions.ics.sms.utils.ApexHelper;
 import com.androidproductions.ics.sms.utils.TextUtilities;
@@ -201,28 +202,28 @@ public abstract class SMSMessageBase implements IMessage{
         }
         else
         {
-            return contactHelper.getProfileContactImage(cache);
+            return contactHelper.getProfileContactImage();
         }
-        return contactHelper.getContactImage(cache);
+        return contactHelper.getContactImage();
 	}
 	
-	public Bitmap getConversationContactImage(LruCache<Long,Bitmap> cache) {
+	public Bitmap getConversationContactImage() {
 		try
 		{
 			if (ContactID < 0)
 				getContactName();
 			if (ContactID < 0)
-				return cache.get(0L);
-			Bitmap img = cache.get(ContactID);
+				return ImageCache.getDefault();
+			Bitmap img = ImageCache.getItem(ContactID);
 			if (img != null) return img;
 			Uri mContactLookupUri = ContentUris.withAppendedId(ContactsContract.Contacts.CONTENT_URI, ContactID);
             InputStream input = ContactsContract.Contacts.openContactPhotoInputStream(mContext.getContentResolver(),mContactLookupUri);
 			if (input == null)
 			{
-				return cache.get(0L);
+				return ImageCache.getItem(0L);
 			}
 			img = BitmapFactory.decodeStream(input);
-			cache.put(ContactID, img);
+            ImageCache.putItem(ContactID, img);
 			return img;
 		}
 		catch(Exception ex)

@@ -2,23 +2,15 @@ package com.androidproductions.ics.sms;
 
 import android.app.ActionBar;
 import android.app.Dialog;
-import android.content.ClipData;
-import android.content.ClipboardManager;
 import android.content.ContentUris;
 import android.content.Intent;
-import android.content.res.TypedArray;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
 import android.text.SpannableString;
-import android.text.style.StyleSpan;
 import android.util.LruCache;
-import android.view.ActionMode;
 import android.view.ContextMenu;
 import android.view.LayoutInflater;
-import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -40,7 +32,6 @@ import com.millennialmedia.android.MMAdView;
 import com.millennialmedia.android.MMRequest;
 import com.millennialmedia.android.MMSDK;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @EActivity(R.layout.main)
@@ -70,7 +61,7 @@ public class UnsentMessages extends ThemeableActivity {
 
     private void InitializeAds()
     {
-        boolean showAds = ConfigurationHelper.getInstance(getApplicationContext())
+        boolean showAds = ConfigurationHelper.getInstance()
                 .getBooleanValue(ConfigurationHelper.SHOW_ADS);
         MMAdView adView = (MMAdView) findViewById(R.id.adView);
         if (showAds)
@@ -110,7 +101,7 @@ public class UnsentMessages extends ThemeableActivity {
             ((QuickContactBadge)child.findViewById(R.id.contact_photo)).assignContactFromPhone(sms.getAddress(),true);
         	new Thread(new Runnable() {
 				public void run() {
-					((ImageView)child.findViewById(R.id.contact_photo)).setImageBitmap(sms.getConversationContactImage(ImageCache));
+					((ImageView)child.findViewById(R.id.contact_photo)).setImageBitmap(sms.getConversationContactImage());
 				}
 			}).run();
 			child.setTag(sms);

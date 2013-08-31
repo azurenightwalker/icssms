@@ -35,33 +35,33 @@ public class ContactHelper {
         mContext = context;
     }
 
-    public Bitmap getContactImage(LruCache<Long,Bitmap> cache)
+    public Bitmap getContactImage()
     {
-        Bitmap image = cache.get(mId);
+        Bitmap image = ImageCache.getItem(mId);
         if (image != null)
             return image;
         image = _getContactImage();
         if (image == null)
         {
-            image = cache.get(0L);
+            image = ImageCache.getItem(0L);
             return image == null ? getDefaultBitmap() : image;
         }
-        cache.put(mId,image);
+        ImageCache.putItem(mId, image);
         return image;
     }
 
-    public Bitmap getProfileContactImage(LruCache<Long,Bitmap> cache)
+    public Bitmap getProfileContactImage()
     {
-        Bitmap image = cache.get(999999L);
+        Bitmap image = ImageCache.getItem(999999L);
         if (image != null)
             return image;
         image = _getProfileContactImage();
         if (image == null)
         {
-            image = cache.get(0L);
+            image = ImageCache.getItem(0L);
             return image == null ? getDefaultBitmap() : image;
         }
-        cache.put(999999L,image);
+        ImageCache.putItem(999999L,image);
         return image;
     }
 

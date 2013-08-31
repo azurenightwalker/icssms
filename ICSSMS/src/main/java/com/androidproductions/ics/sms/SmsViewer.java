@@ -272,7 +272,7 @@ public class SmsViewer extends ThemeableActivity {
 			MessageUtilities.SendMessage(SmsViewer.this, text, address);
 			redrawView();
 		}
-		if (ConfigurationHelper.getInstance(getApplicationContext()).getBooleanValue(ConfigurationHelper.HIDE_KEYBOARD_ON_SEND))
+		if (ConfigurationHelper.getInstance().getBooleanValue(ConfigurationHelper.HIDE_KEYBOARD_ON_SEND))
 		{
 			InputMethodManager mgr = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
 			mgr.hideSoftInputFromWindow(textBox.getWindowToken(), 0);
@@ -321,7 +321,7 @@ public class SmsViewer extends ThemeableActivity {
 	        	new Thread(new Runnable() {
 	                public void run() {
 	                	try {
-                            ((ImageView)smsList.findViewWithTag(msg).findViewById(R.id.photo)).setImageBitmap(msg.getContactPhoto(ImageCache));
+                            ((ImageView)smsList.findViewWithTag(msg).findViewById(R.id.photo)).setImageBitmap(msg.getContactPhoto());
 	                	}
 	                	catch(Exception e){ e.printStackTrace(); }
 	                }

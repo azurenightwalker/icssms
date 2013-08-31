@@ -118,7 +118,7 @@ public class MessagingService extends Service{
         public ServiceHandler(Looper looper, Service con) {
             super(looper);
             context = con;
-            mConfig = ConfigurationHelper.getInstance(context.getApplicationContext());
+            mConfig = ConfigurationHelper.getInstance();
         }
 
         /**

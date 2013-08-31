@@ -61,5 +61,5 @@ public class Constants {
 	public static final String PROJECT_ID = "1079086356494";
 	public static final String API_KEY = "AIzaSyD4UuXBPFW8NyvmDYO5VJq5Aofv2nhQgZ0";
 	
-	
+	public static final int CACHE_SIZE = 10;
 }

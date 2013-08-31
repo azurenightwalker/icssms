@@ -30,14 +30,14 @@ public class ApexHelper {
     }
 
     private int getCount() {
-    	ConfigurationHelper config = ConfigurationHelper.getInstance(mContext);
+    	ConfigurationHelper config = ConfigurationHelper.getInstance();
         if (config.getBooleanValue(ConfigurationHelper.ALLOW_APEX) && isInstalled())
         	return config.getIntValue(ConfigurationHelper.APEX_KEY_COUNT);
         else return 0;
     }
 
     public void setCount() {
-    	ConfigurationHelper.getInstance(mContext).setIntValue(
+    	ConfigurationHelper.getInstance().setIntValue(
     			ConfigurationHelper.APEX_KEY_COUNT,
     			MessageUtilities.GetUnreadMessages(mContext).size());
     }

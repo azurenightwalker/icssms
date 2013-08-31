@@ -1,7 +1,6 @@
 package com.androidproductions.ics.sms;
 
 import android.app.ActionBar;
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -46,7 +45,7 @@ public class Preferences extends ThemeableActivity {
         keys = new String[permCount];
     	types = new String[permCount];
     	widgets = new Object[permCount];
-    	config = ConfigurationHelper.getInstance(getApplicationContext());
+    	config = ConfigurationHelper.getInstance();
 	}
 	
 	@AfterViews

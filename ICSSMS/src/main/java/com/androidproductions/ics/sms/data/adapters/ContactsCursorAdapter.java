@@ -56,7 +56,7 @@ public class ContactsCursorAdapter extends CursorAdapter {
              * Always add an icon, even if it is null. Keep the layout children
              * indices consistent.
              */
-            ((ImageView) ret.findViewById(R.id.contact_photo)).setImageBitmap(ch.getContactImage(ImageCache));
+            ((ImageView) ret.findViewById(R.id.contact_photo)).setImageBitmap(ch.getContactImage());
             return ret;
         }
         return null;
@@ -81,6 +81,6 @@ public class ContactsCursorAdapter extends CursorAdapter {
         ((TextView) view.findViewById(R.id.contact_name)).setText(name);
         ((TextView) view.findViewById(R.id.type)).setText(displayLabel);
         ((TextView) view.findViewById(R.id.contact_number)).setText(number);
-        ((ImageView) view.findViewById(R.id.contact_photo)).setImageBitmap(ch.getContactImage(ImageCache));
+        ((ImageView) view.findViewById(R.id.contact_photo)).setImageBitmap(ch.getContactImage());
     }
 }

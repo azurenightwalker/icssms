@@ -8,7 +8,6 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.preference.Preference;
 import android.preference.Preference.OnPreferenceClickListener;
-import android.preference.PreferenceActivity;
 import android.view.Gravity;
 import android.view.MenuItem;
 import android.widget.CompoundButton;
@@ -33,7 +32,7 @@ public class AdditionalPreferences extends ThemeablePreferenceActivity  {
         ab.setHomeButtonEnabled(true);
         ab.setDisplayHomeAsUpEnabled(true);
         ab.setTitle(prefType);
-        config = ConfigurationHelper.getInstance(getApplicationContext());
+        config = ConfigurationHelper.getInstance();
         if (prefType.equals("Dialog"))
         	addPreferencesFromResource(R.xml.dialog_preferences);	
         else

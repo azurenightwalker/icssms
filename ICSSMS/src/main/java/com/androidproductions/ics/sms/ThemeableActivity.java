@@ -12,7 +12,7 @@ public abstract class ThemeableActivity extends FragmentActivity {
 	{
 		ExceptTrackHandler.setUrl("http://x2-starlit-vim-g.appspot.com/error");
         ExceptTrackHandler.setup(this,"1000");
-        int themeId = Integer.parseInt(ConfigurationHelper.getInstance(getApplicationContext()).getStringValue(ConfigurationHelper.THEME));
+        int themeId = Integer.parseInt(ConfigurationHelper.getInstance().getStringValue(ConfigurationHelper.THEME));
         int theme = 0;
         switch (themeId)
 		{
