@@ -78,11 +78,7 @@ public class UnsentMessages extends AdSupportedActivity {
 			child.setTag(sms);
         	child.setOnClickListener(new OnClickListener() {
 				public void onClick(View v) {
-                    Intent intent = new Intent(getBaseContext(), SmsViewer_.class);
-                    intent.setData(ContentUris.withAppendedId(Constants.SMS_CONVERSATIONS_URI,sms.getThreadId()));
-                    intent.putExtra(Constants.SMS_RECEIVE_LOCATION, sms.getAddress());
-                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                    startActivity(intent);
+                    ShowDetails(sms);
                 }
 			});
             registerForContextMenu(child);
@@ -133,22 +129,7 @@ public class UnsentMessages extends AdSupportedActivity {
                 }
                 return true;
             case R.id.details:
-                Dialog dialog = new Dialog(UnsentMessages.this);
-
-                dialog.setContentView(R.layout.sms_details);
-                dialog.setTitle("Message Details");
-                if (!PressedMessage.IsIncoming())
-                {
-                    ((TextView)dialog.findViewById(R.id.labelLocation)).setText("To:");
-                    ((TextView)dialog.findViewById(R.id.labelRecieved)).setText("Sent:");
-                }
-                if (PressedMessage.hasAttachments())
-                {
-                    ((TextView)dialog.findViewById(R.id.valueType)).setText(R.string.mmsType);
-                }
-                ((TextView)dialog.findViewById(R.id.valueLocation)).setText(PressedMessage.getAddress());
-                ((TextView)dialog.findViewById(R.id.valueRecieved)).setText(PressedMessage.GetDateString());
-                dialog.show();
+                ShowDetails(PressedMessage);
                 return true;
             case R.id.resend:
                 MessageUtilities.SendMessage(UnsentMessages.this, PressedMessage.getText(), PressedMessage.getAddress());
@@ -158,5 +139,24 @@ public class UnsentMessages extends AdSupportedActivity {
             default:
                 return false;
         }
+    }
+
+    private void ShowDetails(IMessage message) {
+        Dialog dialog = new Dialog(UnsentMessages.this);
+
+        dialog.setContentView(R.layout.sms_details);
+        dialog.setTitle("Message Details");
+        if (!message.IsIncoming())
+        {
+            ((TextView)dialog.findViewById(R.id.labelLocation)).setText("To:");
+            ((TextView)dialog.findViewById(R.id.labelRecieved)).setText("Sent:");
+        }
+        if (message.hasAttachments())
+        {
+            ((TextView)dialog.findViewById(R.id.valueType)).setText(R.string.mmsType);
+        }
+        ((TextView)dialog.findViewById(R.id.valueLocation)).setText(PressedMessage.getAddress());
+        ((TextView)dialog.findViewById(R.id.valueRecieved)).setText(PressedMessage.GetDateString());
+        dialog.show();
     }
 }
