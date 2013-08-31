@@ -4,11 +4,8 @@ import android.app.ActionBar;
 import android.app.Dialog;
 import android.content.ContentUris;
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.text.SpannableString;
-import android.util.LruCache;
 import android.view.ContextMenu;
 import android.view.LayoutInflater;
 import android.view.MenuInflater;
@@ -24,13 +21,9 @@ import android.widget.Toast;
 
 import com.androidproductions.ics.sms.messaging.IMessage;
 import com.androidproductions.ics.sms.messaging.MessageUtilities;
-import com.androidproductions.ics.sms.preferences.ConfigurationHelper;
 import com.googlecode.androidannotations.annotations.EActivity;
 import com.googlecode.androidannotations.annotations.OptionsMenu;
 import com.googlecode.androidannotations.annotations.ViewById;
-import com.millennialmedia.android.MMAdView;
-import com.millennialmedia.android.MMRequest;
-import com.millennialmedia.android.MMSDK;
 
 import java.util.List;
 
@@ -39,7 +32,7 @@ import java.util.List;
 public class UnsentMessages extends AdSupportedActivity {
 
     @ViewById(R.id.smsList)
-    LinearLayout smsList;
+    public LinearLayout smsList;
 
     private IMessage PressedMessage;
 

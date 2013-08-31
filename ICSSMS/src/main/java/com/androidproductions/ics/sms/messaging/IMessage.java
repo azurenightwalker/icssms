@@ -1,7 +1,6 @@
 package com.androidproductions.ics.sms.messaging;
 
 import android.graphics.Bitmap;
-import android.util.LruCache;
 
 public interface IMessage {
 	public Long getThreadId();

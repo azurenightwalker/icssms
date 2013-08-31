@@ -31,10 +31,10 @@ import com.googlecode.androidannotations.annotations.res.StringRes;
 public class ComposeSms extends ThemeableActivity {
 
     @ViewById(R.id.phoneNumber)
-	public AutoCompleteTextView phoneNumber;
+    public AutoCompleteTextView phoneNumber;
     
     @ViewById(R.id.text)
-	public EditText textView;
+    public EditText textView;
 
     @StringRes(R.string.characterCount)
     public String textFormat;

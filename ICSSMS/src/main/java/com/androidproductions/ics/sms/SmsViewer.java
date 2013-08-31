@@ -11,13 +11,11 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
-import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.telephony.SmsMessage;
 import android.text.Editable;
-import android.util.LruCache;
 import android.view.ContextMenu;
 import android.view.ContextMenu.ContextMenuInfo;
 import android.view.LayoutInflater;
@@ -60,16 +58,16 @@ import java.util.List;
 @OptionsMenu(R.menu.conversation_menu)
 public class SmsViewer extends ThemeableActivity {
 	@ViewById(R.id.smsList)
-	public LinearLayout smsList;
+    public LinearLayout smsList;
 	
 	@ViewById(R.id.text)
-	public static EditText textBox;
+    public static EditText textBox;
 	
 	@ViewById(R.id.textCount)
-	public static TextView textCount;
+    public static TextView textCount;
 	
 	@ViewById(R.id.scroller)
-	public KeyboardDetectorScrollView scrollView;
+    public KeyboardDetectorScrollView scrollView;
 	
 	private SmileyParser parser;
 	private List<IMessage> messages;
@@ -78,7 +76,7 @@ public class SmsViewer extends ThemeableActivity {
     private Uri contactUri;
 	
 	@Extra(Constants.SMS_RECEIVE_LOCATION)
-	public String address;
+    public String address;
 
     @Extra(Constants.SMS_MESSAGE)
     public String draftMessage;
@@ -90,7 +88,6 @@ public class SmsViewer extends ThemeableActivity {
     public String shareString;
 	
 	private String name;
-	private LruCache<Long,Bitmap> ImageCache;
 	
     /** Called when the activity is first created. */
     @Override
@@ -126,7 +123,6 @@ public class SmsViewer extends ThemeableActivity {
         }
         SmileyParser.init(this);
         parser = SmileyParser.getInstance();
-        ImageCache = new LruCache<Long, Bitmap>(2);
         lastDate = 0L;
         firstDate = Long.MAX_VALUE;
     }
@@ -231,7 +227,7 @@ public class SmsViewer extends ThemeableActivity {
     	unregisterReceiver(receiver);
     }
 
-	protected void setupContact() {
+	void setupContact() {
 		if (address == null)
 			address = messages.get(0).getAddress();
 		address = AddressUtilities.StandardiseNumber(address,SmsViewer.this);
@@ -243,7 +239,7 @@ public class SmsViewer extends ThemeableActivity {
 		((TextView)ab.getCustomView().findViewById(R.id.action_bar_subtitle)).setText(address);
 	}
 
-	public void callNumberConfirm()
+	void callNumberConfirm()
 	{
 		new AlertDialog.Builder(this)
         .setIcon(android.R.drawable.sym_action_call)
@@ -293,7 +289,7 @@ public class SmsViewer extends ThemeableActivity {
 		});
     }
 	
-	public void redraw(boolean topDown)
+	void redraw(boolean topDown)
 	{
 		for(int i = 0; i<=messages.size()-1;i++)
         {
@@ -332,7 +328,7 @@ public class SmsViewer extends ThemeableActivity {
             smsList.findViewById(R.id.showPrevious).setVisibility(View.GONE);
     }
 	
-	public void redrawView()
+	void redrawView()
     {    
     	if (messages != null && messages.size() > 0)
     	{
@@ -351,7 +347,6 @@ public class SmsViewer extends ThemeableActivity {
 	
 	public void showPrevious(View v)
     {
-        int height = smsList.getMeasuredHeight();
         firstDate = Math.min(firstDate,Math.min(messages.get(messages.size()-1).getDate(),messages.get(0).getDate()));
     	messages = MessageUtilities.GetMessages(SmsViewer.this, threadId, 25, firstDate);
         Collections.sort(messages, new Comparator<IMessage>() {

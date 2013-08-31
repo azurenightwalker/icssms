@@ -6,7 +6,7 @@ import android.support.v4.app.FragmentActivity;
 import com.androidproductions.ics.sms.preferences.ConfigurationHelper;
 import com.twww.excepttrack.ExceptTrackHandler;
 
-public abstract class ThemeableActivity extends FragmentActivity {
+abstract class ThemeableActivity extends FragmentActivity {
 	
 	protected void onCreate(Bundle savedInstanceState)
 	{

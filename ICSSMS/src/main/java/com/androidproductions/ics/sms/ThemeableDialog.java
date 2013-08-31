@@ -9,7 +9,7 @@ import android.view.ViewGroup.LayoutParams;
 import com.androidproductions.ics.sms.preferences.ConfigurationHelper;
 import com.twww.excepttrack.ExceptTrackHandler;
 
-public abstract class ThemeableDialog extends Activity{
+abstract class ThemeableDialog extends Activity{
 	
 	protected void onCreate(Bundle savedInstanceState)
 	{

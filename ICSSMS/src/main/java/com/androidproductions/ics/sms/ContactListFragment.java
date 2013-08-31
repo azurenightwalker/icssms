@@ -14,7 +14,7 @@ import com.androidproductions.ics.sms.data.adapters.ContactsCursorAdapter;
 import com.androidproductions.ics.sms.utils.LogHelper;
 
 public class ContactListFragment extends ListFragment implements LoaderManager.LoaderCallbacks<Cursor>{
-    ContactHelper mContactHelper;
+    private ContactHelper mContactHelper;
     private ContactsCursorAdapter mAdapter;
 
     @Override
@@ -56,7 +56,7 @@ public class ContactListFragment extends ListFragment implements LoaderManager.L
         ((ComposeSms)this.getActivity()).updateCompose(convertToString(v));
     }
 
-    public String convertToString(View v) {
+    String convertToString(View v) {
         CharSequence name = ((TextView)v.findViewById(com.androidproductions.ics.sms.R.id.contact_name)).getText();
         CharSequence number = ((TextView)v.findViewById(com.androidproductions.ics.sms.R.id.contact_number)).getText();
         return name + " (" + number + ")";

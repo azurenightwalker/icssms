@@ -14,14 +14,14 @@ import android.support.v4.app.NotificationCompat.BigTextStyle;
 import android.support.v4.app.NotificationCompat.Builder;
 import android.support.v4.app.NotificationCompat.InboxStyle;
 import com.androidproductions.ics.sms.Constants;
-import com.androidproductions.ics.sms.ICSSMSActivity_;
-import com.androidproductions.ics.sms.SmsViewer_;
 import com.androidproductions.ics.sms.R;
 import com.androidproductions.ics.sms.SmsDialog;
 import com.androidproductions.ics.sms.SmsNotify;
 import com.androidproductions.ics.sms.messaging.IMessage;
 import com.androidproductions.ics.sms.messaging.MessageUtilities;
 import com.androidproductions.ics.sms.preferences.ConfigurationHelper;
+import com.androidproductions.ics.sms.ICSSMSActivity_;
+import com.androidproductions.ics.sms.SmsViewer_;
 
 import java.util.ArrayList;
 import java.util.HashMap;

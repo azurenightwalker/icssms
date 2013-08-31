@@ -27,8 +27,8 @@ import java.util.Comparator;
 import java.util.List;
 
 public class SmsNotify extends ThemeableDialog  {
-	public List<IMessage> unread;
-	public IMessage message;
+	private List<IMessage> unread;
+	private IMessage message;
 	private SmileyParser parser;
 	
 	private final BroadcastReceiver receiver = new BroadcastReceiver() {
@@ -101,7 +101,7 @@ public class SmsNotify extends ThemeableDialog  {
         findViewById(R.id.wrapper).setTag(message.getAddress());
 	}
 
-    public void openConversation()
+    void openConversation()
     {
     	Intent conversationIntent = new Intent(SmsNotify.this, SmsViewer_.class);
     	conversationIntent.putExtra(Constants.SMS_RECEIVE_LOCATION, message.getAddress());
@@ -110,7 +110,7 @@ public class SmsNotify extends ThemeableDialog  {
 		finish();
     }  
     
-    public void closeDialog(Animation anim)
+    void closeDialog(Animation anim)
     {
     	View root = findViewById(R.id.wrapper);
     	anim.setAnimationListener(new AnimationListener() {

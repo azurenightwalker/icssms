@@ -29,26 +29,26 @@ public abstract class SMSMessageBase implements IMessage{
 	public String Address;
 	public String Body;
 	private String Name;
-	public final Long Date;
+	final Long Date;
 	public long ID;
-	public final int Type;
+	final int Type;
 	public int Read;
-	public int Locked;
+	private int Locked;
 	public long ThreadId;
-	public long ContactID;
+	private long ContactID;
 	public Uri uri;
 	public int SummaryCount;
-	protected Long DateSent;
-	protected int Protocol;
-	protected int Seen;
-	protected String Subject;
-	protected int ReplyPathPresent;
-	protected String ServiceCentre;
+	private Long DateSent;
+	int Protocol;
+	private int Seen;
+	String Subject;
+	int ReplyPathPresent;
+	String ServiceCentre;
 	public boolean HasAttachment;
 
     private final ContactHelper contactHelper;
 	
-	public SMSMessageBase(Context con, Cursor c)
+	SMSMessageBase(Context con, Cursor c)
 	{
 		mContext = con;
 		int typeCol = c.getColumnIndex("type");
@@ -71,7 +71,7 @@ public abstract class SMSMessageBase implements IMessage{
         contactHelper = new ContactHelper(mContext);
     }
 	
-	public SMSMessageBase(Context con, String address, int type, String body, long date)
+	SMSMessageBase(Context con, String address, int type, String body, long date)
 	{
 		ID = -1;
 		mContext = con;
@@ -86,13 +86,13 @@ public abstract class SMSMessageBase implements IMessage{
         contactHelper = new ContactHelper(mContext);
     }
 	
-	public SMSMessageBase(Context con, Cursor c, String address)
+	SMSMessageBase(Context con, Cursor c, String address)
 	{
 		this(con,c);
     	Address = address;
     }
 	
-	public SMSMessageBase(Context con, Object[] messages)
+	SMSMessageBase(Context con, Object[] messages)
 	{
 		SmsMessage msgs[] = new SmsMessage[messages.length];
 		for (int n = 0; n < messages.length; n++) {
@@ -145,7 +145,7 @@ public abstract class SMSMessageBase implements IMessage{
 		return Name;
 	}
 
-	protected void findName() {
+	void findName() {
 		Name = Address;
 		try
 		{
@@ -187,12 +187,6 @@ public abstract class SMSMessageBase implements IMessage{
     }
 	
 	public Bitmap getContactPhoto()
-	{
-        LruCache<Long, Bitmap> cache = new LruCache<Long, Bitmap>(2);
-        return getContactPhoto(cache);
-	}
-	
-	public Bitmap getContactPhoto(LruCache<Long,Bitmap> cache)
 	{
         if (IsIncoming())
         {

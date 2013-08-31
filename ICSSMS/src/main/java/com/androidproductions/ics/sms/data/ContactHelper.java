@@ -8,7 +8,6 @@ import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.provider.ContactsContract;
 import android.support.v4.content.CursorLoader;
-import android.util.LruCache;
 
 import com.androidproductions.ics.sms.R;
 import com.androidproductions.ics.sms.utils.LogHelper;
@@ -61,7 +60,7 @@ public class ContactHelper {
             image = ImageCache.getItem(0L);
             return image == null ? getDefaultBitmap() : image;
         }
-        ImageCache.putItem(999999L,image);
+        ImageCache.putItem(999999L, image);
         return image;
     }
 

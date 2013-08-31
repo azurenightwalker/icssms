@@ -7,8 +7,6 @@ import android.util.LruCache;
 
 import com.androidproductions.ics.sms.R;
 
-import org.apache.http.impl.cookie.AbstractCookieAttributeHandler;
-
 /**
  * Created by Scott on 31/08/13.
  */
@@ -19,7 +17,7 @@ public class ImageCache {
 
     private ImageCache(int cacheSize)
     {
-        cache = new LruCache<Long, Bitmap>(10);
+        cache = new LruCache<Long, Bitmap>(cacheSize);
     }
 
     public static Bitmap getItem(Long id)
@@ -35,9 +33,9 @@ public class ImageCache {
         return mImageCache.cache.get(0L);
     }
 
-    public static Bitmap putItem(Long id,Bitmap bmp)
+    public static void putItem(Long id,Bitmap bmp)
     {
-        return mImageCache.cache.put(id, bmp);
+        mImageCache.cache.put(id, bmp);
     }
 
     public static void initInstance(int cacheSize, Context context)

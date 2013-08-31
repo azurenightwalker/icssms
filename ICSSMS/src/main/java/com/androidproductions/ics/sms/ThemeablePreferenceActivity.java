@@ -6,7 +6,7 @@ import android.preference.PreferenceActivity;
 import com.androidproductions.ics.sms.preferences.ConfigurationHelper;
 import com.twww.excepttrack.ExceptTrackHandler;
 
-public abstract class ThemeablePreferenceActivity extends PreferenceActivity {
+abstract class ThemeablePreferenceActivity extends PreferenceActivity {
 	
 	protected void onCreate(Bundle savedInstanceState)
 	{

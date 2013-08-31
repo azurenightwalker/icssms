@@ -1,14 +1,12 @@
 package com.androidproductions.ics.sms;
 
 import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
 import android.view.View;
 
 import com.androidproductions.ics.sms.preferences.ConfigurationHelper;
 import com.millennialmedia.android.MMAdView;
 import com.millennialmedia.android.MMRequest;
 import com.millennialmedia.android.MMSDK;
-import com.twww.excepttrack.ExceptTrackHandler;
 
 public abstract class AdSupportedActivity extends ThemeableActivity {
 	
@@ -18,12 +16,12 @@ public abstract class AdSupportedActivity extends ThemeableActivity {
         MMSDK.initialize(this);
     }
 
-    protected MMRequest getAdRequest()
+    MMRequest getAdRequest()
     {
         return new MMRequest();
     }
 
-    protected void InitializeAds()
+    void InitializeAds()
     {
         boolean showAds = ConfigurationHelper.getInstance()
                 .getBooleanValue(ConfigurationHelper.SHOW_ADS);

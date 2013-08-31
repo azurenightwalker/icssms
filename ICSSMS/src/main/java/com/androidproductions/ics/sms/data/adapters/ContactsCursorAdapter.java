@@ -2,10 +2,7 @@ package com.androidproductions.ics.sms.data.adapters;
 
 import android.content.Context;
 import android.database.Cursor;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.provider.ContactsContract.CommonDataKinds.Phone;
-import android.util.LruCache;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,13 +18,9 @@ public class ContactsCursorAdapter extends CursorAdapter {
 
 	private final Context mContext;
 
-    private final LruCache<Long,Bitmap> ImageCache;
-
     public ContactsCursorAdapter(Context context, Cursor c) {
     	super(context,c,0);
         mContext = context;
-        ImageCache = new LruCache<Long, Bitmap>(20);
-        ImageCache.put(0L, BitmapFactory.decodeResource(context.getResources(), R.drawable.ic_contact_picture));
     }
 
     @Override

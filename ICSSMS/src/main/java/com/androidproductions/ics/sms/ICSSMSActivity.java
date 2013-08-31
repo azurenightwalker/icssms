@@ -34,7 +34,7 @@ import java.util.List;
 public class ICSSMSActivity extends AdSupportedActivity {
 
     @ViewById(R.id.smsList)
-    LinearLayout smsList;
+    public LinearLayout smsList;
 	
 	// Current action mode (contextual action bar, a.k.a. CAB)
     private ActionMode mCurrentActionMode;
