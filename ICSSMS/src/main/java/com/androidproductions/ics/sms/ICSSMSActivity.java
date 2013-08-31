@@ -22,7 +22,6 @@ import android.widget.TextView;
 
 import com.androidproductions.ics.sms.messaging.IMessage;
 import com.androidproductions.ics.sms.messaging.MessageUtilities;
-import com.androidproductions.ics.sms.preferences.ConfigurationHelper;
 import com.googlecode.androidannotations.annotations.EActivity;
 import com.googlecode.androidannotations.annotations.OptionsMenu;
 import com.googlecode.androidannotations.annotations.ViewById;
@@ -30,13 +29,9 @@ import com.googlecode.androidannotations.annotations.ViewById;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.millennialmedia.android.MMAdView;
-import com.millennialmedia.android.MMRequest;
-import com.millennialmedia.android.MMSDK;
-
 @EActivity(R.layout.main)
 @OptionsMenu(R.menu.base_menu)
-public class ICSSMSActivity extends ThemeableActivity {
+public class ICSSMSActivity extends AdSupportedActivity {
 
     @ViewById(R.id.smsList)
     LinearLayout smsList;
@@ -52,8 +47,6 @@ public class ICSSMSActivity extends ThemeableActivity {
         selected = new ArrayList<View>();
         if(getIntent().getBooleanExtra(Constants.NOTIFICATION_STATE_UPDATE, false))
         	PreferenceManager.getDefaultSharedPreferences(this).edit().putBoolean(Constants.NOTIFICATION_SHOWING_KEY, false).apply();
-
-        MMSDK.initialize(this);
     }
 
     @Override
@@ -65,24 +58,6 @@ public class ICSSMSActivity extends ThemeableActivity {
         return true;
     }
 
-    private void InitializeAds()
-    {
-        boolean showAds = ConfigurationHelper.getInstance()
-                .getBooleanValue(ConfigurationHelper.SHOW_ADS);
-        MMAdView adView = (MMAdView) findViewById(R.id.adView);
-        if (showAds)
-        {
-            adView.setVisibility(View.VISIBLE);
-            MMRequest request = new MMRequest();
-            adView.setMMRequest(request);
-            adView.getAd();
-        }
-        else
-        {
-            adView.setVisibility(View.GONE);
-        }
-    }
-	
 	@Override
 	public void onResume() {
         super.onResume();

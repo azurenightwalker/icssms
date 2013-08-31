@@ -36,12 +36,11 @@ import java.util.List;
 
 @EActivity(R.layout.main)
 @OptionsMenu(R.menu.bare_menu)
-public class UnsentMessages extends ThemeableActivity {
+public class UnsentMessages extends AdSupportedActivity {
 
     @ViewById(R.id.smsList)
     LinearLayout smsList;
 
-	private LruCache<Long,Bitmap> ImageCache;
     private IMessage PressedMessage;
 
     /** Called when the activity is first created. */
@@ -53,27 +52,6 @@ public class UnsentMessages extends ThemeableActivity {
             ab.setHomeButtonEnabled(true);
             ab.setTitle(R.string.unsentTitle);
             ab.setDisplayHomeAsUpEnabled(true);
-        }
-        ImageCache = new LruCache<Long, Bitmap>(10);
-        ImageCache.put(0L,BitmapFactory.decodeResource(getResources(), R.drawable.ic_contact_picture));
-        MMSDK.initialize(this);
-    }
-
-    private void InitializeAds()
-    {
-        boolean showAds = ConfigurationHelper.getInstance()
-                .getBooleanValue(ConfigurationHelper.SHOW_ADS);
-        MMAdView adView = (MMAdView) findViewById(R.id.adView);
-        if (showAds)
-        {
-            adView.setVisibility(View.VISIBLE);
-            MMRequest request = new MMRequest();
-            adView.setMMRequest(request);
-            adView.getAd();
-        }
-        else
-        {
-            adView.setVisibility(View.GONE);
         }
     }
 	
