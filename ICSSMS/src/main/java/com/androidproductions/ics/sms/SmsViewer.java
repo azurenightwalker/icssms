@@ -451,7 +451,9 @@ public class SmsViewer extends ThemeableActivity {
 	        	Toast.makeText(this, getResources().getText(R.string.markedUnread), Toast.LENGTH_SHORT).show();
 	            return true;
 	        case R.smslong.resend:
-	        	MessageUtilities.SendMessage(SmsViewer.this, PressedMessage.getText(), address);
+                if (PressedMessage.sendingFailed())
+                    PressedMessage.deleteMessage();
+                MessageUtilities.SendMessage(SmsViewer.this, PressedMessage.getText(), address);
 	        	redrawView();
 	            return true;
 	        default:
