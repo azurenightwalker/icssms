@@ -11,7 +11,6 @@ import android.provider.ContactsContract;
 import android.provider.ContactsContract.PhoneLookup;
 import android.telephony.SmsMessage;
 import android.util.Log;
-import android.util.LruCache;
 
 import com.androidproductions.ics.sms.Constants;
 import com.androidproductions.ics.sms.R;

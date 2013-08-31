@@ -155,7 +155,8 @@
 
         <activity android:name="com.millennialmedia.android.MMActivity"
                   android:theme="@android:style/Theme.Translucent.NoTitleBar"
-                  android:configChanges="keyboardHidden|orientation|keyboard" ></activity>
+                  android:configChanges="keyboardHidden|orientation|keyboard" >
+        </activity>
 
         <service android:name=".service.MessagingService" >
         </service>

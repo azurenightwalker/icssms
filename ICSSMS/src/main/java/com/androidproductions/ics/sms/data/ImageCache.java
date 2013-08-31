@@ -7,9 +7,6 @@ import android.util.LruCache;
 
 import com.androidproductions.ics.sms.R;
 
-/**
- * Created by Scott on 31/08/13.
- */
 public class ImageCache {
     private static ImageCache mImageCache;
     private static Context mContext;

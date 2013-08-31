@@ -11,7 +11,6 @@ import android.view.View.OnClickListener;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.CompoundButton.OnCheckedChangeListener;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Switch;
 import android.widget.TextView;
@@ -55,15 +54,15 @@ public class Preferences extends ThemeableActivity {
 		setHeader(R.id.miscHeader,R.string.miscHeader);
 		
 		setMasterSwitch(R.id.notifications,ConfigurationHelper.NOTIFICATIONS_ENABLED,
-        		R.string.notificationTitle,null,
+        		R.string.notificationTitle,
         		new Intent(Preferences.this,AdditionalPreferences.class));
 		setMasterSwitch(R.id.dialog,ConfigurationHelper.DIALOG_ENABLED,
-        		R.string.dialogTitle,null,
+        		R.string.dialogTitle,
         		new Intent(Preferences.this,AdditionalPreferences.class));
         
 		
 		setListPreference(R.id.theme,ConfigurationHelper.THEME,R.array.ThemeDefinitions,
-				R.array.ThemeValues,R.string.themeTitle,null,null);
+				R.array.ThemeValues,R.string.themeTitle,null);
 		
 		setCheckboxPreference(R.id.smiley,ConfigurationHelper.SMILEY_KEY_ENABLED,
 				R.string.smileyTitle,R.string.smileySummary,null);
@@ -98,9 +97,8 @@ public class Preferences extends ThemeableActivity {
 		} while (i < keys.length);
 	}
 	
-	private void setMasterSwitch(Integer id, final String key, Integer title, Integer icon, final Intent intent) {
-		LinearLayout switchLayout = setBasePreference(id,key, title, null,
-				icon, intent);     
+	private void setMasterSwitch(Integer id, final String key, Integer title, final Intent intent) {
+		LinearLayout switchLayout = setBasePreference(id,key, title, null, intent);
 		Switch switchWidget = (Switch)switchLayout.findViewById(R.id.switchWidget);
 		switchWidget.setOnCheckedChangeListener(new OnCheckedChangeListener() {	
 			public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
@@ -114,8 +112,7 @@ public class Preferences extends ThemeableActivity {
 	}
 	
 	private void setCheckboxPreference(Integer id, final String key, Integer title, Integer summary, final Intent intent) {
-		LinearLayout checkboxLayout = setBasePreference(id,key, title, summary,
-				null, intent);
+		LinearLayout checkboxLayout = setBasePreference(id,key, title, summary, intent);
         
 		final CheckBox checkWidget = (CheckBox)checkboxLayout.findViewById(R.id.checkboxWidget);
 		checkboxLayout.setOnClickListener(new OnClickListener() {	
@@ -138,9 +135,8 @@ public class Preferences extends ThemeableActivity {
 		current++;
 	}
 	
-	private void setListPreference(Integer id, final String key, final int keyArray, final int valArray, final Integer title, Integer summary, Integer icon) {
-		LinearLayout listLayout = setBasePreference(id,key, title, summary,
-				icon, null);
+	private void setListPreference(Integer id, final String key, final int keyArray, final int valArray, final Integer title, Integer summary) {
+		LinearLayout listLayout = setBasePreference(id,key, title, summary, null);
 		
 		listLayout.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
@@ -168,7 +164,7 @@ public class Preferences extends ThemeableActivity {
 	}
 
 	private LinearLayout setBasePreference(int id, final String key, Integer title,
-			Integer summary, Integer icon, final Intent intent) {
+			Integer summary, final Intent intent) {
 		LinearLayout switchLayout = (LinearLayout)findViewById(id);
 		
 		((TextView)switchLayout.findViewById(R.id.title)).setText(title);
@@ -176,9 +172,7 @@ public class Preferences extends ThemeableActivity {
         	switchLayout.findViewById(R.id.summary).setVisibility(View.GONE);
         else
         	((TextView)switchLayout.findViewById(R.id.summary)).setText(summary);
-        
-        if (icon != null)
-        	((ImageView)switchLayout.findViewById(R.id.icon)).setImageResource(icon);
+
         if (intent != null)
 	        switchLayout.setOnClickListener(new OnClickListener() {
 				public void onClick(View v) {

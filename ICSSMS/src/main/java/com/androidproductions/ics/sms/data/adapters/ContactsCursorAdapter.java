@@ -18,8 +18,8 @@ public class ContactsCursorAdapter extends CursorAdapter {
 
 	private final Context mContext;
 
-    public ContactsCursorAdapter(Context context, Cursor c) {
-    	super(context,c,0);
+    public ContactsCursorAdapter(Context context) {
+    	super(context,null,0);
         mContext = context;
     }
 
