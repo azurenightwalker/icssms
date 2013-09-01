@@ -5,6 +5,7 @@ import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -115,7 +116,6 @@ public class NotificationHelper {
             groupedMessages.get(s.getAddress()).add(s);
         }
 
-        IMessage first = messages.get(0);
         IMessage last = messages.get(messageSize-1);
 
         final Intent multiIntent = new Intent(mContext, ICSSMSActivity_.class);
@@ -124,23 +124,10 @@ public class NotificationHelper {
         contentIntent = PendingIntent.getActivity(mContext, 0, multiIntent, PendingIntent.FLAG_CANCEL_CURRENT);
 
         Builder builder = buildBaseNotification();
-        Intent dialogIntent;
-        if (configurationHelper.getStringValue(ConfigurationHelper.DIALOG_TYPE).equals("2"))
-            dialogIntent = new Intent(mContext, SmsNotify.class);
-        else
-            dialogIntent = new Intent(mContext, SmsDialog.class);
-        dialogIntent.putExtra(Constants.SMS_RECEIVE_LOCATION, last.getAddress());
-        dialogIntent.putExtra(Constants.SMS_MESSAGE, last.getText());
-        dialogIntent.putExtra(Constants.SMS_TIME, last.getDate());
-        dialogIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);// |Intent.FLAG_ACTIVITY_SINGLE_TOP);
-        PendingIntent dialogpending = PendingIntent.getActivity(mContext, 0, dialogIntent, PendingIntent.FLAG_CANCEL_CURRENT);
-
-        String quickReply = mContext.getResources().getString(R.string.quickReply);
-        String showMore = mContext.getResources().getString(R.string.showMore);
-        builder.addAction(R.drawable.ic_go, quickReply, dialogpending);
+        Resources res = mContext.getResources();
         Intent convoIntent = new Intent(mContext,ICSSMSActivity_.class);
         PendingIntent convoOpen = PendingIntent.getActivity(mContext, 0, convoIntent, PendingIntent.FLAG_CANCEL_CURRENT);
-        builder.addAction(R.drawable.ic_go, showMore, convoOpen);
+        builder.addAction(R.drawable.ic_go, res.getString(R.string.showMore), convoOpen);
         // Messages from more than 1 person
         // Inbox style
         int i = 0;
@@ -173,27 +160,10 @@ public class NotificationHelper {
 
     private Notification buildNotification(IMessage sms)
     {
-        String name = sms.getContactName();
         String contentText = getContent();
-        final Intent singleIntent = new Intent(mContext, SmsViewer_.class);
-        singleIntent.putExtra(Constants.SMS_RECEIVE_LOCATION, sms.getAddress());
-        singleIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-        contentIntent = PendingIntent.getActivity(mContext, 0, singleIntent, PendingIntent.FLAG_CANCEL_CURRENT);
         Builder builder = buildBaseNotification();
-        Intent dialogIntent;
-        if (configurationHelper.getStringValue(ConfigurationHelper.DIALOG_TYPE).equals("2"))
-            dialogIntent = new Intent(mContext, SmsNotify.class);
-        else
-            dialogIntent = new Intent(mContext, SmsDialog.class);
-        dialogIntent.putExtra(Constants.SMS_RECEIVE_LOCATION, sms.getAddress());
-        dialogIntent.putExtra(Constants.SMS_MESSAGE, sms.getText());
-        dialogIntent.putExtra(Constants.SMS_TIME, System.currentTimeMillis());
-        dialogIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);// |Intent.FLAG_ACTIVITY_SINGLE_TOP);
-        PendingIntent dialogpending = PendingIntent.getActivity(mContext, 0, dialogIntent, PendingIntent.FLAG_CANCEL_CURRENT);
-        String open = mContext.getResources().getString(R.string.openConvo);
-        String quickReply = mContext.getResources().getString(R.string.quickReply);
-        builder.addAction(R.drawable.ic_go, quickReply, dialogpending);
-        builder.addAction(R.drawable.ic_go, open, contentIntent);
+        Resources res = mContext.getResources();
+        builder.addAction(R.drawable.ic_go, res.getString(R.string.openConvo), contentIntent);
         BigTextStyle big = new NotificationCompat.BigTextStyle(builder);
         big.bigText(contentText);
         return big.build();
@@ -243,6 +213,7 @@ public class NotificationHelper {
     private Builder buildBaseNotification() {
         Builder builder = new Builder(mContext);
         IMessage first = messages.get(0);
+        IMessage last = messages.get(messageSize-1);
         builder.setAutoCancel(true)
                 .setContentText(getContent())
                 .setContentTitle(first.getContactName())
@@ -268,6 +239,19 @@ public class NotificationHelper {
             else
                 builder.setDefaults(defaults);
         }
+
+        Intent dialogIntent;
+        if (configurationHelper.getStringValue(ConfigurationHelper.DIALOG_TYPE).equals("2"))
+            dialogIntent = new Intent(mContext, SmsNotify.class);
+        else
+            dialogIntent = new Intent(mContext, SmsDialog.class);
+        dialogIntent.putExtra(Constants.SMS_RECEIVE_LOCATION, last.getAddress());
+        dialogIntent.putExtra(Constants.SMS_MESSAGE, last.getText());
+        dialogIntent.putExtra(Constants.SMS_TIME, last.getDate());
+        dialogIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        PendingIntent dialogpending = PendingIntent.getActivity(mContext, 0, dialogIntent, PendingIntent.FLAG_CANCEL_CURRENT);
+        Resources res = mContext.getResources();
+        builder.addAction(R.drawable.ic_go, res.getString(R.string.quickReply), dialogpending);
 
         return builder;
     }
