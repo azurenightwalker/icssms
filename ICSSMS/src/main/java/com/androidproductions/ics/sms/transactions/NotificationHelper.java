@@ -32,7 +32,6 @@ public class NotificationHelper {
 
     private final Context mContext;
     private final NotificationManager mNotificationManager;
-    private PendingIntent contentIntent;
     private List<IMessage> messages;
     private int messageSize;
     private final ConfigurationHelper configurationHelper;
@@ -116,13 +115,6 @@ public class NotificationHelper {
             groupedMessages.get(s.getAddress()).add(s);
         }
 
-        IMessage last = messages.get(messageSize-1);
-
-        final Intent multiIntent = new Intent(mContext, ICSSMSActivity_.class);
-        multiIntent.putExtra(Constants.NOTIFICATION_STATE_UPDATE, true);
-        multiIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-        contentIntent = PendingIntent.getActivity(mContext, 0, multiIntent, PendingIntent.FLAG_CANCEL_CURRENT);
-
         Builder builder = buildBaseNotification();
         Resources res = mContext.getResources();
         Intent convoIntent = new Intent(mContext,ICSSMSActivity_.class);
@@ -163,7 +155,7 @@ public class NotificationHelper {
         String contentText = getContent();
         Builder builder = buildBaseNotification();
         Resources res = mContext.getResources();
-        builder.addAction(R.drawable.ic_go, res.getString(R.string.openConvo), contentIntent);
+        builder.addAction(R.drawable.ic_go, res.getString(R.string.openConvo), getIntent());
         BigTextStyle big = new NotificationCompat.BigTextStyle(builder);
         big.bigText(contentText);
         return big.build();
