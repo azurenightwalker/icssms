@@ -12,7 +12,7 @@ public class ICSSMSApplication extends Application {
     }
 
     @Override
-    public void onTrimMemory(int level) {
+    public void onTrimMemory(final int level) {
         super.onTrimMemory(level);
         if (level > TRIM_MEMORY_UI_HIDDEN)
             ImageCache.initInstance(Constants.MIN_CACHE_SIZE,getApplicationContext());

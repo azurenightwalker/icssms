@@ -16,10 +16,10 @@ import java.util.List;
 
 public final class MessageUtilities {
 
-    public static List<IMessage> GetUnreadMessages(Context context)
+    public static List<IMessage> GetUnreadMessages(final Context context)
     {
-        ArrayList<IMessage> messages = new ArrayList<IMessage>();
-        Cursor c = context.getContentResolver().query(Constants.SMS_INBOX_URI, null, "read = '0'",
+        final ArrayList<IMessage> messages = new ArrayList<IMessage>();
+        final Cursor c = context.getContentResolver().query(Constants.SMS_INBOX_URI, null, "read = '0'",
                 null, "date ASC");
         if (c != null)
         {
@@ -36,10 +36,10 @@ public final class MessageUtilities {
         return messages;
     }
 
-    public static List<IMessage> GetUnsentMessages(Context context)
+    public static List<IMessage> GetUnsentMessages(final Context context)
     {
-        ArrayList<IMessage> messages = new ArrayList<IMessage>();
-        Cursor c = context.getContentResolver().query(Constants.SMS_URI, null, "type = ?",
+        final ArrayList<IMessage> messages = new ArrayList<IMessage>();
+        final Cursor c = context.getContentResolver().query(Constants.SMS_URI, null, "type = ?",
                 new String[] { String.valueOf(Constants.MESSAGE_TYPE_FAILED) }, "date ASC");
         if (c != null)
         {
@@ -56,32 +56,32 @@ public final class MessageUtilities {
         return messages;
     }
 	
-	public static void SaveDraftMessage(Context context, String address, String message)
+	public static void SaveDraftMessage(final Context context, final String address, final String message)
 	{
 		
 	}
 	
-	public static String RetrieveDraftMessage(Context context, String address)
+	public static String RetrieveDraftMessage(final Context context, final String address)
 	{
 		return "";
 	}
 	
-	public static Long SendMessage(Context context, String message, String destination)
+	public static Long SendMessage(final Context context, final String message, final String destination)
 	{
 		return SMSUtilities.sendSms(context, message, destination);
 	}
 	
-	public static IMessage GenerateMessage(Context context, String address, String message, int incoming, long time)
+	public static IMessage GenerateMessage(final Context context, final String address, final String message, final int incoming, final long time)
 	{
 		return SMSUtilities.Generate(context, address, message, incoming, time);
 	}
 
-	public static List<IMessage> GetMessageSummary(Context context)
+	public static List<IMessage> GetMessageSummary(final Context context)
 	{
-		List<IMessage> messages = new ArrayList<IMessage>();
+		final List<IMessage> messages = new ArrayList<IMessage>();
         try
         {
-            Cursor c = context.getContentResolver().query(Uri.parse("content://mms-sms/conversations?simple=true"), null, null,
+            final Cursor c = context.getContentResolver().query(Uri.parse("content://mms-sms/conversations?simple=true"), null, null,
                     null, null);
             if (c != null)
             {
@@ -102,7 +102,7 @@ public final class MessageUtilities {
             // Simple conversations not supported
             try
             {
-                Cursor c = context.getContentResolver().query(Constants.SMS_CONVERSATIONS_URI, new String[] {"*"}, null,
+                final Cursor c = context.getContentResolver().query(Constants.SMS_CONVERSATIONS_URI, new String[] {"*"}, null,
                         null, null);
                 if (c != null)
                 {
@@ -115,7 +115,7 @@ public final class MessageUtilities {
                 try
                 {
                     // Now were really custom..
-                    Cursor c = context.getContentResolver().query(Constants.SMS_ONLY_CONVERSATIONS_URI, new String[] {"*"}, null,
+                    final Cursor c = context.getContentResolver().query(Constants.SMS_ONLY_CONVERSATIONS_URI, new String[] {"*"}, null,
                             null, null);
                     if (c != null)
                     {
@@ -126,7 +126,7 @@ public final class MessageUtilities {
                 catch(Exception exc)
                 {
                     // There has got to be a better way..
-                    Cursor c = context.getContentResolver().query(Constants.SMS_ONLY_CONVERSATIONS_URI, null, null,
+                    final Cursor c = context.getContentResolver().query(Constants.SMS_ONLY_CONVERSATIONS_URI, null, null,
                             null, null);
                     if (c != null)
                     {
@@ -137,7 +137,7 @@ public final class MessageUtilities {
             }
         }
         Collections.sort(messages, new Comparator<IMessage>() {
-            public int compare(IMessage m1, IMessage m2) {
+            public int compare(final IMessage m1, final IMessage m2) {
                 return m2.getDate().compareTo(m1.getDate());
             }
         });
@@ -145,23 +145,23 @@ public final class MessageUtilities {
 		return messages;
 	}
 
-	private static void processCursor(Context context, List<IMessage> messages,
-			Cursor c) {
+	private static void processCursor(final Context context, final List<IMessage> messages,
+			final Cursor c) {
 		if (c.moveToFirst())
 		{
 			do
 			{
-				String where = "thread_id = ?";
-				String[] vals = new String[] { String.valueOf(c.getLong(0))};
-				Cursor c2 = context.getContentResolver().query(Constants.SMS_URI,new String[] {"*"}, where,
+				final String where = "thread_id = ?";
+				final String[] vals = new String[] { String.valueOf(c.getLong(0))};
+				final Cursor c2 = context.getContentResolver().query(Constants.SMS_URI,new String[] {"*"}, where,
 						vals, "date DESC");
                 if (c2 != null)
                 {
                     if (c2.moveToFirst())
                     {
-                        int addressCol = c2.getColumnIndex("address");
-                        String address = AddressUtilities.StandardiseNumber(c2.getString(addressCol),context);
-                        SMSMessage sms = new SMSMessage(context,c2, address);
+                        final int addressCol = c2.getColumnIndex("address");
+                        final String address = AddressUtilities.StandardiseNumber(c2.getString(addressCol),context);
+                        final SMSMessage sms = new SMSMessage(context,c2, address);
                         sms.SummaryCount = c2.getCount();
                         messages.add(sms);
                     }
@@ -171,16 +171,16 @@ public final class MessageUtilities {
 		}
 	}
 
-    public static List<IMessage> GetMessages(Context context, long threadId, int max)
+    public static List<IMessage> GetMessages(final Context context, final long threadId, final int max)
     {
         return GetMessages(context, threadId, max,null);
     }
 
-	public static List<IMessage> GetMessages(Context context, long threadId, int max, Long date)
+	public static List<IMessage> GetMessages(final Context context, final long threadId, final int max, final Long date)
 	{
-		ArrayList<IMessage> messages = new ArrayList<IMessage>();
-        String where;
-        String[] vals;
+		final ArrayList<IMessage> messages = new ArrayList<IMessage>();
+        final String where;
+        final String[] vals;
         if (date == null)
         {
             where = "thread_id = ?";
@@ -192,7 +192,7 @@ public final class MessageUtilities {
             vals = new String[] { String.valueOf(threadId), String.valueOf(date) };
         }
 
-        Cursor c = context.getContentResolver().query(Constants.SMS_URI,
+        final Cursor c = context.getContentResolver().query(Constants.SMS_URI,
                 null, where, vals, "date DESC LIMIT "+max);
         if (c != null)
         {
@@ -206,7 +206,7 @@ public final class MessageUtilities {
             c.close();
         }
         Collections.sort(messages, new Comparator<IMessage>() {
-            public int compare(IMessage m1, IMessage m2) {
+            public int compare(final IMessage m1, final IMessage m2) {
                 return m1.getDate().compareTo(m2.getDate());
             }
         });

@@ -18,28 +18,28 @@ public class ContactsCursorAdapter extends CursorAdapter {
 
 	private final Context mContext;
 
-    public ContactsCursorAdapter(Context context) {
+    public ContactsCursorAdapter(final Context context) {
     	super(context,null,0);
         mContext = context;
     }
 
     @Override
-    public View newView(Context context, Cursor cursor, ViewGroup parent) {
+    public View newView(final Context context, final Cursor cursor, final ViewGroup parent) {
     	final LayoutInflater inflater = LayoutInflater.from(context);
         final RelativeLayout ret = (RelativeLayout) inflater.inflate(R.layout.autocomplete_contact, parent, false);
         if (ret != null)
         {
-            TextView mName = (TextView) ret.findViewById(R.id.contact_name);
-            TextView mNumber = (TextView) ret.findViewById(R.id.contact_number);
-            TextView mLabel = (TextView) ret.findViewById(R.id.type);
+            final TextView mName = (TextView) ret.findViewById(R.id.contact_name);
+            final TextView mNumber = (TextView) ret.findViewById(R.id.contact_number);
+            final TextView mLabel = (TextView) ret.findViewById(R.id.type);
 
-            int nameIdx = cursor.getColumnIndexOrThrow(Phone.DISPLAY_NAME);
-            int id = cursor.getColumnIndex(Phone.CONTACT_ID);
-            int num = cursor.getColumnIndex(Phone.NUMBER);
-            ContactHelper ch = new ContactHelper(context,cursor.getLong(id));
-            String name = cursor.getString(nameIdx);
-            String number = cursor.getString(num);
-            CharSequence displayLabel = Phone.getTypeLabel(mContext.getResources(), cursor.getInt(cursor.getColumnIndex(Phone.TYPE)), cursor.getString(cursor.getColumnIndex(Phone.LABEL)));
+            final int nameIdx = cursor.getColumnIndexOrThrow(Phone.DISPLAY_NAME);
+            final int id = cursor.getColumnIndex(Phone.CONTACT_ID);
+            final int num = cursor.getColumnIndex(Phone.NUMBER);
+            final ContactHelper ch = new ContactHelper(context,cursor.getLong(id));
+            final String name = cursor.getString(nameIdx);
+            final String number = cursor.getString(num);
+            final CharSequence displayLabel = Phone.getTypeLabel(mContext.getResources(), cursor.getInt(cursor.getColumnIndex(Phone.TYPE)), cursor.getString(cursor.getColumnIndex(Phone.LABEL)));
 
             mName.setText(name);
             mNumber.setText(number);
@@ -56,14 +56,14 @@ public class ContactsCursorAdapter extends CursorAdapter {
     }
 
     @Override
-    public void bindView(View view, Context context, Cursor cursor) {
-        int nameIdx = cursor.getColumnIndexOrThrow(Phone.DISPLAY_NAME);
-        int id = cursor.getColumnIndex(Phone.CONTACT_ID);
-        int num = cursor.getColumnIndex(Phone.NUMBER);
-        ContactHelper ch = new ContactHelper(context,cursor.getLong(id));
-        String name = cursor.getString(nameIdx);
-        String number = cursor.getString(num);
-        CharSequence displayLabel = Phone.getTypeLabel(mContext.getResources(), cursor.getInt(cursor.getColumnIndex(Phone.TYPE)), cursor.getString(cursor.getColumnIndex(Phone.LABEL)));
+    public void bindView(final View view, final Context context, final Cursor cursor) {
+        final int nameIdx = cursor.getColumnIndexOrThrow(Phone.DISPLAY_NAME);
+        final int id = cursor.getColumnIndex(Phone.CONTACT_ID);
+        final int num = cursor.getColumnIndex(Phone.NUMBER);
+        final ContactHelper ch = new ContactHelper(context,cursor.getLong(id));
+        final String name = cursor.getString(nameIdx);
+        final String number = cursor.getString(num);
+        final CharSequence displayLabel = Phone.getTypeLabel(mContext.getResources(), cursor.getInt(cursor.getColumnIndex(Phone.TYPE)), cursor.getString(cursor.getColumnIndex(Phone.LABEL)));
 
 
         /**

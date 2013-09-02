@@ -8,17 +8,17 @@ import com.google.i18n.phonenumbers.PhoneNumberUtil.PhoneNumberFormat;
 import com.google.i18n.phonenumbers.Phonenumber.PhoneNumber;
 
 public final class AddressUtilities {
-    public static String StandardiseNumber(String address, Context context)
+    public static String StandardiseNumber(final String address, final Context context)
     {
     	try {
     		String code = "US";
     		try
     		{
-    		TelephonyManager tm = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
+    		final TelephonyManager tm = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
     		code = tm.getNetworkCountryIso();
     		}
     		catch (Exception e) { e.printStackTrace(); }
-    		PhoneNumberUtil inst = PhoneNumberUtil.getInstance();
+    		final PhoneNumberUtil inst = PhoneNumberUtil.getInstance();
 			PhoneNumber val = inst.parse(address,code);
 			if (inst.isValidNumber(val))
 				return inst.format(val, PhoneNumberFormat.NATIONAL);

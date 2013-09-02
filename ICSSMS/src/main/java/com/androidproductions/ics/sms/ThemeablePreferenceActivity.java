@@ -8,11 +8,11 @@ import com.twww.excepttrack.ExceptTrackHandler;
 
 abstract class ThemeablePreferenceActivity extends PreferenceActivity {
 	
-	protected void onCreate(Bundle savedInstanceState)
+	protected void onCreate(final Bundle savedInstanceState)
 	{
 		ExceptTrackHandler.setUrl("http://x2-starlit-vim-g.appspot.com/error");
         ExceptTrackHandler.setup(this,"1000");
-        int themeId = Integer.parseInt(ConfigurationHelper.getInstance().getStringValue(ConfigurationHelper.THEME));
+        final int themeId = Integer.parseInt(ConfigurationHelper.getInstance().getStringValue(ConfigurationHelper.THEME));
         int theme = 0;
         switch (themeId)
 		{

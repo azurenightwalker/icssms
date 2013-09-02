@@ -37,9 +37,9 @@ public class UnsentMessages extends AdSupportedActivity {
 
     /** Called when the activity is first created. */
 	@Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        ActionBar ab = getActionBar();
+        final ActionBar ab = getActionBar();
         if (ab != null) {
             ab.setHomeButtonEnabled(true);
             ab.setTitle(R.string.unsentTitle);
@@ -56,14 +56,14 @@ public class UnsentMessages extends AdSupportedActivity {
 
     private void redrawView()
     {
-    	List<IMessage> smss = MessageUtilities.GetUnsentMessages(UnsentMessages.this);
+    	final List<IMessage> smss = MessageUtilities.GetUnsentMessages(UnsentMessages.this);
         smsList.removeAllViews();
         for (final IMessage sms : smss)
         {
         	final View child = LayoutInflater.from(getBaseContext()).inflate(R.layout.sms_summary, null);
-        	SpannableString name = new SpannableString(sms.getSummaryHeader());
-        	SpannableString body = new SpannableString(sms.getText());
-        	SpannableString time = new SpannableString(sms.GetShortDateString());
+        	final SpannableString name = new SpannableString(sms.getSummaryHeader());
+        	final SpannableString body = new SpannableString(sms.getText());
+        	final SpannableString time = new SpannableString(sms.GetShortDateString());
         	((TextView)child.findViewById(R.id.contact_name)).setText(name);
         	((TextView)child.findViewById(R.id.messageContent)).setText(body);
         	((TextView)child.findViewById(R.id.messageTime)).setText(time);
@@ -75,7 +75,7 @@ public class UnsentMessages extends AdSupportedActivity {
 			}).run();
 			child.setTag(sms);
         	child.setOnClickListener(new OnClickListener() {
-				public void onClick(View v) {
+				public void onClick(final View v) {
                     ShowDetails(sms);
                 }
 			});
@@ -85,25 +85,25 @@ public class UnsentMessages extends AdSupportedActivity {
     }
 
     @Override
-    public void onCreateContextMenu(ContextMenu menu, View v,
-                                    ContextMenu.ContextMenuInfo menuInfo) {
+    public void onCreateContextMenu(final ContextMenu menu, final View v,
+                                    final ContextMenu.ContextMenuInfo menuInfo) {
         super.onCreateContextMenu(menu, v, menuInfo);
         PressedMessage = (IMessage)v.getTag();
-        MenuInflater inflater = getMenuInflater();
+        final MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.unsent_action_menu,menu);
     }
     
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
+    public boolean onOptionsItemSelected(final MenuItem item) {
         switch (item.getItemId()) {
             case android.R.id.home:
                 // app icon in action bar clicked; go home
-                Intent intent = new Intent(this, ICSSMSActivity_.class);
+                final Intent intent = new Intent(this, ICSSMSActivity_.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
                 return true;
             case R.id.settings:
-            	Intent prefintent = new Intent(this, Preferences_.class);
+            	final Intent prefintent = new Intent(this, Preferences_.class);
             	prefintent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(prefintent);
             	return true;
@@ -113,12 +113,12 @@ public class UnsentMessages extends AdSupportedActivity {
     }
 
     @Override
-    public boolean onContextItemSelected(MenuItem item) {
+    public boolean onContextItemSelected(final MenuItem item) {
         switch (item.getItemId()) {
             case R.id.delete:
                 if (PressedMessage.deleteMessage())
                 {
-                    View v = smsList.findViewWithTag(PressedMessage);
+                    final View v = smsList.findViewWithTag(PressedMessage);
                     ((ViewManager)v.getParent()).removeView(v);
                 }
                 else
@@ -139,8 +139,8 @@ public class UnsentMessages extends AdSupportedActivity {
         }
     }
 
-    private void ShowDetails(IMessage message) {
-        Dialog dialog = new Dialog(UnsentMessages.this);
+    private void ShowDetails(final IMessage message) {
+        final Dialog dialog = new Dialog(UnsentMessages.this);
 
         dialog.setContentView(R.layout.sms_details);
         dialog.setTitle("Message Details");

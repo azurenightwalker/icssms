@@ -12,30 +12,30 @@ public class ImageCache {
     private static Context mContext;
     private final LruCache<Long, Bitmap> cache;
 
-    private ImageCache(int cacheSize)
+    private ImageCache(final int cacheSize)
     {
         cache = new LruCache<Long, Bitmap>(cacheSize);
     }
 
-    public static Bitmap getItem(Long id)
+    public static Bitmap getItem(final Long id)
     {
         return mImageCache.cache.get(id);
     }
 
     public static Bitmap getDefault()
     {
-        Bitmap item = mImageCache.cache.get(0L);
+        final Bitmap item = mImageCache.cache.get(0L);
         if (item == null)
             putItem(0L, BitmapFactory.decodeResource(mContext.getResources(), R.drawable.ic_contact_picture));
         return mImageCache.cache.get(0L);
     }
 
-    public static void putItem(Long id,Bitmap bmp)
+    public static void putItem(final Long id, final Bitmap bmp)
     {
         mImageCache.cache.put(id, bmp);
     }
 
-    public static void initInstance(int cacheSize, Context context)
+    public static void initInstance(final int cacheSize, final Context context)
     {
         mImageCache = new ImageCache(cacheSize);
         mContext = context;

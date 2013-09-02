@@ -32,9 +32,9 @@ public class Preferences extends ThemeableActivity {
 	
 	/** Called when the activity is first created. */
 	@Override
-	public void onCreate(Bundle savedInstanceState) {
+	public void onCreate(final Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		ActionBar ab = getActionBar();
+		final ActionBar ab = getActionBar();
         if (ab != null) {
             ab.setHomeButtonEnabled(true);
             ab.setTitle(R.string.preferencesTitle);
@@ -73,7 +73,7 @@ public class Preferences extends ThemeableActivity {
                 R.string.showAds,null,null);
 	}
 
-	private void setHeader(Integer id, Integer title) {
+	private void setHeader(final Integer id, final Integer title) {
 		((TextView)findViewById(id).findViewById(R.id.title)).setText(title);
 	}
 
@@ -89,11 +89,11 @@ public class Preferences extends ThemeableActivity {
 		} while (i < keys.length);
 	}
 	
-	private void setMasterSwitch(Integer id, final String key, Integer title, final Intent intent) {
-		LinearLayout switchLayout = setBasePreference(id,key, title, null, intent);
-		Switch switchWidget = (Switch)switchLayout.findViewById(R.id.switchWidget);
+	private void setMasterSwitch(final Integer id, final String key, final Integer title, final Intent intent) {
+		final LinearLayout switchLayout = setBasePreference(id,key, title, null, intent);
+		final Switch switchWidget = (Switch)switchLayout.findViewById(R.id.switchWidget);
 		switchWidget.setOnCheckedChangeListener(new OnCheckedChangeListener() {	
-			public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+			public void onCheckedChanged(final CompoundButton buttonView, final boolean isChecked) {
 				config.setBooleanValue(key, isChecked);
 			}
 		});
@@ -103,20 +103,20 @@ public class Preferences extends ThemeableActivity {
 		current++;
 	}
 	
-	private void setCheckboxPreference(Integer id, final String key, Integer title, Integer summary, final Intent intent) {
-		LinearLayout checkboxLayout = setBasePreference(id,key, title, summary, intent);
+	private void setCheckboxPreference(final Integer id, final String key, final Integer title, final Integer summary, final Intent intent) {
+		final LinearLayout checkboxLayout = setBasePreference(id,key, title, summary, intent);
         
 		final CheckBox checkWidget = (CheckBox)checkboxLayout.findViewById(R.id.checkboxWidget);
 		checkboxLayout.setOnClickListener(new OnClickListener() {	
-			public void onClick(View v) {
-				boolean newVal = !config.getBooleanValue(key);
+			public void onClick(final View v) {
+				final boolean newVal = !config.getBooleanValue(key);
 				checkWidget.setChecked(newVal);
 				config.setBooleanValue(key,newVal);
 			}
 		});
 		checkWidget.setOnClickListener(new OnClickListener() {	
-			public void onClick(View v) {
-				boolean newVal = !config.getBooleanValue(key);
+			public void onClick(final View v) {
+				final boolean newVal = !config.getBooleanValue(key);
 				checkWidget.setChecked(newVal);
 				config.setBooleanValue(key,newVal);
 			}
@@ -127,37 +127,37 @@ public class Preferences extends ThemeableActivity {
 		current++;
 	}
 	
-	private void setListPreference(Integer id, final String key, final int keyArray, final int valArray, final Integer title, Integer summary) {
-		LinearLayout listLayout = setBasePreference(id,key, title, summary, null);
+	private void setListPreference(final Integer id, final String key, final int keyArray, final int valArray, final Integer title, final Integer summary) {
+		final LinearLayout listLayout = setBasePreference(id,key, title, summary, null);
 		
 		listLayout.setOnClickListener(new OnClickListener() {
-			public void onClick(View v) {
+			public void onClick(final View v) {
 				final CharSequence[] vals = getResources().getTextArray(valArray);
 				int i = 0;
-				String selected = config.getStringValue(key);
+				final String selected = config.getStringValue(key);
 				boolean found = false;
 				do {
 					if (vals[i].equals(selected))
 						found = true;
 					i++;
 				} while (!found && i <vals.length);
-				AlertDialog.Builder builder = new AlertDialog.Builder(Preferences.this);
+				final AlertDialog.Builder builder = new AlertDialog.Builder(Preferences.this);
 				builder.setTitle(title);
 				builder.setSingleChoiceItems(getResources().getTextArray(keyArray), i-1,new DialogInterface.OnClickListener() {
-				    public void onClick(DialogInterface dialog, int item) {
+				    public void onClick(final DialogInterface dialog, final int item) {
 				    	config.setStringValue(key,(String)vals[item]);
 						dialog.cancel();
 				    }
 				});
-				AlertDialog alert = builder.create();
+				final AlertDialog alert = builder.create();
 				alert.show();
 			}
 		});
 	}
 
-	private LinearLayout setBasePreference(int id, final String key, Integer title,
-			Integer summary, final Intent intent) {
-		LinearLayout switchLayout = (LinearLayout)findViewById(id);
+	private LinearLayout setBasePreference(final int id, final String key, final Integer title,
+			final Integer summary, final Intent intent) {
+		final LinearLayout switchLayout = (LinearLayout)findViewById(id);
 		
 		((TextView)switchLayout.findViewById(R.id.title)).setText(title);
         if (summary == null)
@@ -167,7 +167,7 @@ public class Preferences extends ThemeableActivity {
 
         if (intent != null)
 	        switchLayout.setOnClickListener(new OnClickListener() {
-				public void onClick(View v) {
+				public void onClick(final View v) {
 					intent.putExtra("Preference", key);
 					startActivity(intent);
 				}
@@ -177,11 +177,11 @@ public class Preferences extends ThemeableActivity {
 
 		
 	@Override
-    public boolean onOptionsItemSelected(MenuItem item) {
+    public boolean onOptionsItemSelected(final MenuItem item) {
         switch (item.getItemId()) {
             case android.R.id.home:
                 // app icon in action bar clicked; go home
-                Intent intent = new Intent(this, ICSSMSActivity_.class);
+                final Intent intent = new Intent(this, ICSSMSActivity_.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
                 return true;

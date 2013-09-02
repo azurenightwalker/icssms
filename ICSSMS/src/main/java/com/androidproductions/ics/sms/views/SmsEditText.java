@@ -10,17 +10,17 @@ import com.androidproductions.ics.sms.preferences.ConfigurationHelper;
 
 public class SmsEditText extends EditText {
 
-	public SmsEditText(Context context) {
+	public SmsEditText(final Context context) {
 		super(context);
 		setAttrs();
 	}
 	
-	public SmsEditText(Context context, AttributeSet attrs) {
+	public SmsEditText(final Context context, final AttributeSet attrs) {
 		super(context, attrs);
 		setAttrs();
 	}
 	
-	public SmsEditText(Context context, AttributeSet attrs, int defStyle) {
+	public SmsEditText(final Context context, final AttributeSet attrs, final int defStyle) {
 		super(context, attrs, defStyle);
 		setAttrs();
 	}

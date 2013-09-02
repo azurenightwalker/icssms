@@ -17,10 +17,10 @@ public class ContactListFragment extends ListFragment implements LoaderManager.L
     private ContactsCursorAdapter mAdapter;
 
     @Override
-    public void onActivityCreated(Bundle savedInstanceState) {
+    public void onActivityCreated(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        LoaderManager loadermanager = getLoaderManager();
+        final LoaderManager loadermanager = getLoaderManager();
         /*Empty adapter that is used to display the loaded data*/
         mAdapter = new ContactsCursorAdapter(this.getActivity());
         setListAdapter(mAdapter);
@@ -28,12 +28,12 @@ public class ContactListFragment extends ListFragment implements LoaderManager.L
     }
 
     @Override
-    public Loader<Cursor> onCreateLoader(int i, Bundle bundle) {
+    public Loader<Cursor> onCreateLoader(final int i, final Bundle bundle) {
         return new ContactHelper(this.getActivity()).getPhoneCursor();
     }
 
     @Override
-    public void onLoadFinished(Loader<Cursor> cursorLoader, Cursor cursor) {
+    public void onLoadFinished(final Loader<Cursor> cursorLoader, final Cursor cursor) {
         if(mAdapter!=null && cursor!=null)
             mAdapter.swapCursor(cursor);
         else
@@ -41,7 +41,7 @@ public class ContactListFragment extends ListFragment implements LoaderManager.L
     }
 
     @Override
-    public void onLoaderReset(Loader<Cursor> cursorLoader) {
+    public void onLoaderReset(final Loader<Cursor> cursorLoader) {
         if(mAdapter!=null)
             mAdapter.swapCursor(null);
         else
@@ -49,14 +49,14 @@ public class ContactListFragment extends ListFragment implements LoaderManager.L
     }
 
     @Override
-    public void onListItemClick(ListView l, View v, int position, long id) {
+    public void onListItemClick(final ListView l, final View v, final int position, final long id) {
         super.onListItemClick(l, v, position, id);
         ((ComposeSms)this.getActivity()).updateCompose(convertToString(v));
     }
 
-    String convertToString(View v) {
-        CharSequence name = ((TextView)v.findViewById(com.androidproductions.ics.sms.R.id.contact_name)).getText();
-        CharSequence number = ((TextView)v.findViewById(com.androidproductions.ics.sms.R.id.contact_number)).getText();
+    String convertToString(final View v) {
+        final CharSequence name = ((TextView)v.findViewById(com.androidproductions.ics.sms.R.id.contact_name)).getText();
+        final CharSequence number = ((TextView)v.findViewById(com.androidproductions.ics.sms.R.id.contact_number)).getText();
         return name + " (" + number + ")";
     }
 }

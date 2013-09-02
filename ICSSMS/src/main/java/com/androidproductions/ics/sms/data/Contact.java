@@ -7,13 +7,13 @@ class Contact {
     private final String displayName;
     private final String phoneNumber;
 
-    public Contact(String name, String number)
+    public Contact(final String name, final String number)
     {
         displayName = name;
         phoneNumber = number;
     }
 
-    public Contact(Cursor cur)
+    public Contact(final Cursor cur)
     {
         displayName = cur.getString(cur.getColumnIndex(ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME));
         phoneNumber = cur.getString(cur.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER));

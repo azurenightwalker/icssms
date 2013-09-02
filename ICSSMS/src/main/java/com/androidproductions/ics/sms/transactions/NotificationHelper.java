@@ -38,14 +38,14 @@ public class NotificationHelper {
     private static NotificationHelper mInstance;
     private boolean alertOnce;
 
-    public static NotificationHelper getInstance(Context context)
+    public static NotificationHelper getInstance(final Context context)
     {
         if (mInstance != null) return mInstance;
         mInstance = new NotificationHelper(context);
         return mInstance;
     }
 
-    private NotificationHelper(Context context)
+    private NotificationHelper(final Context context)
     {
         mContext = context;
         mNotificationManager = (NotificationManager) mContext.getSystemService(
@@ -59,7 +59,7 @@ public class NotificationHelper {
         notifyUnreadMessages(MessageUtilities.GetUnreadMessages(mContext));
     }
 
-    private void notifyUnreadMessages(List<IMessage> smss) {
+    private void notifyUnreadMessages(final List<IMessage> smss) {
         alertOnce = shouldAlertOnce(smss);
         messages = smss;
         messageSize = messages.size();
@@ -78,13 +78,13 @@ public class NotificationHelper {
         }
     }
 
-    private boolean shouldAlertOnce(List<IMessage> smss) {
+    private boolean shouldAlertOnce(final List<IMessage> smss) {
         if (messages.size() < smss.size())
             return false;
-        for(IMessage mess : smss)
+        for(final IMessage mess : smss)
         {
             boolean found = false;
-            for(IMessage mess2 : messages)
+            for(final IMessage mess2 : messages)
             {
                 if (mess2.getAddress().equals(mess.getAddress()) && mess.getText().equals(mess2.getText()))
                     found = true;
@@ -97,8 +97,8 @@ public class NotificationHelper {
 
     private Notification buildNotification()
     {
-        Builder builder = buildBaseNotification();
-        Resources res = mContext.getResources();
+        final Builder builder = buildBaseNotification();
+        final Resources res = mContext.getResources();
         builder.addAction(
                 R.drawable.ic_go,
                 res.getString(messageSize == 1 ? R.string.openConvo : R.string.showMore),
@@ -106,17 +106,17 @@ public class NotificationHelper {
         return buildBigNotification(builder);
     }
 
-    Notification buildBigNotification(Builder builder) {
+    Notification buildBigNotification(final Builder builder) {
         if (messageSize == 1)
         {
-            BigTextStyle big = new NotificationCompat.BigTextStyle(builder);
+            final BigTextStyle big = new NotificationCompat.BigTextStyle(builder);
             big.bigText(getContent());
             return big.build();
         }
 
-        List<String> numbers = new ArrayList<String>();
-        HashMap<String, ArrayList<IMessage>> groupedMessages = new HashMap<String,ArrayList<IMessage>>();
-        for (IMessage s : messages)
+        final List<String> numbers = new ArrayList<String>();
+        final HashMap<String, ArrayList<IMessage>> groupedMessages = new HashMap<String,ArrayList<IMessage>>();
+        for (final IMessage s : messages)
         {
             if (!numbers.contains(s.getAddress()))
             {
@@ -125,12 +125,12 @@ public class NotificationHelper {
             }
             groupedMessages.get(s.getAddress()).add(s);
         }
-        InboxStyle big = new InboxStyle(builder);
+        final InboxStyle big = new InboxStyle(builder);
         int messageCount = 0;
         int extraCount= 0;
         if (numbers.size() == 1)
         {
-            for(IMessage sms : groupedMessages.get(numbers.get(0)))
+            for(final IMessage sms : groupedMessages.get(numbers.get(0)))
             {
                 if (messageCount < Constants.MAX_INBOX_DISPLAY)
                 {
@@ -146,12 +146,12 @@ public class NotificationHelper {
         else
         {
             // TODO: What to display here?
-            for(String item : groupedMessages.keySet())
+            for(final String item : groupedMessages.keySet())
             {
                 if (messageCount < Constants.MAX_INBOX_DISPLAY)
                 {
-                    IMessage sms = groupedMessages.get(item).get(0);
-                    String name = sms.getContactName();
+                    final IMessage sms = groupedMessages.get(item).get(0);
+                    final String name = sms.getContactName();
                     big.addLine(name + ": " + sms.getText());
                     messageCount++;
                 }
@@ -166,7 +166,7 @@ public class NotificationHelper {
     }
 
     public void notifySendFailed() {
-        Cursor c = mContext.getContentResolver().query(Constants.SMS_FAILED_URI, null, null, null, null);
+        final Cursor c = mContext.getContentResolver().query(Constants.SMS_FAILED_URI, null, null, null, null);
         int smsCount = 1;
         if (c != null)
         {
@@ -175,14 +175,14 @@ public class NotificationHelper {
         }
         if (smsCount > 0)
         {
-            Builder builder = new Builder(mContext);
+            final Builder builder = new Builder(mContext);
             final Intent multiIntent = new Intent(mContext, ICSSMSActivity_.class);
             multiIntent.putExtra(Constants.NOTIFICATION_STATE_UPDATE, true);
             multiIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-            PendingIntent contentIntent = PendingIntent.getActivity(mContext, 0, multiIntent, PendingIntent.FLAG_CANCEL_CURRENT);
-            String notAllSent = mContext.getResources().getString(R.string.notAllSent);
-            String sendingFailed = mContext.getResources().getString(R.string.sendingFailed);
-            @SuppressWarnings("deprecation")
+            final PendingIntent contentIntent = PendingIntent.getActivity(mContext, 0, multiIntent, PendingIntent.FLAG_CANCEL_CURRENT);
+            final String notAllSent = mContext.getResources().getString(R.string.notAllSent);
+            final String sendingFailed = mContext.getResources().getString(R.string.sendingFailed);
+            @SuppressWarnings("deprecation") final
             Notification notify = builder.setAutoCancel(true)
                     .setContentText(notAllSent)
                     .setContentTitle(sendingFailed)
@@ -207,9 +207,9 @@ public class NotificationHelper {
     }
 
     private Builder buildBaseNotification() {
-        Builder builder = new Builder(mContext);
-        IMessage first = messages.get(0);
-        IMessage last = messages.get(messageSize-1);
+        final Builder builder = new Builder(mContext);
+        final IMessage first = messages.get(0);
+        final IMessage last = messages.get(messageSize-1);
         builder.setAutoCancel(true)
                 .setContentText(getContent())
                 .setContentTitle(first.getContactName())
@@ -236,7 +236,7 @@ public class NotificationHelper {
                 builder.setDefaults(defaults);
         }
 
-        Intent dialogIntent;
+        final Intent dialogIntent;
         if (configurationHelper.getStringValue(ConfigurationHelper.DIALOG_TYPE).equals("2"))
             dialogIntent = new Intent(mContext, SmsNotify.class);
         else
@@ -245,8 +245,8 @@ public class NotificationHelper {
         dialogIntent.putExtra(Constants.SMS_MESSAGE, last.getText());
         dialogIntent.putExtra(Constants.SMS_TIME, last.getDate());
         dialogIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        PendingIntent dialogpending = PendingIntent.getActivity(mContext, 0, dialogIntent, PendingIntent.FLAG_CANCEL_CURRENT);
-        Resources res = mContext.getResources();
+        final PendingIntent dialogpending = PendingIntent.getActivity(mContext, 0, dialogIntent, PendingIntent.FLAG_CANCEL_CURRENT);
+        final Resources res = mContext.getResources();
         builder.addAction(R.drawable.ic_go, res.getString(R.string.quickReply), dialogpending);
 
         return builder;
@@ -266,7 +266,7 @@ public class NotificationHelper {
         }
         else
         {
-            IMessage mess;
+            final IMessage mess;
             if (messageSize == 1)
                 mess = messages.get(0);
             else
@@ -288,15 +288,15 @@ public class NotificationHelper {
         else
         {
             // Find all contacts
-            List<String> numbers = new ArrayList<String>();
-            for (IMessage s : messages)
+            final List<String> numbers = new ArrayList<String>();
+            for (final IMessage s : messages)
             {
                 if (!numbers.contains(s.getAddress()))
                 {
                     numbers.add(s.getAddress());
                 }
             }
-            int contactCount = numbers.size();
+            final int contactCount = numbers.size();
             if (contactCount == 1)
                 return "You have "+messageSize+" new messages";
             else
@@ -307,7 +307,7 @@ public class NotificationHelper {
 
     PendingIntent getIntent()
     {
-        Intent contentIntent;
+        final Intent contentIntent;
         if (messageSize == 1)
         {
             contentIntent = new Intent(mContext, SmsViewer_.class);
@@ -322,7 +322,7 @@ public class NotificationHelper {
         return PendingIntent.getActivity(mContext, 0, contentIntent, PendingIntent.FLAG_CANCEL_CURRENT);
     }
 
-    Boolean setVibrate(Builder builder)
+    Boolean setVibrate(final Builder builder)
     {
         if (configurationHelper.getBooleanValue(ConfigurationHelper.VIBRATION))
             return true;
@@ -330,18 +330,18 @@ public class NotificationHelper {
         return false;
     }
 
-    Boolean setSound(Builder builder)
+    Boolean setSound(final Builder builder)
     {
         if (!configurationHelper.getBooleanValue(ConfigurationHelper.CUSTOM_SOUND))
             return true;
-        String sound = configurationHelper.getStringValue(ConfigurationHelper.NOTIFICATION_SOUND);
+        final String sound = configurationHelper.getStringValue(ConfigurationHelper.NOTIFICATION_SOUND);
         if (sound.equals(""))
             return true;
         builder.setSound(Uri.parse(sound));
         return false;
     }
 
-    Boolean setLights(Builder builder)
+    Boolean setLights(final Builder builder)
     {
         return true;
     }

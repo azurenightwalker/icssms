@@ -11,13 +11,13 @@ import com.twww.excepttrack.ExceptTrackHandler;
 
 abstract class ThemeableDialog extends Activity{
 	
-	protected void onCreate(Bundle savedInstanceState)
+	protected void onCreate(final Bundle savedInstanceState)
 	{
 		super.onCreate(savedInstanceState);
 		ExceptTrackHandler.setUrl("http://x2-starlit-vim-g.appspot.com/error");
         ExceptTrackHandler.setup(this,"1000");
-        int dialogType = Integer.parseInt(PreferenceManager.getDefaultSharedPreferences(this).getString("DialogType","0"));
-        int themeId = Integer.parseInt(ConfigurationHelper.getInstance().getStringValue(ConfigurationHelper.THEME));
+        final int dialogType = Integer.parseInt(PreferenceManager.getDefaultSharedPreferences(this).getString("DialogType","0"));
+        final int themeId = Integer.parseInt(ConfigurationHelper.getInstance().getStringValue(ConfigurationHelper.THEME));
         int theme = 0;
         switch (dialogType)
         {

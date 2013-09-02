@@ -33,7 +33,7 @@ public class SmsNotify extends ThemeableDialog  {
 	
 	private final BroadcastReceiver receiver = new BroadcastReceiver() {
         @Override
-        public void onReceive(Context context, Intent intent) {
+        public void onReceive(final Context context, final Intent intent) {
         	updateUnreadMessages();
         }
     };
@@ -42,16 +42,16 @@ public class SmsNotify extends ThemeableDialog  {
 	
     /** Called when the activity is first created. */
     @Override
-    public void onCreate(Bundle savedInstanceState) {
+    public void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.sms_notify); 
         getWindow().setGravity(Gravity.TOP);
         getWindow().setLayout(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL);
-        Bundle extras = getIntent().getExtras();
-		String number = extras.getString(Constants.SMS_RECEIVE_LOCATION,null);
-		String message = extras.getString(Constants.SMS_MESSAGE,null);
-		long time = extras.getLong(Constants.SMS_TIME);
+        final Bundle extras = getIntent().getExtras();
+		final String number = extras.getString(Constants.SMS_RECEIVE_LOCATION,null);
+		final String message = extras.getString(Constants.SMS_MESSAGE,null);
+		final long time = extras.getLong(Constants.SMS_TIME);
 		if (message != null)
 			updateUnreadMessages(MessageUtilities.GenerateMessage(SmsNotify.this, number, message, Constants.MESSAGE_TYPE_INBOX, time));
 		else
@@ -63,25 +63,25 @@ public class SmsNotify extends ThemeableDialog  {
     
     private void updateUnreadMessages()
     {
-    	List<IMessage> _unread = MessageUtilities.GetUnreadMessages(SmsNotify.this);
+    	final List<IMessage> _unread = MessageUtilities.GetUnreadMessages(SmsNotify.this);
     	unread = sortMessages(_unread);
     }
     
-    private List<IMessage> sortMessages(List<IMessage> unread)
+    private List<IMessage> sortMessages(final List<IMessage> unread)
     {
     	Collections.sort(unread, new Comparator<IMessage>() {
-		    public int compare(IMessage m1, IMessage m2) {
+		    public int compare(final IMessage m1, final IMessage m2) {
 		        return m1.getDate().compareTo(m2.getDate());
 		    }
 		});
     	return unread;
     }
     
-    private void updateUnreadMessages(IMessage newMessage)
+    private void updateUnreadMessages(final IMessage newMessage)
     {
     	updateUnreadMessages();
     	boolean found = false;
-		for (IMessage s : unread)
+		for (final IMessage s : unread)
 			if (s.getText().equals(newMessage.getText()) &&
 					s.getAddress().equals(
 							AddressUtilities.StandardiseNumber(newMessage.getAddress(),SmsNotify.this)
@@ -103,20 +103,20 @@ public class SmsNotify extends ThemeableDialog  {
 
     void openConversation()
     {
-    	Intent conversationIntent = new Intent(SmsNotify.this, SmsViewer_.class);
+    	final Intent conversationIntent = new Intent(SmsNotify.this, SmsViewer_.class);
     	conversationIntent.putExtra(Constants.SMS_RECEIVE_LOCATION, message.getAddress());
     	conversationIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
 		startActivity(conversationIntent);
 		finish();
     }  
     
-    void closeDialog(Animation anim)
+    void closeDialog(final Animation anim)
     {
-    	View root = findViewById(R.id.wrapper);
+    	final View root = findViewById(R.id.wrapper);
     	anim.setAnimationListener(new AnimationListener() {
-			public void onAnimationStart(Animation animation) { }			
-			public void onAnimationRepeat(Animation animation) { }
-			public void onAnimationEnd(Animation animation) {
+			public void onAnimationStart(final Animation animation) { }
+			public void onAnimationRepeat(final Animation animation) { }
+			public void onAnimationEnd(final Animation animation) {
 				if (PreferenceManager.getDefaultSharedPreferences(getApplicationContext()).getBoolean("DialogMarkRead", false))
 		    		markCurrentAsRead();
 				finish();
@@ -134,12 +134,12 @@ public class SmsNotify extends ThemeableDialog  {
 			return;
 		}
 		updateUnreadMessages();
-		String addy = AddressUtilities.StandardiseNumber(message.getAddress(),SmsNotify.this);
+		final String addy = AddressUtilities.StandardiseNumber(message.getAddress(),SmsNotify.this);
 		if (unread.size() == 1) unread.get(0).markAsRead();
 		else if (!unread.isEmpty())
 			do
 			{
-				IMessage sms2 = unread.get(i);
+				final IMessage sms2 = unread.get(i);
 				i++;
 				if (AddressUtilities.StandardiseNumber(sms2.getAddress(),SmsNotify.this).equals(addy))
 				{
@@ -165,7 +165,7 @@ public class SmsNotify extends ThemeableDialog  {
     }
     
     @Override
-    public boolean dispatchTouchEvent(MotionEvent event) {
+    public boolean dispatchTouchEvent(final MotionEvent event) {
     	if (event.getAction() == MotionEvent.ACTION_DOWN) {
         	startx = event.getX();
         }

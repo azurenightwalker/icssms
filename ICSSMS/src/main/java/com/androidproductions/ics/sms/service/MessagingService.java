@@ -48,7 +48,7 @@ public class MessagingService extends Service{
     private static final String SMS_URI = "SMSURI";
     
 	@Override
-	public IBinder onBind(Intent arg0) {
+	public IBinder onBind(final Intent arg0) {
 		return null;
 	}
 	
@@ -58,16 +58,16 @@ public class MessagingService extends Service{
         // separate thread because the service normally runs in the process's
         // main thread, which we don't want to block.
 		
-        HandlerThread thread = new HandlerThread(TAG, android.os.Process.THREAD_PRIORITY_BACKGROUND);
+        final HandlerThread thread = new HandlerThread(TAG, android.os.Process.THREAD_PRIORITY_BACKGROUND);
         thread.start();
 
-        Looper mServiceLooper = thread.getLooper();
+        final Looper mServiceLooper = thread.getLooper();
         mServiceHandler = new ServiceHandler(mServiceLooper,this);
     }
 	
-	public int onStartCommand(final Intent intent, int flags, int startId)
+	public int onStartCommand(final Intent intent, final int flags, final int startId)
 	{
-        int mResultCode = intent != null ? intent.getIntExtra("result", 0) : 0;
+        final int mResultCode = intent != null ? intent.getIntExtra("result", 0) : 0;
 
         if (intent != null) {
             LogHelper.t(this, intent.getAction());
@@ -75,7 +75,7 @@ public class MessagingService extends Service{
         else {
             LogHelper.w("Starting to process message with no intent");
         }
-        Message msg = mServiceHandler.obtainMessage();
+        final Message msg = mServiceHandler.obtainMessage();
         msg.arg1 = startId;
         msg.obj = intent;
         msg.arg2 = mResultCode;
@@ -85,7 +85,7 @@ public class MessagingService extends Service{
 	
 	@SuppressWarnings("deprecation")
     @Override
-	public void onStart(Intent intent, int startId) {
+	public void onStart(final Intent intent, final int startId) {
 		onStartCommand(intent, startId, 0);
 	}
 	
@@ -93,7 +93,7 @@ public class MessagingService extends Service{
 		private final Service context;
         private final ConfigurationHelper mConfig;
         private MyPhoneStateListener phoneListener;
-        public ServiceHandler(Looper looper, Service con) {
+        public ServiceHandler(final Looper looper, final Service con) {
             super(looper);
             context = con;
             mConfig = ConfigurationHelper.getInstance();
@@ -104,13 +104,13 @@ public class MessagingService extends Service{
          * The incoming requests are initiated by the MMSC Server or by the MMS Client itself.
          */
         @Override
-        public void handleMessage(Message msg) {
-            int serviceId = msg.arg1;
-            int resultCode = msg.arg2;
-            Intent intent = (Intent)msg.obj;
+        public void handleMessage(final Message msg) {
+            final int serviceId = msg.arg1;
+            final int resultCode = msg.arg2;
+            final Intent intent = (Intent)msg.obj;
             if (intent != null) {
-                String action = intent.getAction();
-                int error = intent.getIntExtra("errorCode", 0);
+                final String action = intent.getAction();
+                final int error = intent.getIntExtra("errorCode", 0);
                 if (Constants.MESSAGE_SENT_ACTION.equals(action)) {
                     handleSmsSent(intent, error,resultCode);
                 } else if (Constants.SMS_RECEIVED_ACTION.equals(action)) {
@@ -143,10 +143,10 @@ public class MessagingService extends Service{
 			sendFirstQueuedMessage();
 		}
 
-		private void handleSmsSent(Intent intent, int error, int resultCode) {
+		private void handleSmsSent(final Intent intent, final int error, final int resultCode) {
             //noinspection ConstantConditions
-            Uri uri = (Uri)intent.getExtras().get(SMS_URI);
-	        boolean sendNextMsg = intent.getBooleanExtra(EXTRA_MESSAGE_SENT_SEND_NEXT, false);
+            final Uri uri = (Uri)intent.getExtras().get(SMS_URI);
+	        final boolean sendNextMsg = intent.getBooleanExtra(EXTRA_MESSAGE_SENT_SEND_NEXT, false);
 
 	        if (resultCode == Activity.RESULT_OK) {
 	            if (!SMSMessage.moveToFolder(context, uri, Constants.MESSAGE_TYPE_SENT)) {
@@ -182,33 +182,33 @@ public class MessagingService extends Service{
 	    }
 
 	    private void sendFirstQueuedMessage() {
-	    	Cursor c = context.getContentResolver().query(Constants.SMS_QUEUED_URI, null, null,
+	    	final Cursor c = context.getContentResolver().query(Constants.SMS_QUEUED_URI, null, null,
 					null, "date ASC");
 	    	if (c!= null)
             {
                 if (c.moveToFirst())
                 {
-                    int addressCol = c.getColumnIndex("address");
-                    String address = c.getString(addressCol);
+                    final int addressCol = c.getColumnIndex("address");
+                    final String address = c.getString(addressCol);
                     sendMessage(new SMSMessage(context,c, address));
                 }
                 c.close();
             }
 		}
 	    
-		private void sendMessage(SMSMessage message) {
-			SmsManager smsManager = SmsManager.getDefault();
-            ArrayList<String> messages = smsManager.divideMessage(message.Body);
+		private void sendMessage(final SMSMessage message) {
+			final SmsManager smsManager = SmsManager.getDefault();
+            final ArrayList<String> messages = smsManager.divideMessage(message.Body);
 
             // Sanitise number
-	        String mDest = PhoneNumberUtils.stripSeparators(message.Address);
+	        final String mDest = PhoneNumberUtils.stripSeparators(message.Address);
 	        
-	        int messageCount = messages.size();
+	        final int messageCount = messages.size();
 	        message.moveToOutbox();
-	        ArrayList<PendingIntent> sentIntents = new ArrayList<PendingIntent>(messageCount);
-	        ArrayList<PendingIntent> recIntents = new ArrayList<PendingIntent>(messageCount);
+	        final ArrayList<PendingIntent> sentIntents = new ArrayList<PendingIntent>(messageCount);
+	        final ArrayList<PendingIntent> recIntents = new ArrayList<PendingIntent>(messageCount);
 	        for (int i = 0; i < messageCount; i++) {
-	            Intent intent  = new Intent(message.mContext,
+	            final Intent intent  = new Intent(message.mContext,
 	                    SmsUpdateReceiver.class);
 	            intent.putExtra(SmsUpdateReceiver.UPDATE_TYPE, SmsUpdateReceiver.SMS_SENT);
 	            intent.putExtra(SmsUpdateReceiver.SMS_URI, message.uri);
@@ -234,16 +234,16 @@ public class MessagingService extends Service{
 	        }
 		}
 
-		private void messageFailedToSend(Uri uri, int error) {
+		private void messageFailedToSend(final Uri uri, final int error) {
             Log.e(Constants.TAG,"Message sending failed with error code:"+error);
 			SMSMessage.moveToFolder(context, uri, Constants.MESSAGE_TYPE_FAILED);
 	        NotificationHelper.getInstance(context).notifySendFailed();
 	    }
 
-		public void handleSmsRecieved(Intent intent)
+		public void handleSmsRecieved(final Intent intent)
         {
             //noinspection ConstantConditions
-            SMSMessage sms = new SMSMessage(context, (Object[]) intent.getExtras().get("pdus"));
+            final SMSMessage sms = new SMSMessage(context, (Object[]) intent.getExtras().get("pdus"));
 
             // Save message if needed
             if (mConfig.getBooleanValue(ConfigurationHelper.DISABLE_OTHER_NOTIFICATIONS))
@@ -255,8 +255,8 @@ public class MessagingService extends Service{
             context.sendBroadcast(new Intent("com.androidproductions.ics.sms.UPDATE_DIALOG"));
         }
         
-        private void displayDialog(Context context, SMSMessage sms) {
-        	Intent dialogIntent;
+        private void displayDialog(final Context context, final SMSMessage sms) {
+        	final Intent dialogIntent;
     		if (mConfig.getStringValue(ConfigurationHelper.DIALOG_TYPE).equals("2"))
     			dialogIntent = new Intent(context, SmsNotify.class);
     		else
@@ -271,12 +271,12 @@ public class MessagingService extends Service{
         
         private void registerForServiceStateChanges() {
         	phoneListener = new MyPhoneStateListener(context);
-            TelephonyManager telephony = (TelephonyManager)context.getSystemService(Context.TELEPHONY_SERVICE);
+            final TelephonyManager telephony = (TelephonyManager)context.getSystemService(Context.TELEPHONY_SERVICE);
             telephony.listen(phoneListener, PhoneStateListener.LISTEN_SERVICE_STATE);
         }
 
         private void unRegisterForServiceStateChanges() {
-        	TelephonyManager telephony = (TelephonyManager)context.getSystemService(Context.TELEPHONY_SERVICE);
+        	final TelephonyManager telephony = (TelephonyManager)context.getSystemService(Context.TELEPHONY_SERVICE);
             telephony.listen(phoneListener, PhoneStateListener.LISTEN_NONE);
         }
     }

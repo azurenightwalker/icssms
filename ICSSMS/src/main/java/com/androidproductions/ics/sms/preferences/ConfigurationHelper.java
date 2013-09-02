@@ -29,7 +29,7 @@ public class ConfigurationHelper {
 	private static ConfigurationHelper mConfigurationHelper;
 	private final SharedPreferences mPreferences;
 
-	private ConfigurationHelper(Context applicationContext)
+	private ConfigurationHelper(final Context applicationContext)
 	{
 		if (applicationContext == null)
 			throw new IllegalArgumentException("Application context cannot be null");
@@ -41,7 +41,7 @@ public class ConfigurationHelper {
 		return mConfigurationHelper;
 	}
 
-    public static void initInstance(Context applicationContext)
+    public static void initInstance(final Context applicationContext)
     {
         if (mConfigurationHelper == null)
             mConfigurationHelper = new ConfigurationHelper(applicationContext);
@@ -49,19 +49,19 @@ public class ConfigurationHelper {
             throw new IllegalStateException("Instance has already been initialized");
     }
 	
-	public String getStringValue(String key)
+	public String getStringValue(final String key)
 	{
 		return mPreferences.getString(key, Defaults.STRING_CONSTANTS.get(key));
 	}
 	
-	public void setStringValue(String key, String value)
+	public void setStringValue(final String key, final String value)
 	{
-		Editor edit = mPreferences.edit();
+		final Editor edit = mPreferences.edit();
 		edit.putString(key, value);
 		edit.commit();
 	}
 	
-	public int getIntValue(String key)
+	public int getIntValue(final String key)
 	{
 		try
 		{
@@ -73,21 +73,21 @@ public class ConfigurationHelper {
 		}
 	}
 	
-	public void setIntValue(String key, int value)
+	public void setIntValue(final String key, final int value)
 	{
-		Editor edit = mPreferences.edit();
+		final Editor edit = mPreferences.edit();
 		edit.putInt(key, value);
 		edit.commit();
 	}
 	
-	public Boolean getBooleanValue(String key)
+	public Boolean getBooleanValue(final String key)
 	{
 		return mPreferences.getBoolean(key, Defaults.BOOLEAN_CONSTANTS.get(key));
 	}
 	
-	public void setBooleanValue(String key, Boolean value)
+	public void setBooleanValue(final String key, final Boolean value)
 	{
-		Editor edit = mPreferences.edit();
+		final Editor edit = mPreferences.edit();
 		edit.putBoolean(key, value);
 		edit.commit();
 	}

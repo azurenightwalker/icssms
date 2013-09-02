@@ -18,7 +18,7 @@ public class NotificationService extends Service{
 	private NotificationHandler mContentObserver;
 	
 	@Override
-	public IBinder onBind(Intent arg0) {
+	public IBinder onBind(final Intent arg0) {
 		return null;
 	}
 
@@ -33,26 +33,26 @@ public class NotificationService extends Service{
         getContentResolver().unregisterContentObserver(mContentObserver);
     }
 	
-	public static void startService(Context context, Intent intent) {
+	public static void startService(final Context context, final Intent intent) {
         intent.setClass(context, NotificationService.class);
         context.startService(intent);
 	}
 	
 	private class NotificationHandler extends ContentObserver
 	{
-		public NotificationHandler(Handler handler) {
+		public NotificationHandler(final Handler handler) {
 			super(handler);
 		}
 		
 		@Override
-	    public void onChange(boolean selfChange) {
+	    public void onChange(final boolean selfChange) {
 	        super.onChange(selfChange);
 	        NotificationHelper.getInstance(getApplicationContext()).updateUnreadSms();
 	    }
 		
 		@TargetApi(Build.VERSION_CODES.JELLY_BEAN)
 		@Override
-	    public void onChange(boolean selfChange, Uri uri) {
+	    public void onChange(final boolean selfChange, final Uri uri) {
 	        onChange(selfChange);
 	    }
 	}

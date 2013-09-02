@@ -42,7 +42,7 @@ public class ICSSMSActivity extends AdSupportedActivity {
 
     /** Called when the activity is first created. */
 	@Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         selected = new ArrayList<View>();
         if(getIntent().getBooleanExtra(Constants.NOTIFICATION_STATE_UPDATE, false))
@@ -50,7 +50,7 @@ public class ICSSMSActivity extends AdSupportedActivity {
     }
 
     @Override
-    public boolean onPrepareOptionsMenu(Menu menu) {
+    public boolean onPrepareOptionsMenu(final Menu menu) {
         if (!MessageUtilities.GetUnsentMessages(ICSSMSActivity.this).isEmpty())
             menu.findItem(R.id.unsentSms).setVisible(true);
         else
@@ -68,30 +68,30 @@ public class ICSSMSActivity extends AdSupportedActivity {
     @SuppressWarnings("deprecation")
     private void redrawView()
     {
-    	List<IMessage> smss = MessageUtilities.GetMessageSummary(ICSSMSActivity.this);
+    	final List<IMessage> smss = MessageUtilities.GetMessageSummary(ICSSMSActivity.this);
         smsList.removeAllViews();
         for (final IMessage sms : smss)
         {
         	final View child = LayoutInflater.from(getBaseContext()).inflate(R.layout.sms_summary, null);
-        	SpannableString name = new SpannableString(sms.getSummaryHeader());
-        	SpannableString body = new SpannableString(sms.getText());
-        	SpannableString time = new SpannableString(sms.GetShortDateString());
+        	final SpannableString name = new SpannableString(sms.getSummaryHeader());
+        	final SpannableString body = new SpannableString(sms.getText());
+        	final SpannableString time = new SpannableString(sms.GetShortDateString());
         	if (sms.isUnread() && sms.IsIncoming())
         	{
-        		StyleSpan bold = new StyleSpan(android.graphics.Typeface.BOLD);
+        		final StyleSpan bold = new StyleSpan(android.graphics.Typeface.BOLD);
         		name.setSpan(bold, 0, name.length(), 0);
         		body.setSpan(bold, 0, body.length(), 0);
-        		int[] attrs = new int[] { R.attr.read_sms_drawable /* index 0 */};
+        		final int[] attrs = new int[] { R.attr.read_sms_drawable /* index 0 */};
 
         		// Obtain the styled attributes. 'themedContext' is a context with a
         		// theme, typically the current Activity (i.e. 'this')
-        		TypedArray ta = this.obtainStyledAttributes(attrs);
+        		final TypedArray ta = this.obtainStyledAttributes(attrs);
 
         		// Now get the value of the 'listItemBackground' attribute that was
         		// set in the theme used in 'themedContext'. The parameter is the index
         		// of the attribute in the 'attrs' array. The returned Drawable
         		// is what you are after
-        		Drawable drawableFromTheme = ta.getDrawable(0 /* index */);
+        		final Drawable drawableFromTheme = ta.getDrawable(0 /* index */);
 
         		// Finally free resources used by TypedArray
         		ta.recycle();
@@ -111,7 +111,7 @@ public class ICSSMSActivity extends AdSupportedActivity {
 			}).run();
 			child.setTag(sms);
         	child.setOnClickListener(new OnClickListener() {
-				public void onClick(View v) {
+				public void onClick(final View v) {
 					if (mCurrentActionMode != null) {
 						if (!v.isSelected())
 						{
@@ -130,7 +130,7 @@ public class ICSSMSActivity extends AdSupportedActivity {
                     }
 					else
 					{
-						Intent intent = new Intent(getBaseContext(), SmsViewer_.class);
+						final Intent intent = new Intent(getBaseContext(), SmsViewer_.class);
 						intent.setData(ContentUris.withAppendedId(Constants.SMS_CONVERSATIONS_URI,((IMessage)v.getTag()).getThreadId()));  
 						intent.putExtra(Constants.SMS_RECEIVE_LOCATION, ((IMessage)v.getTag()).getAddress());
 		                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
@@ -139,7 +139,7 @@ public class ICSSMSActivity extends AdSupportedActivity {
 				}
 			});
     	    child.setOnLongClickListener(new View.OnLongClickListener() {
-                public boolean onLongClick(View view) {
+                public boolean onLongClick(final View view) {
                     if (mCurrentActionMode != null) {
                         return false;
                     }
@@ -156,22 +156,22 @@ public class ICSSMSActivity extends AdSupportedActivity {
     }
     
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
+    public boolean onOptionsItemSelected(final MenuItem item) {
         switch (item.getItemId()) {
             case android.R.id.home:
                 return true;
             case R.id.newSms:
-                Intent intent = new Intent(this, ComposeSms_.class);
+                final Intent intent = new Intent(this, ComposeSms_.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
                 return true;
             case R.id.unsentSms:
-                Intent unintent = new Intent(this, UnsentMessages_.class);
+                final Intent unintent = new Intent(this, UnsentMessages_.class);
                 unintent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(unintent);
                 return true;
             case R.id.settings:
-            	Intent prefintent = new Intent(this, Preferences_.class);
+            	final Intent prefintent = new Intent(this, Preferences_.class);
             	prefintent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(prefintent);
             	return true;
@@ -181,22 +181,22 @@ public class ICSSMSActivity extends AdSupportedActivity {
     }
     
     private final ActionMode.Callback mContentSelectionActionModeCallback = new ActionMode.Callback() {
-        public boolean onCreateActionMode(ActionMode actionMode, Menu menu) {
-            MenuInflater inflater = actionMode.getMenuInflater();
+        public boolean onCreateActionMode(final ActionMode actionMode, final Menu menu) {
+            final MenuInflater inflater = actionMode.getMenuInflater();
             inflater.inflate(R.xml.action_menu, menu);
             return true;
         }
 
-        public boolean onPrepareActionMode(ActionMode actionMode, Menu menu) {
+        public boolean onPrepareActionMode(final ActionMode actionMode, final Menu menu) {
             return false;
         }
 
-        public boolean onActionItemClicked(ActionMode actionMode, MenuItem menuItem) {
+        public boolean onActionItemClicked(final ActionMode actionMode, final MenuItem menuItem) {
             switch (menuItem.getItemId()) {
             case R.action.delete:
-            	for (View v : selected)
+            	for (final View v : selected)
             	{
-            		Long thread = ((IMessage)v.getTag()).getThreadId();
+            		final Long thread = ((IMessage)v.getTag()).getThreadId();
             		getContentResolver().delete(
                             ContentUris.withAppendedId(Constants.SMS_CONVERSATIONS_URI, thread),   // the user dictionary content URI
                             "locked = ? ",                    // the column to select on
@@ -211,8 +211,8 @@ public class ICSSMSActivity extends AdSupportedActivity {
             return false;
         }
 
-        public void onDestroyActionMode(ActionMode actionMode) {
-        	for (View v : selected)
+        public void onDestroyActionMode(final ActionMode actionMode) {
+        	for (final View v : selected)
         	{
         		v.setBackgroundColor(getResources().getColor(android.R.color.black));
         		v.setSelected(false);

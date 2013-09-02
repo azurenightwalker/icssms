@@ -46,14 +46,14 @@ public abstract class SMSMessageBase implements IMessage{
 
     private final ContactHelper contactHelper;
 	
-	SMSMessageBase(Context con, Cursor c)
+	SMSMessageBase(final Context con, final Cursor c)
 	{
 		mContext = con;
-		int typeCol = c.getColumnIndex("type");
-		int threadCol = c.getColumnIndex("thread_id");
-    	int addressCol = c.getColumnIndex("address");
-    	int bodyCol = c.getColumnIndex("body");
-    	int dateCol = c.getColumnIndex("date");
+		final int typeCol = c.getColumnIndex("type");
+		final int threadCol = c.getColumnIndex("thread_id");
+    	final int addressCol = c.getColumnIndex("address");
+    	final int bodyCol = c.getColumnIndex("body");
+    	final int dateCol = c.getColumnIndex("date");
     	Address = c.getString(addressCol);
     	Type = c.getInt(typeCol);
     	Body = c.getString(bodyCol);
@@ -69,7 +69,7 @@ public abstract class SMSMessageBase implements IMessage{
         contactHelper = new ContactHelper(mContext);
     }
 	
-	SMSMessageBase(Context con, String address, int type, String body, long date)
+	SMSMessageBase(final Context con, final String address, final int type, final String body, final long date)
 	{
 		ID = -1;
 		mContext = con;
@@ -84,27 +84,27 @@ public abstract class SMSMessageBase implements IMessage{
         contactHelper = new ContactHelper(mContext);
     }
 	
-	SMSMessageBase(Context con, Cursor c, String address)
+	SMSMessageBase(final Context con, final Cursor c, final String address)
 	{
 		this(con,c);
     	Address = address;
     }
 	
-	SMSMessageBase(Context con, Object[] messages)
+	SMSMessageBase(final Context con, final Object[] messages)
 	{
-		SmsMessage msgs[] = new SmsMessage[messages.length];
+		final SmsMessage[] msgs = new SmsMessage[messages.length];
 		for (int n = 0; n < messages.length; n++) {
 			msgs[n] = SmsMessage.createFromPdu((byte[]) messages[n]);
 		}
-		SmsMessage smsa = msgs[0];
-		int pduCount = msgs.length;
+		final SmsMessage smsa = msgs[0];
+		final int pduCount = msgs.length;
         if (pduCount == 1) {
             // There is only one part, so grab the body directly.
             Body = smsa.getDisplayMessageBody();
         } else {
             // Build up the body from the parts.
-            StringBuilder bdy = new StringBuilder();
-            for (SmsMessage smsb : msgs) {
+            final StringBuilder bdy = new StringBuilder();
+            for (final SmsMessage smsb : msgs) {
                 bdy.append(smsb.getDisplayMessageBody());
             }
             Body = TextUtilities.replaceFormFeeds(bdy.toString());
@@ -147,10 +147,10 @@ public abstract class SMSMessageBase implements IMessage{
 		Name = Address;
 		try
 		{
-			Uri uri = Uri.withAppendedPath(PhoneLookup.CONTENT_FILTER_URI, Uri.encode(Address));
+			final Uri uri = Uri.withAppendedPath(PhoneLookup.CONTENT_FILTER_URI, Uri.encode(Address));
 			if (uri != null)
             {
-                Cursor c = mContext.getContentResolver().query(uri, new String[]{PhoneLookup.DISPLAY_NAME, PhoneLookup._ID},null,null,null);
+                final Cursor c = mContext.getContentResolver().query(uri, new String[]{PhoneLookup.DISPLAY_NAME, PhoneLookup._ID},null,null,null);
                 if (c != null)
                 {
                     if (c.moveToFirst())
@@ -166,17 +166,17 @@ public abstract class SMSMessageBase implements IMessage{
 	}
 	
 	public String GetDateString() {
-		java.util.Date date = new java.util.Date(Date);
-		java.text.DateFormat dateFormat =
+		final java.util.Date date = new java.util.Date(Date);
+		final java.text.DateFormat dateFormat =
 			    android.text.format.DateFormat.getDateFormat(mContext);
-		java.text.DateFormat timeFormat =
+		final java.text.DateFormat timeFormat =
 			    android.text.format.DateFormat.getTimeFormat(mContext);
         return dateFormat.format(date) + " " + timeFormat.format(date);
     }
 	
 	public String GetShortDateString() {
-		java.util.Date date = new java.util.Date(Date);
-		Calendar c = Calendar.getInstance();
+		final java.util.Date date = new java.util.Date(Date);
+		final Calendar c = Calendar.getInstance();
 		c.add(Calendar.DATE, -1);  // number of days to add
 		if (date.before(c.getTime()))
 			return android.text.format.DateFormat.getDateFormat(mContext).format(date);
@@ -208,8 +208,8 @@ public abstract class SMSMessageBase implements IMessage{
 				return ImageCache.getDefault();
 			Bitmap img = ImageCache.getItem(ContactID);
 			if (img != null) return img;
-			Uri mContactLookupUri = ContentUris.withAppendedId(ContactsContract.Contacts.CONTENT_URI, ContactID);
-            InputStream input = ContactsContract.Contacts.openContactPhotoInputStream(mContext.getContentResolver(),mContactLookupUri);
+			final Uri mContactLookupUri = ContentUris.withAppendedId(ContactsContract.Contacts.CONTENT_URI, ContactID);
+            final InputStream input = ContactsContract.Contacts.openContactPhotoInputStream(mContext.getContentResolver(),mContactLookupUri);
 			if (input == null)
 			{
 				return ImageCache.getItem(0L);

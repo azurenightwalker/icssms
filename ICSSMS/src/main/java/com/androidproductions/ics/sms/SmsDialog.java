@@ -41,7 +41,7 @@ public class SmsDialog extends ThemeableDialog  {
 	
 	private final BroadcastReceiver receiver = new BroadcastReceiver() {
         @Override
-        public void onReceive(Context context, Intent intent) {
+        public void onReceive(final Context context, final Intent intent) {
         	updateUnreadMessages();
         	updateArrows();
         }
@@ -51,21 +51,21 @@ public class SmsDialog extends ThemeableDialog  {
 	
     /** Called when the activity is first created. */
     @Override
-    public void onCreate(Bundle savedInstanceState) {
+    public void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        StrictMode.ThreadPolicy policy = 
+        final StrictMode.ThreadPolicy policy =
                 new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
         setContentView(R.layout.sms_dialog);
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL);
-        ScrollView sv = (ScrollView)findViewById(R.id.scroller);
+        final ScrollView sv = (ScrollView)findViewById(R.id.scroller);
         if (PreferenceManager.getDefaultSharedPreferences(this).getString("DialogSize", "Regular").equals("Large"))
         	sv.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, 300));
-        Bundle extras = getIntent().getExtras();
-		String number = extras.getString(Constants.SMS_RECEIVE_LOCATION,null);
-		String message = extras.getString(Constants.SMS_MESSAGE,null);
-		String messageType = extras.getString(Constants.MESSAGE_TYPE,null);
-		long time = extras.getLong(Constants.SMS_TIME);
+        final Bundle extras = getIntent().getExtras();
+		final String number = extras.getString(Constants.SMS_RECEIVE_LOCATION,null);
+		final String message = extras.getString(Constants.SMS_MESSAGE,null);
+		final String messageType = extras.getString(Constants.MESSAGE_TYPE,null);
+		final long time = extras.getLong(Constants.SMS_TIME);
 		if (messageType == null)
 			updateUnreadMessages();
 		else if (messageType.equals("SMS"))
@@ -78,9 +78,9 @@ public class SmsDialog extends ThemeableDialog  {
 		retrieveDraft();
 		replyToLink.setOnClickListener(new OnClickListener() {
 			
-			public void onClick(View v) {
-				Dialog dialog = new Dialog(SmsDialog.this);
-				IMessage previous = SmsDialog.this.message.getPrevious();
+			public void onClick(final View v) {
+				final Dialog dialog = new Dialog(SmsDialog.this);
+				final IMessage previous = SmsDialog.this.message.getPrevious();
 				if (previous != null)
 				{
 		        	dialog.setContentView(R.layout.sms_reply_to);
@@ -93,33 +93,33 @@ public class SmsDialog extends ThemeableDialog  {
 		});
         ((EditText)findViewById(R.id.text)).addTextChangedListener(new TextWatcher() {
             @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            public void beforeTextChanged(final CharSequence s, final int start, final int count, final int after) {
 
             }
 
             @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
+            public void onTextChanged(final CharSequence s, final int start, final int before, final int count) {
 
             }
 
             @Override
-            public void afterTextChanged(Editable s) {
+            public void afterTextChanged(final Editable s) {
                 UpdateTextCount(s);
             }
         });
     }
 
-    private void UpdateTextCount(Editable s) {
-        TextView textCount = (TextView)findViewById(R.id.textCount);
-        String textFormat = getResources().getString(R.string.characterCount);
-        int[] params = SmsMessage.calculateLength(s, false);
+    private void UpdateTextCount(final Editable s) {
+        final TextView textCount = (TextView)findViewById(R.id.textCount);
+        final String textFormat = getResources().getString(R.string.characterCount);
+        final int[] params = SmsMessage.calculateLength(s, false);
         if (shouldShowCount(params))
             textCount.setText(String.format(textFormat,params[2],params[0]));
         else
             textCount.setText("");
     }
 
-    private boolean shouldShowCount(int[] params)
+    private boolean shouldShowCount(final int[] params)
     {
         return params[0] > 1 || params[2] < 60;
     }
@@ -127,26 +127,26 @@ public class SmsDialog extends ThemeableDialog  {
     
     private void updateUnreadMessages()
     {
-    	List<IMessage> _unread = MessageUtilities.GetUnreadMessages(SmsDialog.this);
+    	final List<IMessage> _unread = MessageUtilities.GetUnreadMessages(SmsDialog.this);
     	
     	unread = sortMessages(_unread);
     }
     
-    private List<IMessage> sortMessages(List<IMessage> unread)
+    private List<IMessage> sortMessages(final List<IMessage> unread)
     {
     	Collections.sort(unread, new Comparator<IMessage>() {
-		    public int compare(IMessage m1, IMessage m2) {
+		    public int compare(final IMessage m1, final IMessage m2) {
 		        return m1.getDate().compareTo(m2.getDate());
 		    }
 		});
     	return unread;
     }
     
-    private void updateUnreadMessages(IMessage newMessage)
+    private void updateUnreadMessages(final IMessage newMessage)
     {
     	updateUnreadMessages();
     	boolean found = false;
-		for (IMessage s : unread)
+		for (final IMessage s : unread)
 			if (s.getText().equals(newMessage.getText()) &&
 					AddressUtilities.StandardiseNumber(s.getAddress(),SmsDialog.this).equals(
 							AddressUtilities.StandardiseNumber(newMessage.getAddress(),SmsDialog.this)
@@ -165,7 +165,7 @@ public class SmsDialog extends ThemeableDialog  {
 		{
 			updateReplyTo();
 		}
-        ContactHelper ch = new ContactHelper(this);
+        final ContactHelper ch = new ContactHelper(this);
 		((TextView)findViewById(R.id.sender)).setText(ch.getContactName(message.getAddress()));
 		((TextView)findViewById(R.id.sender_number)).setText(AddressUtilities.StandardiseNumber(message.getAddress(),SmsDialog.this));
         ((QuickContactBadge)findViewById(R.id.sender_photo)).assignContactUri(ch.getContactUri());
@@ -178,15 +178,15 @@ public class SmsDialog extends ThemeableDialog  {
 	}
 
 	private void updateReplyTo() {
-		IMessage previous = message.getPrevious();
+		final IMessage previous = message.getPrevious();
 		if (previous != null)
 		{
-			java.util.Date date = new java.util.Date(previous.getDate());
-			Calendar c = Calendar.getInstance();
+			final java.util.Date date = new java.util.Date(previous.getDate());
+			final Calendar c = Calendar.getInstance();
 			c.add(Calendar.DATE, -1);  // number of days to add
 			if (date.after(c.getTime())) // If in past day
 			{
-				SpannableString content = new SpannableString(getResources().getString(R.string.replyTo));
+				final SpannableString content = new SpannableString(getResources().getString(R.string.replyTo));
 				content.setSpan(new UnderlineSpan(), 0, content.length(), 0);
 				replyToLink.setText(content);
 				replyToLink.setVisibility(TextView.VISIBLE);
@@ -198,9 +198,9 @@ public class SmsDialog extends ThemeableDialog  {
 		replyToLink.setVisibility(TextView.GONE);
 	}
     
-    public void sendSms(View v)
+    public void sendSms(final View v)
     {
-        String text = ((EditText)findViewById(R.id.text)).getEditableText().toString();
+        final String text = ((EditText)findViewById(R.id.text)).getEditableText().toString();
         if (!text.equals(""))
         {
 			markCurrentAsRead();
@@ -227,12 +227,12 @@ public class SmsDialog extends ThemeableDialog  {
 			return;
 		}
 		updateUnreadMessages();
-		String addy = AddressUtilities.StandardiseNumber(message.getAddress(),SmsDialog.this);
+		final String addy = AddressUtilities.StandardiseNumber(message.getAddress(),SmsDialog.this);
 		if (unread.size() == 1) unread.get(0).markAsRead();
 		else if (!unread.isEmpty())
 			do
 			{
-				IMessage sms2 = unread.get(i);
+				final IMessage sms2 = unread.get(i);
 				i++;
 				if (AddressUtilities.StandardiseNumber(sms2.getAddress(),SmsDialog.this).equals(addy))
 				{
@@ -243,9 +243,9 @@ public class SmsDialog extends ThemeableDialog  {
 	}
 	
     @SuppressWarnings("UnusedParameters")
-    public void openConversation(View v)
+    public void openConversation(final View v)
     {
-    	Intent conversationIntent = new Intent(SmsDialog.this, SmsViewer_.class);
+    	final Intent conversationIntent = new Intent(SmsDialog.this, SmsViewer_.class);
     	conversationIntent.putExtra(Constants.SMS_MESSAGE, ((EditText)findViewById(R.id.text)).getEditableText().toString());
     	conversationIntent.putExtra(Constants.SMS_RECEIVE_LOCATION, message.getAddress());
     	conversationIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
@@ -254,7 +254,7 @@ public class SmsDialog extends ThemeableDialog  {
     }  
     
     @SuppressWarnings("UnusedParameters")
-    public void closeDialog(View v)
+    public void closeDialog(final View v)
     {
     	if (PreferenceManager.getDefaultSharedPreferences(this).getBoolean("DialogMarkRead", false))
     		markCurrentAsRead();
@@ -263,14 +263,14 @@ public class SmsDialog extends ThemeableDialog  {
     }
 
     @SuppressWarnings("UnusedParameters")
-    public void moveToPrevious(View v)
+    public void moveToPrevious(final View v)
     {
     	activeMessage -= 1;
     	redrawView();
     }
     
     @SuppressWarnings("UnusedParameters")
-    public void moveToNext(View v)
+    public void moveToNext(final View v)
     {
     	activeMessage += 1;
     	redrawView();
@@ -328,7 +328,7 @@ public class SmsDialog extends ThemeableDialog  {
 			findViewById(R.id.previous).setClickable(false);
 			findViewById(R.id.previous).setAlpha(0.25f);
 		}
-		String counter = String.format((String)getResources().getText(R.string.messageCounter),
+		final String counter = String.format((String)getResources().getText(R.string.messageCounter),
 				(activeMessage+1),
 				unread.size());
 		((TextView)findViewById(R.id.count)).setText(counter);

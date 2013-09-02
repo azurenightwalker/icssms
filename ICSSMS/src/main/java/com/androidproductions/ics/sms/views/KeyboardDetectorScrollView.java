@@ -17,28 +17,28 @@ public class KeyboardDetectorScrollView extends ScrollView {
 
     private final ArrayList<IKeyboardChanged> keyboardListener = new ArrayList<IKeyboardChanged>();
 
-    public KeyboardDetectorScrollView(Context context, AttributeSet attrs, int defStyle) {
+    public KeyboardDetectorScrollView(final Context context, final AttributeSet attrs, final int defStyle) {
         super(context, attrs, defStyle);
     }
 
-    public KeyboardDetectorScrollView(Context context, AttributeSet attrs) {
+    public KeyboardDetectorScrollView(final Context context, final AttributeSet attrs) {
         super(context, attrs);
     }
 
-    public KeyboardDetectorScrollView(Context context) {
+    public KeyboardDetectorScrollView(final Context context) {
         super(context);
     }
 
-    public void addKeyboardStateChangedListener(IKeyboardChanged listener) {
+    public void addKeyboardStateChangedListener(final IKeyboardChanged listener) {
         keyboardListener.add(listener);
     }
 
-    public void removeKeyboardStateChangedListener(IKeyboardChanged listener) {
+    public void removeKeyboardStateChangedListener(final IKeyboardChanged listener) {
         keyboardListener.remove(listener);
     }
 
     @Override
-    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+    protected void onMeasure(final int widthMeasureSpec, final int heightMeasureSpec) {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
 
         final int proposedheight = MeasureSpec.getSize(heightMeasureSpec);
@@ -53,14 +53,14 @@ public class KeyboardDetectorScrollView extends ScrollView {
 
     private void notifyKeyboardHidden() {
     	KeyboardShown = false;
-        for (IKeyboardChanged listener : keyboardListener) {
+        for (final IKeyboardChanged listener : keyboardListener) {
             listener.onKeyboardHidden();
         }
     }
 
     private void notifyKeyboardShown() {
     	KeyboardShown = true;
-        for (IKeyboardChanged listener : keyboardListener) {
+        for (final IKeyboardChanged listener : keyboardListener) {
             listener.onKeyboardShown();
         }
     }

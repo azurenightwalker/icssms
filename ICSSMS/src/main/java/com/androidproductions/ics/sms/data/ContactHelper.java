@@ -18,18 +18,18 @@ public class ContactHelper {
 	private final Context mContext;
 	private Long mId;
 
-    public ContactHelper(Context context, Long id)
+    public ContactHelper(final Context context, final Long id)
     {
         mContext = context;
         mId = id;
     }
 
-    public void setId(Long id)
+    public void setId(final Long id)
     {
         mId = id;
     }
 
-    public ContactHelper(Context context)
+    public ContactHelper(final Context context)
     {
         mContext = context;
     }
@@ -72,13 +72,13 @@ public class ContactHelper {
     {
         try
         {
-            Uri mContactLookupUri = ContentUris.withAppendedId(ContactsContract.Contacts.CONTENT_URI, mId);
+            final Uri mContactLookupUri = ContentUris.withAppendedId(ContactsContract.Contacts.CONTENT_URI, mId);
             if (mContactLookupUri != null)
             {
-                InputStream input = ContactsContract.Contacts.openContactPhotoInputStream(mContext.getContentResolver(),mContactLookupUri);
+                final InputStream input = ContactsContract.Contacts.openContactPhotoInputStream(mContext.getContentResolver(),mContactLookupUri);
                 if (input != null)
                 {
-                    Bitmap img = BitmapFactory.decodeStream(input);
+                    final Bitmap img = BitmapFactory.decodeStream(input);
                     input.close();
                     return img;
                 }
@@ -95,13 +95,13 @@ public class ContactHelper {
     {
         try
         {
-            Uri mContactLookupUri = ContactsContract.Profile.CONTENT_URI;
+            final Uri mContactLookupUri = ContactsContract.Profile.CONTENT_URI;
             if (mContactLookupUri != null)
             {
-                InputStream input = ContactsContract.Contacts.openContactPhotoInputStream(mContext.getContentResolver(),mContactLookupUri);
+                final InputStream input = ContactsContract.Contacts.openContactPhotoInputStream(mContext.getContentResolver(),mContactLookupUri);
                 if (input != null)
                 {
-                    Bitmap img = BitmapFactory.decodeStream(input);
+                    final Bitmap img = BitmapFactory.decodeStream(input);
                     input.close();
                     return img;
                 }
@@ -117,10 +117,10 @@ public class ContactHelper {
     public String getContactName(final String phoneNumber)
     {
         String name = null;
-        Uri uri = Uri.withAppendedPath(ContactsContract.PhoneLookup.CONTENT_FILTER_URI, Uri.encode(phoneNumber));
+        final Uri uri = Uri.withAppendedPath(ContactsContract.PhoneLookup.CONTENT_FILTER_URI, Uri.encode(phoneNumber));
         if (uri != null)
         {
-            Cursor c = mContext.getContentResolver().query(uri, new String[]{ContactsContract.PhoneLookup.DISPLAY_NAME, ContactsContract.PhoneLookup._ID},null,null,null);
+            final Cursor c = mContext.getContentResolver().query(uri, new String[]{ContactsContract.PhoneLookup.DISPLAY_NAME, ContactsContract.PhoneLookup._ID},null,null,null);
             if (c != null)
             {
                 if (c.moveToFirst())
@@ -142,7 +142,7 @@ public class ContactHelper {
 
     public CursorLoader getPhoneCursor()
     {
-        String[] projection = new String[]{
+        final String[] projection = new String[]{
             ContactsContract.CommonDataKinds.Phone.DISPLAY_NAME,
                 ContactsContract.CommonDataKinds.Phone.NUMBER,
                 ContactsContract.CommonDataKinds.Phone._ID,

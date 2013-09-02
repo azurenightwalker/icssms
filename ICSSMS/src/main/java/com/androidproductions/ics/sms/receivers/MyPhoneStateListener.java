@@ -12,13 +12,13 @@ import com.androidproductions.ics.sms.utils.LogHelper;
 public class MyPhoneStateListener extends PhoneStateListener {
     private final Context context;
    
-   public MyPhoneStateListener(Context con)
+   public MyPhoneStateListener(final Context con)
    {
 	   context = con;
    }
    
    @Override
-   public void onCallStateChanged(int state,String incomingNumber){
+   public void onCallStateChanged(final int state, final String incomingNumber){
         switch(state){
         case TelephonyManager.CALL_STATE_IDLE:
               LogHelper.i("MyPhoneStateListener->onCallStateChanged() -> CALL_STATE_IDLE "+incomingNumber);
@@ -36,12 +36,12 @@ public class MyPhoneStateListener extends PhoneStateListener {
    }
    
    @Override
-   public void onServiceStateChanged (ServiceState serviceState){
+   public void onServiceStateChanged (final ServiceState serviceState){
       switch(serviceState.getState()){
            case ServiceState.STATE_IN_SERVICE:
                 LogHelper.i("MyPhoneStateListener->onServiceStateChanged() -> STATE_IN_SERVICE");
                 serviceState.setState(ServiceState.STATE_IN_SERVICE);
-                Intent intent  = new Intent(context, SmsUpdateReceiver.class);
+                final Intent intent  = new Intent(context, SmsUpdateReceiver.class);
                 intent.setAction(Constants.ACTION_SERVICE_STATE_IN_SERVICE);
                 context.sendBroadcast(intent);
                 break;

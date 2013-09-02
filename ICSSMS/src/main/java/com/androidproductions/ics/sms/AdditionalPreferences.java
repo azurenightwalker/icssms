@@ -25,10 +25,10 @@ public class AdditionalPreferences extends ThemeablePreferenceActivity  {
 	/** Called when the activity is first created. */
 	@SuppressWarnings("deprecation")
 	@Override
-	public void onCreate(Bundle savedInstanceState) {
+	public void onCreate(final Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		final String prefType = getIntent().getExtras().getString(PREFERENCE_TYPE);
-		ActionBar ab = this.getActionBar();
+		final ActionBar ab = this.getActionBar();
         ab.setHomeButtonEnabled(true);
         ab.setDisplayHomeAsUpEnabled(true);
         ab.setTitle(prefType);
@@ -38,10 +38,10 @@ public class AdditionalPreferences extends ThemeablePreferenceActivity  {
         else
         	addPreferencesFromResource(R.xml.notification_preferences);	
 		
-		Switch actionBarSwitch = new Switch(this);
+		final Switch actionBarSwitch = new Switch(this);
 		actionBarSwitch.setChecked(config.getBooleanValue(prefType));
 		actionBarSwitch.setOnCheckedChangeListener(new OnCheckedChangeListener() {	
-			public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+			public void onCheckedChanged(final CompoundButton buttonView, final boolean isChecked) {
 				config.setBooleanValue(prefType,isChecked);
 			}
 		});
@@ -57,8 +57,8 @@ public class AdditionalPreferences extends ThemeablePreferenceActivity  {
         
         if (prefType.equals("Notification"))
         	findPreference("NotificationSound").setOnPreferenceClickListener(new OnPreferenceClickListener() {	
-    			public boolean onPreferenceClick(Preference preference) {
-    	            Intent intent = new Intent( RingtoneManager.ACTION_RINGTONE_PICKER);
+    			public boolean onPreferenceClick(final Preference preference) {
+    	            final Intent intent = new Intent( RingtoneManager.ACTION_RINGTONE_PICKER);
     	            intent.putExtra( RingtoneManager.EXTRA_RINGTONE_TYPE,
     	            RingtoneManager.TYPE_NOTIFICATION);
     	            intent.putExtra( RingtoneManager.EXTRA_RINGTONE_TITLE, getResources()
@@ -71,12 +71,12 @@ public class AdditionalPreferences extends ThemeablePreferenceActivity  {
 	}
 	
 	@Override
-	public void onActivityResult(int requestCode, int resultCode,
-            Intent data)
+	public void onActivityResult(final int requestCode, final int resultCode,
+            final Intent data)
 	{
 		super.onActivityResult(requestCode, resultCode, data);
 		if (resultCode == Activity.RESULT_OK) {
-            Uri uri = data.getParcelableExtra(RingtoneManager.EXTRA_RINGTONE_PICKED_URI);
+            final Uri uri = data.getParcelableExtra(RingtoneManager.EXTRA_RINGTONE_PICKED_URI);
             if (uri != null) {
             	config.setStringValue(ConfigurationHelper.NOTIFICATION_SOUND, uri.toString());
             }
@@ -84,11 +84,11 @@ public class AdditionalPreferences extends ThemeablePreferenceActivity  {
 	}
 	
 	@Override
-    public boolean onOptionsItemSelected(MenuItem item) {
+    public boolean onOptionsItemSelected(final MenuItem item) {
         switch (item.getItemId()) {
             case android.R.id.home:
                 // app icon in action bar clicked; go home
-                Intent intent = new Intent(this, Preferences_.class);
+                final Intent intent = new Intent(this, Preferences_.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
                 return true;

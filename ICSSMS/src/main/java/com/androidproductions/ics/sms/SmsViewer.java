@@ -93,9 +93,9 @@ public class SmsViewer extends ThemeableActivity {
 	
     /** Called when the activity is first created. */
     @Override
-    public void onCreate(Bundle savedInstanceState) {
+    public void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        ActionBar ab = getActionBar();
+        final ActionBar ab = getActionBar();
 
         if (ab != null) {
             ab.setCustomView(R.layout.action_bar);
@@ -103,10 +103,10 @@ public class SmsViewer extends ThemeableActivity {
             ab.setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
             ab.setHomeButtonEnabled(true);
             ab.setDisplayHomeAsUpEnabled(true);
-            View v = ab.getCustomView();
-            OnClickListener goHome = new OnClickListener() {
-                public void onClick(View v) {
-                    Intent intent = new Intent(SmsViewer.this, ICSSMSActivity_.class);
+            final View v = ab.getCustomView();
+            final OnClickListener goHome = new OnClickListener() {
+                public void onClick(final View v) {
+                    final Intent intent = new Intent(SmsViewer.this, ICSSMSActivity_.class);
                     intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     startActivity(intent);
                 }
@@ -117,7 +117,7 @@ public class SmsViewer extends ThemeableActivity {
         threadId = 0L;
         if (getIntent().getData() != null)
         {
-            Uri data = getIntent().getData();
+            final Uri data = getIntent().getData();
             if (data.getScheme().equals("smsto") ||data.getScheme().equals("sms"))
                 address = data.getSchemeSpecificPart();
             else
@@ -130,12 +130,12 @@ public class SmsViewer extends ThemeableActivity {
     }
     
 	@AfterTextChange(R.id.text)
-    public void afterTextChanged(Editable s) {
+    public void afterTextChanged(final Editable s) {
 		UpdateTextCount(s);
     }
 
-	private void UpdateTextCount(Editable s) {
-		int[] params = SmsMessage.calculateLength(s,false);
+	private void UpdateTextCount(final Editable s) {
+		final int[] params = SmsMessage.calculateLength(s,false);
 		if (shouldShowCount(params))
 			textCount.setText(String.format(textFormat,params[2],params[0]));
 		else
@@ -143,7 +143,7 @@ public class SmsViewer extends ThemeableActivity {
 	}
 
     @Override
-    public boolean onPrepareOptionsMenu(Menu menu) {
+    public boolean onPrepareOptionsMenu(final Menu menu) {
     	if (AddressUtilities.StandardiseNumber(name,SmsViewer.this).equals(address))
         	menu.findItem(R.id.add).setVisible(true);
     	else
@@ -152,18 +152,18 @@ public class SmsViewer extends ThemeableActivity {
     }
     
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
+    public boolean onOptionsItemSelected(final MenuItem item) {
         switch (item.getItemId()) {
             case android.R.id.home:
                 // app icon in action bar clicked; go home
-                Intent intent = new Intent(this, ICSSMSActivity_.class);
+                final Intent intent = new Intent(this, ICSSMSActivity_.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
                 return true;
             case R.id.add:
             	if (AddressUtilities.StandardiseNumber(name,SmsViewer.this).equals(address))
             	{
-	            	Intent addintent = new Intent(Intent.ACTION_INSERT);
+	            	final Intent addintent = new Intent(Intent.ACTION_INSERT);
 	            	addintent.setType(ContactsContract.Contacts.CONTENT_TYPE);
 	            	addintent.putExtra(ContactsContract.Intents.Insert.PHONE, address);
 	            	startActivity(addintent);
@@ -175,7 +175,7 @@ public class SmsViewer extends ThemeableActivity {
             	callNumberConfirm();
             	return true;
             case R.id.settings:
-            	Intent prefintent = new Intent(this, Preferences_.class);
+            	final Intent prefintent = new Intent(this, Preferences_.class);
             	prefintent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(prefintent);
             	return true;
@@ -185,7 +185,7 @@ public class SmsViewer extends ThemeableActivity {
             		    null,                    // the column to select on
             		    null                      // the value to compare to
             		);
-            	Intent hintent = new Intent(this, ICSSMSActivity_.class);
+            	final Intent hintent = new Intent(this, ICSSMSActivity_.class);
                 hintent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(hintent);
                 return true;
@@ -198,7 +198,7 @@ public class SmsViewer extends ThemeableActivity {
     
     private final BroadcastReceiver receiver = new BroadcastReceiver() {
         @Override
-        public void onReceive(Context context, Intent intent) {
+        public void onReceive(final Context context, final Intent intent) {
         	redrawView();
         }
     };
@@ -210,14 +210,14 @@ public class SmsViewer extends ThemeableActivity {
     {
     	super.onResume();
     	redrawView();
-    	IntentFilter filter = new IntentFilter();
+    	final IntentFilter filter = new IntentFilter();
         filter.addAction("com.androidproductions.ics.sms.UPDATE_DIALOG");
         filter.addAction("android.provider.Telephony.SMS_RECEIVED");
     	registerReceiver(receiver, filter);
     	UpdateTextCount(textBox.getEditableText());
     }
     
-    private boolean shouldShowCount(int[] params)
+    private boolean shouldShowCount(final int[] params)
     {
     	return params[0] > 1 || params[2] < 60;
     }
@@ -234,10 +234,10 @@ public class SmsViewer extends ThemeableActivity {
 		if (address == null)
 			address = messages.get(0).getAddress();
 		address = AddressUtilities.StandardiseNumber(address,SmsViewer.this);
-        ContactHelper ch = new ContactHelper(this);
+        final ContactHelper ch = new ContactHelper(this);
 		name = ch.getContactName(address);
 		contactUri = ch.getContactUri();
-        ActionBar ab = getActionBar();
+        final ActionBar ab = getActionBar();
 		((TextView)ab.getCustomView().findViewById(R.id.action_bar_title)).setText(name);
 		((TextView)ab.getCustomView().findViewById(R.id.action_bar_subtitle)).setText(address);
 	}
@@ -250,8 +250,8 @@ public class SmsViewer extends ThemeableActivity {
         .setMessage("Call " + name + " (" + address + ") ?")
         .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
 
-            public void onClick(DialogInterface dialog, int which) {
-            	Uri mNumberUri = Uri.parse("tel:"+address);
+            public void onClick(final DialogInterface dialog, final int which) {
+            	final Uri mNumberUri = Uri.parse("tel:"+address);
             	startActivity(new Intent(Intent.ACTION_CALL,mNumberUri));
             }
 
@@ -261,10 +261,10 @@ public class SmsViewer extends ThemeableActivity {
 	}
 
 	@SuppressWarnings("UnusedParameters")
-    public void sendSms(View v)
+    public void sendSms(final View v)
     {
-    	Editable et = textBox.getEditableText();
-		String text = et.toString();
+    	final Editable et = textBox.getEditableText();
+		final String text = et.toString();
 		if (!text.trim().equals(""))
 		{
 			et.clear();
@@ -273,7 +273,7 @@ public class SmsViewer extends ThemeableActivity {
 		}
 		if (ConfigurationHelper.getInstance().getBooleanValue(ConfigurationHelper.HIDE_KEYBOARD_ON_SEND))
 		{
-			InputMethodManager mgr = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+			final InputMethodManager mgr = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
 			mgr.hideSoftInputFromWindow(textBox.getWindowToken(), 0);
 		}
     }
@@ -292,7 +292,7 @@ public class SmsViewer extends ThemeableActivity {
 		});
     }
 	
-	public void redraw(boolean topDown)
+	public void redraw(final boolean topDown)
 	{
 		for(int i = 0; i<=messages.size()-1;i++)
         {
@@ -302,11 +302,11 @@ public class SmsViewer extends ThemeableActivity {
         		lastDate = Math.max(lastDate,msg.getDate());
         		firstDate = Math.min(firstDate,msg.getDate());
 	        	msg.markAsRead();
-	        	View child = generateMessageView(msg);
+	        	final View child = generateMessageView(msg);
 	        	registerForContextMenu(child);
                 if(msg.IsIncoming())
                 {
-                    QuickContactBadge badge = ((QuickContactBadge)child.findViewById(R.id.photo));
+                    final QuickContactBadge badge = ((QuickContactBadge)child.findViewById(R.id.photo));
                     if (contactUri == null)
                         badge.assignContactFromPhone(address, true);
                     else
@@ -348,23 +348,23 @@ public class SmsViewer extends ThemeableActivity {
         scrollToBottom();
     }
 	
-	public void showPrevious(View v)
+	public void showPrevious(final View v)
     {
         firstDate = Math.min(firstDate,Math.min(messages.get(messages.size()-1).getDate(),messages.get(0).getDate()));
     	messages = MessageUtilities.GetMessages(SmsViewer.this, threadId, 25, firstDate);
         Collections.sort(messages, new Comparator<IMessage>() {
-            public int compare(IMessage m1, IMessage m2) {
+            public int compare(final IMessage m1, final IMessage m2) {
                 return m2.getDate().compareTo(m1.getDate());
             }
         });
-        View topSeen = smsList.getChildAt(1);
+        final View topSeen = smsList.getChildAt(1);
         redraw(true);
         smsList.invalidate();
         scrollTo(topSeen);
     }
 
 	private View generateMessageView(final IMessage msg) {
-		View child;
+		final View child;
 		if (msg.IsIncoming())
 			child = LayoutInflater.from(getBaseContext()).inflate(R.layout.sms_in, null);
 		else
@@ -381,28 +381,28 @@ public class SmsViewer extends ThemeableActivity {
 	}
     
     @Override
-    public void onCreateContextMenu(ContextMenu menu, View v,
-                                    ContextMenuInfo menuInfo) {
+    public void onCreateContextMenu(final ContextMenu menu, final View v,
+                                    final ContextMenuInfo menuInfo) {
         super.onCreateContextMenu(menu, v, menuInfo);
         PressedMessage = (IMessage)v.getTag();
-        MenuInflater inflater = getMenuInflater();
+        final MenuInflater inflater = getMenuInflater();
         inflater.inflate(PressedMessage.IsIncoming() ? PressedMessage.isLocked() ?
         		R.xml.sms_long_menu_in_locked : R.xml.sms_long_menu_in :
         			PressedMessage.isLocked() ? R.xml.sms_long_menu_out_locked : R.xml.sms_long_menu_out,menu);
     }
     
     @Override
-    public boolean onContextItemSelected(MenuItem item) {
+    public boolean onContextItemSelected(final MenuItem item) {
         switch (item.getItemId()) {
 	        case R.smslong.copy:
-	        	ClipboardManager clipboard = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE); 
-	        	ClipData clip = ClipData.newPlainText("SMS",PressedMessage.getText());
+	        	final ClipboardManager clipboard = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
+	        	final ClipData clip = ClipData.newPlainText("SMS",PressedMessage.getText());
 	        	clipboard.setPrimaryClip(clip);
 	        	return true;
 	        case R.smslong.delete:
 	        	if (PressedMessage.deleteMessage())
 	        	{
-		        	View v = smsList.findViewWithTag(PressedMessage);
+		        	final View v = smsList.findViewWithTag(PressedMessage);
 		        	((ViewManager)v.getParent()).removeView(v);
 	        	}
 	        	else
@@ -411,7 +411,7 @@ public class SmsViewer extends ThemeableActivity {
 	        	}
 	            return true;
 	        case R.smslong.details:
-	        	Dialog dialog = new Dialog(SmsViewer.this);
+	        	final Dialog dialog = new Dialog(SmsViewer.this);
 
 	        	dialog.setContentView(R.layout.sms_details);
 	        	dialog.setTitle("Message Details");
@@ -429,13 +429,13 @@ public class SmsViewer extends ThemeableActivity {
 	        	dialog.show();
 	        	return true;
 	        case R.smslong.forward:
-	        	Intent forwardIntent = new Intent(getApplicationContext(), ComposeSms_.class);
+	        	final Intent forwardIntent = new Intent(getApplicationContext(), ComposeSms_.class);
 	        	forwardIntent.putExtra(Constants.SMS_MESSAGE, PressedMessage.getText());
 	        	forwardIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
 	    		startActivity(forwardIntent);
 	            return true;
             case R.smslong.share:
-                Intent i = new Intent(android.content.Intent.ACTION_SEND);
+                final Intent i = new Intent(android.content.Intent.ACTION_SEND);
                 i.setType("text/plain");
                 i.putExtra(android.content.Intent.EXTRA_TEXT, PressedMessage.getText());
                 startActivity(Intent.createChooser(i, shareString));
@@ -459,7 +459,7 @@ public class SmsViewer extends ThemeableActivity {
                 {
                     if (PressedMessage.deleteMessage())
                     {
-                        View v = smsList.findViewWithTag(PressedMessage);
+                        final View v = smsList.findViewWithTag(PressedMessage);
                         ((ViewManager)v.getParent()).removeView(v);
                     }
                 }

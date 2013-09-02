@@ -10,7 +10,7 @@ import com.millennialmedia.android.MMSDK;
 
 public abstract class AdSupportedActivity extends ThemeableActivity {
 	
-	protected void onCreate(Bundle savedInstanceState)
+	protected void onCreate(final Bundle savedInstanceState)
 	{
 		super.onCreate(savedInstanceState);
         MMSDK.initialize(this);
@@ -23,9 +23,9 @@ public abstract class AdSupportedActivity extends ThemeableActivity {
 
     void InitializeAds()
     {
-        boolean showAds = ConfigurationHelper.getInstance()
+        final boolean showAds = ConfigurationHelper.getInstance()
                 .getBooleanValue(ConfigurationHelper.SHOW_ADS);
-        MMAdView adView = (MMAdView) findViewById(R.id.adView);
+        final MMAdView adView = (MMAdView) findViewById(R.id.adView);
         if (adView != null)
         {
             if (showAds)
