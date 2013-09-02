@@ -1,7 +1,6 @@
 package com.androidproductions.ics.sms.service;
 
 import android.app.Activity;
-import android.app.PendingIntent;
 import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
@@ -12,11 +11,9 @@ import android.os.HandlerThread;
 import android.os.IBinder;
 import android.os.Looper;
 import android.os.Message;
-import android.telephony.PhoneNumberUtils;
 import android.telephony.PhoneStateListener;
 import android.telephony.SmsManager;
 import android.telephony.TelephonyManager;
-import android.util.Log;
 import android.widget.Toast;
 
 import com.androidproductions.ics.sms.Constants;
@@ -29,8 +26,10 @@ import com.androidproductions.ics.sms.receivers.MyPhoneStateListener;
 import com.androidproductions.ics.sms.receivers.SmsUpdateReceiver;
 import com.androidproductions.ics.sms.transactions.NotificationHelper;
 import com.androidproductions.ics.sms.utils.LogHelper;
-
-import java.util.ArrayList;
+import com.androidproductions.libs.sms.Action;
+import com.androidproductions.libs.sms.SmsMessage;
+import com.androidproductions.libs.sms.SmsUri;
+import com.androidproductions.libs.sms.Transaction;
 
 import static android.content.Intent.ACTION_BOOT_COMPLETED;
 
@@ -111,15 +110,15 @@ public class MessagingService extends Service{
             if (intent != null) {
                 final String action = intent.getAction();
                 final int error = intent.getIntExtra("errorCode", 0);
-                if (Constants.MESSAGE_SENT_ACTION.equals(action)) {
-                    handleSmsSent(intent, error,resultCode);
+                if (Action.SENT.equals(action)) {
+                    handleSmsSent(intent, error, resultCode);
                 } else if (Constants.SMS_RECEIVED_ACTION.equals(action)) {
                     handleSmsRecieved(intent);
                 } else if (ACTION_BOOT_COMPLETED.equals(action)) {
                     handleBootCompleted();
                 } else if (Constants.ACTION_SERVICE_STATE_IN_SERVICE.equals(action)) {
                     handleServiceStateChanged();
-                } else if (Constants.ACTION_SEND_MESSAGE.endsWith(action)) {
+                } else if (Action.SEND.endsWith(action)) {
                     handleSendMessage();
                 }
             }
@@ -146,18 +145,10 @@ public class MessagingService extends Service{
 		private void handleSmsSent(final Intent intent, final int error, final int resultCode) {
             //noinspection ConstantConditions
             final Uri uri = (Uri)intent.getExtras().get(SMS_URI);
+            Transaction trans = new Transaction(context);
 	        final boolean sendNextMsg = intent.getBooleanExtra(EXTRA_MESSAGE_SENT_SEND_NEXT, false);
-
 	        if (resultCode == Activity.RESULT_OK) {
-	            if (!SMSMessage.moveToFolder(context, uri, Constants.MESSAGE_TYPE_SENT)) {
-	                Log.e(TAG, "handleSmsSent: failed to move message " + uri + " to sent folder");
-	            }
-	            if (sendNextMsg) {
-	                sendFirstQueuedMessage();
-	            }
-
-	            // Update the notification for failed messages since they may be deleted.
-	            //MessagingNotification.updateSendFailedNotification(this);
+                trans.sentMessage(uri);
 	        } else if ((resultCode == SmsManager.RESULT_ERROR_RADIO_OFF) ||
 	                (resultCode == SmsManager.RESULT_ERROR_NO_SERVICE)) {
 	            // We got an error with no service or no radio. Register for state changes so
@@ -165,7 +156,7 @@ public class MessagingService extends Service{
 	            // queued up messages.
 	            registerForServiceStateChanges();
 	            // We couldn't send the message, put in the queue to retry later.
-	            SMSMessage.moveToFolder(context, uri, Constants.MESSAGE_TYPE_QUEUED);
+	            trans.queueMessage(uri);
 	            mToastHandler.post(new Runnable() {
 	                public void run() {
 	                    Toast.makeText(context, context.getString(R.string.message_queued),
@@ -182,7 +173,7 @@ public class MessagingService extends Service{
 	    }
 
 	    private void sendFirstQueuedMessage() {
-	    	final Cursor c = context.getContentResolver().query(Constants.SMS_QUEUED_URI, null, null,
+	    	final Cursor c = context.getContentResolver().query(SmsUri.QUEUED_URI, null, null,
 					null, "date ASC");
 	    	if (c!= null)
             {
@@ -196,47 +187,16 @@ public class MessagingService extends Service{
             }
 		}
 	    
-		private void sendMessage(final SMSMessage message) {
-			final SmsManager smsManager = SmsManager.getDefault();
-            final ArrayList<String> messages = smsManager.divideMessage(message.Body);
-
-            // Sanitise number
-	        final String mDest = PhoneNumberUtils.stripSeparators(message.Address);
-	        
-	        final int messageCount = messages.size();
-	        message.moveToOutbox();
-	        final ArrayList<PendingIntent> sentIntents = new ArrayList<PendingIntent>(messageCount);
-	        final ArrayList<PendingIntent> recIntents = new ArrayList<PendingIntent>(messageCount);
-	        for (int i = 0; i < messageCount; i++) {
-	            final Intent intent  = new Intent(message.mContext,
-	                    SmsUpdateReceiver.class);
-	            intent.putExtra(SmsUpdateReceiver.UPDATE_TYPE, SmsUpdateReceiver.SMS_SENT);
-	            intent.putExtra(SmsUpdateReceiver.SMS_URI, message.uri);
-	            intent.putExtra(SmsUpdateReceiver.SMS_ID, message.ID);
-	            intent.setAction("com.androidproductions.ics.sms.transactions.MESSAGE_SENT");
-	            
-	            int requestCode = 0;
-	            if (i == messageCount -1) {
-	                // Changing the requestCode so that a different pending intent
-	                // is created for the last fragment with
-	                // EXTRA_MESSAGE_SENT_SEND_NEXT set to true.
-	                requestCode = 1;
-	                intent.putExtra(EXTRA_MESSAGE_SENT_SEND_NEXT, true);
-	            }
-	            sentIntents.add(PendingIntent.getBroadcast(message.mContext, requestCode, intent, PendingIntent.FLAG_UPDATE_CURRENT));
-	            recIntents.add(null);
-	        }
-	        try {
-	            smsManager.sendMultipartTextMessage(mDest, null, messages, sentIntents, recIntents);
-	        } catch (Exception ex) {
-	            ex.printStackTrace();
-	            message.markSendingFailed();
-	        }
+		private void sendMessage(SMSMessage message) {
+            SmsMessage sms = new SmsMessage(message.Body, message.Address,message.getId());
+            Transaction trans = new Transaction(context);
+            trans.sendMessage(sms,null);
 		}
 
 		private void messageFailedToSend(final Uri uri, final int error) {
-            Log.e(Constants.TAG,"Message sending failed with error code:"+error);
-			SMSMessage.moveToFolder(context, uri, Constants.MESSAGE_TYPE_FAILED);
+            LogHelper.e("Message sending failed with error code:"+error);
+            Transaction trans = new Transaction(context);
+            trans.failedMessage(uri);
 	        NotificationHelper.getInstance(context).notifySendFailed();
 	    }
 

@@ -8,7 +8,8 @@ import android.net.Uri;
 import android.provider.BaseColumns;
 import android.util.Log;
 
-import com.androidproductions.ics.sms.Constants;
+import com.androidproductions.libs.sms.MessageType;
+import com.androidproductions.libs.sms.SmsUri;
 
 public class SMSMessage extends SMSMessageBase{
 
@@ -33,8 +34,8 @@ public class SMSMessage extends SMSMessageBase{
         values.put("body", Body);
         values.put("date", Date);
         values.put("read", 1);
-        values.put("type", Constants.MESSAGE_TYPE_QUEUED);
-        uri = mContext.getContentResolver().insert(Constants.SMS_QUEUED_URI, values);
+        values.put("type", MessageType.QUEUED);
+        uri = mContext.getContentResolver().insert(SmsUri.QUEUED_URI, values);
         final Cursor c = mContext.getContentResolver().query(uri,null,null,null,null);
         if (c != null)
         {
@@ -45,49 +46,9 @@ public class SMSMessage extends SMSMessageBase{
         }
         return 0L;
 	}
-	
-	public void markSendingFailed()
-	{
-		final ContentValues values = new ContentValues();
-        values.put("type", Constants.MESSAGE_TYPE_FAILED);
-        mContext.getContentResolver().update(uri, values,null,null);
-	}
-	
-	public void moveToOutbox()
-	{
-		final ContentValues values = new ContentValues();
-        values.put("type", Constants.MESSAGE_TYPE_OUTBOX);
-        mContext.getContentResolver().update(uri, values,null,null);
-	}
-	
-	public static boolean moveToFolder(final Context context, final Uri uri, final int folder)
-	{
-		try
-		{
-		final ContentValues values = new ContentValues();
-        values.put("type", folder);
-        context.getContentResolver().update(uri, values,null,null);
-		if (folder == Constants.MESSAGE_TYPE_SENT)
-		{
-	        final Cursor c = context.getContentResolver().query(uri,null,null,null,null);
-            if (c != null)
-            {
-                if (c.moveToFirst())
-                {
-                    final SMSMessage s = new SMSMessage(context, c);
-                    s.Read = 1;
-                    s.saveIncoming(true);
-                    context.getContentResolver().delete(uri, null,null);
-                }
-                c.close();
-            }
-        }
-			
-        return true;
-		} catch(Exception e) { e.printStackTrace(); return false; }
-	}
+
 	public SMSMessage getPrevious() {
-		final Cursor c = mContext.getContentResolver().query(Constants.SMS_SENT_URI, null, "thread_id = ?", new String[] { String.valueOf(getOrCreateThreadId(mContext, Address)) }, "date DESC");
+		final Cursor c = mContext.getContentResolver().query(SmsUri.SENT_URI, null, "thread_id = ?", new String[] { String.valueOf(getOrCreateThreadId(mContext, Address)) }, "date DESC");
 		if (c != null) {
             if (c.moveToFirst())
             {
@@ -109,7 +70,7 @@ public class SMSMessage extends SMSMessageBase{
         final ContentValues values = buildContentValues(read);
         findName();
         final ContentResolver resolver = mContext.getContentResolver();
-        return resolver.insert(Constants.SMS_INBOX_URI, values);
+        return resolver.insert(SmsUri.INBOX_URI, values);
     }
 	
 	private ContentValues buildContentValues(final boolean read) {

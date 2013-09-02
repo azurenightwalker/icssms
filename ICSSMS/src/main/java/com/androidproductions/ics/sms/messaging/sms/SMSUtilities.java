@@ -7,6 +7,7 @@ import android.net.Uri;
 
 import com.androidproductions.ics.sms.Constants;
 import com.androidproductions.ics.sms.receivers.SmsUpdateReceiver;
+import com.androidproductions.libs.sms.Action;
 
 public final class SMSUtilities {
     private SMSUtilities() {
@@ -46,7 +47,7 @@ public final class SMSUtilities {
             message.Read = 1;
             final long threadId = message.queueSending();
             final Intent intent  = new Intent(context, SmsUpdateReceiver.class);
-            intent.setAction(Constants.ACTION_SEND_MESSAGE);
+            intent.setAction(Action.SEND);
             context.sendBroadcast(intent);
             return threadId;
 		}

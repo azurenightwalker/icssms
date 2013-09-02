@@ -21,6 +21,7 @@ import com.androidproductions.ics.sms.messaging.IMessage;
 import com.androidproductions.ics.sms.messaging.MessageUtilities;
 import com.androidproductions.ics.sms.utils.AddressUtilities;
 import com.androidproductions.ics.sms.utils.SmileyParser;
+import com.androidproductions.libs.sms.MessageType;
 
 import java.util.Collections;
 import java.util.Comparator;
@@ -53,7 +54,7 @@ public class SmsNotify extends ThemeableDialog  {
 		final String message = extras.getString(Constants.SMS_MESSAGE,null);
 		final long time = extras.getLong(Constants.SMS_TIME);
 		if (message != null)
-			updateUnreadMessages(MessageUtilities.GenerateMessage(SmsNotify.this, number, message, Constants.MESSAGE_TYPE_INBOX, time));
+			updateUnreadMessages(MessageUtilities.GenerateMessage(SmsNotify.this, number, message, MessageType.INBOX, time));
 		else
 			updateUnreadMessages();activeMessage = unread.size()-1;
 		SmileyParser.init(this);

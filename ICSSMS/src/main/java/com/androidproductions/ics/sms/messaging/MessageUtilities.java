@@ -4,10 +4,11 @@ import android.content.Context;
 import android.database.Cursor;
 import android.net.Uri;
 
-import com.androidproductions.ics.sms.Constants;
 import com.androidproductions.ics.sms.messaging.sms.SMSMessage;
 import com.androidproductions.ics.sms.messaging.sms.SMSUtilities;
 import com.androidproductions.ics.sms.utils.AddressUtilities;
+import com.androidproductions.libs.sms.MessageType;
+import com.androidproductions.libs.sms.SmsUri;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -22,7 +23,7 @@ public final class MessageUtilities {
     public static List<IMessage> GetUnreadMessages(final Context context)
     {
         final ArrayList<IMessage> messages = new ArrayList<IMessage>();
-        final Cursor c = context.getContentResolver().query(Constants.SMS_INBOX_URI, null, "read = '0'",
+        final Cursor c = context.getContentResolver().query(SmsUri.INBOX_URI, null, "read = '0'",
                 null, "date ASC");
         if (c != null)
         {
@@ -42,8 +43,8 @@ public final class MessageUtilities {
     public static List<IMessage> GetUnsentMessages(final Context context)
     {
         final ArrayList<IMessage> messages = new ArrayList<IMessage>();
-        final Cursor c = context.getContentResolver().query(Constants.SMS_URI, null, "type = ?",
-                new String[] { String.valueOf(Constants.MESSAGE_TYPE_FAILED) }, "date ASC");
+        final Cursor c = context.getContentResolver().query(SmsUri.BASE_URI, null, "type = ?",
+                new String[] { String.valueOf(MessageType.FAILED) }, "date ASC");
         if (c != null)
         {
             if (c.moveToFirst())
@@ -105,7 +106,7 @@ public final class MessageUtilities {
             // Simple conversations not supported
             try
             {
-                final Cursor c = context.getContentResolver().query(Constants.SMS_CONVERSATIONS_URI, new String[] {"*"}, null,
+                final Cursor c = context.getContentResolver().query(SmsUri.CONVERSATIONS_URI, new String[] {"*"}, null,
                         null, null);
                 if (c != null)
                 {
@@ -118,7 +119,7 @@ public final class MessageUtilities {
                 try
                 {
                     // Now were really custom..
-                    final Cursor c = context.getContentResolver().query(Constants.SMS_ONLY_CONVERSATIONS_URI, new String[] {"*"}, null,
+                    final Cursor c = context.getContentResolver().query(SmsUri.SMS_ONLY_CONVERSATIONS_URI, new String[] {"*"}, null,
                             null, null);
                     if (c != null)
                     {
@@ -129,7 +130,7 @@ public final class MessageUtilities {
                 catch(Exception exc)
                 {
                     // There has got to be a better way..
-                    final Cursor c = context.getContentResolver().query(Constants.SMS_ONLY_CONVERSATIONS_URI, null, null,
+                    final Cursor c = context.getContentResolver().query(SmsUri.SMS_ONLY_CONVERSATIONS_URI, null, null,
                             null, null);
                     if (c != null)
                     {
@@ -156,7 +157,7 @@ public final class MessageUtilities {
 			{
 				final String where = "thread_id = ?";
 				final String[] vals = new String[] { String.valueOf(c.getLong(0))};
-				final Cursor c2 = context.getContentResolver().query(Constants.SMS_URI,new String[] {"*"}, where,
+				final Cursor c2 = context.getContentResolver().query(SmsUri.BASE_URI,new String[] {"*"}, where,
 						vals, "date DESC");
                 if (c2 != null)
                 {
@@ -195,7 +196,7 @@ public final class MessageUtilities {
             vals = new String[] { String.valueOf(threadId), String.valueOf(date) };
         }
 
-        final Cursor c = context.getContentResolver().query(Constants.SMS_URI,
+        final Cursor c = context.getContentResolver().query(SmsUri.BASE_URI,
                 null, where, vals, "date DESC LIMIT "+max);
         if (c != null)
         {

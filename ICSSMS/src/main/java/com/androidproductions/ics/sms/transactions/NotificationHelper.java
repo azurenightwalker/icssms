@@ -22,6 +22,7 @@ import com.androidproductions.ics.sms.messaging.MessageUtilities;
 import com.androidproductions.ics.sms.preferences.ConfigurationHelper;
 import com.androidproductions.ics.sms.ICSSMSActivity_;
 import com.androidproductions.ics.sms.SmsViewer_;
+import com.androidproductions.libs.sms.SmsUri;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -166,7 +167,7 @@ public class NotificationHelper {
     }
 
     public void notifySendFailed() {
-        final Cursor c = mContext.getContentResolver().query(Constants.SMS_FAILED_URI, null, null, null, null);
+        final Cursor c = mContext.getContentResolver().query(SmsUri.FAILED_URI, null, null, null, null);
         int smsCount = 1;
         if (c != null)
         {

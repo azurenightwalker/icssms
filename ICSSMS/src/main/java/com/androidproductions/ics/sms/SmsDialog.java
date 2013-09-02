@@ -28,6 +28,7 @@ import com.androidproductions.ics.sms.messaging.IMessage;
 import com.androidproductions.ics.sms.messaging.MessageUtilities;
 import com.androidproductions.ics.sms.utils.AddressUtilities;
 import com.androidproductions.ics.sms.utils.SmileyParser;
+import com.androidproductions.libs.sms.MessageType;
 
 import java.util.Calendar;
 import java.util.Collections;
@@ -69,7 +70,7 @@ public class SmsDialog extends ThemeableDialog  {
 		if (messageType == null)
 			updateUnreadMessages();
 		else if (messageType.equals("SMS"))
-			updateUnreadMessages(MessageUtilities.GenerateMessage(SmsDialog.this, number, message, Constants.MESSAGE_TYPE_INBOX, time));
+			updateUnreadMessages(MessageUtilities.GenerateMessage(SmsDialog.this, number, message, MessageType.INBOX, time));
 		activeMessage = unread.size()-1;
 		SmileyParser.init(this);
         parser = SmileyParser.getInstance();

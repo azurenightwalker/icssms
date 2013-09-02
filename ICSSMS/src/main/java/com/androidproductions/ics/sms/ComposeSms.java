@@ -19,6 +19,7 @@ import android.widget.TextView;
 
 import com.androidproductions.ics.sms.data.adapters.ContactsAutoCompleteCursorAdapter;
 import com.androidproductions.ics.sms.messaging.MessageUtilities;
+import com.androidproductions.libs.sms.SmsUri;
 import com.googlecode.androidannotations.annotations.AfterTextChange;
 import com.googlecode.androidannotations.annotations.AfterViews;
 import com.googlecode.androidannotations.annotations.EActivity;
@@ -67,8 +68,6 @@ public class ComposeSms extends ThemeableActivity {
 
         final Cursor autoCursor = cursorLoader.loadInBackground();
         adapter = new ContactsAutoCompleteCursorAdapter(this, autoCursor);
-
-
     }
     
     @AfterViews
@@ -140,7 +139,7 @@ public class ComposeSms extends ThemeableActivity {
             number = number.substring(number.lastIndexOf("(")+1).replace(")","");
             final Long thread = MessageUtilities.SendMessage(ComposeSms.this,text,number);
             final Intent intent = new Intent(getBaseContext(), SmsViewer_.class);
-            intent.setData(ContentUris.withAppendedId(Constants.SMS_CONVERSATIONS_URI,thread));
+            intent.setData(ContentUris.withAppendedId(SmsUri.CONVERSATIONS_URI,thread));
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             intent.putExtra(Constants.SMS_RECEIVE_LOCATION, number);
             startActivity(intent);

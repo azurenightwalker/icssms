@@ -42,6 +42,7 @@ import com.androidproductions.ics.sms.utils.AddressUtilities;
 import com.androidproductions.ics.sms.utils.SmileyParser;
 import com.androidproductions.ics.sms.views.KeyboardDetectorScrollView;
 import com.androidproductions.ics.sms.views.KeyboardDetectorScrollView.IKeyboardChanged;
+import com.androidproductions.libs.sms.SmsUri;
 import com.googlecode.androidannotations.annotations.AfterTextChange;
 import com.googlecode.androidannotations.annotations.AfterViews;
 import com.googlecode.androidannotations.annotations.EActivity;
@@ -179,7 +180,7 @@ public class SmsViewer extends ThemeableActivity {
             	return true;
             case R.id.delete:
             	getContentResolver().delete(
-            		    ContentUris.withAppendedId(Constants.SMS_CONVERSATIONS_URI,threadId),   // the user dictionary content URI
+            		    ContentUris.withAppendedId(SmsUri.CONVERSATIONS_URI,threadId),   // the user dictionary content URI
             		    null,                    // the column to select on
             		    null                      // the value to compare to
             		);

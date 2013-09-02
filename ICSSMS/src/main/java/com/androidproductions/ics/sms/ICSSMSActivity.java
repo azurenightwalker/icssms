@@ -22,6 +22,7 @@ import android.widget.TextView;
 
 import com.androidproductions.ics.sms.messaging.IMessage;
 import com.androidproductions.ics.sms.messaging.MessageUtilities;
+import com.androidproductions.libs.sms.SmsUri;
 import com.googlecode.androidannotations.annotations.EActivity;
 import com.googlecode.androidannotations.annotations.OptionsMenu;
 import com.googlecode.androidannotations.annotations.ViewById;
@@ -131,7 +132,7 @@ public class ICSSMSActivity extends AdSupportedActivity {
 					else
 					{
 						final Intent intent = new Intent(getBaseContext(), SmsViewer_.class);
-						intent.setData(ContentUris.withAppendedId(Constants.SMS_CONVERSATIONS_URI,((IMessage)v.getTag()).getThreadId()));  
+						intent.setData(ContentUris.withAppendedId(SmsUri.CONVERSATIONS_URI,((IMessage)v.getTag()).getThreadId()));
 						intent.putExtra(Constants.SMS_RECEIVE_LOCATION, ((IMessage)v.getTag()).getAddress());
 		                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 		                startActivity(intent);
@@ -198,7 +199,7 @@ public class ICSSMSActivity extends AdSupportedActivity {
             	{
             		final Long thread = ((IMessage)v.getTag()).getThreadId();
             		getContentResolver().delete(
-                            ContentUris.withAppendedId(Constants.SMS_CONVERSATIONS_URI, thread),   // the user dictionary content URI
+                            ContentUris.withAppendedId(SmsUri.CONVERSATIONS_URI, thread),   // the user dictionary content URI
                             "locked = ? ",                    // the column to select on
                             new String[]{"0"}                      // the value to compare to
                     );

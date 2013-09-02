@@ -10,8 +10,8 @@ import android.os.Build;
 import android.os.Handler;
 import android.os.IBinder;
 
-import com.androidproductions.ics.sms.Constants;
 import com.androidproductions.ics.sms.transactions.NotificationHelper;
+import com.androidproductions.libs.sms.SmsUri;
 
 public class NotificationService extends Service{
 
@@ -25,7 +25,7 @@ public class NotificationService extends Service{
 	@Override
     public void onCreate() {
         mContentObserver = new NotificationHandler(new Handler());
-		getContentResolver().registerContentObserver(Constants.SMS_URI, true, mContentObserver);
+		getContentResolver().registerContentObserver(SmsUri.BASE_URI, true, mContentObserver);
     }
 	
 	@Override

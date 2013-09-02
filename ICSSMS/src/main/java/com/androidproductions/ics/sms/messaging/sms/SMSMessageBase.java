@@ -12,12 +12,13 @@ import android.provider.ContactsContract.PhoneLookup;
 import android.telephony.SmsMessage;
 import android.util.Log;
 
-import com.androidproductions.ics.sms.Constants;
 import com.androidproductions.ics.sms.R;
 import com.androidproductions.ics.sms.data.ContactHelper;
 import com.androidproductions.ics.sms.data.ImageCache;
 import com.androidproductions.ics.sms.messaging.IMessage;
 import com.androidproductions.ics.sms.utils.TextUtilities;
+import com.androidproductions.libs.sms.MessageType;
+import com.androidproductions.libs.sms.SmsUri;
 
 import java.io.InputStream;
 import java.util.Calendar;
@@ -64,7 +65,7 @@ public abstract class SMSMessageBase implements IMessage{
     	Read = c.getInt(c.getColumnIndex("read"));
     	ID = c.getLong(0);
     	Locked = c.getInt(c.getColumnIndex("locked"));
-    	uri = ContentUris.withAppendedId(Constants.SMS_URI, ID);
+    	uri = ContentUris.withAppendedId(SmsUri.BASE_URI, ID);
     	HasAttachment = false;
         contactHelper = new ContactHelper(mContext);
     }
@@ -110,7 +111,7 @@ public abstract class SMSMessageBase implements IMessage{
             Body = TextUtilities.replaceFormFeeds(bdy.toString());
         }
         Address = smsa.getOriginatingAddress();
-        Type = Constants.MESSAGE_TYPE_INBOX;
+        Type = MessageType.INBOX;
         Date = System.currentTimeMillis();
         mContext = con;
         DateSent =  smsa.getTimestampMillis();
@@ -226,7 +227,7 @@ public abstract class SMSMessageBase implements IMessage{
 	}
 	
 	public void lockMessage() {
-        final Uri lockUri = ContentUris.withAppendedId(Constants.SMS_URI, ID);
+        final Uri lockUri = ContentUris.withAppendedId(SmsUri.BASE_URI, ID);
 
         final ContentValues values = new ContentValues(1);
         Locked = 1;
@@ -242,7 +243,7 @@ public abstract class SMSMessageBase implements IMessage{
     }
 	
 	public void unlockMessage() {
-        final Uri lockUri = ContentUris.withAppendedId(Constants.SMS_URI, ID);
+        final Uri lockUri = ContentUris.withAppendedId(SmsUri.BASE_URI, ID);
 
         final ContentValues values = new ContentValues(1);
         Locked = 0;
@@ -260,7 +261,7 @@ public abstract class SMSMessageBase implements IMessage{
 	public boolean deleteMessage() {
 		return (Locked == 0) &&
 		    mContext.getContentResolver().delete(
-                ContentUris.withAppendedId(Constants.SMS_URI,ID),   // the user dictionary content URI
+                ContentUris.withAppendedId(SmsUri.BASE_URI,ID),   // the user dictionary content URI
                 null,                    // the column to select on
                 null                      // the value to compare to
             ) == 1;
