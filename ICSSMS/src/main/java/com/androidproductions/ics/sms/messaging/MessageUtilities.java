@@ -16,6 +16,9 @@ import java.util.List;
 
 public final class MessageUtilities {
 
+    private MessageUtilities() {
+    }
+
     public static List<IMessage> GetUnreadMessages(final Context context)
     {
         final ArrayList<IMessage> messages = new ArrayList<IMessage>();

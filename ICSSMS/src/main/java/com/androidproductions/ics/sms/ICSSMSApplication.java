@@ -3,6 +3,7 @@ package com.androidproductions.ics.sms;
 import android.app.Application;
 import com.androidproductions.ics.sms.data.ImageCache;
 import com.androidproductions.ics.sms.preferences.ConfigurationHelper;
+import com.androidproductions.ics.sms.utils.LogHelper;
 
 public class ICSSMSApplication extends Application {
     @Override
@@ -23,5 +24,6 @@ public class ICSSMSApplication extends Application {
         super.onCreate();
         ImageCache.initInstance(Constants.CACHE_SIZE,getApplicationContext());
         ConfigurationHelper.initInstance(getApplicationContext());
+        LogHelper.setDebug(LogHelper.DEBUG_LEVEL_WARNING);
     }
 }

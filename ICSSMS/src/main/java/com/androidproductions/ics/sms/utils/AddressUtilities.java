@@ -8,6 +8,9 @@ import com.google.i18n.phonenumbers.PhoneNumberUtil.PhoneNumberFormat;
 import com.google.i18n.phonenumbers.Phonenumber.PhoneNumber;
 
 public final class AddressUtilities {
+    private AddressUtilities() {
+    }
+
     public static String StandardiseNumber(final String address, final Context context)
     {
     	try {

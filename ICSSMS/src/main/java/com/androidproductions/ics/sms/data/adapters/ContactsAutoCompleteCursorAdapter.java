@@ -11,7 +11,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CursorAdapter;
-import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -32,28 +31,28 @@ public class ContactsAutoCompleteCursorAdapter extends CursorAdapter {
         Phone.DISPLAY_NAME,         // 5
     };
 
-    public ContactsAutoCompleteCursorAdapter(Context context, Cursor c) {
+    public ContactsAutoCompleteCursorAdapter(final Context context, final Cursor c) {
     	super(context,c,0);
         mContext = context;
     }
 
     @Override
-    public View newView(Context context, Cursor cursor, ViewGroup parent) {
+    public View newView(final Context context, final Cursor cursor, final ViewGroup parent) {
     	final LayoutInflater inflater = LayoutInflater.from(context);
         final RelativeLayout ret = (RelativeLayout) inflater.inflate(R.layout.autocomplete_contact, parent, false);
         if (ret != null)
         {
-            TextView mName = (TextView) ret.findViewById(R.id.contact_name);
-            TextView mNumber = (TextView) ret.findViewById(R.id.contact_number);
-            TextView mLabel = (TextView) ret.findViewById(R.id.type);
+            final TextView mName = (TextView) ret.findViewById(R.id.contact_name);
+            final TextView mNumber = (TextView) ret.findViewById(R.id.contact_number);
+            final TextView mLabel = (TextView) ret.findViewById(R.id.type);
 
-            int nameIdx = cursor.getColumnIndexOrThrow(Phone.DISPLAY_NAME);
-            int id = cursor.getColumnIndex(Phone.CONTACT_ID);
-            int num = cursor.getColumnIndex(Phone.NUMBER);
-            ContactHelper ch = new ContactHelper(context,cursor.getLong(id));
-            String name = cursor.getString(nameIdx);
-            String number = cursor.getString(num);
-            CharSequence displayLabel = Phone.getTypeLabel(mContext.getResources(), cursor.getInt(cursor.getColumnIndex(Phone.TYPE)), cursor.getString(cursor.getColumnIndex(Phone.LABEL)));
+            final int nameIdx = cursor.getColumnIndexOrThrow(Phone.DISPLAY_NAME);
+            final int id = cursor.getColumnIndex(Phone.CONTACT_ID);
+            final int num = cursor.getColumnIndex(Phone.NUMBER);
+            final ContactHelper ch = new ContactHelper(context,cursor.getLong(id));
+            final String name = cursor.getString(nameIdx);
+            final String number = cursor.getString(num);
+            final CharSequence displayLabel = Phone.getTypeLabel(mContext.getResources(), cursor.getInt(cursor.getColumnIndex(Phone.TYPE)), cursor.getString(cursor.getColumnIndex(Phone.LABEL)));
 
             mName.setText(name);
             mNumber.setText(number);
@@ -70,14 +69,14 @@ public class ContactsAutoCompleteCursorAdapter extends CursorAdapter {
     }
 
     @Override
-    public void bindView(View view, Context context, Cursor cursor) {
-        int nameIdx = cursor.getColumnIndexOrThrow(Phone.DISPLAY_NAME);
-        int id = cursor.getColumnIndex(Phone.CONTACT_ID);
-        int num = cursor.getColumnIndex(Phone.NUMBER);
-        ContactHelper ch = new ContactHelper(context,cursor.getLong(id));
-        String name = cursor.getString(nameIdx);
-        String number = cursor.getString(num);
-        CharSequence displayLabel = Phone.getTypeLabel(mContext.getResources(), cursor.getInt(cursor.getColumnIndex(Phone.TYPE)), cursor.getString(cursor.getColumnIndex(Phone.LABEL)));
+    public void bindView(final View view, final Context context, final Cursor cursor) {
+        final int nameIdx = cursor.getColumnIndexOrThrow(Phone.DISPLAY_NAME);
+        final int id = cursor.getColumnIndex(Phone.CONTACT_ID);
+        final int num = cursor.getColumnIndex(Phone.NUMBER);
+        final ContactHelper ch = new ContactHelper(context,cursor.getLong(id));
+        final String name = cursor.getString(nameIdx);
+        final String number = cursor.getString(num);
+        final CharSequence displayLabel = Phone.getTypeLabel(mContext.getResources(), cursor.getInt(cursor.getColumnIndex(Phone.TYPE)), cursor.getString(cursor.getColumnIndex(Phone.LABEL)));
 
 
         /**
@@ -92,20 +91,20 @@ public class ContactsAutoCompleteCursorAdapter extends CursorAdapter {
     }
 
     @Override
-    public String convertToString(Cursor cursor) {
+    public String convertToString(final Cursor cursor) {
         // this method dictates what is shown when the user clicks each entry in your autocomplete list
         // in my case i want the number data to be shown
-    	int nameIdx = cursor.getColumnIndexOrThrow(Phone.DISPLAY_NAME);
-        int id = cursor.getColumnIndex(Phone.NUMBER);
+    	final int nameIdx = cursor.getColumnIndexOrThrow(Phone.DISPLAY_NAME);
+        final int id = cursor.getColumnIndex(Phone.NUMBER);
 
-        String name = cursor.getString(nameIdx);
-        String number = cursor.getString(id);
+        final String name = cursor.getString(nameIdx);
+        final String number = cursor.getString(id);
         return name + " (" + number + ")";
     }
 
     @Override
-    public Cursor runQueryOnBackgroundThread(CharSequence constraint) {
-        String phone = "";
+    public Cursor runQueryOnBackgroundThread(final CharSequence constraint) {
+        final String phone = "";
         String cons = null;
 
         if (constraint != null) {
@@ -134,7 +133,7 @@ public class ContactsAutoCompleteCursorAdapter extends CursorAdapter {
                         Phone.TYPE,
                         Phone.TYPE_MMS);
                  */
-                Cursor phoneCursor =
+                final Cursor phoneCursor =
                     mContext.getContentResolver().query(uri,
                             PROJECTION_PHONE,
                             null, //selection,
@@ -142,7 +141,7 @@ public class ContactsAutoCompleteCursorAdapter extends CursorAdapter {
                             null);
 
                 if (!phone.isEmpty()) {
-                    Object[] result = new Object[7];
+                    final Object[] result = new Object[7];
                     result[0] = -1;                    // ID
                     result[1] = -1L;                       // CONTACT_ID
                     result[2] = Phone.TYPE_CUSTOM;     // TYPE
@@ -157,7 +156,7 @@ public class ContactsAutoCompleteCursorAdapter extends CursorAdapter {
                     result[5] = cons;                                   // NAME
                     result[6] = phone;                                  // NORMALIZED_NUMBER
 
-                    MatrixCursor translated = new MatrixCursor(PROJECTION_PHONE, 1);
+                    final MatrixCursor translated = new MatrixCursor(PROJECTION_PHONE, 1);
                     translated.addRow(result);
                     return new MergeCursor(new Cursor[] { translated, phoneCursor });
                 } else {

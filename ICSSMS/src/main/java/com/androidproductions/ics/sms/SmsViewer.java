@@ -11,13 +11,11 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
-import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.telephony.SmsMessage;
 import android.text.Editable;
-import android.util.LruCache;
 import android.view.ContextMenu;
 import android.view.ContextMenu.ContextMenuInfo;
 import android.view.LayoutInflater;
@@ -414,7 +412,7 @@ public class SmsViewer extends ThemeableActivity {
 	        	final Dialog dialog = new Dialog(SmsViewer.this);
 
 	        	dialog.setContentView(R.layout.sms_details);
-	        	dialog.setTitle("Message Details");
+	        	dialog.setTitle(getString(R.string.messageDetails));
 	        	if (!PressedMessage.IsIncoming())
 	        	{
 	        		((TextView)dialog.findViewById(R.id.labelLocation)).setText("To:");

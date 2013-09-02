@@ -9,17 +9,17 @@ final class Defaults {
     static final Map<String,String> STRING_CONSTANTS;
     static final Map<String,Boolean> BOOLEAN_CONSTANTS;
 	static {
-		Map<String, Integer> int_constants = new HashMap<String, Integer>();
+		final Map<String, Integer> int_constants = new HashMap<String, Integer>();
 		int_constants.put(ConfigurationHelper.APEX_KEY_COUNT, -1);
 		INT_CONSTANTS = Collections.unmodifiableMap(int_constants);
 		
-		Map<String, String> string_constants = new HashMap<String, String>();
+		final Map<String, String> string_constants = new HashMap<String, String>();
 		string_constants.put(ConfigurationHelper.THEME, "0");
         string_constants.put(ConfigurationHelper.NOTIFICATION_SOUND, "");
         string_constants.put(ConfigurationHelper.DIALOG_TYPE, "0");
         STRING_CONSTANTS = Collections.unmodifiableMap(string_constants);
 		
-		Map<String, Boolean> boolean_constants = new HashMap<String, Boolean>();
+		final Map<String, Boolean> boolean_constants = new HashMap<String, Boolean>();
 		boolean_constants.put(ConfigurationHelper.NOTIFICATIONS_ENABLED, true);
 		boolean_constants.put(ConfigurationHelper.DIALOG_ENABLED, true);
 		boolean_constants.put(ConfigurationHelper.SMILEY_KEY_ENABLED, true);
@@ -36,4 +36,7 @@ final class Defaults {
 		BOOLEAN_CONSTANTS = Collections.unmodifiableMap(boolean_constants);
 		
 	}
+
+    private Defaults() {
+    }
 }

@@ -9,7 +9,10 @@ import com.androidproductions.ics.sms.Constants;
 import com.androidproductions.ics.sms.receivers.SmsUpdateReceiver;
 
 public final class SMSUtilities {
-	public static SMSMessage generateMessageFromSummary(final Context context, final Cursor c) {
+    private SMSUtilities() {
+    }
+
+    public static SMSMessage generateMessageFromSummary(final Context context, final Cursor c) {
 		String address = "";
         final String recs = c.getString(c.getColumnIndex("recipient_ids"));
         if (recs != null)
