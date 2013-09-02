@@ -145,7 +145,7 @@ public class MessagingService extends Service{
 		private void handleSmsSent(final Intent intent, final int error, final int resultCode) {
             //noinspection ConstantConditions
             final Uri uri = (Uri)intent.getExtras().get(SMS_URI);
-            Transaction trans = new Transaction(context);
+            final Transaction trans = new Transaction(context);
 	        final boolean sendNextMsg = intent.getBooleanExtra(EXTRA_MESSAGE_SENT_SEND_NEXT, false);
 	        if (resultCode == Activity.RESULT_OK) {
                 trans.sentMessage(uri);
@@ -187,15 +187,15 @@ public class MessagingService extends Service{
             }
 		}
 	    
-		private void sendMessage(SMSMessage message) {
-            SmsMessage sms = new SmsMessage(message.Body, message.Address,message.getId());
-            Transaction trans = new Transaction(context);
+		private void sendMessage(final SMSMessage message) {
+            final SmsMessage sms = new SmsMessage(message.Body, message.Address,message.getId());
+            final Transaction trans = new Transaction(context);
             trans.sendMessage(sms,null);
 		}
 
 		private void messageFailedToSend(final Uri uri, final int error) {
             LogHelper.e("Message sending failed with error code:"+error);
-            Transaction trans = new Transaction(context);
+            final Transaction trans = new Transaction(context);
             trans.failedMessage(uri);
 	        NotificationHelper.getInstance(context).notifySendFailed();
 	    }

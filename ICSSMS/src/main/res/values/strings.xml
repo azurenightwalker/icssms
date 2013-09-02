@@ -58,8 +58,6 @@
     <string name="smileyTitle">Show Smiley Key</string>
     <string name="smileySummary">Replace return key with Smiley key</string>
     <string name="keyboardTitle">Hide keyboard on send</string>
-    <string name="apexTitle">Show unread count in Apex</string>
-    <string name="holoLight">Use light theme</string>
     <string name="showAds">Show Adverts</string>
     <string name="messageDetails">Message Details</string>
 </resources>

@@ -17,7 +17,6 @@ import java.util.Calendar;
 public class Transaction {
     private final Context mContext;
 
-
     public Transaction(Context context)
     {
         mContext = context;

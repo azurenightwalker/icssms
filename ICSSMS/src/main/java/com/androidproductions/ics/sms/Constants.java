@@ -39,4 +39,7 @@ public final class Constants {
     public static final int CACHE_SIZE = 10;
     public static final int MIN_CACHE_SIZE = 2;
     public static final int MAX_INBOX_DISPLAY = 6;
+
+    private Constants() {
+    }
 }
