@@ -17,8 +17,8 @@ import com.androidproductions.ics.sms.data.ContactHelper;
 import com.androidproductions.ics.sms.data.ImageCache;
 import com.androidproductions.ics.sms.messaging.IMessage;
 import com.androidproductions.ics.sms.utils.TextUtilities;
-import com.androidproductions.libs.sms.MessageType;
-import com.androidproductions.libs.sms.SmsUri;
+import com.androidproductions.libs.sms.com.androidproductions.libs.sms.constants.MessageType;
+import com.androidproductions.libs.sms.com.androidproductions.libs.sms.constants.SmsUri;
 
 import java.io.InputStream;
 import java.util.Calendar;
@@ -301,10 +301,6 @@ public abstract class SMSMessageBase implements IMessage{
 
 	public String getText() {
 		return Body;
-	}
-
-	public boolean hasAttachments() {
-		return HasAttachment;
 	}
 
 	public String getAddress() {

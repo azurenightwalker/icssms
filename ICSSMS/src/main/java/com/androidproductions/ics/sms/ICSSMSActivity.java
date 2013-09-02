@@ -22,7 +22,7 @@ import android.widget.TextView;
 
 import com.androidproductions.ics.sms.messaging.IMessage;
 import com.androidproductions.ics.sms.messaging.MessageUtilities;
-import com.androidproductions.libs.sms.SmsUri;
+import com.androidproductions.libs.sms.com.androidproductions.libs.sms.constants.SmsUri;
 import com.googlecode.androidannotations.annotations.EActivity;
 import com.googlecode.androidannotations.annotations.OptionsMenu;
 import com.googlecode.androidannotations.annotations.ViewById;

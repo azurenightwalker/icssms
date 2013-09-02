@@ -26,9 +26,9 @@ import com.androidproductions.ics.sms.receivers.MyPhoneStateListener;
 import com.androidproductions.ics.sms.receivers.SmsUpdateReceiver;
 import com.androidproductions.ics.sms.transactions.NotificationHelper;
 import com.androidproductions.ics.sms.utils.LogHelper;
-import com.androidproductions.libs.sms.Action;
+import com.androidproductions.libs.sms.com.androidproductions.libs.sms.constants.Action;
 import com.androidproductions.libs.sms.SmsMessage;
-import com.androidproductions.libs.sms.SmsUri;
+import com.androidproductions.libs.sms.com.androidproductions.libs.sms.constants.SmsUri;
 import com.androidproductions.libs.sms.Transaction;
 
 import static android.content.Intent.ACTION_BOOT_COMPLETED;
@@ -156,7 +156,7 @@ public class MessagingService extends Service{
 	            // queued up messages.
 	            registerForServiceStateChanges();
 	            // We couldn't send the message, put in the queue to retry later.
-	            trans.queueMessage(uri);
+	            trans.requeueMessage(uri);
 	            mToastHandler.post(new Runnable() {
 	                public void run() {
 	                    Toast.makeText(context, context.getString(R.string.message_queued),
@@ -179,8 +179,9 @@ public class MessagingService extends Service{
                 {
                     final String address = c.getString(c.getColumnIndex("address"));
                     final long id = c.getLong(c.getColumnIndex("_id"));
+                    final long date = c.getLong(c.getColumnIndex("date"));
                     final String body = c.getString(c.getColumnIndex("body"));
-                    sendMessage(new SmsMessage(body, address,id));
+                    sendMessage(new SmsMessage(body, address,date, id));
                 }
                 c.close();
             }

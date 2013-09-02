@@ -22,7 +22,7 @@ import com.androidproductions.ics.sms.messaging.MessageUtilities;
 import com.androidproductions.ics.sms.preferences.ConfigurationHelper;
 import com.androidproductions.ics.sms.ICSSMSActivity_;
 import com.androidproductions.ics.sms.SmsViewer_;
-import com.androidproductions.libs.sms.SmsUri;
+import com.androidproductions.libs.sms.com.androidproductions.libs.sms.constants.SmsUri;
 
 import java.util.ArrayList;
 import java.util.HashMap;

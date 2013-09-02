@@ -7,8 +7,8 @@ import android.net.Uri;
 import com.androidproductions.ics.sms.messaging.sms.SMSMessage;
 import com.androidproductions.ics.sms.messaging.sms.SMSUtilities;
 import com.androidproductions.ics.sms.utils.AddressUtilities;
-import com.androidproductions.libs.sms.MessageType;
-import com.androidproductions.libs.sms.SmsUri;
+import com.androidproductions.libs.sms.com.androidproductions.libs.sms.constants.MessageType;
+import com.androidproductions.libs.sms.com.androidproductions.libs.sms.constants.SmsUri;
 
 import java.util.ArrayList;
 import java.util.Collections;

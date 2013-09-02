@@ -5,11 +5,8 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.net.Uri;
-import android.provider.BaseColumns;
-import android.util.Log;
 
-import com.androidproductions.libs.sms.MessageType;
-import com.androidproductions.libs.sms.SmsUri;
+import com.androidproductions.libs.sms.com.androidproductions.libs.sms.constants.SmsUri;
 import com.androidproductions.libs.sms.Transaction;
 
 public class SMSMessage extends SMSMessageBase{
@@ -27,26 +24,6 @@ public class SMSMessage extends SMSMessageBase{
 	public SMSMessage(final Context con, final Object[] msgs) {
 		super(con, msgs);
 	}
-	
-	/*public long queueSending()
-	{
-		final ContentValues values = new ContentValues();
-        values.put("address", Address);
-        values.put("body", Body);
-        values.put("date", Date);
-        values.put("read", 1);
-        values.put("type", MessageType.QUEUED);
-        uri = mContext.getContentResolver().insert(SmsUri.QUEUED_URI, values);
-        final Cursor c = mContext.getContentResolver().query(uri,null,null,null,null);
-        if (c != null)
-        {
-            c.moveToFirst();
-            final long id =  c.getLong(1);
-            c.close();
-            return id;
-        }
-        return 0L;
-	}*/
 
 	public SMSMessage getPrevious() {
 		final Cursor c = mContext.getContentResolver().query(SmsUri.SENT_URI, null, "thread_id = ?",

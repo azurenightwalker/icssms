@@ -11,7 +11,7 @@ import android.os.Handler;
 import android.os.IBinder;
 
 import com.androidproductions.ics.sms.transactions.NotificationHelper;
-import com.androidproductions.libs.sms.SmsUri;
+import com.androidproductions.libs.sms.com.androidproductions.libs.sms.constants.SmsUri;
 
 public class NotificationService extends Service{
 

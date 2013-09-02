@@ -1,4 +1,4 @@
-package com.androidproductions.libs.sms;
+package com.androidproductions.libs.sms.com.androidproductions.libs.sms.constants;
 
 public class MessageType {
     public static final int ALL = 0;

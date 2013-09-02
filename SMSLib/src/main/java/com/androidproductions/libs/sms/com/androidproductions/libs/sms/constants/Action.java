@@ -1,4 +1,4 @@
-package com.androidproductions.libs.sms;
+package com.androidproductions.libs.sms.com.androidproductions.libs.sms.constants;
 
 import android.net.Uri;
 

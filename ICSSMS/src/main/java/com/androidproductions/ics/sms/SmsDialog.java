@@ -28,7 +28,7 @@ import com.androidproductions.ics.sms.messaging.IMessage;
 import com.androidproductions.ics.sms.messaging.MessageUtilities;
 import com.androidproductions.ics.sms.utils.AddressUtilities;
 import com.androidproductions.ics.sms.utils.SmileyParser;
-import com.androidproductions.libs.sms.MessageType;
+import com.androidproductions.libs.sms.com.androidproductions.libs.sms.constants.MessageType;
 
 import java.util.Calendar;
 import java.util.Collections;

@@ -5,13 +5,10 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
 
-import com.androidproductions.ics.sms.Constants;
 import com.androidproductions.ics.sms.receivers.SmsUpdateReceiver;
-import com.androidproductions.libs.sms.Action;
+import com.androidproductions.libs.sms.com.androidproductions.libs.sms.constants.Action;
 import com.androidproductions.libs.sms.SmsMessage;
 import com.androidproductions.libs.sms.Transaction;
-
-import java.util.List;
 
 public final class SMSUtilities {
     private SMSUtilities() {

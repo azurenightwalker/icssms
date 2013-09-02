@@ -11,10 +11,19 @@ import android.telephony.PhoneNumberUtils;
 import android.telephony.SmsManager;
 import android.util.Log;
 
+import com.androidproductions.libs.sms.com.androidproductions.libs.sms.constants.Action;
+import com.androidproductions.libs.sms.com.androidproductions.libs.sms.constants.MessageType;
+import com.androidproductions.libs.sms.com.androidproductions.libs.sms.constants.SmsUri;
+
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
+/*
+ * Transaction:
+ *      Designed to encapsulate a single messaging transaction in its entirety without chaining
+ *      function calls to get the desired behaviour.
+ */
 public class Transaction {
     private final Context mContext;
 
@@ -23,21 +32,7 @@ public class Transaction {
         mContext = context;
     }
 
-    public void sentMessage(Uri uri)
-    {
-        ContentValues cv = new ContentValues();
-        cv.put("type",MessageType.SENT);
-        mContext.getContentResolver().update(uri, cv, null, null);
-    }
-
-    public void recievedMessage(Uri uri)
-    {
-        ContentValues cv = new ContentValues();
-        cv.put("seen",1);
-        mContext.getContentResolver().update(uri,cv,null,null);
-    }
-
-    public void queueMessage(Uri uri)
+    public void requeueMessage(Uri uri)
     {
         ContentValues cv = new ContentValues();
         cv.put("type",MessageType.QUEUED);
@@ -57,35 +52,30 @@ public class Transaction {
             cv.put("read", 1);
             cv.put("type", MessageType.QUEUED);
             cv.put("thread_id", sms.getThreadId());
-            res.add(mContext.getContentResolver().insert(SmsUri.QUEUED_URI,cv));
+            res.add(mContext.getContentResolver().insert(SmsUri.QUEUED_URI, cv));
         }
         return res;
     }
 
-    public void failedMessage(Uri uri)
+    public List<Uri> sendMessage(SmsMessage message,Long threadId)
     {
-        ContentValues cv = new ContentValues();
-        cv.put("type",MessageType.FAILED);
-        mContext.getContentResolver().update(uri,cv,null,null);
+        return sendSmsMessage(message.getBody(), message.getAddresses(),message.getId(), threadId);
     }
 
-    public void sendMessage(SmsMessage message,Long threadId)
+    private List<Uri> sendSmsMessage(String text, String[] addresses, Long messageId, Long threadId)
     {
-        sendSmsMessage(message.getBody(), message.getAddresses(),message.getId(), threadId);
-    }
-
-    private void sendSmsMessage(String text, String[] addresses, Long messageId, Long threadId)
-    {
+        List<Uri> res = new ArrayList<Uri>(addresses.length);
         if (threadId == null) {
             threadId = getOrCreateThreadId(addresses);
         }
 
         for (int i = 0; i < addresses.length; i++) {
-            sendSmsMessage(text,addresses[i],messageId,threadId);
+            res.add(sendSmsMessage(text,addresses[i],messageId,threadId));
         }
+        return res;
     }
 
-    private void sendSmsMessage(String text, String address, Long messageId,Long threadId)
+    private Uri sendSmsMessage(String text, String address, Long messageId,Long threadId)
     {
         // save the message for each of the addresses
         Calendar cal = Calendar.getInstance();
@@ -138,6 +128,28 @@ public class Transaction {
             e.printStackTrace();
             failedMessage(inserted);
         }
+        return inserted;
+    }
+
+    public void sentMessage(Uri uri)
+    {
+        ContentValues cv = new ContentValues();
+        cv.put("type", MessageType.SENT);
+        mContext.getContentResolver().update(uri, cv, null, null);
+    }
+
+    public void recievedMessage(Uri uri)
+    {
+        ContentValues cv = new ContentValues();
+        cv.put("seen",1);
+        mContext.getContentResolver().update(uri,cv,null,null);
+    }
+
+    public void failedMessage(Uri uri)
+    {
+        ContentValues cv = new ContentValues();
+        cv.put("type",MessageType.FAILED);
+        mContext.getContentResolver().update(uri,cv,null,null);
     }
 
     public long getOrCreateThreadId(String recipient) {
