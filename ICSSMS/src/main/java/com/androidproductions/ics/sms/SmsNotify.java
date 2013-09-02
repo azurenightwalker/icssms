@@ -136,7 +136,7 @@ public class SmsNotify extends ThemeableDialog  {
 		updateUnreadMessages();
 		String addy = AddressUtilities.StandardiseNumber(message.getAddress(),SmsNotify.this);
 		if (unread.size() == 1) unread.get(0).markAsRead();
-		else if (unread.size() > 0)
+		else if (!unread.isEmpty())
 			do
 			{
 				IMessage sms2 = unread.get(i);

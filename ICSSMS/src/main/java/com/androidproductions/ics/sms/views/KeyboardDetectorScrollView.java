@@ -13,7 +13,7 @@ public class KeyboardDetectorScrollView extends ScrollView {
         void onKeyboardHidden();
     }
 
-	private boolean KeyboardShown = false;
+	private boolean KeyboardShown;
 
     private final ArrayList<IKeyboardChanged> keyboardListener = new ArrayList<IKeyboardChanged>();
 

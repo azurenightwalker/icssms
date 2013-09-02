@@ -7,7 +7,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.database.Cursor;
-import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.support.v4.app.NotificationCompat;
@@ -98,11 +97,23 @@ public class NotificationHelper {
 
     private Notification buildNotification()
     {
-        // Simple case?
-        if (messageSize == 1)
-            return buildNotification(messages.get(0));
+        Builder builder = buildBaseNotification();
+        Resources res = mContext.getResources();
+        builder.addAction(
+                R.drawable.ic_go,
+                res.getString(messageSize == 1 ? R.string.openConvo : R.string.showMore),
+                getIntent());
+        return buildBigNotification(builder);
+    }
 
-        // Find all contacts
+    Notification buildBigNotification(Builder builder) {
+        if (messageSize == 1)
+        {
+            BigTextStyle big = new NotificationCompat.BigTextStyle(builder);
+            big.bigText(getContent());
+            return big.build();
+        }
+
         List<String> numbers = new ArrayList<String>();
         HashMap<String, ArrayList<IMessage>> groupedMessages = new HashMap<String,ArrayList<IMessage>>();
         for (IMessage s : messages)
@@ -114,50 +125,43 @@ public class NotificationHelper {
             }
             groupedMessages.get(s.getAddress()).add(s);
         }
-
-        Builder builder = buildBaseNotification();
-        Resources res = mContext.getResources();
-        Intent convoIntent = new Intent(mContext,ICSSMSActivity_.class);
-        PendingIntent convoOpen = PendingIntent.getActivity(mContext, 0, convoIntent, PendingIntent.FLAG_CANCEL_CURRENT);
-        builder.addAction(R.drawable.ic_go, res.getString(R.string.showMore), convoOpen);
-        // Messages from more than 1 person
-        // Inbox style
-        int i = 0;
-        int v= 0;
-        InboxStyle big = new NotificationCompat.InboxStyle(builder);
-        for(String item : groupedMessages.keySet())
+        InboxStyle big = new InboxStyle(builder);
+        int messageCount = 0;
+        int extraCount= 0;
+        if (numbers.size() == 1)
         {
-            for (IMessage sms : groupedMessages.get(item))
+            for(IMessage sms : groupedMessages.get(numbers.get(0)))
             {
-                if (i < 6)
+                if (messageCount < Constants.MAX_INBOX_DISPLAY)
                 {
-                    String name = sms.getContactName();
-                    if (i < 6)
-                    {
-                        big.addLine(name + ": " + sms.getText());
-                        i++;
-                    }
-                    else
-                        v++;
+                    big.addLine(sms.getText());
+                    messageCount++;
                 }
                 else
-                    v++;
+                    extraCount++;
             }
+            if (extraCount > 0)
+                big.setSummaryText("+ " + extraCount + " more");
         }
-        if (v > 0)
-            big.setSummaryText("+ " + v + " other"
-                    + (v > 2 ? "s" : "" ));
-        return big.build();
-    }
-
-    private Notification buildNotification(IMessage sms)
-    {
-        String contentText = getContent();
-        Builder builder = buildBaseNotification();
-        Resources res = mContext.getResources();
-        builder.addAction(R.drawable.ic_go, res.getString(R.string.openConvo), getIntent());
-        BigTextStyle big = new NotificationCompat.BigTextStyle(builder);
-        big.bigText(contentText);
+        else
+        {
+            // TODO: What to display here?
+            for(String item : groupedMessages.keySet())
+            {
+                if (messageCount < Constants.MAX_INBOX_DISPLAY)
+                {
+                    IMessage sms = groupedMessages.get(item).get(0);
+                    String name = sms.getContactName();
+                    big.addLine(name + ": " + sms.getText());
+                    messageCount++;
+                }
+                else
+                    extraCount++;
+            }
+            if (extraCount > 0)
+                big.setSummaryText("+ " + extraCount + " other"
+                        + (extraCount > 2 ? "s" : "" ));
+        }
         return big.build();
     }
 

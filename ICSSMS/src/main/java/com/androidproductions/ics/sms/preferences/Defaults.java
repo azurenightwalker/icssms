@@ -4,7 +4,7 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
-class Defaults {
+final class Defaults {
     static final Map<String,Integer> INT_CONSTANTS;
     static final Map<String,String> STRING_CONSTANTS;
     static final Map<String,Boolean> BOOLEAN_CONSTANTS;

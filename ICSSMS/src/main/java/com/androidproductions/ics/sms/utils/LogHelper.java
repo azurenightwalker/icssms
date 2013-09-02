@@ -4,7 +4,7 @@ import android.content.Context;
 import android.util.Log;
 import android.widget.Toast;
 
-public class LogHelper {
+public final class LogHelper {
 	private static final String TAG = "ICS SMS";
 
 	private static int DEBUG_LEVEL = 0;

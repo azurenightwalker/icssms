@@ -89,30 +89,9 @@ public class MessagingService extends Service{
 		onStartCommand(intent, startId, 0);
 	}
 	
-	@SuppressWarnings("unused")
-	private static String translateResultCode(int resultCode) {
-        switch (resultCode) {
-            case Activity.RESULT_OK:
-                return "Activity.RESULT_OK";
-            case SmsManager.RESULT_ERROR_GENERIC_FAILURE:
-                return "SmsManager.RESULT_ERROR_GENERIC_FAILURE";
-            case SmsManager.RESULT_ERROR_RADIO_OFF:
-                return "SmsManager.RESULT_ERROR_RADIO_OFF";
-            case SmsManager.RESULT_ERROR_NULL_PDU:
-                return "SmsManager.RESULT_ERROR_NULL_PDU";
-            case SmsManager.RESULT_ERROR_NO_SERVICE:
-                return "SmsManager.RESULT_ERROR_NO_SERVICE";
-            default:
-                return "Unknown error code";
-        }
-    }
-	
-	
 	private static final class ServiceHandler extends Handler {
 		private final Service context;
         private final ConfigurationHelper mConfig;
-        @SuppressWarnings("unused")
-		private boolean mSending;
         private MyPhoneStateListener phoneListener;
         public ServiceHandler(Looper looper, Service con) {
             super(looper);
@@ -167,7 +146,6 @@ public class MessagingService extends Service{
 		private void handleSmsSent(Intent intent, int error, int resultCode) {
             //noinspection ConstantConditions
             Uri uri = (Uri)intent.getExtras().get(SMS_URI);
-	        mSending = false;
 	        boolean sendNextMsg = intent.getBooleanExtra(EXTRA_MESSAGE_SENT_SEND_NEXT, false);
 
 	        if (resultCode == Activity.RESULT_OK) {
@@ -204,7 +182,6 @@ public class MessagingService extends Service{
 	    }
 
 	    private void sendFirstQueuedMessage() {
-	    	mSending = true;
 	    	Cursor c = context.getContentResolver().query(Constants.SMS_QUEUED_URI, null, null,
 					null, "date ASC");
 	    	if (c!= null)

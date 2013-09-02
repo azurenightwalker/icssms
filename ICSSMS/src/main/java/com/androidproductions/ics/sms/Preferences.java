@@ -27,7 +27,7 @@ public class Preferences extends ThemeableActivity {
 	private String[] keys;
 	private String[] types;
 	private Object[] widgets;
-	private int current = 0;
+	private int current;
 	private static final int permCount = 5;
 	
 	/** Called when the activity is first created. */

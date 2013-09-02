@@ -8,7 +8,7 @@ import android.net.Uri;
 import com.androidproductions.ics.sms.Constants;
 import com.androidproductions.ics.sms.receivers.SmsUpdateReceiver;
 
-public class SMSUtilities {
+public final class SMSUtilities {
 	public static SMSMessage generateMessageFromSummary(Context context, Cursor c) {
 		String address = "";
         String recs = c.getString(c.getColumnIndex("recipient_ids"));

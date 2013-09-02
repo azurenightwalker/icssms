@@ -14,7 +14,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
-public class MessageUtilities {
+public final class MessageUtilities {
 
     public static List<IMessage> GetUnreadMessages(Context context)
     {

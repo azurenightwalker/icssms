@@ -19,7 +19,7 @@ import android.widget.TextView;
 import com.androidproductions.ics.sms.R;
 import com.androidproductions.ics.sms.data.ContactHelper;
 
-public class ContactsAutoCompleteCursorAdapter extends CursorAdapter implements Filterable {
+public class ContactsAutoCompleteCursorAdapter extends CursorAdapter {
 
 	private final Context mContext;
 
@@ -141,7 +141,7 @@ public class ContactsAutoCompleteCursorAdapter extends CursorAdapter implements 
                             null,
                             null);
 
-                if (phone.length() > 0) {
+                if (!phone.isEmpty()) {
                     Object[] result = new Object[7];
                     result[0] = -1;                    // ID
                     result[1] = -1L;                       // CONTACT_ID

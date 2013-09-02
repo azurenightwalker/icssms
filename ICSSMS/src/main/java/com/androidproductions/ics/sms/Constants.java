@@ -2,7 +2,7 @@ package com.androidproductions.ics.sms;
 
 import android.net.Uri;
 
-public class Constants {
+public final class Constants {
 	
 	public static final Uri SMS_URI= Uri.parse("content://sms/");
 	public static final Uri SMS_INBOX_URI = Uri.parse("content://sms/inbox");
@@ -63,4 +63,5 @@ public class Constants {
 
     public static final int CACHE_SIZE = 10;
     public static final int MIN_CACHE_SIZE = 2;
+    public static final int MAX_INBOX_DISPLAY = 6;
 }

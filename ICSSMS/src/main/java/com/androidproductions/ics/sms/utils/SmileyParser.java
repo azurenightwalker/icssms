@@ -35,7 +35,7 @@ public class SmileyParser {
         mPattern = buildPattern();
     }
 
-    static class Smileys {
+    final static class Smileys {
         private static final int[] sIconIds = {
             R.drawable.emo_im_happy,
             R.drawable.emo_im_sad,
@@ -80,6 +80,11 @@ public class SmileyParser {
 
         public static int getSmileyResource(int which) {
             return sIconIds[which];
+        }
+
+        private Smileys()
+        {
+
         }
     }
 

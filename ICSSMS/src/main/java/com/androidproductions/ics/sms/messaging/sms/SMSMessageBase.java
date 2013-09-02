@@ -36,9 +36,9 @@ public abstract class SMSMessageBase implements IMessage{
 	private long ContactID;
 	public Uri uri;
 	public int SummaryCount;
-	private Long DateSent;
+	Long DateSent;
 	int Protocol;
-	private int Seen;
+	int Seen;
 	String Subject;
 	int ReplyPathPresent;
 	String ServiceCentre;
@@ -118,7 +118,7 @@ public abstract class SMSMessageBase implements IMessage{
         Read = 0;
         Seen = 0;
         Subject = "";
-        if (smsa.getPseudoSubject().length() > 0)
+        if (!smsa.getPseudoSubject().isEmpty())
         	Subject = smsa.getPseudoSubject();
         ReplyPathPresent = smsa.isReplyPathPresent() ? 1 : 0;
         ServiceCentre = smsa.getServiceCenterAddress();

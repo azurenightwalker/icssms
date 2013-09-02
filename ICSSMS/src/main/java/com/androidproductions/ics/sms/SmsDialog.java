@@ -208,7 +208,7 @@ public class SmsDialog extends ThemeableDialog  {
 	        removeDraft();
 	        ((EditText)findViewById(R.id.text)).getEditableText().clear();
 	        updateUnreadMessages();
-	        if (unread.size() == 0)
+	        if (unread.isEmpty())
 	        	closeDialog(v);
 	        else
 	        {
@@ -229,7 +229,7 @@ public class SmsDialog extends ThemeableDialog  {
 		updateUnreadMessages();
 		String addy = AddressUtilities.StandardiseNumber(message.getAddress(),SmsDialog.this);
 		if (unread.size() == 1) unread.get(0).markAsRead();
-		else if (unread.size() > 0)
+		else if (!unread.isEmpty())
 			do
 			{
 				IMessage sms2 = unread.get(i);

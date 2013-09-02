@@ -90,7 +90,6 @@ public class SmsViewer extends ThemeableActivity {
     public String shareString;
 	
 	private String name;
-	private LruCache<Long,Bitmap> ImageCache;
 	
     /** Called when the activity is first created. */
     @Override
@@ -126,7 +125,6 @@ public class SmsViewer extends ThemeableActivity {
         }
         SmileyParser.init(this);
         parser = SmileyParser.getInstance();
-        ImageCache = new LruCache<Long, Bitmap>(2);
         lastDate = 0L;
         firstDate = Long.MAX_VALUE;
     }
@@ -190,6 +188,7 @@ public class SmsViewer extends ThemeableActivity {
             	Intent hintent = new Intent(this, ICSSMSActivity_.class);
                 hintent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(hintent);
+                return true;
             /*case R.conv.online:
             	switchState();*/
             default:
@@ -272,7 +271,7 @@ public class SmsViewer extends ThemeableActivity {
 			MessageUtilities.SendMessage(SmsViewer.this, text, address);
 			redrawView();
 		}
-		if (ConfigurationHelper.getInstance(getApplicationContext()).getBooleanValue(ConfigurationHelper.HIDE_KEYBOARD_ON_SEND))
+		if (ConfigurationHelper.getInstance().getBooleanValue(ConfigurationHelper.HIDE_KEYBOARD_ON_SEND))
 		{
 			InputMethodManager mgr = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
 			mgr.hideSoftInputFromWindow(textBox.getWindowToken(), 0);
@@ -321,7 +320,7 @@ public class SmsViewer extends ThemeableActivity {
 	        	new Thread(new Runnable() {
 	                public void run() {
 	                	try {
-                            ((ImageView)smsList.findViewWithTag(msg).findViewById(R.id.photo)).setImageBitmap(msg.getContactPhoto(ImageCache));
+                            ((ImageView)smsList.findViewWithTag(msg).findViewById(R.id.photo)).setImageBitmap(msg.getContactPhoto());
 	                	}
 	                	catch(Exception e){ e.printStackTrace(); }
 	                }
@@ -334,7 +333,7 @@ public class SmsViewer extends ThemeableActivity {
 	
 	public void redrawView()
     {    
-    	if (messages != null && messages.size() > 0)
+    	if (messages != null && !messages.isEmpty())
     	{
     		messages = MessageUtilities.GetMessages(SmsViewer.this, threadId,25);
     	}
@@ -351,7 +350,6 @@ public class SmsViewer extends ThemeableActivity {
 	
 	public void showPrevious(View v)
     {
-        int height = smsList.getMeasuredHeight();
         firstDate = Math.min(firstDate,Math.min(messages.get(messages.size()-1).getDate(),messages.get(0).getDate()));
     	messages = MessageUtilities.GetMessages(SmsViewer.this, threadId, 25, firstDate);
         Collections.sort(messages, new Comparator<IMessage>() {
@@ -441,6 +439,7 @@ public class SmsViewer extends ThemeableActivity {
                 i.setType("text/plain");
                 i.putExtra(android.content.Intent.EXTRA_TEXT, PressedMessage.getText());
                 startActivity(Intent.createChooser(i, shareString));
+                return true;
 	        case R.smslong.lock:
 	        	PressedMessage.lockMessage();
 	        	smsList.findViewWithTag(PressedMessage).findViewById(R.id.messageStatus).setVisibility(View.VISIBLE);

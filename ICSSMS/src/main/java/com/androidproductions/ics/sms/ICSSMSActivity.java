@@ -51,7 +51,7 @@ public class ICSSMSActivity extends AdSupportedActivity {
 
     @Override
     public boolean onPrepareOptionsMenu(Menu menu) {
-        if (MessageUtilities.GetUnsentMessages(ICSSMSActivity.this).size() > 0)
+        if (!MessageUtilities.GetUnsentMessages(ICSSMSActivity.this).isEmpty())
             menu.findItem(R.id.unsentSms).setVisible(true);
         else
             menu.findItem(R.id.unsentSms).setVisible(false);
@@ -122,7 +122,7 @@ public class ICSSMSActivity extends AdSupportedActivity {
 						{
 							v.setSelected(false);
 		                    selected.remove(v);
-		                    if (selected.size() == 0)
+		                    if (selected.isEmpty())
 		                    {
 		                    	mCurrentActionMode.finish();
 		                    }

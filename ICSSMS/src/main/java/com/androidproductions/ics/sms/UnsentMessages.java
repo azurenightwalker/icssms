@@ -54,7 +54,6 @@ public class UnsentMessages extends AdSupportedActivity {
         InitializeAds();
     }
 
-    @SuppressWarnings("deprecation")
     private void redrawView()
     {
     	List<IMessage> smss = MessageUtilities.GetUnsentMessages(UnsentMessages.this);

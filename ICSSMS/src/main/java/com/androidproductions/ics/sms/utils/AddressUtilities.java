@@ -7,7 +7,7 @@ import com.google.i18n.phonenumbers.PhoneNumberUtil;
 import com.google.i18n.phonenumbers.PhoneNumberUtil.PhoneNumberFormat;
 import com.google.i18n.phonenumbers.Phonenumber.PhoneNumber;
 
-public class AddressUtilities {
+public final class AddressUtilities {
     public static String StandardiseNumber(String address, Context context)
     {
     	try {
