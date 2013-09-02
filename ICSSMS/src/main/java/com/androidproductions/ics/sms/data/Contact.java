@@ -3,9 +3,9 @@ package com.androidproductions.ics.sms.data;
 import android.database.Cursor;
 import android.provider.ContactsContract;
 
-public class Contact {
-    private String displayName;
-    private String phoneNumber;
+class Contact {
+    private final String displayName;
+    private final String phoneNumber;
 
     public Contact(String name, String number)
     {

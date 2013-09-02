@@ -104,7 +104,7 @@ public class SMSMessage extends SMSMessageBase{
         return saveMessage(read);
     }
 	
-	public Uri saveMessage(boolean read) {
+	Uri saveMessage(boolean read) {
         // Store the message in the content provider.
         ContentValues values = buildContentValues(read);
         findName();

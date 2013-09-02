@@ -11,13 +11,12 @@ import android.provider.ContactsContract;
 import android.provider.ContactsContract.PhoneLookup;
 import android.telephony.SmsMessage;
 import android.util.Log;
-import android.util.LruCache;
 
 import com.androidproductions.ics.sms.Constants;
 import com.androidproductions.ics.sms.R;
 import com.androidproductions.ics.sms.data.ContactHelper;
+import com.androidproductions.ics.sms.data.ImageCache;
 import com.androidproductions.ics.sms.messaging.IMessage;
-import com.androidproductions.ics.sms.utils.ApexHelper;
 import com.androidproductions.ics.sms.utils.TextUtilities;
 
 import java.io.InputStream;
@@ -28,26 +27,26 @@ public abstract class SMSMessageBase implements IMessage{
 	public String Address;
 	public String Body;
 	private String Name;
-	public final Long Date;
+	final Long Date;
 	public long ID;
-	public final int Type;
+	final int Type;
 	public int Read;
-	public int Locked;
+	private int Locked;
 	public long ThreadId;
-	public long ContactID;
+	private long ContactID;
 	public Uri uri;
 	public int SummaryCount;
-	protected Long DateSent;
-	protected int Protocol;
-	protected int Seen;
-	protected String Subject;
-	protected int ReplyPathPresent;
-	protected String ServiceCentre;
+	private Long DateSent;
+	int Protocol;
+	private int Seen;
+	String Subject;
+	int ReplyPathPresent;
+	String ServiceCentre;
 	public boolean HasAttachment;
 
     private final ContactHelper contactHelper;
 	
-	public SMSMessageBase(Context con, Cursor c)
+	SMSMessageBase(Context con, Cursor c)
 	{
 		mContext = con;
 		int typeCol = c.getColumnIndex("type");
@@ -70,7 +69,7 @@ public abstract class SMSMessageBase implements IMessage{
         contactHelper = new ContactHelper(mContext);
     }
 	
-	public SMSMessageBase(Context con, String address, int type, String body, long date)
+	SMSMessageBase(Context con, String address, int type, String body, long date)
 	{
 		ID = -1;
 		mContext = con;
@@ -85,13 +84,13 @@ public abstract class SMSMessageBase implements IMessage{
         contactHelper = new ContactHelper(mContext);
     }
 	
-	public SMSMessageBase(Context con, Cursor c, String address)
+	SMSMessageBase(Context con, Cursor c, String address)
 	{
 		this(con,c);
     	Address = address;
     }
 	
-	public SMSMessageBase(Context con, Object[] messages)
+	SMSMessageBase(Context con, Object[] messages)
 	{
 		SmsMessage msgs[] = new SmsMessage[messages.length];
 		for (int n = 0; n < messages.length; n++) {
@@ -144,7 +143,7 @@ public abstract class SMSMessageBase implements IMessage{
 		return Name;
 	}
 
-	protected void findName() {
+	void findName() {
 		Name = Address;
 		try
 		{
@@ -187,12 +186,6 @@ public abstract class SMSMessageBase implements IMessage{
 	
 	public Bitmap getContactPhoto()
 	{
-        LruCache<Long, Bitmap> cache = new LruCache<Long, Bitmap>(2);
-        return getContactPhoto(cache);
-	}
-	
-	public Bitmap getContactPhoto(LruCache<Long,Bitmap> cache)
-	{
         if (IsIncoming())
         {
             if (ContactID < 0)
@@ -201,28 +194,28 @@ public abstract class SMSMessageBase implements IMessage{
         }
         else
         {
-            return contactHelper.getProfileContactImage(cache);
+            return contactHelper.getProfileContactImage();
         }
-        return contactHelper.getContactImage(cache);
+        return contactHelper.getContactImage();
 	}
 	
-	public Bitmap getConversationContactImage(LruCache<Long,Bitmap> cache) {
+	public Bitmap getConversationContactImage() {
 		try
 		{
 			if (ContactID < 0)
 				getContactName();
 			if (ContactID < 0)
-				return cache.get(0L);
-			Bitmap img = cache.get(ContactID);
+				return ImageCache.getDefault();
+			Bitmap img = ImageCache.getItem(ContactID);
 			if (img != null) return img;
 			Uri mContactLookupUri = ContentUris.withAppendedId(ContactsContract.Contacts.CONTENT_URI, ContactID);
             InputStream input = ContactsContract.Contacts.openContactPhotoInputStream(mContext.getContentResolver(),mContactLookupUri);
 			if (input == null)
 			{
-				return cache.get(0L);
+				return ImageCache.getItem(0L);
 			}
 			img = BitmapFactory.decodeStream(input);
-			cache.put(ContactID, img);
+            ImageCache.putItem(ContactID, img);
 			return img;
 		}
 		catch(Exception ex)
@@ -300,9 +293,6 @@ public abstract class SMSMessageBase implements IMessage{
 	            public void run() {
 	                mContext.getContentResolver().update(uri,
 	                        values, null, null);
-	                ApexHelper apex = ApexHelper.getInstance(mContext);
-	        		apex.setCount();
-	        		apex.update();
 	            }
 	        }, "unreadMessage").start();
 		}

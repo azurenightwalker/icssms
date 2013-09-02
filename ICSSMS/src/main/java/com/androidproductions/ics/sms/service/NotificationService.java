@@ -12,7 +12,6 @@ import android.os.IBinder;
 
 import com.androidproductions.ics.sms.Constants;
 import com.androidproductions.ics.sms.transactions.NotificationHelper;
-import com.androidproductions.ics.sms.utils.ApexHelper;
 
 public class NotificationService extends Service{
 
@@ -49,19 +48,12 @@ public class NotificationService extends Service{
 	    public void onChange(boolean selfChange) {
 	        super.onChange(selfChange);
 	        NotificationHelper.getInstance(getApplicationContext()).updateUnreadSms();
-	        ApexHelper apex = ApexHelper.getInstance(getApplicationContext());
-    		apex.setCount();
-    		apex.update();
 	    }
 		
 		@TargetApi(Build.VERSION_CODES.JELLY_BEAN)
 		@Override
 	    public void onChange(boolean selfChange, Uri uri) {
-	        super.onChange(selfChange, uri);
-	        NotificationHelper.getInstance(getApplicationContext()).updateUnreadSms();
-	        ApexHelper apex = ApexHelper.getInstance(getApplicationContext());
-    		apex.setCount();
-    		apex.update();
+	        onChange(selfChange);
 	    }
 	}
 }

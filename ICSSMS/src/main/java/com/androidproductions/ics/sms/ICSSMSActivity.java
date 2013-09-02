@@ -3,14 +3,11 @@ package com.androidproductions.ics.sms;
 import android.content.ContentUris;
 import android.content.Intent;
 import android.content.res.TypedArray;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.text.SpannableString;
 import android.text.style.StyleSpan;
-import android.util.LruCache;
 import android.view.ActionMode;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -25,7 +22,6 @@ import android.widget.TextView;
 
 import com.androidproductions.ics.sms.messaging.IMessage;
 import com.androidproductions.ics.sms.messaging.MessageUtilities;
-import com.androidproductions.ics.sms.preferences.ConfigurationHelper;
 import com.googlecode.androidannotations.annotations.EActivity;
 import com.googlecode.androidannotations.annotations.OptionsMenu;
 import com.googlecode.androidannotations.annotations.ViewById;
@@ -33,21 +29,16 @@ import com.googlecode.androidannotations.annotations.ViewById;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.millennialmedia.android.MMAdView;
-import com.millennialmedia.android.MMRequest;
-import com.millennialmedia.android.MMSDK;
-
 @EActivity(R.layout.main)
 @OptionsMenu(R.menu.base_menu)
-public class ICSSMSActivity extends ThemeableActivity {
+public class ICSSMSActivity extends AdSupportedActivity {
 
     @ViewById(R.id.smsList)
-    LinearLayout smsList;
+    public LinearLayout smsList;
 	
 	// Current action mode (contextual action bar, a.k.a. CAB)
     private ActionMode mCurrentActionMode;
     private List<View> selected;
-	private LruCache<Long,Bitmap> ImageCache;
 
     /** Called when the activity is first created. */
 	@Override
@@ -56,31 +47,17 @@ public class ICSSMSActivity extends ThemeableActivity {
         selected = new ArrayList<View>();
         if(getIntent().getBooleanExtra(Constants.NOTIFICATION_STATE_UPDATE, false))
         	PreferenceManager.getDefaultSharedPreferences(this).edit().putBoolean(Constants.NOTIFICATION_SHOWING_KEY, false).apply();
-
-        ImageCache = new LruCache<Long, Bitmap>(10);
-        ImageCache.put(0L,BitmapFactory.decodeResource(getResources(), R.drawable.ic_contact_picture));
-
-        MMSDK.initialize(this);
     }
 
-    private void InitializeAds()
-    {
-        boolean showAds = ConfigurationHelper.getInstance(getApplicationContext())
-                .getBooleanValue(ConfigurationHelper.SHOW_ADS);
-        MMAdView adView = (MMAdView) findViewById(R.id.adView);
-        if (showAds)
-        {
-            adView.setVisibility(View.VISIBLE);
-            MMRequest request = new MMRequest();
-            adView.setMMRequest(request);
-            adView.getAd();
-        }
+    @Override
+    public boolean onPrepareOptionsMenu(Menu menu) {
+        if (MessageUtilities.GetUnsentMessages(ICSSMSActivity.this).size() > 0)
+            menu.findItem(R.id.unsentSms).setVisible(true);
         else
-        {
-            adView.setVisibility(View.GONE);
-        }
+            menu.findItem(R.id.unsentSms).setVisible(false);
+        return true;
     }
-	
+
 	@Override
 	public void onResume() {
         super.onResume();
@@ -129,7 +106,7 @@ public class ICSSMSActivity extends ThemeableActivity {
             ((QuickContactBadge)child.findViewById(R.id.contact_photo)).assignContactFromPhone(sms.getAddress(),true);
         	new Thread(new Runnable() {
 				public void run() {
-					((ImageView)child.findViewById(R.id.contact_photo)).setImageBitmap(sms.getConversationContactImage(ImageCache));
+					((ImageView)child.findViewById(R.id.contact_photo)).setImageBitmap(sms.getConversationContactImage());
 				}
 			}).run();
 			child.setTag(sms);
@@ -184,10 +161,15 @@ public class ICSSMSActivity extends ThemeableActivity {
             case android.R.id.home:
                 return true;
             case R.id.newSms:
-            	Intent intent = new Intent(this, ComposeSms_.class);
+                Intent intent = new Intent(this, ComposeSms_.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
-            	return true;
+                return true;
+            case R.id.unsentSms:
+                Intent unintent = new Intent(this, UnsentMessages_.class);
+                unintent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(unintent);
+                return true;
             case R.id.settings:
             	Intent prefintent = new Intent(this, Preferences_.class);
             	prefintent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);

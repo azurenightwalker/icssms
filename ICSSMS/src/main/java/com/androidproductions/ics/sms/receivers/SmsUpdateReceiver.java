@@ -12,8 +12,8 @@ import com.androidproductions.ics.sms.service.MessagingService;
 import com.androidproductions.ics.sms.service.NotificationService;
 
 public class SmsUpdateReceiver extends BroadcastReceiver {
-	static final Object mStartingServiceSync = new Object();
-	static PowerManager.WakeLock mStartingService;
+	private static final Object mStartingServiceSync = new Object();
+	private static PowerManager.WakeLock mStartingService;
 	public static final String UPDATE_TYPE = "UPDATE_TYPE";
 	public static final String SMS_SENT = "SMS_SENT";
 	public static final String SMS_ID = "_ID";
@@ -28,7 +28,7 @@ public class SmsUpdateReceiver extends BroadcastReceiver {
     		abortBroadcast();
 	}
 	
-	public static void beginStartingService(Context context, Intent intent) {
+	private static void beginStartingService(Context context, Intent intent) {
         synchronized (mStartingServiceSync) {
             if (mStartingService == null) {
                 PowerManager pm =

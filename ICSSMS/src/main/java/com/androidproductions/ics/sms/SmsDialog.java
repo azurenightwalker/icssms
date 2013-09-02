@@ -35,8 +35,8 @@ import java.util.Comparator;
 import java.util.List;
 
 public class SmsDialog extends ThemeableDialog  {
-	public List<IMessage> unread;
-	public IMessage message;
+	private List<IMessage> unread;
+	private IMessage message;
 	private SmileyParser parser;
 	
 	private final BroadcastReceiver receiver = new BroadcastReceiver() {

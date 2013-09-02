@@ -1,7 +1,6 @@
 package com.androidproductions.ics.sms.messaging;
 
 import android.graphics.Bitmap;
-import android.util.LruCache;
 
 public interface IMessage {
 	public Long getThreadId();
@@ -15,10 +14,9 @@ public interface IMessage {
 	public boolean IsIncoming();
 	public CharSequence GetShortDateString();
 	public CharSequence getSummaryHeader();
-	public Bitmap getConversationContactImage(LruCache<Long,Bitmap> cahce);
+	public Bitmap getConversationContactImage();
 	public void markAsRead();
 	public boolean isLocked();
-	public Bitmap getContactPhoto(LruCache<Long,Bitmap> imageCache);
 	public long getId();
 	public boolean deleteMessage();
 	public String GetDateString();

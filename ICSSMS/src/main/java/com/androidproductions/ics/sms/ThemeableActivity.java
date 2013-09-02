@@ -6,13 +6,13 @@ import android.support.v4.app.FragmentActivity;
 import com.androidproductions.ics.sms.preferences.ConfigurationHelper;
 import com.twww.excepttrack.ExceptTrackHandler;
 
-public abstract class ThemeableActivity extends FragmentActivity {
+abstract class ThemeableActivity extends FragmentActivity {
 	
 	protected void onCreate(Bundle savedInstanceState)
 	{
 		ExceptTrackHandler.setUrl("http://x2-starlit-vim-g.appspot.com/error");
         ExceptTrackHandler.setup(this,"1000");
-        int themeId = Integer.parseInt(ConfigurationHelper.getInstance(getApplicationContext()).getStringValue(ConfigurationHelper.THEME));
+        int themeId = Integer.parseInt(ConfigurationHelper.getInstance().getStringValue(ConfigurationHelper.THEME));
         int theme = 0;
         switch (themeId)
 		{

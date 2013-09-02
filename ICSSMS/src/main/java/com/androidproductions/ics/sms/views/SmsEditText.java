@@ -27,9 +27,8 @@ public class SmsEditText extends EditText {
 	
 	private void setAttrs()
 	{
-        Context context = getContext();
-        ConfigurationHelper.getInstance(context);
-		if (ConfigurationHelper.getInstance(context).getBooleanValue(ConfigurationHelper.SMILEY_KEY_ENABLED))
+        ConfigurationHelper.getInstance();
+		if (ConfigurationHelper.getInstance().getBooleanValue(ConfigurationHelper.SMILEY_KEY_ENABLED))
 			setInputType(InputType.TYPE_CLASS_TEXT |
 						 InputType.TYPE_TEXT_VARIATION_SHORT_MESSAGE |
 					     InputType.TYPE_TEXT_FLAG_AUTO_CORRECT |

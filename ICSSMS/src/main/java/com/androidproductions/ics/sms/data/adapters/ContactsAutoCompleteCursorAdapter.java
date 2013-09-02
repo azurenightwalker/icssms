@@ -4,12 +4,9 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.MatrixCursor;
 import android.database.MergeCursor;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.provider.ContactsContract.CommonDataKinds.Phone;
 import android.provider.ContactsContract.DataUsageFeedback;
-import android.util.LruCache;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -34,14 +31,10 @@ public class ContactsAutoCompleteCursorAdapter extends CursorAdapter implements 
         Phone.LABEL,                // 4
         Phone.DISPLAY_NAME,         // 5
     };
-    private final LruCache<Long, Bitmap> ImageCache;
 
     public ContactsAutoCompleteCursorAdapter(Context context, Cursor c) {
     	super(context,c,0);
-        //super(context, c);
         mContext = context;
-        ImageCache = new LruCache<Long, Bitmap>(20);
-        ImageCache.put(0L, BitmapFactory.decodeResource(context.getResources(), R.drawable.ic_contact_picture));
     }
 
     @Override
@@ -70,7 +63,7 @@ public class ContactsAutoCompleteCursorAdapter extends CursorAdapter implements 
              * Always add an icon, even if it is null. Keep the layout children
              * indices consistent.
              */
-            ((ImageView) ret.findViewById(R.id.contact_photo)).setImageBitmap(ch.getContactImage(ImageCache));
+            ((ImageView) ret.findViewById(R.id.contact_photo)).setImageBitmap(ch.getContactImage());
             return ret;
         }
         return null;
@@ -95,7 +88,7 @@ public class ContactsAutoCompleteCursorAdapter extends CursorAdapter implements 
         ((TextView) view.findViewById(R.id.contact_name)).setText(name);
         ((TextView) view.findViewById(R.id.type)).setText(displayLabel);
         ((TextView) view.findViewById(R.id.contact_number)).setText(number);
-        ((ImageView) view.findViewById(R.id.contact_photo)).setImageBitmap(ch.getContactImage(ImageCache));
+        ((ImageView) view.findViewById(R.id.contact_photo)).setImageBitmap(ch.getContactImage());
     }
 
     @Override
