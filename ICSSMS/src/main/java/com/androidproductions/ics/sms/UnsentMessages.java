@@ -149,10 +149,6 @@ public class UnsentMessages extends AdSupportedActivity {
             ((TextView)dialog.findViewById(R.id.labelLocation)).setText("To:");
             ((TextView)dialog.findViewById(R.id.labelRecieved)).setText("Sent:");
         }
-        if (message.hasAttachments())
-        {
-            ((TextView)dialog.findViewById(R.id.valueType)).setText(R.string.mmsType);
-        }
         ((TextView)dialog.findViewById(R.id.valueLocation)).setText(PressedMessage.getAddress());
         ((TextView)dialog.findViewById(R.id.valueRecieved)).setText(PressedMessage.GetDateString());
         dialog.show();

@@ -8,6 +8,10 @@ import android.net.Uri;
 import com.androidproductions.ics.sms.Constants;
 import com.androidproductions.ics.sms.receivers.SmsUpdateReceiver;
 import com.androidproductions.libs.sms.Action;
+import com.androidproductions.libs.sms.SmsMessage;
+import com.androidproductions.libs.sms.Transaction;
+
+import java.util.List;
 
 public final class SMSUtilities {
     private SMSUtilities() {
@@ -39,17 +43,17 @@ public final class SMSUtilities {
 		return message;
 	}
 	
-	public static Long sendSms(final Context context, final String text, final String number)
+	public static long sendSms(final Context context, final String text, final String number)
 	{
 		if (number != null)
 		{
-			final SMSMessage message = new SMSMessage(context, number, 0, text, System.currentTimeMillis());
-            message.Read = 1;
-            final long threadId = message.queueSending();
+			SmsMessage sms = new SmsMessage(text,number,System.currentTimeMillis());
+            Transaction transaction = new Transaction(context);
+            transaction.queueMessage(sms);
             final Intent intent  = new Intent(context, SmsUpdateReceiver.class);
             intent.setAction(Action.SEND);
             context.sendBroadcast(intent);
-            return threadId;
+            return sms.getThreadId();
 		}
 		return 0L;
 	}

@@ -43,6 +43,7 @@ import com.androidproductions.ics.sms.utils.SmileyParser;
 import com.androidproductions.ics.sms.views.KeyboardDetectorScrollView;
 import com.androidproductions.ics.sms.views.KeyboardDetectorScrollView.IKeyboardChanged;
 import com.androidproductions.libs.sms.SmsUri;
+import com.androidproductions.libs.sms.Transaction;
 import com.googlecode.androidannotations.annotations.AfterTextChange;
 import com.googlecode.androidannotations.annotations.AfterViews;
 import com.googlecode.androidannotations.annotations.EActivity;
@@ -338,7 +339,7 @@ public class SmsViewer extends ThemeableActivity {
     	}
     	else
     	{
-    		threadId = SMSMessage.getOrCreateThreadId(SmsViewer.this, address);
+    		threadId = new Transaction(SmsViewer.this).getOrCreateThreadId(address);
     		messages = MessageUtilities.GetMessages(SmsViewer.this, threadId,25);
     		setupContact();
         }
@@ -418,10 +419,6 @@ public class SmsViewer extends ThemeableActivity {
 	        	{
 	        		((TextView)dialog.findViewById(R.id.labelLocation)).setText("To:");
 	        		((TextView)dialog.findViewById(R.id.labelRecieved)).setText("Sent:");
-	        	}
-	        	if (PressedMessage.hasAttachments())
-	        	{
-	        		((TextView)dialog.findViewById(R.id.valueType)).setText(R.string.mmsType);
 	        	}
 	        	((TextView)dialog.findViewById(R.id.valueLocation)).setText(PressedMessage.getAddress());
 	        	((TextView)dialog.findViewById(R.id.valueRecieved)).setText(PressedMessage.GetDateString());

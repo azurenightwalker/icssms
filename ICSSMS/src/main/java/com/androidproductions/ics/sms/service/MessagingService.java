@@ -166,9 +166,7 @@ public class MessagingService extends Service{
 	            
 	        } else {
 	            messageFailedToSend(uri, error);
-	            if (sendNextMsg) {
-	                sendFirstQueuedMessage();
-	            }
+	            sendFirstQueuedMessage();
 	        }
 	    }
 
@@ -179,16 +177,16 @@ public class MessagingService extends Service{
             {
                 if (c.moveToFirst())
                 {
-                    final int addressCol = c.getColumnIndex("address");
-                    final String address = c.getString(addressCol);
-                    sendMessage(new SMSMessage(context,c, address));
+                    final String address = c.getString(c.getColumnIndex("address"));
+                    final long id = c.getLong(c.getColumnIndex("_id"));
+                    final String body = c.getString(c.getColumnIndex("body"));
+                    sendMessage(new SmsMessage(body, address,id));
                 }
                 c.close();
             }
 		}
 	    
-		private void sendMessage(final SMSMessage message) {
-            final SmsMessage sms = new SmsMessage(message.Body, message.Address,message.getId());
+		private void sendMessage(final SmsMessage sms) {
             final Transaction trans = new Transaction(context);
             trans.sendMessage(sms,null);
 		}

@@ -13,14 +13,30 @@ public class SmsMessage {
         return Id;
     }
 
+    public long getThreadId() {
+        return ThreadId;
+    }
+
+    public long getDate() {
+        return Date;
+    }
+
     private final String Body;
     private long Id;
+    private long ThreadId;
+    private long Date;
     private final String[] Addresses;
 
-    public SmsMessage(String body, String address, long id)
+    public SmsMessage(String body, String address, long date, long id)
+    {
+        this(body,address,date);
+        Id = id;
+    }
+
+    public SmsMessage(String body, String address, long date)
     {
         this(body,new String[] {address});
-        Id = id;
+        Date = date;
     }
 
     public SmsMessage(String body, String address)
@@ -32,5 +48,10 @@ public class SmsMessage {
     {
         Body = body;
         Addresses = addresses;
+    }
+
+    public void setThreadId(long tid)
+    {
+        ThreadId = tid;
     }
 }

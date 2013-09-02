@@ -13,6 +13,7 @@ import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
 
 public class Transaction {
     private final Context mContext;
@@ -41,6 +42,24 @@ public class Transaction {
         ContentValues cv = new ContentValues();
         cv.put("type",MessageType.QUEUED);
         mContext.getContentResolver().update(uri,cv,null,null);
+    }
+
+    public List<Uri> queueMessage(SmsMessage sms)
+    {
+        List<Uri> res = new ArrayList<Uri>();
+        sms.setThreadId(getOrCreateThreadId(sms.getAddresses()));
+        for(String address : sms.getAddresses())
+        {
+            ContentValues cv = new ContentValues();
+            cv.put("address", address);
+            cv.put("body", sms.getBody());
+            cv.put("date", sms.getDate());
+            cv.put("read", 1);
+            cv.put("type", MessageType.QUEUED);
+            cv.put("thread_id", sms.getThreadId());
+            res.add(mContext.getContentResolver().insert(SmsUri.QUEUED_URI,cv));
+        }
+        return res;
     }
 
     public void failedMessage(Uri uri)
@@ -117,6 +136,7 @@ public class Transaction {
             smsManager.sendMultipartTextMessage(PhoneNumberUtils.stripSeparators(address), null, parts, sPI, dPI);
         } catch (Exception e) {
             e.printStackTrace();
+            failedMessage(inserted);
         }
     }
 

@@ -4,25 +4,32 @@ import android.graphics.Bitmap;
 
 public interface IMessage {
 	public Long getThreadId();
+    public long getId();
+
 	public String getText();
-	public boolean hasAttachments();
 	public String getAddress();
 	public String getContactName();
+    public CharSequence getSummaryHeader();
+
 	public Bitmap getContactPhoto();
+    public Bitmap getConversationContactImage();
+
+    public boolean IsIncoming();
+
 	public boolean isUnread();
+    public void markAsRead();
+    public void markAsUnread();
+
 	public Long getDate();
-	public boolean IsIncoming();
-	public CharSequence GetShortDateString();
-	public CharSequence getSummaryHeader();
-	public Bitmap getConversationContactImage();
-	public void markAsRead();
+    public String GetDateString();
+    public CharSequence GetShortDateString();
+
 	public boolean isLocked();
-	public long getId();
-	public boolean deleteMessage();
-	public String GetDateString();
-	public void lockMessage();
-	public void unlockMessage();
-	public void markAsUnread();
+    public void lockMessage();
+    public void unlockMessage();
+
 	public IMessage getPrevious();
 	public boolean sendingFailed();
+
+    public boolean deleteMessage();
 }

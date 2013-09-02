@@ -10,6 +10,7 @@ import android.util.Log;
 
 import com.androidproductions.libs.sms.MessageType;
 import com.androidproductions.libs.sms.SmsUri;
+import com.androidproductions.libs.sms.Transaction;
 
 public class SMSMessage extends SMSMessageBase{
 
@@ -27,7 +28,7 @@ public class SMSMessage extends SMSMessageBase{
 		super(con, msgs);
 	}
 	
-	public long queueSending()
+	/*public long queueSending()
 	{
 		final ContentValues values = new ContentValues();
         values.put("address", Address);
@@ -45,10 +46,11 @@ public class SMSMessage extends SMSMessageBase{
             return id;
         }
         return 0L;
-	}
+	}*/
 
 	public SMSMessage getPrevious() {
-		final Cursor c = mContext.getContentResolver().query(SmsUri.SENT_URI, null, "thread_id = ?", new String[] { String.valueOf(getOrCreateThreadId(mContext, Address)) }, "date DESC");
+		final Cursor c = mContext.getContentResolver().query(SmsUri.SENT_URI, null, "thread_id = ?",
+                new String[] { String.valueOf(new Transaction(mContext).getOrCreateThreadId(Address)) }, "date DESC");
 		if (c != null) {
             if (c.moveToFirst())
             {
@@ -98,42 +100,10 @@ public class SMSMessage extends SMSMessageBase{
         values.put("service_center", ServiceCentre);
         
         if (Address != null) {
-            final Long threadId = getOrCreateThreadId(mContext, Address);
+            final Long threadId = new Transaction(mContext).getOrCreateThreadId(Address);
             values.put("thread_id", threadId);
         }
         
         return values;
-    }
-	
-	public static long getOrCreateThreadId (final Context context, final String recipient)
-	{
-	    final Uri THREAD_ID_CONTENT_URI= Uri.parse("content://mms-sms/threadID");
-	    final String[] ID_PROJECTION ={BaseColumns._ID};
-        final Uri.Builder uriBuilder=THREAD_ID_CONTENT_URI.buildUpon();
-        uriBuilder.appendQueryParameter("recipient",recipient);
-        final Uri uri=uriBuilder.build();
-        if (uri != null)
-        {
-            final Cursor cursor=context.getContentResolver().query(uri,ID_PROJECTION,null ,null ,null );
-            if (cursor!=null )
-            {
-                try
-                {
-                    if (cursor.moveToFirst())
-                    {
-                        return cursor.getLong(0);
-                    }
-                    else
-                    {
-                        Log.e("","getOrCreateThreadId returned no rows ! ");
-                    }
-                }
-                finally
-                {
-                    cursor.close();
-                }
-            }
-        }
-        throw new IllegalArgumentException("Unable to find or allocate a thread ID . ");
     }
 }
