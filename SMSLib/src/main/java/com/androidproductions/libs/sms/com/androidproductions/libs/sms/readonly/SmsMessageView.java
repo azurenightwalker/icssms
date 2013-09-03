@@ -9,7 +9,6 @@ import android.net.Uri;
 import android.provider.ContactsContract;
 
 import com.androidproductions.libs.sms.SmsMessage;
-import com.androidproductions.libs.sms.Transaction;
 import com.androidproductions.libs.sms.com.androidproductions.libs.sms.constants.SmsUri;
 
 import java.io.InputStream;
@@ -44,14 +43,14 @@ public class SmsMessageView extends SmsMessage implements IMessageView{
 
     public SmsMessageView(final Context con, final Cursor c,final long contact)
     {
-        this(con,c);
+        this(con, c);
         ContactID = contact;
     }
 
-    public SmsMessageView(Context context, String address, String message, long time) {
+    public SmsMessageView(final Context context, final String address, final String message, final long time) {
         super(message,address,time);
         mContext = context;
-        findName();
+        //findName();
     }
 
     public boolean IsIncoming()
@@ -79,7 +78,7 @@ public class SmsMessageView extends SmsMessage implements IMessageView{
         return getContactImage(ContactID);
     }
 
-    Bitmap getContactImage(long id)
+    Bitmap getContactImage(final long id)
     {
         Bitmap image = ImageCache.getItem(id);
         if (image != null)
@@ -93,7 +92,7 @@ public class SmsMessageView extends SmsMessage implements IMessageView{
         return image;
     }
 
-    private Bitmap _getContactImage(Uri uri)
+    private Bitmap _getContactImage(final Uri uri)
     {
         try
         {
@@ -112,7 +111,7 @@ public class SmsMessageView extends SmsMessage implements IMessageView{
         return null;
     }
 
-    void findName() {
+    final void findName() {
         Name = Addresses[0];
         try
         {

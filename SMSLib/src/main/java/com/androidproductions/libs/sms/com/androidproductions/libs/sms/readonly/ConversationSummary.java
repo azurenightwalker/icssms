@@ -7,10 +7,6 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.provider.ContactsContract;
-import android.util.Log;
-
-import com.androidproductions.libs.sms.SmsMessage;
-import com.androidproductions.libs.sms.com.androidproductions.libs.sms.constants.SmsUri;
 
 import java.io.InputStream;
 import java.util.Calendar;
@@ -27,11 +23,11 @@ public class ConversationSummary{
     private Context mContext;
     private long ContactID;
 
-    public ConversationSummary(Context context, Cursor c, String address, String snippet, long date) {
+    public ConversationSummary(final Context context, final Cursor c, final String address, final String snippet, final long date) {
         this(context, c, address, snippet, date,c.getInt(c.getColumnIndex("message_count")));
     }
 
-    public ConversationSummary(Context context, Cursor c, String address, String snippet, long date,int summaryCount) {
+    public ConversationSummary(final Context context, final Cursor c, final String address, final String snippet, final long date, final int summaryCount) {
         super();
         Addresses = new String[] {address};
         SummaryCount = summaryCount;
@@ -54,7 +50,7 @@ public class ConversationSummary{
         return ThreadId;
     }
 
-    void findName() {
+    final void findName() {
         Name = Addresses[0];
         try
         {

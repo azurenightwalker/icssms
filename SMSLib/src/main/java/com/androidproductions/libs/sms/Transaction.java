@@ -27,25 +27,25 @@ import java.util.List;
 public class Transaction {
     private final Context mContext;
 
-    public Transaction(Context context)
+    public Transaction(final Context context)
     {
         mContext = context;
     }
 
-    public void requeueMessage(Uri uri)
+    public void requeueMessage(final Uri uri)
     {
-        ContentValues cv = new ContentValues();
+        final ContentValues cv = new ContentValues();
         cv.put("type",MessageType.QUEUED);
         mContext.getContentResolver().update(uri,cv,null,null);
     }
 
-    public List<Uri> queueMessage(SmsMessage sms)
+    public List<Uri> queueMessage(final SmsMessage sms)
     {
-        List<Uri> res = new ArrayList<Uri>();
+        final List<Uri> res = new ArrayList<Uri>();
         sms.setThreadId(getOrCreateThreadId(sms.getAddresses()));
-        for(String address : sms.getAddresses())
+        for(final String address : sms.getAddresses())
         {
-            ContentValues cv = new ContentValues();
+            final ContentValues cv = new ContentValues();
             cv.put("address", address);
             cv.put("body", sms.getBody());
             cv.put("date", sms.getDate());
@@ -57,29 +57,29 @@ public class Transaction {
         return res;
     }
 
-    public List<Uri> sendMessage(SmsMessage message,Long threadId)
+    public List<Uri> sendMessage(final SmsMessage message, final Long threadId)
     {
         return sendSmsMessage(message.getBody(), message.getAddresses(),message.getId(), threadId);
     }
 
-    private List<Uri> sendSmsMessage(String text, String[] addresses, Long messageId, Long threadId)
+    private List<Uri> sendSmsMessage(final String text, final String[] addresses, final Long messageId, Long threadId)
     {
-        List<Uri> res = new ArrayList<Uri>(addresses.length);
+        final List<Uri> res = new ArrayList<Uri>(addresses.length);
         if (threadId == null) {
             threadId = getOrCreateThreadId(addresses);
         }
 
-        for (int i = 0; i < addresses.length; i++) {
-            res.add(sendSmsMessage(text,addresses[i],messageId,threadId));
+        for (String address : addresses) {
+            res.add(sendSmsMessage(text, address, messageId, threadId));
         }
         return res;
     }
 
-    private Uri sendSmsMessage(String text, String address, Long messageId,Long threadId)
+    private Uri sendSmsMessage(final String text, final String address, final Long messageId,Long threadId)
     {
         // save the message for each of the addresses
-        Calendar cal = Calendar.getInstance();
-        ContentValues values = new ContentValues();
+        final Calendar cal = Calendar.getInstance();
+        final ContentValues values = new ContentValues();
         values.put("address", address);
         values.put("body", text);
         values.put("read", 1);
@@ -90,7 +90,7 @@ public class Transaction {
         }
 
         values.put("thread_id", threadId);
-        Uri inserted;
+        final Uri inserted;
         if (messageId != null)
         {
             mContext.getContentResolver().update(SmsUri.BASE_URI, values,"_id = ?", new String[] { String.valueOf(messageId)});
@@ -101,23 +101,21 @@ public class Transaction {
             values.put("date", cal.getTimeInMillis());
             inserted = mContext.getContentResolver().insert(SmsUri.OUTBOX_URI, values);
         }
-        Intent sendIntent = new Intent(Action.SENT);
+        final Intent sendIntent = new Intent(Action.SENT);
         sendIntent.putExtra("SMSURI",inserted);
-        Intent deliveredIntent = new Intent(Action.DELIVERED);
+        final Intent deliveredIntent = new Intent(Action.DELIVERED);
         sendIntent.putExtra("SMSURI",inserted);
-        PendingIntent sentPI = PendingIntent.getBroadcast(mContext, 0, sendIntent,PendingIntent.FLAG_CANCEL_CURRENT);
-        PendingIntent deliveredPI = PendingIntent.getBroadcast(mContext, 0, deliveredIntent, PendingIntent.FLAG_CANCEL_CURRENT);
+        final PendingIntent sentPI = PendingIntent.getBroadcast(mContext, 0, sendIntent,PendingIntent.FLAG_CANCEL_CURRENT);
+        final PendingIntent deliveredPI = PendingIntent.getBroadcast(mContext, 0, deliveredIntent, PendingIntent.FLAG_CANCEL_CURRENT);
 
-        ArrayList<PendingIntent> sPI = new ArrayList<PendingIntent>();
-        ArrayList<PendingIntent> dPI = new ArrayList<PendingIntent>();
+        final ArrayList<PendingIntent> sPI = new ArrayList<PendingIntent>();
+        final ArrayList<PendingIntent> dPI = new ArrayList<PendingIntent>();
 
-        String body = text;
+        final SmsManager smsManager = SmsManager.getDefault();
 
-        SmsManager smsManager = SmsManager.getDefault();
+        final ArrayList<String> parts = smsManager.divideMessage(text);
 
-        ArrayList<String> parts = smsManager.divideMessage(body);
-
-        for (int i = 0; i < parts.size(); i++) {
+        for (String part : parts) {
             sPI.add(sentPI);
             dPI.add(deliveredPI);
         }
@@ -131,28 +129,28 @@ public class Transaction {
         return inserted;
     }
 
-    public void sentMessage(Uri uri)
+    public void sentMessage(final Uri uri)
     {
-        ContentValues cv = new ContentValues();
+        final ContentValues cv = new ContentValues();
         cv.put("type", MessageType.SENT);
         mContext.getContentResolver().update(uri, cv, null, null);
     }
 
-    public void recievedMessage(Uri uri)
+    public void recievedMessage(final Uri uri)
     {
-        ContentValues cv = new ContentValues();
+        final ContentValues cv = new ContentValues();
         cv.put("seen",1);
         mContext.getContentResolver().update(uri,cv,null,null);
     }
 
-    public void failedMessage(Uri uri)
+    public void failedMessage(final Uri uri)
     {
-        ContentValues cv = new ContentValues();
+        final ContentValues cv = new ContentValues();
         cv.put("type",MessageType.FAILED);
         mContext.getContentResolver().update(uri,cv,null,null);
     }
 
-    public long getOrCreateThreadId(String recipient) {
+    public long getOrCreateThreadId(final String recipient) {
         return getOrCreateThreadId(new String[] { recipient });
     }
 
@@ -166,16 +164,16 @@ public class Transaction {
      * any order, without any additions). If one
      * is found, return it.  Otherwise, return a unique thread ID.
      */
-    public long getOrCreateThreadId(String[] recipients) {
-        Uri.Builder uriBuilder = SmsUri.THREAD_URI.buildUpon();
+    public long getOrCreateThreadId(final String[] recipients) {
+        final Uri.Builder uriBuilder = SmsUri.THREAD_URI.buildUpon();
 
-        for (String recipient : recipients) {
+        for (final String recipient : recipients) {
             uriBuilder.appendQueryParameter("recipient", recipient);
         }
 
-        Uri uri = uriBuilder.build();
+        final Uri uri = uriBuilder.build();
 
-        Cursor cursor = mContext.getContentResolver().query(uri, new String[]{"_id"}, null, null, null);
+        final Cursor cursor = mContext.getContentResolver().query(uri, new String[]{"_id"}, null, null, null);
         if (cursor != null) {
             try {
                 if (cursor.moveToFirst()) {

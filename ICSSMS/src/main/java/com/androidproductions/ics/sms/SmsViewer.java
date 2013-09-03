@@ -219,7 +219,7 @@ public class SmsViewer extends ThemeableActivity {
         {
             draftMessage = MessageUtilities.RetrieveDraftMessage(SmsViewer.this,address);
         }
-        Editable et = textBox.getEditableText();
+        final Editable et = textBox.getEditableText();
         et.clear();
         et.append(draftMessage);
         UpdateTextCount(textBox.getEditableText());

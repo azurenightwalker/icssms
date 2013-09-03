@@ -2,7 +2,7 @@ package com.androidproductions.libs.sms.com.androidproductions.libs.sms.constant
 
 import android.net.Uri;
 
-public class SmsUri {
+public final class SmsUri {
     public static final Uri BASE_URI= Uri.parse("content://sms/");
     public static final Uri INBOX_URI = Uri.parse("content://sms/inbox");
     public static final Uri FAILED_URI = Uri.parse("content://sms/failed");
@@ -15,4 +15,7 @@ public class SmsUri {
     public static final Uri CONVERSATIONS_URI = Uri.parse("content://mms-sms/conversations");
     public static final Uri SMS_ONLY_CONVERSATIONS_URI = Uri.parse("content://sms/conversations");
     public static final Uri THREAD_URI = Uri.parse("content://mms-sms/threadID");
+
+    private SmsUri() {
+    }
 }

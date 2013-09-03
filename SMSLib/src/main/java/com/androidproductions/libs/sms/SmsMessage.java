@@ -12,24 +12,24 @@ public class SmsMessage {
     protected final long Date;
     protected final String[] Addresses;
 
-    public SmsMessage(String body, String address, long date, long id)
+    public SmsMessage(final String body, final String address, final long date, final long id)
     {
         this(body,address,date);
         Id = id;
     }
 
-    public SmsMessage(String body, String[] addresses, long date, long id)
+    public SmsMessage(final String body, final String[] addresses, final long date, final long id)
     {
         this(body,addresses,date);
         Id = id;
     }
 
-    public SmsMessage(String body, String address, long date)
+    public SmsMessage(final String body, final String address, final long date)
     {
         this(body,new String[] {address},date);
     }
 
-    public SmsMessage(String body, String[] addresses, long date)
+    public SmsMessage(final String body, final String[] addresses, final long date)
     {
         Date = date;
         Body = body;
@@ -56,7 +56,7 @@ public class SmsMessage {
         return ThreadId;
     }
 
-    public void setThreadId(long tid)
+    public void setThreadId(final long tid)
     {
         ThreadId = tid;
     }

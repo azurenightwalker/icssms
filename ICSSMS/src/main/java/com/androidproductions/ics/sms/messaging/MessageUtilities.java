@@ -65,7 +65,7 @@ public final class MessageUtilities {
         return messages;
     }
 
-    public static void SaveDraftMessage(Context context, String address, String message)
+    public static void SaveDraftMessage(final Context context, final String address, final String message)
     {
         DeleteMessageDraft(context, address);
         if (!message.equals(""))
@@ -73,9 +73,9 @@ public final class MessageUtilities {
                     .saveDraftMessage();
     }
 
-    private static void DeleteMessageDraft(Context context, String address) {
-        long tid = new Transaction(context).getOrCreateThreadId(address);
-        Cursor c = context.getContentResolver().query(SmsUri.DRAFT_URI,null,"thread_id = ?",
+    private static void DeleteMessageDraft(final Context context, final String address) {
+        final long tid = new Transaction(context).getOrCreateThreadId(address);
+        final Cursor c = context.getContentResolver().query(SmsUri.DRAFT_URI,null,"thread_id = ?",
                 new String[] { String.valueOf(tid) },"date DESC LIMIT 1");
         if (c != null)
         {
@@ -91,11 +91,11 @@ public final class MessageUtilities {
         }
     }
 
-    public static String RetrieveDraftMessage(Context context, String address)
+    public static String RetrieveDraftMessage(final Context context, final String address)
     {
         String draft = "";
-        long tid = new Transaction(context).getOrCreateThreadId(address);
-        Cursor c = context.getContentResolver().query(SmsUri.DRAFT_URI,null,"thread_id = ?",
+        final long tid = new Transaction(context).getOrCreateThreadId(address);
+        final Cursor c = context.getContentResolver().query(SmsUri.DRAFT_URI,null,"thread_id = ?",
                 new String[] { String.valueOf(tid) },"date DESC LIMIT 1");
         if (c != null)
         {

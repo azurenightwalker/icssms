@@ -6,7 +6,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
-import android.os.StrictMode;
 import android.preference.PreferenceManager;
 import android.telephony.SmsMessage;
 import android.text.Editable;
@@ -28,7 +27,6 @@ import com.androidproductions.ics.sms.messaging.MessageUtilities;
 import com.androidproductions.ics.sms.utils.AddressUtilities;
 import com.androidproductions.ics.sms.utils.SmileyParser;
 import com.androidproductions.libs.sms.InternalTransaction;
-import com.androidproductions.libs.sms.com.androidproductions.libs.sms.constants.MessageType;
 import com.androidproductions.libs.sms.com.androidproductions.libs.sms.readonly.IMessageView;
 
 import java.util.Calendar;

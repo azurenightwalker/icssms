@@ -45,8 +45,8 @@ public final class SMSUtilities {
 	{
 		if (number != null)
 		{
-			SmsMessage sms = new SmsMessage(text,number,System.currentTimeMillis());
-            Transaction transaction = new Transaction(context);
+			final SmsMessage sms = new SmsMessage(text,number,System.currentTimeMillis());
+            final Transaction transaction = new Transaction(context);
             transaction.queueMessage(sms);
             final Intent intent  = new Intent(context, SmsUpdateReceiver.class);
             intent.setAction(Action.SEND);

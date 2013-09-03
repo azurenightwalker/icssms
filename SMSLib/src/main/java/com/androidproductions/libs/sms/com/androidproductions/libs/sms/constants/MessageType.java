@@ -1,6 +1,6 @@
 package com.androidproductions.libs.sms.com.androidproductions.libs.sms.constants;
 
-public class MessageType {
+public final class MessageType {
     public static final int ALL = 0;
     public static final int INBOX = 1;
     public static final int SENT = 2;
@@ -8,4 +8,7 @@ public class MessageType {
     public static final int OUTBOX = 4;
     public static final int FAILED = 5;
     public static final int QUEUED = 6;
+
+    private MessageType() {
+    }
 }

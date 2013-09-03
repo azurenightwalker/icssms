@@ -1,6 +1,5 @@
 package com.androidproductions.libs.sms.com.androidproductions.libs.sms.readonly;
 
-import android.R;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -35,7 +34,7 @@ public class ImageCache {
         mImageCache.cache.put(id, bmp);
     }
 
-    public static void initInstance(final int cacheSize, final Context context,int defaultImage)
+    public static void initInstance(final int cacheSize, final Context context, final int defaultImage)
     {
         mImageCache = new ImageCache(cacheSize);
         mContext = context;
