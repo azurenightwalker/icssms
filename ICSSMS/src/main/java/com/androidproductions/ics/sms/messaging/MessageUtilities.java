@@ -9,6 +9,9 @@ import com.androidproductions.ics.sms.messaging.sms.SMSUtilities;
 import com.androidproductions.ics.sms.utils.AddressUtilities;
 import com.androidproductions.libs.sms.com.androidproductions.libs.sms.constants.MessageType;
 import com.androidproductions.libs.sms.com.androidproductions.libs.sms.constants.SmsUri;
+import com.androidproductions.libs.sms.com.androidproductions.libs.sms.readonly.ConversationSummary;
+import com.androidproductions.libs.sms.com.androidproductions.libs.sms.readonly.IMessageView;
+import com.androidproductions.libs.sms.com.androidproductions.libs.sms.readonly.SmsMessageView;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -80,9 +83,9 @@ public final class MessageUtilities {
 		return SMSUtilities.Generate(context, address, message, incoming, time);
 	}
 
-	public static List<IMessage> GetMessageSummary(final Context context)
+	public static List<ConversationSummary> GetMessageSummary(final Context context)
 	{
-		final List<IMessage> messages = new ArrayList<IMessage>();
+		final List<ConversationSummary> messages = new ArrayList<ConversationSummary>();
         try
         {
             final Cursor c = context.getContentResolver().query(Uri.parse("content://mms-sms/conversations?simple=true"), null, null,
@@ -140,8 +143,8 @@ public final class MessageUtilities {
                 }
             }
         }
-        Collections.sort(messages, new Comparator<IMessage>() {
-            public int compare(final IMessage m1, final IMessage m2) {
+        Collections.sort(messages, new Comparator<ConversationSummary>() {
+            public int compare(final ConversationSummary m1, final ConversationSummary m2) {
                 return m2.getDate().compareTo(m1.getDate());
             }
         });
@@ -149,7 +152,7 @@ public final class MessageUtilities {
 		return messages;
 	}
 
-	private static void processCursor(final Context context, final List<IMessage> messages,
+	private static void processCursor(final Context context, final List<ConversationSummary> messages,
 			final Cursor c) {
 		if (c.moveToFirst())
 		{
@@ -165,7 +168,7 @@ public final class MessageUtilities {
                     {
                         final int addressCol = c2.getColumnIndex("address");
                         final String address = AddressUtilities.StandardiseNumber(c2.getString(addressCol),context);
-                        final SMSMessage sms = new SMSMessage(context,c2, address);
+                        final ConversationSummary sms = new ConversationSummary(context,c2);
                         sms.SummaryCount = c2.getCount();
                         messages.add(sms);
                     }
@@ -175,14 +178,14 @@ public final class MessageUtilities {
 		}
 	}
 
-    public static List<IMessage> GetMessages(final Context context, final long threadId, final int max)
+    public static List<IMessageView> GetMessages(final Context context, final long threadId, final int max)
     {
         return GetMessages(context, threadId, max,null);
     }
 
-	public static List<IMessage> GetMessages(final Context context, final long threadId, final int max, final Long date)
+	public static List<IMessageView> GetMessages(final Context context, final long threadId, final int max, final Long date)
 	{
-		final ArrayList<IMessage> messages = new ArrayList<IMessage>();
+		final ArrayList<IMessageView> messages = new ArrayList<IMessageView>();
         final String where;
         final String[] vals;
         if (date == null)
@@ -204,13 +207,13 @@ public final class MessageUtilities {
             {
                 do
                 {
-                    messages.add(new SMSMessage(context,c));
+                    messages.add(new SmsMessageView(context,c));
                 } while (c.moveToNext());
             }
             c.close();
         }
-        Collections.sort(messages, new Comparator<IMessage>() {
-            public int compare(final IMessage m1, final IMessage m2) {
+        Collections.sort(messages, new Comparator<IMessageView>() {
+            public int compare(final IMessageView m1, final IMessageView m2) {
                 return m1.getDate().compareTo(m2.getDate());
             }
         });

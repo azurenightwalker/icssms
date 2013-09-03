@@ -34,15 +34,16 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.androidproductions.ics.sms.data.ContactHelper;
-import com.androidproductions.ics.sms.messaging.IMessage;
 import com.androidproductions.ics.sms.messaging.MessageUtilities;
 import com.androidproductions.ics.sms.preferences.ConfigurationHelper;
 import com.androidproductions.ics.sms.utils.AddressUtilities;
 import com.androidproductions.ics.sms.utils.SmileyParser;
 import com.androidproductions.ics.sms.views.KeyboardDetectorScrollView;
 import com.androidproductions.ics.sms.views.KeyboardDetectorScrollView.IKeyboardChanged;
+import com.androidproductions.libs.sms.InternalTransaction;
 import com.androidproductions.libs.sms.com.androidproductions.libs.sms.constants.SmsUri;
 import com.androidproductions.libs.sms.Transaction;
+import com.androidproductions.libs.sms.com.androidproductions.libs.sms.readonly.IMessageView;
 import com.googlecode.androidannotations.annotations.AfterTextChange;
 import com.googlecode.androidannotations.annotations.AfterViews;
 import com.googlecode.androidannotations.annotations.EActivity;
@@ -71,8 +72,8 @@ public class SmsViewer extends ThemeableActivity {
 	public KeyboardDetectorScrollView scrollView;
 	
 	private SmileyParser parser;
-	private List<IMessage> messages;
-	private IMessage PressedMessage;
+	private List<IMessageView> messages;
+	private IMessageView PressedMessage;
     private long threadId;
     private Uri contactUri;
 	
@@ -295,12 +296,12 @@ public class SmsViewer extends ThemeableActivity {
 	{
 		for(int i = 0; i<=messages.size()-1;i++)
         {
-        	final IMessage msg = messages.get(i);
+        	final IMessageView msg = messages.get(i);
         	if (msg.getDate() < firstDate || msg.getDate() > lastDate)
         	{
         		lastDate = Math.max(lastDate,msg.getDate());
         		firstDate = Math.min(firstDate,msg.getDate());
-	        	msg.markAsRead();
+                new InternalTransaction(SmsViewer.this).MarkMessageRead(msg);
 	        	final View child = generateMessageView(msg);
 	        	registerForContextMenu(child);
                 if(msg.IsIncoming())
@@ -351,8 +352,8 @@ public class SmsViewer extends ThemeableActivity {
     {
         firstDate = Math.min(firstDate,Math.min(messages.get(messages.size()-1).getDate(),messages.get(0).getDate()));
     	messages = MessageUtilities.GetMessages(SmsViewer.this, threadId, 25, firstDate);
-        Collections.sort(messages, new Comparator<IMessage>() {
-            public int compare(final IMessage m1, final IMessage m2) {
+        Collections.sort(messages, new Comparator<IMessageView>() {
+            public int compare(final IMessageView m1, final IMessageView m2) {
                 return m2.getDate().compareTo(m1.getDate());
             }
         });
@@ -362,13 +363,13 @@ public class SmsViewer extends ThemeableActivity {
         scrollTo(topSeen);
     }
 
-	private View generateMessageView(final IMessage msg) {
+	private View generateMessageView(final IMessageView msg) {
 		final View child;
 		if (msg.IsIncoming())
 			child = LayoutInflater.from(getBaseContext()).inflate(R.layout.sms_in, null);
 		else
 			child = LayoutInflater.from(getBaseContext()).inflate(R.layout.sms_out, null);
-		((TextView)child.findViewById(R.id.messageContent)).setText(parser.addSmileySpans(msg.getText()));
+		((TextView)child.findViewById(R.id.messageContent)).setText(parser.addSmileySpans(msg.getBody()));
 		((TextView)child.findViewById(R.id.messageTime)).setText(msg.GetShortDateString());
 		if (msg.isLocked())
 			child.findViewById(R.id.messageStatus).setVisibility(View.VISIBLE);
@@ -383,7 +384,7 @@ public class SmsViewer extends ThemeableActivity {
     public void onCreateContextMenu(final ContextMenu menu, final View v,
                                     final ContextMenuInfo menuInfo) {
         super.onCreateContextMenu(menu, v, menuInfo);
-        PressedMessage = (IMessage)v.getTag();
+        PressedMessage = (IMessageView)v.getTag();
         final MenuInflater inflater = getMenuInflater();
         inflater.inflate(PressedMessage.IsIncoming() ? PressedMessage.isLocked() ?
         		R.xml.sms_long_menu_in_locked : R.xml.sms_long_menu_in :
@@ -395,11 +396,11 @@ public class SmsViewer extends ThemeableActivity {
         switch (item.getItemId()) {
 	        case R.smslong.copy:
 	        	final ClipboardManager clipboard = (ClipboardManager) getSystemService(CLIPBOARD_SERVICE);
-	        	final ClipData clip = ClipData.newPlainText("SMS",PressedMessage.getText());
+	        	final ClipData clip = ClipData.newPlainText("SMS",PressedMessage.getBody());
 	        	clipboard.setPrimaryClip(clip);
 	        	return true;
 	        case R.smslong.delete:
-	        	if (PressedMessage.deleteMessage())
+	        	if (new InternalTransaction(SmsViewer.this).DeleteMessage(PressedMessage))
 	        	{
 		        	final View v = smsList.findViewWithTag(PressedMessage);
 		        	((ViewManager)v.getParent()).removeView(v);
@@ -425,40 +426,40 @@ public class SmsViewer extends ThemeableActivity {
 	        	return true;
 	        case R.smslong.forward:
 	        	final Intent forwardIntent = new Intent(getApplicationContext(), ComposeSms_.class);
-	        	forwardIntent.putExtra(Constants.SMS_MESSAGE, PressedMessage.getText());
+	        	forwardIntent.putExtra(Constants.SMS_MESSAGE, PressedMessage.getBody());
 	        	forwardIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
 	    		startActivity(forwardIntent);
 	            return true;
             case R.smslong.share:
                 final Intent i = new Intent(android.content.Intent.ACTION_SEND);
                 i.setType("text/plain");
-                i.putExtra(android.content.Intent.EXTRA_TEXT, PressedMessage.getText());
+                i.putExtra(android.content.Intent.EXTRA_TEXT, PressedMessage.getBody());
                 startActivity(Intent.createChooser(i, shareString));
                 return true;
 	        case R.smslong.lock:
-	        	PressedMessage.lockMessage();
+	        	new InternalTransaction(SmsViewer.this).LockMessage(PressedMessage);
 	        	smsList.findViewWithTag(PressedMessage).findViewById(R.id.messageStatus).setVisibility(View.VISIBLE);
 	        	//Toast.makeText(this, "Message locked", Toast.LENGTH_SHORT).show();
 	            return true;
 	        case R.smslong.unlock:
-	        	PressedMessage.unlockMessage();
+                new InternalTransaction(SmsViewer.this).UnlockMessage(PressedMessage);
 	        	smsList.findViewWithTag(PressedMessage).findViewById(R.id.messageStatus).setVisibility(View.GONE);
 	        	//Toast.makeText(this, "Message locked", Toast.LENGTH_SHORT).show();
 	            return true;
 	        case R.smslong.unread:
-	        	PressedMessage.markAsUnread();
+                new InternalTransaction(SmsViewer.this).MarkMessageUnread(PressedMessage);
 	        	Toast.makeText(this, getResources().getText(R.string.markedUnread), Toast.LENGTH_SHORT).show();
 	            return true;
 	        case R.smslong.resend:
                 if (PressedMessage.sendingFailed())
                 {
-                    if (PressedMessage.deleteMessage())
+                    if (new InternalTransaction(SmsViewer.this).DeleteMessage(PressedMessage))
                     {
                         final View v = smsList.findViewWithTag(PressedMessage);
                         ((ViewManager)v.getParent()).removeView(v);
                     }
                 }
-	        	MessageUtilities.SendMessage(SmsViewer.this, PressedMessage.getText(), address);
+	        	MessageUtilities.SendMessage(SmsViewer.this, PressedMessage.getBody(), address);
 	        	redrawView();
 	            return true;
 	        default:

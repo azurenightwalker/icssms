@@ -23,6 +23,7 @@ import android.widget.TextView;
 import com.androidproductions.ics.sms.messaging.IMessage;
 import com.androidproductions.ics.sms.messaging.MessageUtilities;
 import com.androidproductions.libs.sms.com.androidproductions.libs.sms.constants.SmsUri;
+import com.androidproductions.libs.sms.com.androidproductions.libs.sms.readonly.ConversationSummary;
 import com.googlecode.androidannotations.annotations.EActivity;
 import com.googlecode.androidannotations.annotations.OptionsMenu;
 import com.googlecode.androidannotations.annotations.ViewById;
@@ -69,15 +70,15 @@ public class ICSSMSActivity extends AdSupportedActivity {
     @SuppressWarnings("deprecation")
     private void redrawView()
     {
-    	final List<IMessage> smss = MessageUtilities.GetMessageSummary(ICSSMSActivity.this);
+    	final List<ConversationSummary> smss = MessageUtilities.GetMessageSummary(ICSSMSActivity.this);
         smsList.removeAllViews();
-        for (final IMessage sms : smss)
+        for (final ConversationSummary sms : smss)
         {
         	final View child = LayoutInflater.from(getBaseContext()).inflate(R.layout.sms_summary, null);
         	final SpannableString name = new SpannableString(sms.getSummaryHeader());
-        	final SpannableString body = new SpannableString(sms.getText());
+        	final SpannableString body = new SpannableString(sms.getBody());
         	final SpannableString time = new SpannableString(sms.GetShortDateString());
-        	if (sms.isUnread() && sms.IsIncoming())
+        	if (sms.isUnread())
         	{
         		final StyleSpan bold = new StyleSpan(android.graphics.Typeface.BOLD);
         		name.setSpan(bold, 0, name.length(), 0);

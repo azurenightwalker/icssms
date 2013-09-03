@@ -1,16 +1,16 @@
 package com.androidproductions.libs.sms;
 
 /*
-* SmsMessage:
+* SmsMessageView:
 *       Base class to represent an SMS message, containing the minimum information
 *       required to perform all transaction-based tasks.
 * */
 public class SmsMessage {
-    private final String Body;
-    private long Id;
-    private long ThreadId;
-    private final long Date;
-    private final String[] Addresses;
+    protected final String Body;
+    protected long Id;
+    protected long ThreadId;
+    protected final long Date;
+    protected final String[] Addresses;
 
     public SmsMessage(String body, String address, long date, long id)
     {
@@ -44,7 +44,7 @@ public class SmsMessage {
         return Addresses;
     }
 
-    public long getDate() {
+    public Long getDate() {
         return Date;
     }
 

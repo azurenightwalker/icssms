@@ -3,7 +3,7 @@ package com.androidproductions.ics.sms;
 public final class Constants {
 	
 	public static final String SMS_RECEIVE_LOCATION = "SmsReceiveLocation";
-	public static final String SMS_MESSAGE = "SmsMessage";
+	public static final String SMS_MESSAGE = "SmsMessageView";
 	public static final String SMS_TIME = "SmsTime";
 	public static final String MESSAGE_TYPE = "MessageType";
 	
