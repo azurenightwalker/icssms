@@ -23,6 +23,7 @@ import com.androidproductions.ics.sms.preferences.ConfigurationHelper;
 import com.androidproductions.ics.sms.ICSSMSActivity_;
 import com.androidproductions.ics.sms.SmsViewer_;
 import com.androidproductions.libs.sms.com.androidproductions.libs.sms.constants.SmsUri;
+import com.androidproductions.libs.sms.com.androidproductions.libs.sms.readonly.IMessageView;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -32,7 +33,7 @@ public class NotificationHelper {
 
     private final Context mContext;
     private final NotificationManager mNotificationManager;
-    private List<IMessage> messages;
+    private List<IMessageView> messages;
     private int messageSize;
     private final ConfigurationHelper configurationHelper;
 
@@ -51,7 +52,7 @@ public class NotificationHelper {
         mContext = context;
         mNotificationManager = (NotificationManager) mContext.getSystemService(
                 Context.NOTIFICATION_SERVICE);
-        messages = new ArrayList<IMessage>();
+        messages = new ArrayList<IMessageView>();
         messageSize = 0;
         configurationHelper = ConfigurationHelper.getInstance();
     }
@@ -60,7 +61,7 @@ public class NotificationHelper {
         notifyUnreadMessages(MessageUtilities.GetUnreadMessages(mContext));
     }
 
-    private void notifyUnreadMessages(final List<IMessage> smss) {
+    private void notifyUnreadMessages(final List<IMessageView> smss) {
         alertOnce = shouldAlertOnce(smss);
         messages = smss;
         messageSize = messages.size();
@@ -79,15 +80,15 @@ public class NotificationHelper {
         }
     }
 
-    private boolean shouldAlertOnce(final List<IMessage> smss) {
+    private boolean shouldAlertOnce(final List<IMessageView> smss) {
         if (messages.size() < smss.size())
             return false;
-        for(final IMessage mess : smss)
+        for(final IMessageView mess : smss)
         {
             boolean found = false;
-            for(final IMessage mess2 : messages)
+            for(final IMessageView mess2 : messages)
             {
-                if (mess2.getAddress().equals(mess.getAddress()) && mess.getText().equals(mess2.getText()))
+                if (mess2.getAddress().equals(mess.getAddress()) && mess.getBody().equals(mess2.getBody()))
                     found = true;
             }
             if (!found)
@@ -116,13 +117,13 @@ public class NotificationHelper {
         }
 
         final List<String> numbers = new ArrayList<String>();
-        final HashMap<String, ArrayList<IMessage>> groupedMessages = new HashMap<String,ArrayList<IMessage>>();
-        for (final IMessage s : messages)
+        final HashMap<String, ArrayList<IMessageView>> groupedMessages = new HashMap<String,ArrayList<IMessageView>>();
+        for (final IMessageView s : messages)
         {
             if (!numbers.contains(s.getAddress()))
             {
                 numbers.add(s.getAddress());
-                groupedMessages.put(s.getAddress(), new ArrayList<IMessage>());
+                groupedMessages.put(s.getAddress(), new ArrayList<IMessageView>());
             }
             groupedMessages.get(s.getAddress()).add(s);
         }
@@ -131,11 +132,11 @@ public class NotificationHelper {
         int extraCount= 0;
         if (numbers.size() == 1)
         {
-            for(final IMessage sms : groupedMessages.get(numbers.get(0)))
+            for(final IMessageView sms : groupedMessages.get(numbers.get(0)))
             {
                 if (messageCount < Constants.MAX_INBOX_DISPLAY)
                 {
-                    big.addLine(sms.getText());
+                    big.addLine(sms.getBody());
                     messageCount++;
                 }
                 else
@@ -151,9 +152,9 @@ public class NotificationHelper {
             {
                 if (messageCount < Constants.MAX_INBOX_DISPLAY)
                 {
-                    final IMessage sms = groupedMessages.get(item).get(0);
+                    final IMessageView sms = groupedMessages.get(item).get(0);
                     final String name = sms.getContactName();
-                    big.addLine(name + ": " + sms.getText());
+                    big.addLine(name + ": " + sms.getBody());
                     messageCount++;
                 }
                 else
@@ -209,8 +210,8 @@ public class NotificationHelper {
 
     private Builder buildBaseNotification() {
         final Builder builder = new Builder(mContext);
-        final IMessage first = messages.get(0);
-        final IMessage last = messages.get(messageSize-1);
+        final IMessageView first = messages.get(0);
+        final IMessageView last = messages.get(messageSize-1);
         builder.setAutoCancel(true)
                 .setContentText(getContent())
                 .setContentTitle(first.getContactName())
@@ -243,7 +244,7 @@ public class NotificationHelper {
         else
             dialogIntent = new Intent(mContext, SmsDialog.class);
         dialogIntent.putExtra(Constants.SMS_RECEIVE_LOCATION, last.getAddress());
-        dialogIntent.putExtra(Constants.SMS_MESSAGE, last.getText());
+        dialogIntent.putExtra(Constants.SMS_MESSAGE, last.getBody());
         dialogIntent.putExtra(Constants.SMS_TIME, last.getDate());
         dialogIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         final PendingIntent dialogpending = PendingIntent.getActivity(mContext, 0, dialogIntent, PendingIntent.FLAG_CANCEL_CURRENT);
@@ -267,12 +268,12 @@ public class NotificationHelper {
         }
         else
         {
-            final IMessage mess;
+            final IMessageView mess;
             if (messageSize == 1)
                 mess = messages.get(0);
             else
                 mess = messages.get(messageSize-1);
-            return mess.getContactName() + ": " + mess.getText();
+            return mess.getContactName() + ": " + mess.getBody();
 
         }
     }
@@ -284,13 +285,13 @@ public class NotificationHelper {
             if (configurationHelper.getBooleanValue(ConfigurationHelper.PRIVATE_NOTIFICATIONS)) {
                 return "You have 1 new message";
             }
-            return messages.get(0).getText();
+            return messages.get(0).getBody();
         }
         else
         {
             // Find all contacts
             final List<String> numbers = new ArrayList<String>();
-            for (final IMessage s : messages)
+            for (final IMessageView s : messages)
             {
                 if (!numbers.contains(s.getAddress()))
                 {

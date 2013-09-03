@@ -20,6 +20,8 @@ import android.widget.Toast;
 
 import com.androidproductions.ics.sms.messaging.IMessage;
 import com.androidproductions.ics.sms.messaging.MessageUtilities;
+import com.androidproductions.libs.sms.InternalTransaction;
+import com.androidproductions.libs.sms.com.androidproductions.libs.sms.readonly.IMessageView;
 import com.googlecode.androidannotations.annotations.EActivity;
 import com.googlecode.androidannotations.annotations.OptionsMenu;
 import com.googlecode.androidannotations.annotations.ViewById;
@@ -33,7 +35,7 @@ public class UnsentMessages extends AdSupportedActivity {
     @ViewById(R.id.smsList)
     public LinearLayout smsList;
 
-    private IMessage PressedMessage;
+    private IMessageView PressedMessage;
 
     /** Called when the activity is first created. */
 	@Override
@@ -56,13 +58,13 @@ public class UnsentMessages extends AdSupportedActivity {
 
     private void redrawView()
     {
-    	final List<IMessage> smss = MessageUtilities.GetUnsentMessages(UnsentMessages.this);
+    	final List<IMessageView> smss = MessageUtilities.GetUnsentMessages(UnsentMessages.this);
         smsList.removeAllViews();
-        for (final IMessage sms : smss)
+        for (final IMessageView sms : smss)
         {
         	final View child = LayoutInflater.from(getBaseContext()).inflate(R.layout.sms_summary, null);
-        	final SpannableString name = new SpannableString(sms.getSummaryHeader());
-        	final SpannableString body = new SpannableString(sms.getText());
+        	final SpannableString name = new SpannableString(sms.getContactName());
+        	final SpannableString body = new SpannableString(sms.getBody());
         	final SpannableString time = new SpannableString(sms.GetShortDateString());
         	((TextView)child.findViewById(R.id.contact_name)).setText(name);
         	((TextView)child.findViewById(R.id.messageContent)).setText(body);
@@ -88,7 +90,7 @@ public class UnsentMessages extends AdSupportedActivity {
     public void onCreateContextMenu(final ContextMenu menu, final View v,
                                     final ContextMenu.ContextMenuInfo menuInfo) {
         super.onCreateContextMenu(menu, v, menuInfo);
-        PressedMessage = (IMessage)v.getTag();
+        PressedMessage = (IMessageView)v.getTag();
         final MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.unsent_action_menu,menu);
     }
@@ -116,7 +118,7 @@ public class UnsentMessages extends AdSupportedActivity {
     public boolean onContextItemSelected(final MenuItem item) {
         switch (item.getItemId()) {
             case R.id.delete:
-                if (PressedMessage.deleteMessage())
+                if (new InternalTransaction(UnsentMessages.this).DeleteMessage(PressedMessage))
                 {
                     final View v = smsList.findViewWithTag(PressedMessage);
                     ((ViewManager)v.getParent()).removeView(v);
@@ -130,8 +132,8 @@ public class UnsentMessages extends AdSupportedActivity {
                 ShowDetails(PressedMessage);
                 return true;
             case R.id.resend:
-                MessageUtilities.SendMessage(UnsentMessages.this, PressedMessage.getText(), PressedMessage.getAddress());
-                PressedMessage.deleteMessage();
+                MessageUtilities.SendMessage(UnsentMessages.this, PressedMessage.getBody(), PressedMessage.getAddress());
+                new InternalTransaction(UnsentMessages.this).DeleteMessage(PressedMessage);
                 redrawView();
                 return true;
             default:
@@ -139,7 +141,7 @@ public class UnsentMessages extends AdSupportedActivity {
         }
     }
 
-    private void ShowDetails(final IMessage message) {
+    private void ShowDetails(final IMessageView message) {
         final Dialog dialog = new Dialog(UnsentMessages.this);
 
         dialog.setContentView(R.layout.sms_details);

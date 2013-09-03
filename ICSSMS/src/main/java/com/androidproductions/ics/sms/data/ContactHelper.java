@@ -11,6 +11,7 @@ import android.support.v4.content.CursorLoader;
 
 import com.androidproductions.ics.sms.R;
 import com.androidproductions.ics.sms.utils.LogHelper;
+import com.androidproductions.libs.sms.com.androidproductions.libs.sms.readonly.ImageCache;
 
 import java.io.InputStream;
 
@@ -29,9 +30,15 @@ public class ContactHelper {
         mId = id;
     }
 
+    public long getId()
+    {
+        return mId;
+    }
+
     public ContactHelper(final Context context)
     {
         mContext = context;
+        mId = -1L;
     }
 
     public Bitmap getContactImage()

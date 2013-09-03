@@ -17,19 +17,19 @@ import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.androidproductions.ics.sms.messaging.IMessage;
 import com.androidproductions.ics.sms.messaging.MessageUtilities;
 import com.androidproductions.ics.sms.utils.AddressUtilities;
 import com.androidproductions.ics.sms.utils.SmileyParser;
-import com.androidproductions.libs.sms.com.androidproductions.libs.sms.constants.MessageType;
+import com.androidproductions.libs.sms.InternalTransaction;
+import com.androidproductions.libs.sms.com.androidproductions.libs.sms.readonly.IMessageView;
 
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
 public class SmsNotify extends ThemeableDialog  {
-	private List<IMessage> unread;
-	private IMessage message;
+	private List<IMessageView> unread;
+	private IMessageView message;
 	private SmileyParser parser;
 	
 	private final BroadcastReceiver receiver = new BroadcastReceiver() {
@@ -54,7 +54,7 @@ public class SmsNotify extends ThemeableDialog  {
 		final String message = extras.getString(Constants.SMS_MESSAGE,null);
 		final long time = extras.getLong(Constants.SMS_TIME);
 		if (message != null)
-			updateUnreadMessages(MessageUtilities.GenerateMessage(SmsNotify.this, number, message, MessageType.INBOX, time));
+			updateUnreadMessages(MessageUtilities.GenerateMessage(SmsNotify.this, number, message, time));
 		else
 			updateUnreadMessages();activeMessage = unread.size()-1;
 		SmileyParser.init(this);
@@ -64,26 +64,26 @@ public class SmsNotify extends ThemeableDialog  {
     
     private void updateUnreadMessages()
     {
-    	final List<IMessage> _unread = MessageUtilities.GetUnreadMessages(SmsNotify.this);
+    	final List<IMessageView> _unread = MessageUtilities.GetUnreadMessages(SmsNotify.this);
     	unread = sortMessages(_unread);
     }
     
-    private List<IMessage> sortMessages(final List<IMessage> unread)
+    private List<IMessageView> sortMessages(final List<IMessageView> unread)
     {
-    	Collections.sort(unread, new Comparator<IMessage>() {
-		    public int compare(final IMessage m1, final IMessage m2) {
+    	Collections.sort(unread, new Comparator<IMessageView>() {
+		    public int compare(final IMessageView m1, final IMessageView m2) {
 		        return m1.getDate().compareTo(m2.getDate());
 		    }
 		});
     	return unread;
     }
     
-    private void updateUnreadMessages(final IMessage newMessage)
+    private void updateUnreadMessages(final IMessageView newMessage)
     {
     	updateUnreadMessages();
     	boolean found = false;
-		for (final IMessage s : unread)
-			if (s.getText().equals(newMessage.getText()) &&
+		for (final IMessageView s : unread)
+			if (s.getBody().equals(newMessage.getBody()) &&
 					s.getAddress().equals(
 							AddressUtilities.StandardiseNumber(newMessage.getAddress(),SmsNotify.this)
 							))
@@ -97,8 +97,8 @@ public class SmsNotify extends ThemeableDialog  {
 		message = unread.get(activeMessage);
 		((TextView)findViewById(R.id.sender)).setText(message.getContactName());
 		((ImageView)findViewById(R.id.sender_photo)).setImageBitmap(message.getContactPhoto());
-        ((TextView)findViewById(R.id.messageContent)).setText(parser.addSmileySpans(message.getText()));
-        ((TextView)findViewById(R.id.messageContent)).setText(parser.addSmileySpans(message.getText()));
+        ((TextView)findViewById(R.id.messageContent)).setText(parser.addSmileySpans(message.getBody()));
+        ((TextView)findViewById(R.id.messageContent)).setText(parser.addSmileySpans(message.getBody()));
         findViewById(R.id.wrapper).setTag(message.getAddress());
 	}
 
@@ -131,20 +131,20 @@ public class SmsNotify extends ThemeableDialog  {
 		int i = 0;
 		if (message.getId() > 0)
 		{
-			message.markAsRead();
+			new InternalTransaction(SmsNotify.this).MarkMessageRead(message);
 			return;
 		}
 		updateUnreadMessages();
 		final String addy = AddressUtilities.StandardiseNumber(message.getAddress(),SmsNotify.this);
-		if (unread.size() == 1) unread.get(0).markAsRead();
+		if (unread.size() == 1) new InternalTransaction(SmsNotify.this).MarkMessageRead(unread.get(0));
 		else if (!unread.isEmpty())
 			do
 			{
-				final IMessage sms2 = unread.get(i);
+				final IMessageView sms2 = unread.get(i);
 				i++;
 				if (AddressUtilities.StandardiseNumber(sms2.getAddress(),SmsNotify.this).equals(addy))
 				{
-					sms2.markAsRead();
+                    new InternalTransaction(SmsNotify.this).MarkMessageRead(sms2);
 					marked = true;
 				}
 			}while(!marked && i < unread.size());

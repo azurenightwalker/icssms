@@ -51,6 +51,14 @@ public class SMSMessage extends SMSMessageBase{
         final ContentResolver resolver = mContext.getContentResolver();
         return resolver.insert(SmsUri.INBOX_URI, values);
     }
+
+    public Uri saveDraftMessage() {
+        // Store the message in the content provider.
+        ContentValues values = buildContentValues(true);
+        findName();
+        ContentResolver resolver = mContext.getContentResolver();
+        return resolver.insert(SmsUri.DRAFT_URI, values);
+    }
 	
 	private ContentValues buildContentValues(final boolean read) {
         // Store the message in the content provider.

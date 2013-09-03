@@ -24,11 +24,12 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 
 import com.androidproductions.ics.sms.data.ContactHelper;
-import com.androidproductions.ics.sms.messaging.IMessage;
 import com.androidproductions.ics.sms.messaging.MessageUtilities;
 import com.androidproductions.ics.sms.utils.AddressUtilities;
 import com.androidproductions.ics.sms.utils.SmileyParser;
+import com.androidproductions.libs.sms.InternalTransaction;
 import com.androidproductions.libs.sms.com.androidproductions.libs.sms.constants.MessageType;
+import com.androidproductions.libs.sms.com.androidproductions.libs.sms.readonly.IMessageView;
 
 import java.util.Calendar;
 import java.util.Collections;
@@ -36,8 +37,8 @@ import java.util.Comparator;
 import java.util.List;
 
 public class SmsDialog extends ThemeableDialog  {
-	private List<IMessage> unread;
-	private IMessage message;
+	private List<IMessageView> unread;
+	private IMessageView message;
 	private SmileyParser parser;
 	
 	private final BroadcastReceiver receiver = new BroadcastReceiver() {
@@ -54,9 +55,6 @@ public class SmsDialog extends ThemeableDialog  {
     @Override
     public void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        final StrictMode.ThreadPolicy policy =
-                new StrictMode.ThreadPolicy.Builder().permitAll().build();
-        StrictMode.setThreadPolicy(policy);
         setContentView(R.layout.sms_dialog);
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL);
         final ScrollView sv = (ScrollView)findViewById(R.id.scroller);
@@ -70,7 +68,7 @@ public class SmsDialog extends ThemeableDialog  {
 		if (messageType == null)
 			updateUnreadMessages();
 		else if (messageType.equals("SMS"))
-			updateUnreadMessages(MessageUtilities.GenerateMessage(SmsDialog.this, number, message, MessageType.INBOX, time));
+			updateUnreadMessages(MessageUtilities.GenerateMessage(SmsDialog.this, number, message, time));
 		activeMessage = unread.size()-1;
 		SmileyParser.init(this);
         parser = SmileyParser.getInstance();
@@ -81,12 +79,12 @@ public class SmsDialog extends ThemeableDialog  {
 			
 			public void onClick(final View v) {
 				final Dialog dialog = new Dialog(SmsDialog.this);
-				final IMessage previous = SmsDialog.this.message.getPrevious();
+				final IMessageView previous = SmsDialog.this.message.getPrevious();
 				if (previous != null)
 				{
 		        	dialog.setContentView(R.layout.sms_reply_to);
 		        	dialog.setTitle(R.string.replyTo);
-		        	((TextView)dialog.findViewById(R.id.message)).setText(previous.getText());
+		        	((TextView)dialog.findViewById(R.id.message)).setText(previous.getBody());
 		        	((TextView)dialog.findViewById(R.id.time)).setText(previous.GetShortDateString());
 		        	dialog.show();
 				}
@@ -128,27 +126,27 @@ public class SmsDialog extends ThemeableDialog  {
     
     private void updateUnreadMessages()
     {
-    	final List<IMessage> _unread = MessageUtilities.GetUnreadMessages(SmsDialog.this);
+    	final List<IMessageView> _unread = MessageUtilities.GetUnreadMessages(SmsDialog.this);
     	
     	unread = sortMessages(_unread);
     }
     
-    private List<IMessage> sortMessages(final List<IMessage> unread)
+    private List<IMessageView> sortMessages(final List<IMessageView> unread)
     {
-    	Collections.sort(unread, new Comparator<IMessage>() {
-		    public int compare(final IMessage m1, final IMessage m2) {
+    	Collections.sort(unread, new Comparator<IMessageView>() {
+		    public int compare(final IMessageView m1, final IMessageView m2) {
 		        return m1.getDate().compareTo(m2.getDate());
 		    }
 		});
     	return unread;
     }
     
-    private void updateUnreadMessages(final IMessage newMessage)
+    private void updateUnreadMessages(final IMessageView newMessage)
     {
     	updateUnreadMessages();
     	boolean found = false;
-		for (final IMessage s : unread)
-			if (s.getText().equals(newMessage.getText()) &&
+		for (final IMessageView s : unread)
+			if (s.getBody().equals(newMessage.getBody()) &&
 					AddressUtilities.StandardiseNumber(s.getAddress(),SmsDialog.this).equals(
 							AddressUtilities.StandardiseNumber(newMessage.getAddress(),SmsDialog.this)
 							))
@@ -170,8 +168,8 @@ public class SmsDialog extends ThemeableDialog  {
 		((TextView)findViewById(R.id.sender)).setText(ch.getContactName(message.getAddress()));
 		((TextView)findViewById(R.id.sender_number)).setText(AddressUtilities.StandardiseNumber(message.getAddress(),SmsDialog.this));
         ((QuickContactBadge)findViewById(R.id.sender_photo)).assignContactUri(ch.getContactUri());
-        ((ImageView)findViewById(R.id.sender_photo)).setImageBitmap(message.getContactPhoto());
-        ((TextView)findViewById(R.id.messageContent)).setText(parser.addSmileySpans(message.getText()));
+        ((ImageView)findViewById(R.id.sender_photo)).setImageBitmap(ch.getContactImage());
+        ((TextView)findViewById(R.id.messageContent)).setText(parser.addSmileySpans(message.getBody()));
         ((TextView)findViewById(R.id.messageTime)).setText(message.GetShortDateString());
         findViewById(R.id.openConvo).setTag(message.getAddress());
         updateArrows();
@@ -179,7 +177,7 @@ public class SmsDialog extends ThemeableDialog  {
 	}
 
 	private void updateReplyTo() {
-		final IMessage previous = message.getPrevious();
+		final IMessageView previous = message.getPrevious();
 		if (previous != null)
 		{
 			final java.util.Date date = new java.util.Date(previous.getDate());
@@ -224,20 +222,20 @@ public class SmsDialog extends ThemeableDialog  {
 		int i = 0;
 		if (message.getId() > 0)
 		{
-			message.markAsRead();
+			new InternalTransaction(SmsDialog.this).MarkMessageRead(message);
 			return;
 		}
 		updateUnreadMessages();
 		final String addy = AddressUtilities.StandardiseNumber(message.getAddress(),SmsDialog.this);
-		if (unread.size() == 1) unread.get(0).markAsRead();
+		if (unread.size() == 1) new InternalTransaction(SmsDialog.this).MarkMessageRead(unread.get(0));
 		else if (!unread.isEmpty())
 			do
 			{
-				final IMessage sms2 = unread.get(i);
+				final IMessageView sms2 = unread.get(i);
 				i++;
 				if (AddressUtilities.StandardiseNumber(sms2.getAddress(),SmsDialog.this).equals(addy))
 				{
-					sms2.markAsRead();
+                    new InternalTransaction(SmsDialog.this).MarkMessageRead(sms2);
 					marked = true;
 				}
 			}while(!marked && i < unread.size());

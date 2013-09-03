@@ -4,25 +4,27 @@ import android.content.ContentUris;
 import android.content.Context;
 import android.database.Cursor;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.provider.ContactsContract;
 
 import com.androidproductions.libs.sms.SmsMessage;
+import com.androidproductions.libs.sms.Transaction;
 import com.androidproductions.libs.sms.com.androidproductions.libs.sms.constants.SmsUri;
 
+import java.io.InputStream;
 import java.util.Calendar;
 
 public class SmsMessageView extends SmsMessage implements IMessageView{
     public final Context mContext;
     private String Name;
-    final int Type;
+    int Type;
     public int Read;
     private int Locked;
     public long ThreadId;
     public Uri uri;
     public int SummaryCount;
-    Long DateSent;
-    int Seen;
+    private long ContactID;
 
     public SmsMessageView(final Context con, final Cursor c)
     {
@@ -37,16 +39,24 @@ public class SmsMessageView extends SmsMessage implements IMessageView{
         Read = c.getInt(c.getColumnIndex("read"));
         Locked = c.getInt(c.getColumnIndex("locked"));
         uri = ContentUris.withAppendedId(SmsUri.BASE_URI, Id);
+        //findName();
+    }
+
+    public SmsMessageView(final Context con, final Cursor c,final long contact)
+    {
+        this(con,c);
+        ContactID = contact;
+    }
+
+    public SmsMessageView(Context context, String address, String message, long time) {
+        super(message,address,time);
+        mContext = context;
+        findName();
     }
 
     public boolean IsIncoming()
     {
         return Type == 1;
-    }
-
-    public String getSummaryHeader()
-    {
-        return getContactName() + " (" + SummaryCount + ")";
     }
 
     public String getContactName()
@@ -58,11 +68,47 @@ public class SmsMessageView extends SmsMessage implements IMessageView{
 
     @Override
     public Bitmap getContactPhoto() {
-        return null;
+        if (IsIncoming())
+            return getContactImage(ContactID);
+        else
+            return getContactImage(999999L);
     }
 
     @Override
     public Bitmap getConversationContactImage() {
+        return getContactImage(ContactID);
+    }
+
+    Bitmap getContactImage(long id)
+    {
+        Bitmap image = ImageCache.getItem(id);
+        if (image != null)
+            return image;
+        image = _getContactImage(id == 999999L ?
+                ContactsContract.Profile.CONTENT_URI :
+                ContentUris.withAppendedId(ContactsContract.Contacts.CONTENT_URI, ContactID));
+        if (image == null)
+            return ImageCache.getDefault();
+        ImageCache.putItem(id, image);
+        return image;
+    }
+
+    private Bitmap _getContactImage(Uri uri)
+    {
+        try
+        {
+            final InputStream input = ContactsContract.Contacts.openContactPhotoInputStream(
+                    mContext.getContentResolver() ,uri);
+            if (input != null)
+            {
+                final Bitmap img = BitmapFactory.decodeStream(input);
+                input.close();
+                return img;
+            }
+        }
+        catch(Exception ex)
+        {
+        }
         return null;
     }
 
@@ -71,17 +117,15 @@ public class SmsMessageView extends SmsMessage implements IMessageView{
         try
         {
             final Uri uri = Uri.withAppendedPath(ContactsContract.PhoneLookup.CONTENT_FILTER_URI, Uri.encode(Addresses[0]));
-            if (uri != null)
+            final Cursor c = mContext.getContentResolver().query(uri, new String[]{ContactsContract.PhoneLookup.DISPLAY_NAME, ContactsContract.PhoneLookup._ID},null,null,null);
+            if (c != null)
             {
-                final Cursor c = mContext.getContentResolver().query(uri, new String[]{ContactsContract.PhoneLookup.DISPLAY_NAME, ContactsContract.PhoneLookup._ID},null,null,null);
-                if (c != null)
+                if (c.moveToFirst())
                 {
-                    if (c.moveToFirst())
-                    {
-                        Name = c.getString(c.getColumnIndex(ContactsContract.PhoneLookup.DISPLAY_NAME));
-                    }
-                    c.close();
+                    Name = c.getString(c.getColumnIndex(ContactsContract.PhoneLookup.DISPLAY_NAME));
+                    ContactID = c.getLong(c.getColumnIndex(ContactsContract.PhoneLookup._ID));
                 }
+                c.close();
             }
         }
         catch(Exception e){ e.printStackTrace(); }
@@ -118,8 +162,18 @@ public class SmsMessageView extends SmsMessage implements IMessageView{
         return Locked == 1;
     }
 
-    @Override
     public IMessageView getPrevious() {
+        final Cursor c = mContext.getContentResolver().query(SmsUri.SENT_URI, null, "thread_id = ?",
+                new String[] { String.valueOf(getThreadId()) }, "date DESC");
+        if (c != null) {
+            if (c.moveToFirst())
+            {
+                final SmsMessageView message = new SmsMessageView(mContext, c);
+                c.close();
+                return message;
+            }
+            c.close();
+        }
         return null;
     }
 
@@ -127,5 +181,12 @@ public class SmsMessageView extends SmsMessage implements IMessageView{
         return Type == 5;
     }
 
+    public Uri getUri() {
+        return uri;
+    }
 
+    @Override
+    public long getThreadId() {
+        return super.getThreadId();
+    }
 }

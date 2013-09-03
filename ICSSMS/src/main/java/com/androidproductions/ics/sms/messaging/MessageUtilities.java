@@ -1,5 +1,6 @@
 package com.androidproductions.ics.sms.messaging;
 
+import android.content.ContentUris;
 import android.content.Context;
 import android.database.Cursor;
 import android.net.Uri;
@@ -7,6 +8,7 @@ import android.net.Uri;
 import com.androidproductions.ics.sms.messaging.sms.SMSMessage;
 import com.androidproductions.ics.sms.messaging.sms.SMSUtilities;
 import com.androidproductions.ics.sms.utils.AddressUtilities;
+import com.androidproductions.libs.sms.Transaction;
 import com.androidproductions.libs.sms.com.androidproductions.libs.sms.constants.MessageType;
 import com.androidproductions.libs.sms.com.androidproductions.libs.sms.constants.SmsUri;
 import com.androidproductions.libs.sms.com.androidproductions.libs.sms.readonly.ConversationSummary;
@@ -23,9 +25,9 @@ public final class MessageUtilities {
     private MessageUtilities() {
     }
 
-    public static List<IMessage> GetUnreadMessages(final Context context)
+    public static List<IMessageView> GetUnreadMessages(final Context context)
     {
-        final ArrayList<IMessage> messages = new ArrayList<IMessage>();
+        final ArrayList<IMessageView> messages = new ArrayList<IMessageView>();
         final Cursor c = context.getContentResolver().query(SmsUri.INBOX_URI, null, "read = '0'",
                 null, "date ASC");
         if (c != null)
@@ -34,7 +36,7 @@ public final class MessageUtilities {
             {
                 do
                 {
-                    messages.add(new SMSMessage(context,c));
+                    messages.add(new SmsMessageView(context,c));
                 } while (c.moveToNext());
             }
             c.close();
@@ -43,9 +45,9 @@ public final class MessageUtilities {
         return messages;
     }
 
-    public static List<IMessage> GetUnsentMessages(final Context context)
+    public static List<IMessageView> GetUnsentMessages(final Context context)
     {
-        final ArrayList<IMessage> messages = new ArrayList<IMessage>();
+        final ArrayList<IMessageView> messages = new ArrayList<IMessageView>();
         final Cursor c = context.getContentResolver().query(SmsUri.BASE_URI, null, "type = ?",
                 new String[] { String.valueOf(MessageType.FAILED) }, "date ASC");
         if (c != null)
@@ -54,7 +56,7 @@ public final class MessageUtilities {
             {
                 do
                 {
-                    messages.add(new SMSMessage(context,c));
+                    messages.add(new SmsMessageView(context,c));
                 } while (c.moveToNext());
             }
             c.close();
@@ -62,25 +64,58 @@ public final class MessageUtilities {
 
         return messages;
     }
-	
-	public static void SaveDraftMessage(final Context context, final String address, final String message)
-	{
-		
-	}
-	
-	public static String RetrieveDraftMessage(final Context context, final String address)
-	{
-		return "";
-	}
+
+    public static void SaveDraftMessage(Context context, String address, String message)
+    {
+        DeleteMessageDraft(context, address);
+        if (!message.equals(""))
+            new SMSMessage(context,address,MessageType.DRAFT,message,System.currentTimeMillis())
+                    .saveDraftMessage();
+    }
+
+    private static void DeleteMessageDraft(Context context, String address) {
+        long tid = new Transaction(context).getOrCreateThreadId(address);
+        Cursor c = context.getContentResolver().query(SmsUri.DRAFT_URI,null,"thread_id = ?",
+                new String[] { String.valueOf(tid) },"date DESC LIMIT 1");
+        if (c != null)
+        {
+            if (c.moveToFirst())
+            {
+                context.getContentResolver().delete(
+                        ContentUris.withAppendedId(SmsUri.BASE_URI, c.getLong(c.getColumnIndex("_id"))),   // the user dictionary content URI
+                        null,                    // the column to select on
+                        null                      // the value to compare to
+                );
+            }
+            c.close();
+        }
+    }
+
+    public static String RetrieveDraftMessage(Context context, String address)
+    {
+        String draft = "";
+        long tid = new Transaction(context).getOrCreateThreadId(address);
+        Cursor c = context.getContentResolver().query(SmsUri.DRAFT_URI,null,"thread_id = ?",
+                new String[] { String.valueOf(tid) },"date DESC LIMIT 1");
+        if (c != null)
+        {
+            if (c.moveToFirst())
+            {
+                draft = c.getString(c.getColumnIndex("body"));
+            }
+            c.close();
+        }
+        return draft;
+    }
 	
 	public static Long SendMessage(final Context context, final String message, final String destination)
 	{
 		return SMSUtilities.sendSms(context, message, destination);
 	}
 	
-	public static IMessage GenerateMessage(final Context context, final String address, final String message, final int incoming, final long time)
+	public static IMessageView GenerateMessage(final Context context, final String address, final String message, final long time)
 	{
-		return SMSUtilities.Generate(context, address, message, incoming, time);
+		return SMSUtilities.Generate(context, address, message, time);
 	}
 
 	public static List<ConversationSummary> GetMessageSummary(final Context context)
@@ -167,9 +202,12 @@ public final class MessageUtilities {
                     if (c2.moveToFirst())
                     {
                         final int addressCol = c2.getColumnIndex("address");
+                        final int bodyCol = c2.getColumnIndex("body");
+                        final int dateCol = c2.getColumnIndex("date");
                         final String address = AddressUtilities.StandardiseNumber(c2.getString(addressCol),context);
-                        final ConversationSummary sms = new ConversationSummary(context,c2);
-                        sms.SummaryCount = c2.getCount();
+                        final ConversationSummary sms =
+                                new ConversationSummary(context,c2,address,
+                                        c2.getString(bodyCol),c2.getLong(dateCol),c2.getCount());
                         messages.add(sms);
                     }
                     c2.close();
@@ -178,25 +216,25 @@ public final class MessageUtilities {
 		}
 	}
 
-    public static List<IMessageView> GetMessages(final Context context, final long threadId, final int max)
+    public static List<IMessageView> GetMessages(final Context context, final long threadId, final long contactId, final int max)
     {
-        return GetMessages(context, threadId, max,null);
+        return GetMessages(context, threadId, contactId, max,null);
     }
 
-	public static List<IMessageView> GetMessages(final Context context, final long threadId, final int max, final Long date)
+	public static List<IMessageView> GetMessages(final Context context, final long threadId, final long contactId, final int max, final Long date)
 	{
 		final ArrayList<IMessageView> messages = new ArrayList<IMessageView>();
         final String where;
         final String[] vals;
         if (date == null)
         {
-            where = "thread_id = ?";
-            vals = new String[] { String.valueOf(threadId) };
+            where = "thread_id = ? and type != ? ";
+            vals = new String[] { String.valueOf(threadId), String.valueOf(MessageType.DRAFT) };
         }
         else
         {
-            where = "thread_id = ? and date < ?";
-            vals = new String[] { String.valueOf(threadId), String.valueOf(date) };
+            where = "thread_id = ? and date < ? and type != ? ";
+            vals = new String[] { String.valueOf(threadId), String.valueOf(date), String.valueOf(MessageType.DRAFT) };
         }
 
         final Cursor c = context.getContentResolver().query(SmsUri.BASE_URI,
@@ -207,7 +245,7 @@ public final class MessageUtilities {
             {
                 do
                 {
-                    messages.add(new SmsMessageView(context,c));
+                    messages.add(new SmsMessageView(context,c,contactId));
                 } while (c.moveToNext());
             }
             c.close();

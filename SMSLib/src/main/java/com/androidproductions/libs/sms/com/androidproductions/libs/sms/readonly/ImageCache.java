@@ -1,15 +1,15 @@
-package com.androidproductions.ics.sms.data;
+package com.androidproductions.libs.sms.com.androidproductions.libs.sms.readonly;
 
+import android.R;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.util.LruCache;
 
-import com.androidproductions.ics.sms.R;
-
 public class ImageCache {
     private static ImageCache mImageCache;
     private static Context mContext;
+    private static int mDefault;
     private final LruCache<Long, Bitmap> cache;
 
     private ImageCache(final int cacheSize)
@@ -26,7 +26,7 @@ public class ImageCache {
     {
         final Bitmap item = mImageCache.cache.get(0L);
         if (item == null)
-            putItem(0L, BitmapFactory.decodeResource(mContext.getResources(), R.drawable.ic_contact_picture));
+            putItem(0L, BitmapFactory.decodeResource(mContext.getResources(), mDefault));
         return mImageCache.cache.get(0L);
     }
 
@@ -35,10 +35,11 @@ public class ImageCache {
         mImageCache.cache.put(id, bmp);
     }
 
-    public static void initInstance(final int cacheSize, final Context context)
+    public static void initInstance(final int cacheSize, final Context context,int defaultImage)
     {
         mImageCache = new ImageCache(cacheSize);
         mContext = context;
-        putItem(0L, BitmapFactory.decodeResource(mContext.getResources(), R.drawable.ic_contact_picture));
+        mDefault = defaultImage;
+        putItem(0L, BitmapFactory.decodeResource(mContext.getResources(), mDefault));
     }
 }

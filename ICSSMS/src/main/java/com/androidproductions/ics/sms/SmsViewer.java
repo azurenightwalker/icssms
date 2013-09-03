@@ -90,7 +90,8 @@ public class SmsViewer extends ThemeableActivity {
     public String shareString;
 	
 	private String name;
-	
+    private long ContactID;
+
     /** Called when the activity is first created. */
     @Override
     public void onCreate(final Bundle savedInstanceState) {
@@ -214,7 +215,14 @@ public class SmsViewer extends ThemeableActivity {
         filter.addAction("com.androidproductions.ics.sms.UPDATE_DIALOG");
         filter.addAction("android.provider.Telephony.SMS_RECEIVED");
     	registerReceiver(receiver, filter);
-    	UpdateTextCount(textBox.getEditableText());
+        if (draftMessage == null || draftMessage.equals(""))
+        {
+            draftMessage = MessageUtilities.RetrieveDraftMessage(SmsViewer.this,address);
+        }
+        Editable et = textBox.getEditableText();
+        et.clear();
+        et.append(draftMessage);
+        UpdateTextCount(textBox.getEditableText());
     }
     
     private boolean shouldShowCount(final int[] params)
@@ -237,6 +245,7 @@ public class SmsViewer extends ThemeableActivity {
         final ContactHelper ch = new ContactHelper(this);
 		name = ch.getContactName(address);
 		contactUri = ch.getContactUri();
+        ContactID = ch.getId();
         final ActionBar ab = getActionBar();
 		((TextView)ab.getCustomView().findViewById(R.id.action_bar_title)).setText(name);
 		((TextView)ab.getCustomView().findViewById(R.id.action_bar_subtitle)).setText(address);
@@ -335,13 +344,14 @@ public class SmsViewer extends ThemeableActivity {
     {    
     	if (messages != null && !messages.isEmpty())
     	{
-    		messages = MessageUtilities.GetMessages(SmsViewer.this, threadId,25);
+    		messages = MessageUtilities.GetMessages(SmsViewer.this, threadId,ContactID,Constants.MAX_MESSAGE_COUNT);
     	}
     	else
     	{
+            setupContact();
     		threadId = new Transaction(SmsViewer.this).getOrCreateThreadId(address);
-    		messages = MessageUtilities.GetMessages(SmsViewer.this, threadId,25);
-    		setupContact();
+    		messages = MessageUtilities.GetMessages(SmsViewer.this, threadId,ContactID,Constants.MAX_MESSAGE_COUNT);
+
         }
     	
     	redraw(false);
@@ -351,7 +361,7 @@ public class SmsViewer extends ThemeableActivity {
 	public void showPrevious(final View v)
     {
         firstDate = Math.min(firstDate,Math.min(messages.get(messages.size()-1).getDate(),messages.get(0).getDate()));
-    	messages = MessageUtilities.GetMessages(SmsViewer.this, threadId, 25, firstDate);
+    	messages = MessageUtilities.GetMessages(SmsViewer.this, threadId, ContactID, 25, firstDate);
         Collections.sort(messages, new Comparator<IMessageView>() {
             public int compare(final IMessageView m1, final IMessageView m2) {
                 return m2.getDate().compareTo(m1.getDate());
@@ -359,7 +369,6 @@ public class SmsViewer extends ThemeableActivity {
         });
         final View topSeen = smsList.getChildAt(1);
         redraw(true);
-        smsList.invalidate();
         scrollTo(topSeen);
     }
 

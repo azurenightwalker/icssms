@@ -4,7 +4,7 @@ import android.graphics.Bitmap;
 import android.net.Uri;
 
 public interface IMessageView {
-	public Long getThreadId();
+	public long getThreadId();
     public long getId();
     public Uri getUri();
 

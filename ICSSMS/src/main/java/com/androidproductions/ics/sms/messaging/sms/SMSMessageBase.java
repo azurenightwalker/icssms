@@ -14,11 +14,11 @@ import android.util.Log;
 
 import com.androidproductions.ics.sms.R;
 import com.androidproductions.ics.sms.data.ContactHelper;
-import com.androidproductions.ics.sms.data.ImageCache;
 import com.androidproductions.ics.sms.messaging.IMessage;
 import com.androidproductions.ics.sms.utils.TextUtilities;
 import com.androidproductions.libs.sms.com.androidproductions.libs.sms.constants.MessageType;
 import com.androidproductions.libs.sms.com.androidproductions.libs.sms.constants.SmsUri;
+import com.androidproductions.libs.sms.com.androidproductions.libs.sms.readonly.ImageCache;
 
 import java.io.InputStream;
 import java.util.Calendar;

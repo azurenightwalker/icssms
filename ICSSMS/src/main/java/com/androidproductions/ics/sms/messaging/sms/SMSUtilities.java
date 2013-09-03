@@ -35,7 +35,7 @@ public final class SMSUtilities {
             }
         }
 
-		return new ConversationSummary(c,
+		return new ConversationSummary(context,c,
                 address,
                 c.getString(c.getColumnIndex("snippet")),
                 c.getLong(c.getColumnIndex("date")));
@@ -56,9 +56,9 @@ public final class SMSUtilities {
 		return 0L;
 	}
 	
-	public static SMSMessage Generate(final Context context, final String address, final String message, final int incoming, final long time)
+	public static SmsMessageView Generate(final Context context, final String address, final String message, final long time)
 	{
-		return new SMSMessage(context, address,incoming,message,time);
+		return new SmsMessageView(context, address,message,time);
 	}
 
 }
