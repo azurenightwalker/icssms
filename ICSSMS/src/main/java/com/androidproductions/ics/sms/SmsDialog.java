@@ -59,14 +59,7 @@ public class SmsDialog extends ThemeableDialog  {
         if (PreferenceManager.getDefaultSharedPreferences(this).getString("DialogSize", "Regular").equals("Large"))
         	sv.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, 300));
         final Bundle extras = getIntent().getExtras();
-		final String number = extras.getString(Constants.SMS_RECEIVE_LOCATION,null);
-		final String message = extras.getString(Constants.SMS_MESSAGE,null);
-		final String messageType = extras.getString(Constants.MESSAGE_TYPE,null);
-		final long time = extras.getLong(Constants.SMS_TIME);
-		if (messageType == null)
-			updateUnreadMessages();
-		else if (messageType.equals("SMS"))
-			updateUnreadMessages(MessageUtilities.GenerateMessage(SmsDialog.this, number, message, time));
+		updateUnreadMessages();
 		activeMessage = unread.size()-1;
 		SmileyParser.init(this);
         parser = SmileyParser.getInstance();

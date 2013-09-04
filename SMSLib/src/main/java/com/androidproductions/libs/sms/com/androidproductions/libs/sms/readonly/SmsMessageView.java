@@ -9,6 +9,7 @@ import android.net.Uri;
 import android.provider.ContactsContract;
 
 import com.androidproductions.libs.sms.SmsMessage;
+import com.androidproductions.libs.sms.com.androidproductions.libs.sms.constants.MessageType;
 import com.androidproductions.libs.sms.com.androidproductions.libs.sms.constants.SmsUri;
 
 import java.io.InputStream;
@@ -162,8 +163,8 @@ public class SmsMessageView extends SmsMessage implements IMessageView{
     }
 
     public IMessageView getPrevious() {
-        final Cursor c = mContext.getContentResolver().query(SmsUri.SENT_URI, null, "thread_id = ?",
-                new String[] { String.valueOf(getThreadId()) }, "date DESC");
+        final Cursor c = mContext.getContentResolver().query(SmsUri.BASE_URI, null, "thread_id = ? and type = ?",
+                new String[] { String.valueOf(getThreadId()), String.valueOf(MessageType.SENT) }, "date DESC");
         if (c != null) {
             if (c.moveToFirst())
             {
@@ -186,6 +187,6 @@ public class SmsMessageView extends SmsMessage implements IMessageView{
 
     @Override
     public long getThreadId() {
-        return super.getThreadId();
+        return ThreadId;
     }
 }
