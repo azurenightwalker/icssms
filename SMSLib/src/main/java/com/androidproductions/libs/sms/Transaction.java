@@ -90,9 +90,21 @@ public class Transaction {
         }
 
         values.put("thread_id", threadId);
+        values.put("type", MessageType.OUTBOX);
         final Uri inserted;
         if (messageId != null)
         {
+            boolean canSend = false;
+            Cursor c = mContext.getContentResolver().query(SmsUri.BASE_URI, null,"_id = ?", new String[] { String.valueOf(messageId)},null,null);
+            if (c != null)
+            {
+                if (c.moveToFirst())
+                {
+                    canSend = c.getInt(c.getColumnIndex("type")) == MessageType.QUEUED;
+                }
+            }
+            if (!canSend)
+                return null;
             mContext.getContentResolver().update(SmsUri.BASE_URI, values,"_id = ?", new String[] { String.valueOf(messageId)});
             inserted = ContentUris.withAppendedId(SmsUri.BASE_URI,messageId);
         }
