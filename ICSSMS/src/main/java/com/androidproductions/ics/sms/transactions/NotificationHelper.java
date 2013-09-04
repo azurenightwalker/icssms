@@ -180,7 +180,7 @@ public class NotificationHelper {
             final Builder builder = new Builder(mContext);
             final Intent multiIntent = new Intent(mContext, ICSSMSActivity_.class);
             multiIntent.putExtra(Constants.NOTIFICATION_STATE_UPDATE, true);
-            multiIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            multiIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
             final PendingIntent contentIntent = PendingIntent.getActivity(mContext, 0, multiIntent, PendingIntent.FLAG_CANCEL_CURRENT);
             final String notAllSent = mContext.getResources().getString(R.string.notAllSent);
             final String sendingFailed = mContext.getResources().getString(R.string.sendingFailed);
@@ -320,8 +320,8 @@ public class NotificationHelper {
             contentIntent = new Intent(mContext, ICSSMSActivity_.class);
             contentIntent.putExtra(Constants.NOTIFICATION_STATE_UPDATE, true);
         }
-        contentIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-        return PendingIntent.getActivity(mContext, 0, contentIntent, PendingIntent.FLAG_CANCEL_CURRENT);
+        contentIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+        return PendingIntent.getActivity(mContext, 0, contentIntent, PendingIntent.FLAG_UPDATE_CURRENT);
     }
 
     Boolean setVibrate(final Builder builder)
