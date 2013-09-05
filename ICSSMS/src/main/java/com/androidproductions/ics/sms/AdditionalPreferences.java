@@ -88,7 +88,7 @@ public class AdditionalPreferences extends ThemeablePreferenceActivity  {
         switch (item.getItemId()) {
             case android.R.id.home:
                 // app icon in action bar clicked; go home
-                final Intent intent = new Intent(this, Preferences_.class);
+                final Intent intent = new Intent(this, Preferences.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
                 return true;

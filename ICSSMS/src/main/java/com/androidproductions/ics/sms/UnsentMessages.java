@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.text.SpannableString;
 import android.view.ContextMenu;
 import android.view.LayoutInflater;
+import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -21,17 +22,11 @@ import android.widget.Toast;
 import com.androidproductions.ics.sms.messaging.MessageUtilities;
 import com.androidproductions.libs.sms.InternalTransaction;
 import com.androidproductions.libs.sms.com.androidproductions.libs.sms.readonly.IMessageView;
-import com.googlecode.androidannotations.annotations.EActivity;
-import com.googlecode.androidannotations.annotations.OptionsMenu;
-import com.googlecode.androidannotations.annotations.ViewById;
 
 import java.util.List;
 
-@EActivity(R.layout.main)
-@OptionsMenu(R.menu.bare_menu)
 public class UnsentMessages extends AdSupportedActivity {
 
-    @ViewById(R.id.smsList)
     public LinearLayout smsList;
 
     private IMessageView PressedMessage;
@@ -40,6 +35,8 @@ public class UnsentMessages extends AdSupportedActivity {
 	@Override
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.main);
+        smsList = (LinearLayout) findViewById(R.id.smsList);
         final ActionBar ab = getActionBar();
         if (ab != null) {
             ab.setHomeButtonEnabled(true);
@@ -47,7 +44,13 @@ public class UnsentMessages extends AdSupportedActivity {
             ab.setDisplayHomeAsUpEnabled(true);
         }
     }
-	
+
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.bare_menu, menu);
+        return true;
+    }
+
 	@Override
 	public void onResume() {
         super.onResume();
@@ -99,12 +102,12 @@ public class UnsentMessages extends AdSupportedActivity {
         switch (item.getItemId()) {
             case android.R.id.home:
                 // app icon in action bar clicked; go home
-                final Intent intent = new Intent(this, ICSSMSActivity_.class);
+                final Intent intent = new Intent(this, ICSSMSActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
                 return true;
             case R.id.settings:
-            	final Intent prefintent = new Intent(this, Preferences_.class);
+            	final Intent prefintent = new Intent(this, Preferences.class);
             	prefintent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(prefintent);
             	return true;

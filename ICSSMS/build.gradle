@@ -17,12 +17,9 @@ ext.androidAnnotationsVersion = '2.7.1';
 configurations {
     compile
     androidannotations.extendsFrom(compile)
-    apt
 }
 
 dependencies {
-    //apt "com.googlecode.androidannotations:androidannotations:${androidAnnotationsVersion}"
-    //compile "com.googlecode.androidannotations:androidannotations-api:${androidAnnotationsVersion}"
     compile project(':SMSLib')
     compile fileTree(dir: 'libs', include: '*.jar')
     androidannotations 'com.googlecode.androidannotations:androidannotations:2.7.1'
@@ -78,7 +75,7 @@ android {
     }
 }*/
 
-android.applicationVariants.all { variant ->
+/*android.applicationVariants.all { variant ->
     aptOutput = file("${project.buildDir}/source/apt_generated/${variant.dirName}")
     variant.javaCompile.doFirst {
         aptOutput.mkdirs()
@@ -96,4 +93,4 @@ afterEvaluate { project ->
                 '-s', aptOutput
         ]
     }
-}
+}*/

@@ -10,7 +10,10 @@ import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.telephony.SmsMessage;
 import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AutoCompleteTextView;
@@ -20,27 +23,15 @@ import android.widget.TextView;
 import com.androidproductions.ics.sms.data.adapters.ContactsAutoCompleteCursorAdapter;
 import com.androidproductions.ics.sms.messaging.MessageUtilities;
 import com.androidproductions.libs.sms.com.androidproductions.libs.sms.constants.SmsUri;
-import com.googlecode.androidannotations.annotations.AfterTextChange;
-import com.googlecode.androidannotations.annotations.AfterViews;
-import com.googlecode.androidannotations.annotations.EActivity;
-import com.googlecode.androidannotations.annotations.OptionsMenu;
-import com.googlecode.androidannotations.annotations.ViewById;
-import com.googlecode.androidannotations.annotations.res.StringRes;
 
-@EActivity(R.layout.sms_compose)
-@OptionsMenu(R.menu.compose_menu)
 public class ComposeSms extends ThemeableActivity {
 
-    @ViewById(R.id.phoneNumber)
     public AutoCompleteTextView phoneNumber;
     
-    @ViewById(R.id.text)
     public EditText textView;
 
-    @StringRes(R.string.characterCount)
     public String textFormat;
 
-    @ViewById(R.id.textCount)
     public static TextView textCount;
     
 	private ContactsAutoCompleteCursorAdapter adapter;
@@ -50,6 +41,7 @@ public class ComposeSms extends ThemeableActivity {
     @Override
     public void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.sms_compose);
         getActionBar().setHomeButtonEnabled(true);
         getActionBar().setDisplayHomeAsUpEnabled(true);
         final String[] projection = new String[] {
@@ -68,9 +60,44 @@ public class ComposeSms extends ThemeableActivity {
 
         final Cursor autoCursor = cursorLoader.loadInBackground();
         adapter = new ContactsAutoCompleteCursorAdapter(this, autoCursor);
+        initialize();
     }
-    
-    @AfterViews
+
+    protected void initialize() {
+        phoneNumber = (AutoCompleteTextView) findViewById(R.id.phoneNumber);
+        textView = (EditText) findViewById(R.id.text);
+        textCount = (TextView) findViewById(R.id.textCount);
+        textFormat = getResources().getString(R.string.characterCount);
+        textView.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(final CharSequence s, final int start, final int count, final int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(final CharSequence s, final int start, final int before, final int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(final Editable s) {
+                UpdateTextCount(s);
+            }
+        });
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        redrawView();
+    }
+
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.compose_menu, menu);
+        return true;
+    }
+
     public void redrawView()
     {
     	final Bundle extras = getIntent().getExtras();
@@ -88,10 +115,10 @@ public class ComposeSms extends ThemeableActivity {
         UpdateTextCount(textView.getEditableText());
     }
 
-    @AfterTextChange(R.id.text)
+    /*@AfterTextChange(R.id.text)
     public void afterTextChanged(final Editable s) {
         UpdateTextCount(s);
-    }
+    }*/
 
     private void UpdateTextCount(final Editable s) {
         final int[] params = SmsMessage.calculateLength(s, false);
@@ -112,7 +139,7 @@ public class ComposeSms extends ThemeableActivity {
         switch (item.getItemId()) {
             case android.R.id.home:
                 // app icon in action bar clicked; go home
-                final Intent intent = new Intent(this, ICSSMSActivity_.class);
+                final Intent intent = new Intent(this, ICSSMSActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
                 return true;
@@ -120,7 +147,7 @@ public class ComposeSms extends ThemeableActivity {
             	finish();
             	return true;
             case R.id.settings:
-            	final Intent prefintent = new Intent(this, Preferences_.class);
+            	final Intent prefintent = new Intent(this, Preferences.class);
             	prefintent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(prefintent);
             	return true;
@@ -138,7 +165,7 @@ public class ComposeSms extends ThemeableActivity {
         {
             number = number.substring(number.lastIndexOf("(")+1).replace(")","");
             final Long thread = MessageUtilities.SendMessage(ComposeSms.this,text,number);
-            final Intent intent = new Intent(getBaseContext(), SmsViewer_.class);
+            final Intent intent = new Intent(getBaseContext(), SmsViewer.class);
             intent.setData(ContentUris.withAppendedId(SmsUri.CONVERSATIONS_URI,thread));
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             intent.putExtra(Constants.SMS_RECEIVE_LOCATION, number);

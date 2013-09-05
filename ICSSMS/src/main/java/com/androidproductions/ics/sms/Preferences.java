@@ -16,11 +16,7 @@ import android.widget.Switch;
 import android.widget.TextView;
 
 import com.androidproductions.ics.sms.preferences.ConfigurationHelper;
-import com.googlecode.androidannotations.annotations.AfterViews;
-import com.googlecode.androidannotations.annotations.EActivity;
 
-
-@EActivity(R.layout.preferences)
 public class Preferences extends ThemeableActivity {
 
 	private ConfigurationHelper config;
@@ -34,6 +30,7 @@ public class Preferences extends ThemeableActivity {
 	@Override
 	public void onCreate(final Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+        setContentView(R.layout.preferences);
 		final ActionBar ab = getActionBar();
         if (ab != null) {
             ab.setHomeButtonEnabled(true);
@@ -44,9 +41,9 @@ public class Preferences extends ThemeableActivity {
     	types = new String[permCount];
     	widgets = new Object[permCount];
     	config = ConfigurationHelper.getInstance();
+        setupPreferences();
 	}
-	
-	@AfterViews
+
 	public void setupPreferences()
 	{
 		setHeader(R.id.notificationsHeader,R.string.notificationsHeader);
@@ -181,7 +178,7 @@ public class Preferences extends ThemeableActivity {
         switch (item.getItemId()) {
             case android.R.id.home:
                 // app icon in action bar clicked; go home
-                final Intent intent = new Intent(this, ICSSMSActivity_.class);
+                final Intent intent = new Intent(this, ICSSMSActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
                 return true;

@@ -16,6 +16,7 @@ import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.telephony.SmsMessage;
 import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.ContextMenu;
 import android.view.ContextMenu.ContextMenuInfo;
 import android.view.LayoutInflater;
@@ -26,6 +27,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewManager;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.AutoCompleteTextView;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -44,31 +46,18 @@ import com.androidproductions.libs.sms.InternalTransaction;
 import com.androidproductions.libs.sms.com.androidproductions.libs.sms.constants.SmsUri;
 import com.androidproductions.libs.sms.Transaction;
 import com.androidproductions.libs.sms.com.androidproductions.libs.sms.readonly.IMessageView;
-import com.googlecode.androidannotations.annotations.AfterTextChange;
-import com.googlecode.androidannotations.annotations.AfterViews;
-import com.googlecode.androidannotations.annotations.EActivity;
-import com.googlecode.androidannotations.annotations.Extra;
-import com.googlecode.androidannotations.annotations.OptionsMenu;
-import com.googlecode.androidannotations.annotations.ViewById;
-import com.googlecode.androidannotations.annotations.res.StringRes;
 
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
-@EActivity(R.layout.sms_viewer)
-@OptionsMenu(R.menu.conversation_menu)
 public class SmsViewer extends ThemeableActivity {
-	@ViewById(R.id.smsList)
 	public LinearLayout smsList;
-	
-	@ViewById(R.id.text)
+
 	public static EditText textBox;
-	
-	@ViewById(R.id.textCount)
+
 	public static TextView textCount;
-	
-	@ViewById(R.id.scroller)
+
 	public KeyboardDetectorScrollView scrollView;
 	
 	private SmileyParser parser;
@@ -77,16 +66,12 @@ public class SmsViewer extends ThemeableActivity {
     private long threadId;
     private Uri contactUri;
 	
-	@Extra(Constants.SMS_RECEIVE_LOCATION)
 	public String address;
 
-    @Extra(Constants.SMS_MESSAGE)
     public String draftMessage;
 
-    @StringRes(R.string.characterCount)
     public String textFormat;
 
-    @StringRes(R.string.shareString)
     public String shareString;
 	
 	private String name;
@@ -96,6 +81,7 @@ public class SmsViewer extends ThemeableActivity {
     @Override
     public void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.sms_viewer);
         final ActionBar ab = getActionBar();
 
         if (ab != null) {
@@ -107,7 +93,7 @@ public class SmsViewer extends ThemeableActivity {
             final View v = ab.getCustomView();
             final OnClickListener goHome = new OnClickListener() {
                 public void onClick(final View v) {
-                    final Intent intent = new Intent(SmsViewer.this, ICSSMSActivity_.class);
+                    final Intent intent = new Intent(SmsViewer.this, ICSSMSActivity.class);
                     intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     startActivity(intent);
                 }
@@ -128,11 +114,42 @@ public class SmsViewer extends ThemeableActivity {
         parser = SmileyParser.getInstance();
         lastDate = 0L;
         firstDate = Long.MAX_VALUE;
+        Bundle extras = getIntent().getExtras();
+        if (extras != null)
+            address = extras.getString(Constants.SMS_RECEIVE_LOCATION,address);
+        initialize();
+        setupView();
     }
-    
-	@AfterTextChange(R.id.text)
-    public void afterTextChanged(final Editable s) {
-		UpdateTextCount(s);
+
+    protected void initialize() {
+        smsList = (LinearLayout) findViewById(R.id.smsList);
+        textBox = (EditText) findViewById(R.id.text);
+        textCount = (TextView) findViewById(R.id.textCount);
+        scrollView = (KeyboardDetectorScrollView) findViewById(R.id.scroller);
+        textFormat = getResources().getString(R.string.characterCount);
+        shareString = getResources().getString(R.string.shareString);
+        textBox.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(final CharSequence s, final int start, final int count, final int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(final CharSequence s, final int start, final int before, final int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(final Editable s) {
+                UpdateTextCount(s);
+            }
+        });
+    }
+
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.conversation_menu, menu);
+        return true;
     }
 
 	private void UpdateTextCount(final Editable s) {
@@ -157,7 +174,7 @@ public class SmsViewer extends ThemeableActivity {
         switch (item.getItemId()) {
             case android.R.id.home:
                 // app icon in action bar clicked; go home
-                final Intent intent = new Intent(this, ICSSMSActivity_.class);
+                final Intent intent = new Intent(this, ICSSMSActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
                 return true;
@@ -176,7 +193,7 @@ public class SmsViewer extends ThemeableActivity {
             	callNumberConfirm();
             	return true;
             case R.id.settings:
-            	final Intent prefintent = new Intent(this, Preferences_.class);
+            	final Intent prefintent = new Intent(this, Preferences.class);
             	prefintent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(prefintent);
             	return true;
@@ -186,7 +203,7 @@ public class SmsViewer extends ThemeableActivity {
             		    null,                    // the column to select on
             		    null                      // the value to compare to
             		);
-            	final Intent hintent = new Intent(this, ICSSMSActivity_.class);
+            	final Intent hintent = new Intent(this, ICSSMSActivity.class);
                 hintent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(hintent);
                 return true;
@@ -286,8 +303,7 @@ public class SmsViewer extends ThemeableActivity {
 			mgr.hideSoftInputFromWindow(textBox.getWindowToken(), 0);
 		}
     }
-    
-	@AfterViews
+
     public void setupView()
     {
 		textBox.getEditableText().append(draftMessage == null ? "" : draftMessage);
@@ -434,7 +450,7 @@ public class SmsViewer extends ThemeableActivity {
 	        	dialog.show();
 	        	return true;
 	        case R.smslong.forward:
-	        	final Intent forwardIntent = new Intent(getApplicationContext(), ComposeSms_.class);
+	        	final Intent forwardIntent = new Intent(getApplicationContext(), ComposeSms.class);
 	        	forwardIntent.putExtra(Constants.SMS_MESSAGE, PressedMessage.getBody());
 	        	forwardIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
 	    		startActivity(forwardIntent);

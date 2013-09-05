@@ -104,7 +104,7 @@ public class SmsNotify extends ThemeableDialog  {
 
     void openConversation()
     {
-    	final Intent conversationIntent = new Intent(SmsNotify.this, SmsViewer_.class);
+    	final Intent conversationIntent = new Intent(SmsNotify.this, SmsViewer.class);
     	conversationIntent.putExtra(Constants.SMS_RECEIVE_LOCATION, message.getAddress());
     	conversationIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
 		startActivity(conversationIntent);

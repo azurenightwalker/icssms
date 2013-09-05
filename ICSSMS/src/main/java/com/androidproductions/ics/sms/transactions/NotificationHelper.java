@@ -17,11 +17,10 @@ import com.androidproductions.ics.sms.Constants;
 import com.androidproductions.ics.sms.R;
 import com.androidproductions.ics.sms.SmsDialog;
 import com.androidproductions.ics.sms.SmsNotify;
-import com.androidproductions.ics.sms.messaging.IMessage;
 import com.androidproductions.ics.sms.messaging.MessageUtilities;
 import com.androidproductions.ics.sms.preferences.ConfigurationHelper;
-import com.androidproductions.ics.sms.ICSSMSActivity_;
-import com.androidproductions.ics.sms.SmsViewer_;
+import com.androidproductions.ics.sms.ICSSMSActivity;
+import com.androidproductions.ics.sms.SmsViewer;
 import com.androidproductions.libs.sms.com.androidproductions.libs.sms.constants.SmsUri;
 import com.androidproductions.libs.sms.com.androidproductions.libs.sms.readonly.IMessageView;
 
@@ -178,7 +177,7 @@ public class NotificationHelper {
         if (smsCount > 0)
         {
             final Builder builder = new Builder(mContext);
-            final Intent multiIntent = new Intent(mContext, ICSSMSActivity_.class);
+            final Intent multiIntent = new Intent(mContext, ICSSMSActivity.class);
             multiIntent.putExtra(Constants.NOTIFICATION_STATE_UPDATE, true);
             multiIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
             final PendingIntent contentIntent = PendingIntent.getActivity(mContext, 0, multiIntent, PendingIntent.FLAG_CANCEL_CURRENT);
@@ -312,12 +311,12 @@ public class NotificationHelper {
         final Intent contentIntent;
         if (messageSize == 1)
         {
-            contentIntent = new Intent(mContext, SmsViewer_.class);
+            contentIntent = new Intent(mContext, SmsViewer.class);
             contentIntent.putExtra(Constants.SMS_RECEIVE_LOCATION, messages.get(0).getAddress());
         }
         else
         {
-            contentIntent = new Intent(mContext, ICSSMSActivity_.class);
+            contentIntent = new Intent(mContext, ICSSMSActivity.class);
             contentIntent.putExtra(Constants.NOTIFICATION_STATE_UPDATE, true);
         }
         contentIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);

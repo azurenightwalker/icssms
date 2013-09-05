@@ -235,7 +235,7 @@ public class SmsDialog extends ThemeableDialog  {
     @SuppressWarnings("UnusedParameters")
     public void openConversation(final View v)
     {
-    	final Intent conversationIntent = new Intent(SmsDialog.this, SmsViewer_.class);
+    	final Intent conversationIntent = new Intent(SmsDialog.this, SmsViewer.class);
     	conversationIntent.putExtra(Constants.SMS_MESSAGE, ((EditText)findViewById(R.id.text)).getEditableText().toString());
     	conversationIntent.putExtra(Constants.SMS_RECEIVE_LOCATION, message.getAddress());
     	conversationIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);

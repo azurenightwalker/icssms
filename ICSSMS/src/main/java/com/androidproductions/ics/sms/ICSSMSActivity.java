@@ -23,18 +23,12 @@ import android.widget.TextView;
 import com.androidproductions.ics.sms.messaging.MessageUtilities;
 import com.androidproductions.libs.sms.com.androidproductions.libs.sms.constants.SmsUri;
 import com.androidproductions.libs.sms.com.androidproductions.libs.sms.readonly.ConversationSummary;
-import com.googlecode.androidannotations.annotations.EActivity;
-import com.googlecode.androidannotations.annotations.OptionsMenu;
-import com.googlecode.androidannotations.annotations.ViewById;
 
 import java.util.ArrayList;
 import java.util.List;
 
-@EActivity(R.layout.main)
-@OptionsMenu(R.menu.base_menu)
 public class ICSSMSActivity extends AdSupportedActivity {
 
-    @ViewById(R.id.smsList)
     public LinearLayout smsList;
 	
 	// Current action mode (contextual action bar, a.k.a. CAB)
@@ -45,9 +39,17 @@ public class ICSSMSActivity extends AdSupportedActivity {
 	@Override
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.main);
         selected = new ArrayList<View>();
         if(getIntent().getBooleanExtra(Constants.NOTIFICATION_STATE_UPDATE, false))
         	PreferenceManager.getDefaultSharedPreferences(this).edit().putBoolean(Constants.NOTIFICATION_SHOWING_KEY, false).apply();
+        smsList = (LinearLayout) findViewById(R.id.smsList);
+    }
+
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.base_menu, menu);
+        return true;
     }
 
     @Override
@@ -131,7 +133,7 @@ public class ICSSMSActivity extends AdSupportedActivity {
                     }
 					else
 					{
-						final Intent intent = new Intent(getBaseContext(), SmsViewer_.class);
+						final Intent intent = new Intent(getBaseContext(), SmsViewer.class);
 						intent.setData(ContentUris.withAppendedId(SmsUri.CONVERSATIONS_URI,((ConversationSummary)v.getTag()).getThreadId()));
 						intent.putExtra(Constants.SMS_RECEIVE_LOCATION, ((ConversationSummary)v.getTag()).getAddress());
 		                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
@@ -162,17 +164,17 @@ public class ICSSMSActivity extends AdSupportedActivity {
             case android.R.id.home:
                 return true;
             case R.id.newSms:
-                final Intent intent = new Intent(this, ComposeSms_.class);
+                final Intent intent = new Intent(this, ComposeSms.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
                 return true;
             case R.id.unsentSms:
-                final Intent unintent = new Intent(this, UnsentMessages_.class);
+                final Intent unintent = new Intent(this, UnsentMessages.class);
                 unintent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(unintent);
                 return true;
             case R.id.settings:
-            	final Intent prefintent = new Intent(this, Preferences_.class);
+            	final Intent prefintent = new Intent(this, Preferences.class);
             	prefintent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(prefintent);
             	return true;
