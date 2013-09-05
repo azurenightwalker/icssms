@@ -44,7 +44,7 @@ public class Preferences extends ThemeableActivity {
         setupPreferences();
 	}
 
-	public void setupPreferences()
+	void setupPreferences()
 	{
 		setHeader(R.id.notificationsHeader,R.string.notificationsHeader);
 		setHeader(R.id.miscHeader,R.string.miscHeader);

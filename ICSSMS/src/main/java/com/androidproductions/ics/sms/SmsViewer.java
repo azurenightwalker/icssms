@@ -27,7 +27,6 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewManager;
 import android.view.inputmethod.InputMethodManager;
-import android.widget.AutoCompleteTextView;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -52,13 +51,13 @@ import java.util.Comparator;
 import java.util.List;
 
 public class SmsViewer extends ThemeableActivity {
-	public LinearLayout smsList;
+	private LinearLayout smsList;
 
-	public static EditText textBox;
+	private EditText textBox;
 
-	public static TextView textCount;
+	private TextView textCount;
 
-	public KeyboardDetectorScrollView scrollView;
+	private KeyboardDetectorScrollView scrollView;
 	
 	private SmileyParser parser;
 	private List<IMessageView> messages;
@@ -66,13 +65,13 @@ public class SmsViewer extends ThemeableActivity {
     private long threadId;
     private Uri contactUri;
 	
-	public String address;
+	private String address;
 
-    public String draftMessage;
+    private String draftMessage;
 
-    public String textFormat;
+    private String textFormat;
 
-    public String shareString;
+    private String shareString;
 	
 	private String name;
     private long ContactID;
@@ -114,14 +113,14 @@ public class SmsViewer extends ThemeableActivity {
         parser = SmileyParser.getInstance();
         lastDate = 0L;
         firstDate = Long.MAX_VALUE;
-        Bundle extras = getIntent().getExtras();
+        final Bundle extras = getIntent().getExtras();
         if (extras != null)
             address = extras.getString(Constants.SMS_RECEIVE_LOCATION,address);
         initialize();
         setupView();
     }
 
-    protected void initialize() {
+    void initialize() {
         smsList = (LinearLayout) findViewById(R.id.smsList);
         textBox = (EditText) findViewById(R.id.text);
         textCount = (TextView) findViewById(R.id.textCount);
@@ -146,8 +145,8 @@ public class SmsViewer extends ThemeableActivity {
         });
     }
 
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater = getMenuInflater();
+    public boolean onCreateOptionsMenu(final Menu menu) {
+        final MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.conversation_menu, menu);
         return true;
     }
@@ -232,10 +231,7 @@ public class SmsViewer extends ThemeableActivity {
         filter.addAction("com.androidproductions.ics.sms.UPDATE_DIALOG");
         filter.addAction("android.provider.Telephony.SMS_RECEIVED");
     	registerReceiver(receiver, filter);
-        if (draftMessage == null || draftMessage.equals(""))
-        {
-            draftMessage = MessageUtilities.RetrieveDraftMessage(SmsViewer.this,address);
-        }
+        draftMessage = MessageUtilities.RetrieveDraftMessage(SmsViewer.this,address);
         final Editable et = textBox.getEditableText();
         et.clear();
         et.append(draftMessage);
@@ -255,7 +251,7 @@ public class SmsViewer extends ThemeableActivity {
     	unregisterReceiver(receiver);
     }
 
-	protected void setupContact() {
+	void setupContact() {
 		if (address == null)
 			address = messages.get(0).getAddress();
 		address = AddressUtilities.StandardiseNumber(address,SmsViewer.this);
@@ -268,7 +264,7 @@ public class SmsViewer extends ThemeableActivity {
 		((TextView)ab.getCustomView().findViewById(R.id.action_bar_subtitle)).setText(address);
 	}
 
-	public void callNumberConfirm()
+	void callNumberConfirm()
 	{
 		new AlertDialog.Builder(this)
         .setIcon(android.R.drawable.sym_action_call)
@@ -304,7 +300,7 @@ public class SmsViewer extends ThemeableActivity {
 		}
     }
 
-    public void setupView()
+    void setupView()
     {
 		textBox.getEditableText().append(draftMessage == null ? "" : draftMessage);
         scrollView.addKeyboardStateChangedListener(new IKeyboardChanged() {
@@ -317,7 +313,7 @@ public class SmsViewer extends ThemeableActivity {
 		});
     }
 	
-	public void redraw(final boolean topDown)
+	void redraw(final boolean topDown)
 	{
 		for(int i = 0; i<=messages.size()-1;i++)
         {
@@ -356,7 +352,7 @@ public class SmsViewer extends ThemeableActivity {
             smsList.findViewById(R.id.showPrevious).setVisibility(View.GONE);
     }
 	
-	public void redrawView()
+	void redrawView()
     {    
     	if (messages != null && !messages.isEmpty())
     	{
@@ -464,13 +460,11 @@ public class SmsViewer extends ThemeableActivity {
 	        case R.smslong.lock:
 	        	new InternalTransaction(SmsViewer.this).LockMessage(PressedMessage);
 	        	smsList.findViewWithTag(PressedMessage).findViewById(R.id.messageStatus).setVisibility(View.VISIBLE);
-	        	//Toast.makeText(this, "Message locked", Toast.LENGTH_SHORT).show();
-	            return true;
+	        	return true;
 	        case R.smslong.unlock:
                 new InternalTransaction(SmsViewer.this).UnlockMessage(PressedMessage);
 	        	smsList.findViewWithTag(PressedMessage).findViewById(R.id.messageStatus).setVisibility(View.GONE);
-	        	//Toast.makeText(this, "Message locked", Toast.LENGTH_SHORT).show();
-	            return true;
+	        	return true;
 	        case R.smslong.unread:
                 new InternalTransaction(SmsViewer.this).MarkMessageUnread(PressedMessage);
 	        	Toast.makeText(this, getResources().getText(R.string.markedUnread), Toast.LENGTH_SHORT).show();
@@ -500,6 +494,7 @@ public class SmsViewer extends ThemeableActivity {
             }
         });
     }
+
     private void scrollToBottom()
     {
     	scrollView.post(new Runnable() {

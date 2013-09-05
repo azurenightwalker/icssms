@@ -29,7 +29,7 @@ import java.util.List;
 
 public class ICSSMSActivity extends AdSupportedActivity {
 
-    public LinearLayout smsList;
+    private LinearLayout smsList;
 	
 	// Current action mode (contextual action bar, a.k.a. CAB)
     private ActionMode mCurrentActionMode;
@@ -46,8 +46,8 @@ public class ICSSMSActivity extends AdSupportedActivity {
         smsList = (LinearLayout) findViewById(R.id.smsList);
     }
 
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater = getMenuInflater();
+    public boolean onCreateOptionsMenu(final Menu menu) {
+        final MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.base_menu, menu);
         return true;
     }

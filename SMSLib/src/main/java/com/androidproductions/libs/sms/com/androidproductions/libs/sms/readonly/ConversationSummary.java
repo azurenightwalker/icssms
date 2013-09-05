@@ -13,14 +13,14 @@ import java.util.Calendar;
 
 public class ConversationSummary{
     private String Name;
-    private String[] Addresses;
-    private int Read;
-    private long ThreadId;
+    private final String[] Addresses;
+    private final int Read;
+    private final long ThreadId;
     private Uri uri;
-    private int SummaryCount;
-    private long Date;
-    private String Body;
-    private Context mContext;
+    private final int SummaryCount;
+    private final long Date;
+    private final String Body;
+    private final Context mContext;
     private long ContactID;
 
     public ConversationSummary(final Context context, final Cursor c, final String address, final String snippet, final long date) {

@@ -10,9 +10,9 @@ public final class LogHelper {
 	private static int DEBUG_LEVEL = 0;
     public static final int DEBUG_LEVEL_ERROR = 0;
     public static final int DEBUG_LEVEL_WARNING = 1;
-    public static final int DEBUG_LEVEL_INFO = 2;
-    public static final int DEBUG_LEVEL_DEBUG = 3;
-    public static final int DEBUG_LEVEL_VERBOSE = 4;
+    private static final int DEBUG_LEVEL_INFO = 2;
+    private static final int DEBUG_LEVEL_DEBUG = 3;
+    private static final int DEBUG_LEVEL_VERBOSE = 4;
 	
 	private static int TOAST = 0;
 	private static final int TOAST_ENABLED = 1;

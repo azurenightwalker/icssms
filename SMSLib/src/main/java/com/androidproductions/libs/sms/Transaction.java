@@ -1,6 +1,7 @@
 package com.androidproductions.libs.sms;
 
 import android.app.PendingIntent;
+import android.content.ContentResolver;
 import android.content.ContentUris;
 import android.content.ContentValues;
 import android.content.Context;
@@ -69,7 +70,7 @@ public class Transaction {
             threadId = getOrCreateThreadId(addresses);
         }
 
-        for (String address : addresses) {
+        for (final String address : addresses) {
             res.add(sendSmsMessage(text, address, messageId, threadId));
         }
         return res;
@@ -94,16 +95,16 @@ public class Transaction {
         final Uri inserted;
         if (messageId != null)
         {
-            boolean canSend = false;
-            Cursor c = mContext.getContentResolver().query(SmsUri.BASE_URI, null,"_id = ?", new String[] { String.valueOf(messageId)},null,null);
+            boolean wontSend = true;
+            final Cursor c = mContext.getContentResolver().query(SmsUri.BASE_URI, null,"_id = ?", new String[] { String.valueOf(messageId)},null,null);
             if (c != null)
             {
                 if (c.moveToFirst())
                 {
-                    canSend = c.getInt(c.getColumnIndex("type")) == MessageType.QUEUED;
+                    wontSend = c.getInt(c.getColumnIndex("type")) != MessageType.QUEUED;
                 }
             }
-            if (!canSend)
+            if (wontSend)
                 return null;
             mContext.getContentResolver().update(SmsUri.BASE_URI, values,"_id = ?", new String[] { String.valueOf(messageId)});
             inserted = ContentUris.withAppendedId(SmsUri.BASE_URI,messageId);
@@ -127,7 +128,7 @@ public class Transaction {
 
         final ArrayList<String> parts = smsManager.divideMessage(text);
 
-        for (String part : parts) {
+        for (final String part : parts) {
             sPI.add(sentPI);
             dPI.add(deliveredPI);
         }
@@ -176,7 +177,7 @@ public class Transaction {
      * any order, without any additions). If one
      * is found, return it.  Otherwise, return a unique thread ID.
      */
-    public long getOrCreateThreadId(final String[] recipients) {
+    long getOrCreateThreadId(final String[] recipients) {
         final Uri.Builder uriBuilder = SmsUri.THREAD_URI.buildUpon();
 
         for (final String recipient : recipients) {
@@ -200,5 +201,12 @@ public class Transaction {
 
         Log.e("SMS", "getOrCreateThreadId failed with uri " + uri.toString());
         throw new IllegalArgumentException("Unable to find or allocate a thread ID.");
+    }
+
+    public Uri SaveIncoming(final SmsMessage message)
+    {
+        final ContentValues values = message.buildContentValues(mContext);
+        final ContentResolver resolver = mContext.getContentResolver();
+        return resolver.insert(SmsUri.INBOX_URI, values);
     }
 }

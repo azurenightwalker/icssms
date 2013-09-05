@@ -26,13 +26,13 @@ import com.androidproductions.libs.sms.com.androidproductions.libs.sms.constants
 
 public class ComposeSms extends ThemeableActivity {
 
-    public AutoCompleteTextView phoneNumber;
+    private AutoCompleteTextView phoneNumber;
     
-    public EditText textView;
+    private EditText textView;
 
-    public String textFormat;
+    private String textFormat;
 
-    public static TextView textCount;
+    private TextView textCount;
     
 	private ContactsAutoCompleteCursorAdapter adapter;
     private AlertDialog dialog;
@@ -63,7 +63,7 @@ public class ComposeSms extends ThemeableActivity {
         initialize();
     }
 
-    protected void initialize() {
+    void initialize() {
         phoneNumber = (AutoCompleteTextView) findViewById(R.id.phoneNumber);
         textView = (EditText) findViewById(R.id.text);
         textCount = (TextView) findViewById(R.id.textCount);
@@ -92,13 +92,13 @@ public class ComposeSms extends ThemeableActivity {
         redrawView();
     }
 
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater = getMenuInflater();
+    public boolean onCreateOptionsMenu(final Menu menu) {
+        final MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.compose_menu, menu);
         return true;
     }
 
-    public void redrawView()
+    void redrawView()
     {
     	final Bundle extras = getIntent().getExtras();
         String text = "";

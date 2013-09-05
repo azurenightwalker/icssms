@@ -1,4 +1,4 @@
-package com.androidproductions.ics.sms.utils;
+package com.androidproductions.libs.sms.com.androidproductions.libs.sms;
 
 public final class TextUtilities {
     private TextUtilities() {

@@ -20,7 +20,6 @@ import com.androidproductions.ics.sms.Constants;
 import com.androidproductions.ics.sms.R;
 import com.androidproductions.ics.sms.SmsDialog;
 import com.androidproductions.ics.sms.SmsNotify;
-import com.androidproductions.ics.sms.messaging.sms.SMSMessage;
 import com.androidproductions.ics.sms.preferences.ConfigurationHelper;
 import com.androidproductions.ics.sms.receivers.MyPhoneStateListener;
 import com.androidproductions.ics.sms.receivers.SmsUpdateReceiver;
@@ -37,10 +36,6 @@ public class MessagingService extends Service{
 
 	private static final String TAG = "ICSSMSService";
     private ServiceHandler mServiceHandler;
-
-	// Indicates next message can be picked up and sent out.
-    private static final String EXTRA_MESSAGE_SENT_SEND_NEXT ="SendNextMsg";
-
 
     private static final Handler mToastHandler = new Handler();
 
@@ -146,7 +141,6 @@ public class MessagingService extends Service{
             //noinspection ConstantConditions
             final Uri uri = (Uri)intent.getExtras().get(SMS_URI);
             final Transaction trans = new Transaction(context);
-	        final boolean sendNextMsg = intent.getBooleanExtra(EXTRA_MESSAGE_SENT_SEND_NEXT, false);
 	        if (resultCode == Activity.RESULT_OK) {
                 trans.sentMessage(uri);
 	        } else if ((resultCode == SmsManager.RESULT_ERROR_RADIO_OFF) ||
@@ -202,26 +196,26 @@ public class MessagingService extends Service{
 		public void handleSmsRecieved(final Intent intent)
         {
             //noinspection ConstantConditions
-            final SMSMessage sms = new SMSMessage(context, (Object[]) intent.getExtras().get("pdus"));
+            final SmsMessage message = new SmsMessage((Object[]) intent.getExtras().get("pdus"));
 
             // Save message if needed
-            if (mConfig.getBooleanValue(ConfigurationHelper.DISABLE_OTHER_NOTIFICATIONS))
-                sms.saveIncoming(false);
+           if (mConfig.getBooleanValue(ConfigurationHelper.DISABLE_OTHER_NOTIFICATIONS))
+                new Transaction(context).SaveIncoming(message);
 
             // Display Dialog
             if (mConfig.getBooleanValue(ConfigurationHelper.DIALOG_ENABLED))
-                displayDialog(context, sms);
+                displayDialog(context, message);
             context.sendBroadcast(new Intent("com.androidproductions.ics.sms.UPDATE_DIALOG"));
         }
         
-        private void displayDialog(final Context context, final SMSMessage sms) {
+        private void displayDialog(final Context context, final SmsMessage sms) {
         	final Intent dialogIntent;
     		if (mConfig.getStringValue(ConfigurationHelper.DIALOG_TYPE).equals("2"))
     			dialogIntent = new Intent(context, SmsNotify.class);
     		else
     			dialogIntent = new Intent(context, SmsDialog.class);
-    		dialogIntent.putExtra(Constants.SMS_RECEIVE_LOCATION, sms.Address);
-    		dialogIntent.putExtra(Constants.SMS_MESSAGE, sms.Body);
+    		dialogIntent.putExtra(Constants.SMS_RECEIVE_LOCATION, sms.getAddresses()[0]);
+    		dialogIntent.putExtra(Constants.SMS_MESSAGE, sms.getBody());
     		dialogIntent.putExtra(Constants.MESSAGE_TYPE, "SMS");
     		dialogIntent.putExtra(Constants.SMS_TIME, System.currentTimeMillis());
     		dialogIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);// |Intent.FLAG_ACTIVITY_SINGLE_TOP);

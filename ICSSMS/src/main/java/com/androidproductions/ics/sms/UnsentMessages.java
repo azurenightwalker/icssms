@@ -27,7 +27,7 @@ import java.util.List;
 
 public class UnsentMessages extends AdSupportedActivity {
 
-    public LinearLayout smsList;
+    private LinearLayout smsList;
 
     private IMessageView PressedMessage;
 
@@ -45,8 +45,8 @@ public class UnsentMessages extends AdSupportedActivity {
         }
     }
 
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater = getMenuInflater();
+    public boolean onCreateOptionsMenu(final Menu menu) {
+        final MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.bare_menu, menu);
         return true;
     }

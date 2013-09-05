@@ -16,14 +16,13 @@ import java.io.InputStream;
 import java.util.Calendar;
 
 public class SmsMessageView extends SmsMessage implements IMessageView{
-    public final Context mContext;
+    private final Context mContext;
     private String Name;
-    int Type;
-    public int Read;
+    private int Type;
+    private int Read;
     private int Locked;
-    public long ThreadId;
-    public Uri uri;
-    public int SummaryCount;
+    private long ThreadId;
+    private Uri uri;
     private long ContactID;
 
     public SmsMessageView(final Context con, final Cursor c)
@@ -35,7 +34,7 @@ public class SmsMessageView extends SmsMessage implements IMessageView{
         mContext = con;
         Type = c.getInt(c.getColumnIndex("type"));
         ThreadId = c.getLong(c.getColumnIndex("thread_id"));
-        SummaryCount = 0;
+        int summaryCount = 0;
         Read = c.getInt(c.getColumnIndex("read"));
         Locked = c.getInt(c.getColumnIndex("locked"));
         uri = ContentUris.withAppendedId(SmsUri.BASE_URI, Id);

@@ -5,9 +5,9 @@ import android.content.Context;
 import android.database.Cursor;
 import android.net.Uri;
 
-import com.androidproductions.ics.sms.messaging.sms.SMSMessage;
 import com.androidproductions.ics.sms.messaging.sms.SMSUtilities;
 import com.androidproductions.ics.sms.utils.AddressUtilities;
+import com.androidproductions.libs.sms.InternalTransaction;
 import com.androidproductions.libs.sms.Transaction;
 import com.androidproductions.libs.sms.com.androidproductions.libs.sms.constants.MessageType;
 import com.androidproductions.libs.sms.com.androidproductions.libs.sms.constants.SmsUri;
@@ -69,8 +69,7 @@ public final class MessageUtilities {
     {
         DeleteMessageDraft(context, address);
         if (!message.equals(""))
-            new SMSMessage(context,address,MessageType.DRAFT,message,System.currentTimeMillis())
-                    .saveDraftMessage();
+            new InternalTransaction(context).SaveDraft(new SmsMessageView(context,address,message,System.currentTimeMillis()));
     }
 
     private static void DeleteMessageDraft(final Context context, final String address) {
