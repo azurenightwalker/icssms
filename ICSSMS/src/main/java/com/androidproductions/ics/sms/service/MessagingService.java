@@ -158,7 +158,7 @@ public class MessagingService extends Service{
 	                }
 	            });
 	            
-	        } else {
+	        } else if (resultCode == SmsManager.RESULT_ERROR_GENERIC_FAILURE){
 	            messageFailedToSend(uri, error);
 	            sendFirstQueuedMessage();
 	        }

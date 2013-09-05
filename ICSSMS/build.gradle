@@ -43,6 +43,12 @@ android {
         }
     }
 
+    signingConfigs {
+        release {
+            keyAlias "ics sms"
+        }
+    }
+
     buildTypes {
         debug {
             packageNameSuffix ".debug"
@@ -50,9 +56,21 @@ android {
         }
 
         release {
+            zipAlign true
             runProguard true
             proguardFile getDefaultProguardFile('proguard-android-optimize.txt')
+            signingConfig signingConfigs.release
         }
+    }
+
+    if (project.hasProperty('storeFile') &&
+            project.hasProperty('storePassword') &&
+            project.hasProperty('keyPassword')) {
+        android.signingConfigs.release.storeFile = file(storeFile)
+        android.signingConfigs.release.storePassword = storePassword
+        android.signingConfigs.release.keyPassword = keyPassword
+    } else {
+        buildTypes.release.signingConfig = null
     }
 }
 

@@ -17,6 +17,7 @@ import com.androidproductions.ics.sms.Constants;
 import com.androidproductions.ics.sms.R;
 import com.androidproductions.ics.sms.SmsDialog;
 import com.androidproductions.ics.sms.SmsNotify;
+import com.androidproductions.ics.sms.UnsentMessages;
 import com.androidproductions.ics.sms.messaging.MessageUtilities;
 import com.androidproductions.ics.sms.preferences.ConfigurationHelper;
 import com.androidproductions.ics.sms.ICSSMSActivity;
@@ -177,7 +178,7 @@ public class NotificationHelper {
         if (smsCount > 0)
         {
             final Builder builder = new Builder(mContext);
-            final Intent multiIntent = new Intent(mContext, ICSSMSActivity.class);
+            final Intent multiIntent = new Intent(mContext, UnsentMessages.class);
             multiIntent.putExtra(Constants.NOTIFICATION_STATE_UPDATE, true);
             multiIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
             final PendingIntent contentIntent = PendingIntent.getActivity(mContext, 0, multiIntent, PendingIntent.FLAG_CANCEL_CURRENT);
