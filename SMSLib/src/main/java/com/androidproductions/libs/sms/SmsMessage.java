@@ -19,7 +19,6 @@ public class SmsMessage {
     protected final String[] Addresses;
     private int Type;
     private int Protocol;
-    private int Read;
     private String Subject;
     private int ReplyPathPresent;
     private String ServiceCentre;
@@ -71,7 +70,7 @@ public class SmsMessage {
         Type = MessageType.INBOX;
         Date = System.currentTimeMillis();
         Protocol =  smsa.getProtocolIdentifier();
-        Read = 0;
+        int read = 0;
         Subject = "";
         if (!smsa.getPseudoSubject().isEmpty())
             Subject = smsa.getPseudoSubject();

@@ -58,8 +58,7 @@ public class SmsDialog extends ThemeableDialog  {
         final ScrollView sv = (ScrollView)findViewById(R.id.scroller);
         if (PreferenceManager.getDefaultSharedPreferences(this).getString("DialogSize", "Regular").equals("Large"))
         	sv.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, 300));
-        final Bundle extras = getIntent().getExtras();
-		updateUnreadMessages();
+        updateUnreadMessages();
 		activeMessage = unread.size()-1;
 		SmileyParser.init(this);
         parser = SmileyParser.getInstance();

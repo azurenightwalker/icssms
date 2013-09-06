@@ -1,5 +1,6 @@
 package com.androidproductions.ics.sms;
 
+import android.app.ActionBar;
 import android.app.AlertDialog;
 import android.content.ContentUris;
 import android.content.CursorLoader;
@@ -42,8 +43,11 @@ public class ComposeSms extends ThemeableActivity {
     public void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.sms_compose);
-        getActionBar().setHomeButtonEnabled(true);
-        getActionBar().setDisplayHomeAsUpEnabled(true);
+        ActionBar ab = getActionBar();
+        if (ab != null) {
+            ab.setHomeButtonEnabled(true);
+            ab.setDisplayHomeAsUpEnabled(true);
+        }
         final String[] projection = new String[] {
                 ContactsContract.Contacts._ID,
                 ContactsContract.Contacts.DISPLAY_NAME

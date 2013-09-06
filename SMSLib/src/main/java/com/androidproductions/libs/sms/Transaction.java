@@ -63,20 +63,21 @@ public class Transaction {
         return sendSmsMessage(message.getBody(), message.getAddresses(),message.getId(), threadId);
     }
 
-    private List<Uri> sendSmsMessage(final String text, final String[] addresses, final Long messageId, Long threadId)
+    private List<Uri> sendSmsMessage(final String text, final String[] addresses, final Long messageId, final Long threadId)
     {
         final List<Uri> res = new ArrayList<Uri>(addresses.length);
+        Long tid = threadId;
         if (threadId == null) {
-            threadId = getOrCreateThreadId(addresses);
+            tid = getOrCreateThreadId(addresses);
         }
 
         for (final String address : addresses) {
-            res.add(sendSmsMessage(text, address, messageId, threadId));
+            res.add(sendSmsMessage(text, address, messageId, tid));
         }
         return res;
     }
 
-    private Uri sendSmsMessage(final String text, final String address, final Long messageId,Long threadId)
+    private Uri sendSmsMessage(final String text, final String address, final Long messageId, final Long threadId)
     {
         // save the message for each of the addresses
         final Calendar cal = Calendar.getInstance();
@@ -84,12 +85,6 @@ public class Transaction {
         values.put("address", address);
         values.put("body", text);
         values.put("read", 1);
-
-        // attempt to create correct thread id if one is not supplied
-        if (threadId == null) {
-            threadId = getOrCreateThreadId(address);
-        }
-
         values.put("thread_id", threadId);
         values.put("type", MessageType.OUTBOX);
         final Uri inserted;

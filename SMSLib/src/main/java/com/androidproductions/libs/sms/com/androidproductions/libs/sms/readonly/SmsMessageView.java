@@ -7,6 +7,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.provider.ContactsContract;
+import android.util.Log;
 
 import com.androidproductions.libs.sms.SmsMessage;
 import com.androidproductions.libs.sms.com.androidproductions.libs.sms.constants.MessageType;
@@ -34,7 +35,6 @@ public class SmsMessageView extends SmsMessage implements IMessageView{
         mContext = con;
         Type = c.getInt(c.getColumnIndex("type"));
         ThreadId = c.getLong(c.getColumnIndex("thread_id"));
-        int summaryCount = 0;
         Read = c.getInt(c.getColumnIndex("read"));
         Locked = c.getInt(c.getColumnIndex("locked"));
         uri = ContentUris.withAppendedId(SmsUri.BASE_URI, Id);
@@ -107,6 +107,7 @@ public class SmsMessageView extends SmsMessage implements IMessageView{
         }
         catch(Exception ex)
         {
+            Log.d("ICSSMS","Couldnt find image");
         }
         return null;
     }

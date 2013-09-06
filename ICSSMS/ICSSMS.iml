@@ -73,9 +73,7 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" exported="" name="android-support-v4" level="project" />
-    <orderEntry type="library" exported="" name="androidannotations-api-2.7.1" level="project" />
     <orderEntry type="library" exported="" name="excepttrack" level="project" />
-    <orderEntry type="library" exported="" name="gcm" level="project" />
     <orderEntry type="library" exported="" name="libphonenumber-5.2" level="project" />
     <orderEntry type="library" exported="" name="MMSDK" level="project" />
     <orderEntry type="library" exported="" name="nmdp_speech_kit" level="project" />

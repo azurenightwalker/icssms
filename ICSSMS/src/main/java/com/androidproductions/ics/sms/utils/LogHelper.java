@@ -7,14 +7,14 @@ import android.widget.Toast;
 public final class LogHelper {
 	private static final String TAG = "ICS SMS";
 
-	private static int DEBUG_LEVEL = 0;
+	private static int DEBUG_LEVEL;
     public static final int DEBUG_LEVEL_ERROR = 0;
     public static final int DEBUG_LEVEL_WARNING = 1;
     private static final int DEBUG_LEVEL_INFO = 2;
     private static final int DEBUG_LEVEL_DEBUG = 3;
     private static final int DEBUG_LEVEL_VERBOSE = 4;
 	
-	private static int TOAST = 0;
+	private static int TOAST;
 	private static final int TOAST_ENABLED = 1;
 	private static final int TOAST_DISABLED = 0;
 

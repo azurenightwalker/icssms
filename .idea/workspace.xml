@@ -21,43 +21,36 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cae794ee-0844-47f7-8010-cb9302c158e4" name="Default" comment="Remove build artifacts from git">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ICSSMS/src/main/java/com/androidproductions/ics/sms/AdSupportedActivity.java" afterPath="$PROJECT_DIR$/ICSSMS/src/main/java/com/androidproductions/ics/sms/AdSupportedActivity.java" />
+      <change type="DELETED" beforePath="C:\Users\scott.jones\Android Studios\ICSSMS Project\ICSSMS\build\res\all\debug\values-sw720dp-land\values.xml" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ICSSMS/build/source/buildConfig/debug/com/androidproductions/ics/sms/BuildConfig.java" afterPath="$PROJECT_DIR$/ICSSMS/build/source/buildConfig/debug/com/androidproductions/ics/sms/BuildConfig.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ICSSMS/src/main/java/com/androidproductions/ics/sms/ComposeSms.java" afterPath="$PROJECT_DIR$/ICSSMS/src/main/java/com/androidproductions/ics/sms/ComposeSms.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ICSSMS/src/main/java/com/androidproductions/ics/sms/data/Contact.java" afterPath="$PROJECT_DIR$/ICSSMS/src/main/java/com/androidproductions/ics/sms/data/Contact.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ICSSMS/src/main/java/com/androidproductions/ics/sms/data/ContactHelper.java" afterPath="$PROJECT_DIR$/ICSSMS/src/main/java/com/androidproductions/ics/sms/data/ContactHelper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ICSSMS/src/main/java/com/androidproductions/ics/sms/ContactListFragment.java" afterPath="$PROJECT_DIR$/ICSSMS/src/main/java/com/androidproductions/ics/sms/ContactListFragment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ICSSMS/src/main/java/com/androidproductions/ics/sms/data/adapters/ContactsAutoCompleteCursorAdapter.java" afterPath="$PROJECT_DIR$/ICSSMS/src/main/java/com/androidproductions/ics/sms/data/adapters/ContactsAutoCompleteCursorAdapter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ICSSMS/src/main/java/com/androidproductions/ics/sms/data/adapters/ContactsCursorAdapter.java" afterPath="$PROJECT_DIR$/ICSSMS/src/main/java/com/androidproductions/ics/sms/data/adapters/ContactsCursorAdapter.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ICSSMS/ICSSMS.iml" afterPath="$PROJECT_DIR$/ICSSMS/ICSSMS.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ICSSMS/src/main/java/com/androidproductions/ics/sms/ICSSMSActivity.java" afterPath="$PROJECT_DIR$/ICSSMS/src/main/java/com/androidproductions/ics/sms/ICSSMSActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ICSSMSProject.iml" afterPath="$PROJECT_DIR$/ICSSMSProject.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ICSSMS/src/main/java/com/androidproductions/ics/sms/messaging/IMessage.java" afterPath="$PROJECT_DIR$/ICSSMS/src/main/java/com/androidproductions/ics/sms/messaging/IMessage.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ICSSMS/src/main/java/com/androidproductions/ics/sms/data/ImageCache.java" afterPath="$PROJECT_DIR$/ICSSMS/src/main/java/com/androidproductions/ics/sms/data/ImageCache.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ICSSMS/src/main/java/com/androidproductions/ics/sms/utils/LogHelper.java" afterPath="$PROJECT_DIR$/ICSSMS/src/main/java/com/androidproductions/ics/sms/utils/LogHelper.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ICSSMS/src/main/java/com/androidproductions/ics/sms/transactions/NotificationHelper.java" afterPath="$PROJECT_DIR$/ICSSMS/src/main/java/com/androidproductions/ics/sms/transactions/NotificationHelper.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ICSSMS/build/source/r/debug/com/androidproductions/ics/sms/R.java" afterPath="$PROJECT_DIR$/ICSSMS/build/source/r/debug/com/androidproductions/ics/sms/R.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ICSSMS/src/main/java/com/androidproductions/ics/sms/messaging/sms/SMSMessage.java" afterPath="$PROJECT_DIR$/ICSSMS/src/main/java/com/androidproductions/ics/sms/messaging/sms/SMSMessage.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ICSSMS/src/main/java/com/androidproductions/ics/sms/messaging/sms/SMSMessageBase.java" afterPath="$PROJECT_DIR$/ICSSMS/src/main/java/com/androidproductions/ics/sms/messaging/sms/SMSMessageBase.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ICSSMS/src/main/java/com/androidproductions/ics/sms/SmsDialog.java" afterPath="$PROJECT_DIR$/ICSSMS/src/main/java/com/androidproductions/ics/sms/SmsDialog.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ICSSMS/src/main/java/com/androidproductions/ics/sms/views/SmsEditText.java" afterPath="$PROJECT_DIR$/ICSSMS/src/main/java/com/androidproductions/ics/sms/views/SmsEditText.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ICSSMS/src/main/java/com/androidproductions/ics/sms/SmsNotify.java" afterPath="$PROJECT_DIR$/ICSSMS/src/main/java/com/androidproductions/ics/sms/SmsNotify.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ICSSMS/src/main/java/com/androidproductions/ics/sms/receivers/SmsUpdateReceiver.java" afterPath="$PROJECT_DIR$/ICSSMS/src/main/java/com/androidproductions/ics/sms/receivers/SmsUpdateReceiver.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ICSSMS/src/main/java/com/androidproductions/ics/sms/SmsViewer.java" afterPath="$PROJECT_DIR$/ICSSMS/src/main/java/com/androidproductions/ics/sms/SmsViewer.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ICSSMS/src/main/java/com/androidproductions/ics/sms/ThemeableActivity.java" afterPath="$PROJECT_DIR$/ICSSMS/src/main/java/com/androidproductions/ics/sms/ThemeableActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ICSSMS/src/main/java/com/androidproductions/ics/sms/ThemeableDialog.java" afterPath="$PROJECT_DIR$/ICSSMS/src/main/java/com/androidproductions/ics/sms/ThemeableDialog.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ICSSMS/src/main/java/com/androidproductions/ics/sms/ThemeablePreferenceActivity.java" afterPath="$PROJECT_DIR$/ICSSMS/src/main/java/com/androidproductions/ics/sms/ThemeablePreferenceActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ICSSMS/src/main/java/com/androidproductions/ics/sms/UnsentMessages.java" afterPath="$PROJECT_DIR$/ICSSMS/src/main/java/com/androidproductions/ics/sms/UnsentMessages.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SMSLib/src/main/java/com/androidproductions/libs/sms/SmsMessage.java" afterPath="$PROJECT_DIR$/SMSLib/src/main/java/com/androidproductions/libs/sms/SmsMessage.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SMSLib/src/main/java/com/androidproductions/libs/sms/com/androidproductions/libs/sms/readonly/SmsMessageView.java" afterPath="$PROJECT_DIR$/SMSLib/src/main/java/com/androidproductions/libs/sms/com/androidproductions/libs/sms/readonly/SmsMessageView.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SMSLib/src/main/java/com/androidproductions/libs/sms/Transaction.java" afterPath="$PROJECT_DIR$/SMSLib/src/main/java/com/androidproductions/libs/sms/Transaction.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ICSSMS/src/main/res/layout/action_bar.xml" afterPath="$PROJECT_DIR$/ICSSMS/src/main/res/layout/action_bar.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ICSSMS/build/res/all/debug/xml/action_menu.xml" afterPath="$PROJECT_DIR$/ICSSMS/build/res/all/debug/xml/action_menu.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ICSSMS/src/main/res/layout/autocomplete_contact.xml" afterPath="$PROJECT_DIR$/ICSSMS/src/main/res/layout/autocomplete_contact.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build.gradle" afterPath="$PROJECT_DIR$/build.gradle" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ICSSMS/build.gradle" afterPath="$PROJECT_DIR$/ICSSMS/build.gradle" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ICSSMS/build/res/all/debug/xml/dialog_preferences.xml" afterPath="$PROJECT_DIR$/ICSSMS/build/res/all/debug/xml/dialog_preferences.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/local.properties" afterPath="$PROJECT_DIR$/local.properties" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ICSSMS/build/res/all/debug/xml/notification_preferences.xml" afterPath="$PROJECT_DIR$/ICSSMS/build/res/all/debug/xml/notification_preferences.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ICSSMS/src/main/res/layout/sms_in.xml" afterPath="$PROJECT_DIR$/ICSSMS/src/main/res/layout/sms_in.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ICSSMS/build/res/all/debug/xml/sms_long_menu_in.xml" afterPath="$PROJECT_DIR$/ICSSMS/build/res/all/debug/xml/sms_long_menu_in.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ICSSMS/build/res/all/debug/xml/sms_long_menu_in_locked.xml" afterPath="$PROJECT_DIR$/ICSSMS/build/res/all/debug/xml/sms_long_menu_in_locked.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ICSSMS/build/res/all/debug/xml/sms_long_menu_out.xml" afterPath="$PROJECT_DIR$/ICSSMS/build/res/all/debug/xml/sms_long_menu_out.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ICSSMS/build/res/all/debug/xml/sms_long_menu_out_locked.xml" afterPath="$PROJECT_DIR$/ICSSMS/build/res/all/debug/xml/sms_long_menu_out_locked.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ICSSMS/src/main/res/layout/sms_notify.xml" afterPath="$PROJECT_DIR$/ICSSMS/src/main/res/layout/sms_notify.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ICSSMS/src/main/res/layout/sms_out.xml" afterPath="$PROJECT_DIR$/ICSSMS/src/main/res/layout/sms_out.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ICSSMS/src/main/res/values/strings.xml" afterPath="$PROJECT_DIR$/ICSSMS/src/main/res/values/strings.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ICSSMS/build/res/all/debug/values/values.xml" afterPath="$PROJECT_DIR$/ICSSMS/build/res/all/debug/values/values.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ICSSMS/build/res/all/debug/values-sw720dp-land/values.xml" afterPath="$PROJECT_DIR$/ICSSMS/build/res/all/debug/values-sw720dp-land/values.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ICSSMS/build/res/all/debug/values-v11/values.xml" afterPath="$PROJECT_DIR$/ICSSMS/build/res/all/debug/values-v11/values.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ICSSMS/build/res/all/debug/values-v14/values.xml" afterPath="$PROJECT_DIR$/ICSSMS/build/res/all/debug/values-v14/values.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
@@ -84,6 +77,7 @@
     <disable_hints />
   </component>
   <component name="DebuggerManager">
+    <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
     <breakpoint_any default_suspend_policy="SuspendAll" default_condition_enabled="true">
       <breakpoint>
         <option name="NOTIFY_CAUGHT" value="true" />
@@ -120,7 +114,6 @@
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
     </breakpoint_any>
-    <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
     <breakpoint_rules />
     <ui_properties />
   </component>
@@ -133,35 +126,7 @@
       <file leaf-file-name="SmsViewer.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ICSSMS/src/main/java/com/androidproductions/ics/sms/SmsViewer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="87" column="10" selection-start="3079" selection-end="3079" vertical-scroll-proportion="0.0" vertical-offset="1192" max-vertical-offset="7854">
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#6135#6165#0" expanded="true" />
-                <element signature="e#8822#8846#0" expanded="true" />
-                <element signature="e#9268#9305#0" expanded="true" />
-                <element signature="e#14663#14695#0" expanded="true" />
-                <element signature="e#15306#15322#0" expanded="true" />
-                <element signature="e#16941#16986#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ImageCache.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ICSSMS/src/main/java/com/androidproductions/ics/sms/data/ImageCache.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="35" column="22" selection-start="922" selection-end="922" vertical-scroll-proportion="0.0" vertical-offset="481" max-vertical-offset="901">
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SMSMessage.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ICSSMS/src/main/java/com/androidproductions/ics/sms/messaging/sms/SMSMessage.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="102" column="4" selection-start="3088" selection-end="3088" vertical-scroll-proportion="0.0" vertical-offset="1489" max-vertical-offset="2992">
+            <state line="87" column="10" selection-start="2915" selection-end="2915" vertical-scroll-proportion="0.0" vertical-offset="1479" max-vertical-offset="8687">
               <folding />
             </state>
           </provider>
@@ -170,12 +135,9 @@
       <file leaf-file-name="UnsentMessages.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ICSSMS/src/main/java/com/androidproductions/ics/sms/UnsentMessages.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="34" column="11" selection-start="1131" selection-end="1131" vertical-scroll-proportion="0.37922078" vertical-offset="432" max-vertical-offset="2771">
+            <state line="51" column="5" selection-start="1694" selection-end="1694" vertical-scroll-proportion="1.2529314" vertical-offset="119" max-vertical-offset="2805">
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#1700#1732#0" expanded="true" />
-                <element signature="e#4980#5012#0" expanded="true" />
-                <element signature="e#5710#5726#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -184,7 +146,7 @@
       <file leaf-file-name="SmsNotify.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ICSSMS/src/main/java/com/androidproductions/ics/sms/SmsNotify.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="167" column="50" selection-start="5602" selection-end="5602" vertical-scroll-proportion="0.0" vertical-offset="2134" max-vertical-offset="2720">
+            <state line="167" column="13" selection-start="5930" selection-end="5930" vertical-scroll-proportion="0.0" vertical-offset="2839" max-vertical-offset="3230">
               <folding />
             </state>
           </provider>
@@ -193,16 +155,7 @@
       <file leaf-file-name="MessageUtilities.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ICSSMS/src/main/java/com/androidproductions/ics/sms/messaging/MessageUtilities.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="58" column="64" selection-start="1786" selection-end="1786" vertical-scroll-proportion="0.0" vertical-offset="668" max-vertical-offset="3502">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SMSMessageBase.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ICSSMS/src/main/java/com/androidproductions/ics/sms/messaging/sms/SMSMessageBase.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="188" column="11" selection-start="5769" selection-end="5769" vertical-scroll-proportion="0.0" vertical-offset="2686" max-vertical-offset="5372">
+            <state line="58" column="64" selection-start="2204" selection-end="2204" vertical-scroll-proportion="0.0" vertical-offset="986" max-vertical-offset="4522">
               <folding />
             </state>
           </provider>
@@ -211,17 +164,8 @@
       <file leaf-file-name="NotificationHelper.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ICSSMS/src/main/java/com/androidproductions/ics/sms/transactions/NotificationHelper.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="22" column="37" selection-start="1003" selection-end="1003" vertical-scroll-proportion="0.0" vertical-offset="249" max-vertical-offset="5321">
-              <folding>
-                <element signature="e#3446#3474#0" expanded="true" />
-                <element signature="e#5685#5739#0" expanded="true" />
-                <element signature="e#5767#5819#0" expanded="true" />
-                <element signature="e#8504#8557#0" expanded="true" />
-                <element signature="e#8587#8641#0" expanded="true" />
-                <element signature="e#9613#9667#0" expanded="true" />
-                <element signature="e#9704#9761#0" expanded="true" />
-                <element signature="e#9775#9807#1" expanded="true" />
-              </folding>
+            <state line="22" column="37" selection-start="1005" selection-end="1005" vertical-scroll-proportion="0.0" vertical-offset="374" max-vertical-offset="6035">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -229,11 +173,8 @@
       <file leaf-file-name="ComposeSms.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ICSSMS/src/main/java/com/androidproductions/ics/sms/ComposeSms.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="39" column="10" selection-start="1427" selection-end="1427" vertical-scroll-proportion="0.0" vertical-offset="109" max-vertical-offset="2533">
-              <folding>
-                <element signature="e#4320#4357#0" expanded="true" />
-                <element signature="e#5145#5182#0" expanded="true" />
-              </folding>
+            <state line="39" column="0" selection-start="1224" selection-end="1224" vertical-scroll-proportion="0.0" vertical-offset="663" max-vertical-offset="3451">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -241,11 +182,8 @@
       <file leaf-file-name="ICSSMSActivity.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ICSSMS/src/main/java/com/androidproductions/ics/sms/ICSSMSActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="36" column="10" selection-start="1228" selection-end="1228" vertical-scroll-proportion="0.0" vertical-offset="470" max-vertical-offset="3791">
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#2250#2282#0" expanded="true" />
-              </folding>
+            <state line="36" column="0" selection-start="1244" selection-end="1244" vertical-scroll-proportion="0.0" vertical-offset="612" max-vertical-offset="3944">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -341,10 +279,10 @@
     <treeState />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-8" />
+    <option name="x" value="1272" />
     <option name="y" value="-8" />
-    <option name="width" value="1382" />
-    <option name="height" value="744" />
+    <option name="width" value="1296" />
+    <option name="height" value="1040" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -397,6 +335,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -426,6 +365,24 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="ICSSMS" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="build.gradle" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ICSSMS Project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ICSSMS" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -739,7 +696,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
     </panes>
   </component>
@@ -762,8 +718,8 @@
     <property name="OverrideImplement.overriding.sorted" value="false" />
     <property name="MemberChooser.showClasses" value="true" />
     <property name="GoToClass.includeLibraries" value="false" />
-    <property name="options.searchVisible" value="true" />
     <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.searchVisible" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
@@ -993,15 +949,14 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <frame x="1272" y="-8" width="1296" height="1040" extended-state="6" />
     <editor active="false" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32843137" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.31387666" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32977462" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3299435" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39976275" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32843137" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -1014,14 +969,15 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2489019" sideWeight="0.67156863" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39869282" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2484375" sideWeight="0.6861234" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3251634" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3299435" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39869282" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -1046,11 +1002,32 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/ICSSMS/src/main/java/com/androidproductions/ics/sms/transactions/NotificationHelper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="22" column="37" selection-start="1005" selection-end="1005" vertical-scroll-proportion="0.0" vertical-offset="374" max-vertical-offset="6035">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ICSSMS/src/main/java/com/androidproductions/ics/sms/ComposeSms.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="39" column="0" selection-start="1224" selection-end="1224" vertical-scroll-proportion="0.0" vertical-offset="663" max-vertical-offset="3451">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ICSSMS/src/main/java/com/androidproductions/ics/sms/ICSSMSActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="36" column="0" selection-start="1244" selection-end="1244" vertical-scroll-proportion="0.0" vertical-offset="612" max-vertical-offset="3944">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/ICSSMS/src/main/java/com/androidproductions/ics/sms/ICSSMSApplication.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="15" column="5" selection-start="514" selection-end="514" vertical-scroll-proportion="0.0" vertical-offset="6" max-vertical-offset="391">
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1071,121 +1048,66 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ICSSMS/src/main/java/com/androidproductions/ics/sms/data/adapters/ContactsAutoCompleteCursorAdapter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="36" selection-start="193" selection-end="193" vertical-scroll-proportion="0.0" vertical-offset="50" max-vertical-offset="2992">
-          <folding />
-        </state>
+        <state line="5" column="36" selection-start="193" selection-end="193" vertical-scroll-proportion="0.0" vertical-offset="50" max-vertical-offset="2992" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ICSSMS/src/main/java/com/androidproductions/ics/sms/data/adapters/ContactsCursorAdapter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="63" selection-start="182" selection-end="182" vertical-scroll-proportion="0.0" vertical-offset="34" max-vertical-offset="1445">
-          <folding />
-        </state>
+        <state line="4" column="63" selection-start="182" selection-end="182" vertical-scroll-proportion="0.0" vertical-offset="34" max-vertical-offset="1445" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ICSSMS/src/main/java/com/androidproductions/ics/sms/views/SmsEditText.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="34" column="27" selection-start="956" selection-end="956" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="799">
-          <folding />
-        </state>
+        <state line="34" column="27" selection-start="956" selection-end="956" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="799" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ICSSMS/src/main/java/com/androidproductions/ics/sms/messaging/MessageUtilities.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="58" column="64" selection-start="1786" selection-end="1786" vertical-scroll-proportion="0.0" vertical-offset="668" max-vertical-offset="3502">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ICSSMS/src/main/java/com/androidproductions/ics/sms/messaging/sms/SMSMessageBase.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="188" column="11" selection-start="5769" selection-end="5769" vertical-scroll-proportion="0.0" vertical-offset="2686" max-vertical-offset="5372">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ICSSMS/src/main/java/com/androidproductions/ics/sms/data/ImageCache.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="35" column="22" selection-start="922" selection-end="922" vertical-scroll-proportion="0.0" vertical-offset="481" max-vertical-offset="901">
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ICSSMS/src/main/java/com/androidproductions/ics/sms/messaging/sms/SMSMessage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="102" column="4" selection-start="3088" selection-end="3088" vertical-scroll-proportion="0.0" vertical-offset="1489" max-vertical-offset="2992">
+        <state line="58" column="64" selection-start="2204" selection-end="2204" vertical-scroll-proportion="0.0" vertical-offset="986" max-vertical-offset="4522">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ICSSMS/src/main/java/com/androidproductions/ics/sms/SmsNotify.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="167" column="50" selection-start="5602" selection-end="5602" vertical-scroll-proportion="0.0" vertical-offset="2134" max-vertical-offset="2720">
+        <state line="167" column="13" selection-start="5930" selection-end="5930" vertical-scroll-proportion="0.0" vertical-offset="2839" max-vertical-offset="3230">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ICSSMS/src/main/java/com/androidproductions/ics/sms/transactions/NotificationHelper.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="37" selection-start="1003" selection-end="1003" vertical-scroll-proportion="0.0" vertical-offset="249" max-vertical-offset="5321">
-          <folding>
-            <element signature="e#3446#3474#0" expanded="true" />
-            <element signature="e#5685#5739#0" expanded="true" />
-            <element signature="e#5767#5819#0" expanded="true" />
-            <element signature="e#8504#8557#0" expanded="true" />
-            <element signature="e#8587#8641#0" expanded="true" />
-            <element signature="e#9613#9667#0" expanded="true" />
-            <element signature="e#9704#9761#0" expanded="true" />
-            <element signature="e#9775#9807#1" expanded="true" />
-          </folding>
+        <state line="22" column="37" selection-start="1005" selection-end="1005" vertical-scroll-proportion="0.0" vertical-offset="374" max-vertical-offset="6035">
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ICSSMS/src/main/java/com/androidproductions/ics/sms/ComposeSms.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="39" column="10" selection-start="1427" selection-end="1427" vertical-scroll-proportion="0.0" vertical-offset="109" max-vertical-offset="2533">
-          <folding>
-            <element signature="e#4320#4357#0" expanded="true" />
-            <element signature="e#5145#5182#0" expanded="true" />
-          </folding>
+        <state line="39" column="0" selection-start="1224" selection-end="1224" vertical-scroll-proportion="0.0" vertical-offset="663" max-vertical-offset="3451">
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ICSSMS/src/main/java/com/androidproductions/ics/sms/ICSSMSActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="36" column="10" selection-start="1228" selection-end="1228" vertical-scroll-proportion="0.0" vertical-offset="470" max-vertical-offset="3791">
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2250#2282#0" expanded="true" />
-          </folding>
+        <state line="36" column="0" selection-start="1244" selection-end="1244" vertical-scroll-proportion="0.0" vertical-offset="612" max-vertical-offset="3944">
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ICSSMS/src/main/java/com/androidproductions/ics/sms/SmsViewer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="87" column="10" selection-start="3079" selection-end="3079" vertical-scroll-proportion="0.0" vertical-offset="1192" max-vertical-offset="7854">
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#6135#6165#0" expanded="true" />
-            <element signature="e#8822#8846#0" expanded="true" />
-            <element signature="e#9268#9305#0" expanded="true" />
-            <element signature="e#14663#14695#0" expanded="true" />
-            <element signature="e#15306#15322#0" expanded="true" />
-            <element signature="e#16941#16986#0" expanded="true" />
-          </folding>
+        <state line="87" column="10" selection-start="2915" selection-end="2915" vertical-scroll-proportion="0.0" vertical-offset="1479" max-vertical-offset="8687">
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ICSSMS/src/main/java/com/androidproductions/ics/sms/UnsentMessages.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="34" column="11" selection-start="1131" selection-end="1131" vertical-scroll-proportion="0.37922078" vertical-offset="432" max-vertical-offset="2771">
+        <state line="51" column="5" selection-start="1694" selection-end="1694" vertical-scroll-proportion="1.2529314" vertical-offset="119" max-vertical-offset="2805">
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1700#1732#0" expanded="true" />
-            <element signature="e#4980#5012#0" expanded="true" />
-            <element signature="e#5710#5726#0" expanded="true" />
           </folding>
         </state>
       </provider>

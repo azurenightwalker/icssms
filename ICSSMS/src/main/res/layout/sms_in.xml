@@ -26,7 +26,7 @@
             android:layout_marginLeft="5dip"
             android:layout_toRightOf="@id/photo"
             android:textColor="?attr/android:textColorPrimary"
-            android:textSize="14dip" />
+            android:textSize="14sp" />
 
         <TextView
             android:id="@+id/messageContent"
@@ -39,7 +39,7 @@
             android:paddingBottom="5dip"
             android:textColor="?attr/android:textColorPrimary"
             android:autoLink="web"
-            android:textSize="14dip" />
+            android:textSize="14sp" />
         <ImageView 
             android:id="@+id/messageStatus"
             android:layout_width="20dip"

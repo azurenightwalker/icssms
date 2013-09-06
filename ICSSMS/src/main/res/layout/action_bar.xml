@@ -27,11 +27,6 @@
                android:contentDescription="@string/icon"
                android:scaleType="fitCenter"/>
 
-    <LinearLayout android:layout_width="0dip"
-                  android:layout_height="wrap_content"
-                  android:layout_weight="1"
-                  android:layout_gravity="center_vertical|left"
-                  android:orientation="horizontal">
         <LinearLayout android:layout_width="0dip"
                   android:layout_height="wrap_content"
                   android:layout_weight="1"
@@ -54,14 +49,5 @@
 	                  android:ellipsize="end"
 	                  android:textColor="?attr/android:textColorSecondary"/>
 
-        </LinearLayout>
-        <ImageView 
-            android:id="@+id/presence"
-            android:layout_width="20dip"
-            android:layout_height="20dip"
-            android:src="@android:drawable/presence_online"
-            android:layout_gravity="center_vertical|right"
-            android:visibility="invisible"
-            android:contentDescription="@string/messageStatus"/>
     </LinearLayout>
 </LinearLayout>

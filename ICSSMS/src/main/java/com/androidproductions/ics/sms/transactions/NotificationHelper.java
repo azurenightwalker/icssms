@@ -147,7 +147,6 @@ public class NotificationHelper {
         }
         else
         {
-            // TODO: What to display here?
             for(final String item : groupedMessages.keySet())
             {
                 if (messageCount < Constants.MAX_INBOX_DISPLAY)

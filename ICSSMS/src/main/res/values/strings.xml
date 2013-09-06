@@ -28,7 +28,6 @@
     <string name="replyTo">In reply to…</string>
     <string name="messageCounter">%1$d of %2$d</string>
     <string name="smsType">Text Message</string>
-    <string name="mmsType">Multimedia Message</string>
     <string name="typeLabel">Type:</string>
     <string name="fromLabel">From:</string>
     <string name="receivedLabel">Received:</string>
