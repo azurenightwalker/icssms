@@ -1,1 +1,1 @@
-include ':ICSSMS', ':SMSLib'
+include ':ICSSMS', ':SMSLib', ':RemoteLogging'

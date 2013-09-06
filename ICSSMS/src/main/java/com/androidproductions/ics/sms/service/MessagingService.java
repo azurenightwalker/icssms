@@ -24,11 +24,11 @@ import com.androidproductions.ics.sms.preferences.ConfigurationHelper;
 import com.androidproductions.ics.sms.receivers.MyPhoneStateListener;
 import com.androidproductions.ics.sms.receivers.SmsUpdateReceiver;
 import com.androidproductions.ics.sms.transactions.NotificationHelper;
-import com.androidproductions.ics.sms.utils.LogHelper;
 import com.androidproductions.libs.sms.com.androidproductions.libs.sms.constants.Action;
 import com.androidproductions.libs.sms.SmsMessage;
 import com.androidproductions.libs.sms.com.androidproductions.libs.sms.constants.SmsUri;
 import com.androidproductions.libs.sms.Transaction;
+import com.androidproductions.logging.LogHelper;
 
 import static android.content.Intent.ACTION_BOOT_COMPLETED;
 
@@ -64,10 +64,10 @@ public class MessagingService extends Service{
         final int mResultCode = intent != null ? intent.getIntExtra("result", 0) : 0;
 
         if (intent != null) {
-            LogHelper.t(this, intent.getAction());
+            LogHelper.getInstance().t(this, intent.getAction());
         }
         else {
-            LogHelper.w("Starting to process message with no intent");
+            LogHelper.getInstance().w("Starting to process message with no intent");
         }
         final Message msg = mServiceHandler.obtainMessage();
         msg.arg1 = startId;
@@ -187,7 +187,7 @@ public class MessagingService extends Service{
 		}
 
 		private void messageFailedToSend(final Uri uri, final int error) {
-            LogHelper.e("Message sending failed with error code:"+error);
+            LogHelper.getInstance().e("Message sending failed with error code:"+error);
             final Transaction trans = new Transaction(context);
             trans.failedMessage(uri);
 	        NotificationHelper.getInstance(context).notifySendFailed();

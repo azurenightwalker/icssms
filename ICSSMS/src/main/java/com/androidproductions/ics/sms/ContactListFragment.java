@@ -11,7 +11,7 @@ import android.widget.TextView;
 
 import com.androidproductions.ics.sms.data.ContactHelper;
 import com.androidproductions.ics.sms.data.adapters.ContactsCursorAdapter;
-import com.androidproductions.ics.sms.utils.LogHelper;
+import com.androidproductions.logging.LogHelper;
 
 public class ContactListFragment extends ListFragment implements LoaderManager.LoaderCallbacks<Cursor>{
     private ContactsCursorAdapter mAdapter;
@@ -37,7 +37,7 @@ public class ContactListFragment extends ListFragment implements LoaderManager.L
         if(mAdapter!=null && cursor!=null)
             mAdapter.swapCursor(cursor);
         else
-            LogHelper.v("OnLoadFinished: mAdapter is null");
+            LogHelper.getInstance().v("OnLoadFinished: mAdapter is null");
     }
 
     @Override
@@ -45,7 +45,7 @@ public class ContactListFragment extends ListFragment implements LoaderManager.L
         if(mAdapter!=null)
             mAdapter.swapCursor(null);
         else
-            LogHelper.v("OnLoadFinished: mAdapter is null");
+            LogHelper.getInstance().v("OnLoadFinished: mAdapter is null");
     }
 
     @Override

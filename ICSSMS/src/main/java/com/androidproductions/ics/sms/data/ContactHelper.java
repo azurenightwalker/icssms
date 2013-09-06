@@ -10,8 +10,8 @@ import android.provider.ContactsContract;
 import android.support.v4.content.CursorLoader;
 
 import com.androidproductions.ics.sms.R;
-import com.androidproductions.ics.sms.utils.LogHelper;
 import com.androidproductions.libs.sms.com.androidproductions.libs.sms.readonly.ImageCache;
+import com.androidproductions.logging.LogHelper;
 
 import java.io.InputStream;
 
@@ -93,7 +93,7 @@ public class ContactHelper {
         }
         catch(Exception ex)
         {
-            LogHelper.i(ex.getMessage());
+            LogHelper.getInstance().i(ex.getMessage());
         }
         return null;
     }
@@ -116,7 +116,7 @@ public class ContactHelper {
         }
         catch(Exception ex)
         {
-            LogHelper.i(ex.getMessage());
+            LogHelper.getInstance().i(ex.getMessage());
         }
         return null;
     }

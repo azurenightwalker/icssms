@@ -17,6 +17,7 @@ configurations {
 }
 
 dependencies {
+    compile project(':RemoteLogging')
     compile project(':SMSLib')
     compile fileTree(dir: 'libs', include: '*.jar')
 }
