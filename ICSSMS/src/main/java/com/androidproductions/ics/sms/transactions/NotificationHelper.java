@@ -309,15 +309,21 @@ public class NotificationHelper {
     PendingIntent getIntent()
     {
         final Intent contentIntent;
-        if (messageSize == 1)
+        final String address =  messages.get(0).getAddress();
+        boolean multiple = false;
+        for (final IMessageView s : messages)
         {
-            contentIntent = new Intent(mContext, SmsViewer.class);
-            contentIntent.putExtra(Constants.SMS_RECEIVE_LOCATION, messages.get(0).getAddress());
+            multiple = multiple || !s.getAddress().equals(address);
         }
-        else
+        if (multiple)
         {
             contentIntent = new Intent(mContext, ICSSMSActivity.class);
             contentIntent.putExtra(Constants.NOTIFICATION_STATE_UPDATE, true);
+        }
+        else
+        {
+            contentIntent = new Intent(mContext, SmsViewer.class);
+            contentIntent.putExtra(Constants.SMS_RECEIVE_LOCATION, messages.get(0).getAddress());
         }
         contentIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_SINGLE_TOP);
         return PendingIntent.getActivity(mContext, 0, contentIntent, PendingIntent.FLAG_UPDATE_CURRENT);
