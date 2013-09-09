@@ -1,0 +1,5 @@
+17:19:04,980 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer for API "JDO"
+17:19:05,216 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer (version 3.1.1) : Enhancement of classes
+17:19:05,498 (main) INFO  [DataNucleus.Enhancer] - Writing class file "C:\Users\scott.jones\Android Studios\ICSSMS Project\ICSSMS-AppEngine\target\ICSSMS-AppEngine-1.0\WEB-INF\classes\com\androidproductions\ics\sms\DeviceInfo.class" with enhanced definition
+17:19:05,504 (main) INFO  [DataNucleus.Enhancer] - Writing class file "C:\Users\scott.jones\Android Studios\ICSSMS Project\ICSSMS-AppEngine\target\ICSSMS-AppEngine-1.0\WEB-INF\classes\com\androidproductions\ics\sms\MessageData.class" with enhanced definition
+17:19:05,505 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer completed with success for 2 classes. Timings : input=221 ms, enhance=67 ms, total=288 ms. Consult the log for full details
