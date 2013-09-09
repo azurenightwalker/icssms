@@ -1,1 +1,1 @@
-include ':ICSSMS', ':SMSLib', ':RemoteLogging'
+include ':ICSSMS', ':SMSLib', ':RemoteLogging', ':ICSSMS-AppEngine', ':ICSSMS-AppEngine', ':ICSSMS-AppEngine', ':ICSSMS-AppEngine', ':ICSSMS-AppEngine', ':ICSSMS-endpoints', ':ICSSMS-AppEngine', ':ICSSMS-endpoints'

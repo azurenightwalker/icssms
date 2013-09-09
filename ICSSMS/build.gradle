@@ -17,6 +17,7 @@ configurations {
 }
 
 dependencies {
+    compile project(':ICSSMS-endpoints')
     compile project(':RemoteLogging')
     compile project(':SMSLib')
     compile fileTree(dir: 'libs', include: '*.jar')
@@ -51,7 +52,7 @@ android {
 
     buildTypes {
         debug {
-            packageNameSuffix ".debug"
+            //packageNameSuffix ".debug"
             versionNameSuffix ".01"
         }
 
@@ -62,4 +63,11 @@ android {
             zipAlign true
         }
     }
+}
+
+repositories {
+  mavenCentral()
+}
+repositories {
+  mavenCentral()
 }

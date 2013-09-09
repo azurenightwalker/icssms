@@ -3,7 +3,11 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/ICSSMS/ICSSMS.iml" filepath="$PROJECT_DIR$/ICSSMS/ICSSMS.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ICSSMS-AppEngine/ICSSMS-AppEngine.iml" filepath="$PROJECT_DIR$/ICSSMS-AppEngine/ICSSMS-AppEngine.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ICSSMS-endpoints/ICSSMS-endpoints.iml" filepath="$PROJECT_DIR$/ICSSMS-endpoints/ICSSMS-endpoints.iml" />
       <module fileurl="file://$PROJECT_DIR$/ICSSMSProject.iml" filepath="$PROJECT_DIR$/ICSSMSProject.iml" />
+      <module fileurl="file://$PROJECT_DIR$/RemoteLogging/RemoteLogging.iml" filepath="$PROJECT_DIR$/RemoteLogging/RemoteLogging.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SMSLib/SMSLib.iml" filepath="$PROJECT_DIR$/SMSLib/SMSLib.iml" />
       <module fileurl="file://$PROJECT_DIR$/SMSLib/SMSLib.iml" filepath="$PROJECT_DIR$/SMSLib/SMSLib.iml" />
     </modules>
   </component>

@@ -50,6 +50,13 @@
       <item index="1" class="java.lang.String" itemvalue="com.googlecode.androidannotations.annotations.AfterViews" />
     </list>
   </component>
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/ICSSMS-AppEngine/pom.xml" />
+      </list>
+    </option>
+  </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
     <OptionsSetting value="true" id="Remove" />

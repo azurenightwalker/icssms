@@ -19,7 +19,17 @@
           <entry name="$PROJECT_DIR$/Annotations/androidannotations-2.7.1.jar" />
         </processorPath>
       </profile>
+      <profile default="false" name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="ICSSMS-AppEngine" />
+      </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="ICSSMS-AppEngine" target="1.6" />
+    </bytecodeTargetLevel>
   </component>
 </project>
 

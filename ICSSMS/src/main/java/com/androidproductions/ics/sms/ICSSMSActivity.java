@@ -44,6 +44,9 @@ public class ICSSMSActivity extends AdSupportedActivity {
         if(getIntent().getBooleanExtra(Constants.NOTIFICATION_STATE_UPDATE, false))
         	PreferenceManager.getDefaultSharedPreferences(this).edit().putBoolean(Constants.NOTIFICATION_SHOWING_KEY, false).apply();
         smsList = (LinearLayout) findViewById(R.id.smsList);
+        /*Intent intent = new Intent(this, RegisterActivity.class);
+        startActivity(intent);*/
+        GCMIntentService.register(ICSSMSActivity.this);
     }
 
     public boolean onCreateOptionsMenu(final Menu menu) {
